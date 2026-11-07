@@ -156,9 +156,32 @@
         /* HEADER SECTION */
         .menu-header {
             text-align: center;
-            padding-bottom: 8px;
+            padding-bottom: 6px;
             border-bottom: 2px dashed #d97706;
             position: relative;
+        }
+
+        .header-brand-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 2px;
+        }
+
+        .menu-coasters-logo {
+            height: 48px;
+            width: auto;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+        }
+
+        .menu-website-url {
+            font-size: 0.78rem;
+            color: #0284c7;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-top: 1px;
         }
 
         .event-badge-print {
@@ -421,10 +444,17 @@
 
         <!-- Header -->
         <header class="menu-header">
-            <span class="event-badge-print">🌺 SOCIAL CLUB CHRISTMAS 2026 🎄</span>
-            <h1 class="menu-title">Tiki Beach Cocktail Menu</h1>
+            <div class="header-brand-wrap">
+                <img src="assets/coasters-logo.png" alt="Coasters Tavern Logo" class="menu-coasters-logo">
+                <div>
+                    <span class="event-badge-print">🌺 COASTERS TAVERN SOCIAL CLUB 🎄</span>
+                    <h1 class="menu-title">Tiki Beach Cocktail Menu</h1>
+                    <div class="menu-website-url">WWW.COASTERSTAVERN.CO.NZ</div>
+                </div>
+                <img src="assets/coasters-logo.png" alt="Coasters Tavern Logo" class="menu-coasters-logo" style="transform: scaleX(-1);">
+            </div>
             <div class="menu-subtitle">Handcrafted Island Libations & Festive Holiday Spritzes</div>
-            <div class="menu-date-tag">Saturday Night • 12 December 2026 • Clubhouse Lagoon Bar</div>
+            <div class="menu-date-tag">Saturday Night • 12 December 2026 • Coasters Tavern Clubhouse Lagoon</div>
         </header>
 
         <!-- Cocktails List (4 Signature Fabulous Cocktails + 1 Island Mocktail) -->
@@ -591,7 +621,7 @@
         <footer class="menu-footer">
             <div class="footer-quote">"May your holiday be sunny, your glass be full, and your leis be colorful!"</div>
             <div class="footer-fineprint">
-                Social Club Christmas Celebration • Clubhouse Tiki Lounge & Deck • Please Drink Responsibly & Arrange a Safe Ride Home
+                Coasters Tavern Social Club Christmas Celebration • 12 December 2026 • www.coasterstavern.co.nz • Please Drink Responsibly & Arrange a Safe Ride Home
             </div>
         </footer>
     </div>

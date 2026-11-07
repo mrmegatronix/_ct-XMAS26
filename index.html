@@ -91,18 +91,26 @@
         .header-brand {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 18px;
+        }
+
+        .coasters-brand-logo {
+            height: 68px;
+            width: auto;
+            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.7));
+            flex-shrink: 0;
         }
 
         .tiki-logo-icon {
-            width: 60px;
-            height: 60px;
+            width: 55px;
+            height: 55px;
             filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.6));
+            flex-shrink: 0;
         }
 
         .brand-text h1 {
             font-family: 'Fredoka One', cursive;
-            font-size: 2.2rem;
+            font-size: 2.1rem;
             color: #fbbf24;
             letter-spacing: 1px;
             white-space: nowrap;
@@ -110,10 +118,10 @@
         }
 
         .brand-text span {
-            font-size: 0.95rem;
+            font-size: 0.88rem;
             color: #38bdf8;
             font-weight: 700;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
             white-space: nowrap;
         }
@@ -945,12 +953,13 @@
         <!-- Fixed Header Bar -->
         <header class="signage-header">
             <div class="header-brand">
+                <img src="assets/coasters-logo.png" alt="Coasters Tavern Logo" class="coasters-brand-logo">
                 <svg class="tiki-logo-icon" viewBox="0 0 100 120">
                     <use href="assets/tiki-icons.svg#icon-tiki-mask"></use>
                 </svg>
                 <div class="brand-text">
-                    <h1>SOCIAL CLUB XMAS PARTY 2026</h1>
-                    <span>TIKI BEACH HOLIDAY LUAU</span>
+                    <h1>COASTERS TAVERN SOCIAL CLUB</h1>
+                    <span>TIKI BEACH XMAS 2026 • WWW.COASTERSTAVERN.CO.NZ</span>
                 </div>
             </div>
 
@@ -989,6 +998,13 @@
 
                 <div class="hero-container">
                     <div class="hero-left-card">
+                        <div style="display:flex; align-items:center; gap:16px; margin-bottom:12px;">
+                            <img src="assets/coasters-logo.png" alt="Coasters Tavern" style="height:54px; width:auto;">
+                            <div>
+                                <div style="font-size:1.15rem; font-weight:800; color:#fbbf24; letter-spacing:1px; white-space:nowrap;">COASTERS TAVERN SOCIAL CLUB</div>
+                                <div style="font-size:0.85rem; font-weight:700; color:#38bdf8; white-space:nowrap;">WWW.COASTERSTAVERN.CO.NZ</div>
+                            </div>
+                        </div>
                         <div class="hero-mega-headline">MELE KALIKIMAKA!</div>
                         <p class="hero-desc">
                             Trade the snow for sand! Join us for an unforgettable island celebration featuring tropical cocktails, Hawaiian BBQ luau, live beach party beats, and fabulous prizes.
@@ -1366,7 +1382,7 @@
             <div class="footer-ticker">
                 <span class="ticker-badge">CLUB NOTICE</span>
                 <span class="ticker-text" id="live-ticker-msg">
-                    🌺 Social Club Christmas Party 2026 • Saturday 12 Dec @ 6:30 PM • RSVP & Drink Tokens Available at Club Office!
+                    🌺 Coasters Tavern Christmas Party 2026 • Saturday 12 Dec @ 6:30 PM • www.coasterstavern.co.nz • RSVP & Drink Tokens at Club Office!
                 </span>
             </div>
 
