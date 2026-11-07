@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coasters Tavern Xmas 2026 - Master Event Plan, Run-Sheet & Checklists</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        body {
+            background-color: #090d16;
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #1e293b;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .controls-bar {
+            width: 210mm;
+            max-width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #0f172a;
+            padding: 12px 24px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #334155;
+            color: #ffffff;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .controls-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fbbf24;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.88rem;
+            text-decoration: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.08);
+            color: #ffffff;
+        }
+
+        .btn-print {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #000000;
+            border: none;
+            font-weight: 800;
+        }
+
+        /* A4 SHEET */
+        .a4-sheet {
+            width: 210mm;
+            height: 297mm;
+            min-height: 297mm;
+            max-height: 297mm;
+            background: #ffffff;
+            padding: 10mm 12mm;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6);
+            border-top: 6px solid #0284c7;
+        }
+
+        .sheet-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #cbd5e1;
+            padding-bottom: 8px;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-logo {
+            height: 46px;
+            width: auto;
+        }
+
+        .header-titles h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.35rem;
+            font-weight: 900;
+            color: #0f172a;
+        }
+
+        .header-titles p {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: #0284c7;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .progress-pill {
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            padding: 6px 12px;
+            border-radius: 8px;
+            text-align: right;
+        }
+
+        .progress-pill span {
+            display: block;
+            font-size: 0.68rem;
+            font-weight: 800;
+            color: #64748b;
+            text-transform: uppercase;
+        }
+
+        .progress-pill strong {
+            font-size: 0.95rem;
+            color: #0f172a;
+        }
+
+        .section-bar {
+            background: #0f172a;
+            color: #ffffff;
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-bottom: 6px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* SUMMARY BRIEF BAR */
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+        }
+
+        .summary-box {
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            padding: 6px 8px;
+        }
+
+        .summary-box span {
+            display: block;
+            font-size: 0.65rem;
+            font-weight: 800;
+            color: #64748b;
+            text-transform: uppercase;
+        }
+
+        .summary-box strong {
+            font-size: 0.82rem;
+            color: #0f172a;
+        }
+
+        /* CHECKLISTS GRID */
+        .checklists-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+        }
+
+        .checklist-card {
+            border: 1.5px solid #cbd5e1;
+            border-radius: 8px;
+            padding: 8px 10px;
+            background: #ffffff;
+        }
+
+        .checklist-card h3 {
+            font-size: 0.82rem;
+            font-weight: 800;
+            color: #0f172a;
+            border-bottom: 1.5px solid #f59e0b;
+            padding-bottom: 3px;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+
+        .check-items {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 6px;
+            font-size: 0.72rem;
+            color: #334155;
+            line-height: 1.3;
+            cursor: pointer;
+        }
+
+        .check-item input[type="checkbox"] {
+            margin-top: 2px;
+            accent-color: #0284c7;
+            cursor: pointer;
+        }
+
+        .check-item.completed span {
+            text-decoration: line-through;
+            color: #94a3b8;
+        }
+
+        /* RUN SHEET TABLE */
+        .runsheet-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.72rem;
+        }
+
+        .runsheet-table th {
+            background: #f1f5f9;
+            color: #0f172a;
+            text-align: left;
+            padding: 4px 8px;
+            border: 1px solid #cbd5e1;
+            font-weight: 800;
+        }
+
+        .runsheet-table td {
+            padding: 4px 8px;
+            border: 1px solid #cbd5e1;
+            color: #334155;
+            font-weight: 500;
+        }
+
+        .runsheet-table td.time-col {
+            font-weight: 800;
+            color: #0284c7;
+            white-space: nowrap;
+            width: 85px;
+        }
+
+        .runsheet-table td.lead-col {
+            font-weight: 700;
+            color: #78350f;
+            width: 110px;
+        }
+
+        /* CONTACTS & SAFETY ROSTER */
+        .roster-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+        }
+
+        .roster-box {
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            padding: 6px 8px;
+            font-size: 0.7rem;
+        }
+
+        .roster-box h4 {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 2px;
+        }
+
+        .sheet-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #cbd5e1;
+            padding-top: 5px;
+            font-size: 0.68rem;
+            color: #64748b;
+            font-weight: 600;
+        }
+
+        @media print {
+            body {
+                background: none !important;
+                padding: 0 !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .a4-sheet {
+                box-shadow: none !important;
+                margin: 0 auto !important;
+                page-break-after: avoid !important;
+            }
+            @page {
+                size: A4 portrait;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="controls-bar no-print">
+        <div class="controls-title">
+            <span>📋</span>
+            <span>Master Event Plan, Run-Sheet & Interactive Checklists (A4 Print)</span>
+        </div>
+        <div class="btn-group">
+            <a href="admin.html" class="btn">⚙️ Admin Hub</a>
+            <button class="btn" onclick="resetChecklists()">🔄 Reset Checks</button>
+            <button class="btn btn-print" onclick="window.print()">🖨️ Print Plan (Ctrl+P)</button>
+        </div>
+    </div>
+
+    <div class="a4-sheet">
+        <!-- Header -->
+        <header class="sheet-header">
+            <div class="header-left">
+                <img src="assets/coasters-logo.png" alt="Coasters Tavern" class="header-logo">
+                <div class="header-titles">
+                    <h1>MASTER EVENT PLAN, RUN-SHEET & CHECKLISTS</h1>
+                    <p>Coasters Tavern Social Club Xmas Party • WWW.COASTERSTAVERN.CO.NZ</p>
+                </div>
+            </div>
+            <div class="progress-pill">
+                <span>Readiness Status</span>
+                <strong id="checklist-progress">0 / 21 Completed</strong>
+            </div>
+        </header>
+
+        <!-- Section 1: Event Executive Brief -->
+        <div>
+            <div class="section-bar">
+                <span>1. EVENT EXECUTIVE BRIEF</span>
+                <span>THEME: TIKI BEACH CHRISTMAS LUAU</span>
+            </div>
+            <div class="summary-grid">
+                <div class="summary-box">
+                    <span>Event Date</span>
+                    <strong>Sat, 12 Dec 2026 (2nd Sat)</strong>
+                </div>
+                <div class="summary-box">
+                    <span>Timings</span>
+                    <strong>6:30 PM Doors – Late</strong>
+                </div>
+                <div class="summary-box">
+                    <span>Venue Zone</span>
+                    <strong>Lagoon Lounge & Patio</strong>
+                </div>
+                <div class="summary-box">
+                    <span>Catering & Bar</span>
+                    <strong>Luau + 2x/$20 Cocktails</strong>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2: Phased Action Checklists -->
+        <div>
+            <div class="section-bar">
+                <span>2. OPERATIONS & PREPARATION CHECKLISTS</span>
+                <span>CLICK TO CHECK OFF (SAVES AUTOMATICALLY)</span>
+            </div>
+            <div class="checklists-grid">
+                <!-- Col 1 -->
+                <div class="checklist-card">
+                    <h3>📅 Phase 1: 2–4 Weeks Out</h3>
+                    <ul class="check-items">
+                        <li class="check-item"><input type="checkbox" data-id="c1"><span>Display A4/A3 Event Posters in Tavern & Noticeboard</span></li>
+                        <li class="check-item"><input type="checkbox" data-id="c2"><span>Launch 1080p Digital Signage Slideshow on Club TVs</span></li>
+                        <li class="check-item"><input type="checkbox" data-id="c3"><span>Confirm Island DJ & Sound System booking for 12 Dec</span></li>
+                        <li class="check-item"><input type="checkbox" data-id="c4"><span>Order 150x Floral Leis, Bamboo Props & Umbrellas</span></li>
+                        <li class="check-item"><input type="checkbox" data-id="c5"><span>Purchase Golden Pineapple Trophies & Hamper Prizes</span></li>
+                        <li class="check-item"><input type="checkbox" data-id="c6"><span>Print & Cut 2x for $20 Cocktail Card Vouchers (`vouchers.html`)</span></li>
+                        <li class="check-item"><input type="checkbox" data-id="c7"><span>Confirm Kitchen Luau Order (Pork, Ham, Prawns)</span></li>
+                    </ul>
+                </div>
+
+                <!-- Col 2 -->
+                <div class="checklist-card">
+                    <h3>🍹 Phase 2: 1 Week Out</h3>
+                    <ul class="check-items">
+                        <li class="check-item"><input type="checkbox" data-id="c8"><span>Stock Bar: White/Dark/Spiced Rum, Blue/Orange Curaçao</span></li>
+                        <li class="check-item"><input type="checkbox" data-id="c9"><span>Stock Mixers: Orgeat, Grenadine, Coconut Cream, POG</span></li>
+                        <li class="check-item"><input type="checkbox" data-id="c10"><span>Print 20x A4 Cocktail Menus for Tiki Cocktail Garden</span></li>
+                        <li class="check-item"><input type="checkbox" data-id="c11"><span>Print Bartender Cocktail Batching Sheets for Garden Bar</span></li>
+                        <li class="check-item"><input type="checkbox" data-id="c12"><span>Wrap Giant Multi-Layer Pass the Parcel (15 Prize Layers)</span></li>
+                        <li class="check-item"><input type="checkbox" data-id="c13"><span>Prepare Photo Booth Frame, Flamingos & Polaroid Film</span></li>
+                        <li class="check-item"><input type="checkbox" data-id="c14"><span>Confirm Courtesy Van Driver & Security Roster</span></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3 -->
+                <div class="checklist-card">
+                    <h3>🌴 Phase 3: Party Day (12 Dec)</h3>
+                    <ul class="check-items">
+                        <li class="check-item"><input type="checkbox" data-id="c15"><span>2:00 PM: Set up Tiki Cocktail Garden & Bamboo Torches</span></li>
+                        <li class="check-item"><input type="checkbox" data-id="c16"><span>4:00 PM: Pre-batch 2L Cocktail Jugs & Cut Garnishes</span></li>
+                        <li class="check-item"><input type="checkbox" data-id="c17"><span>5:00 PM: Issue 2x/$20 Voucher Cards to Main Bar Till</span></li>
+                        <li class="check-item"><input type="checkbox" data-id="c18"><span>5:30 PM: Test Slideshow Remote (`remote.html`) & Audio</span></li>
+                        <li class="check-item"><input type="checkbox" data-id="c19"><span>6:00 PM: All-Staff Briefing & Host Responsibility Check</span></li>
+                        <li class="check-item"><input type="checkbox" data-id="c20"><span>6:15 PM: Stage Greeting Table with Leis & Pass the Parcel</span></li>
+                        <li class="check-item"><input type="checkbox" data-id="c21"><span>7:15 PM: Light Buffet Chafing Dishes for 7:30 PM Service</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3: Minute-by-Minute Run Sheet -->
+        <div>
+            <div class="section-bar">
+                <span>3. SATURDAY 12 DECEMBER 2026 — OFFICIAL NIGHT RUN-SHEET</span>
+                <span>SYNCHRONIZED WITH SIGNAGE TIMELINE</span>
+            </div>
+            <table class="runsheet-table">
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Activity / Milestone</th>
+                        <th>Lead / Owner</th>
+                        <th>Operational Notes & Signage Cue</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="time-col">6:00 PM</td>
+                        <td><strong>Staff Briefing & Tiki Garden Readiness</strong></td>
+                        <td class="lead-col">Duty Manager</td>
+                        <td>Verify 2x/$20 Vouchers at Main Bar till; Tiki Cocktail Garden stocked with clippers/pens.</td>
+                    </tr>
+                    <tr>
+                        <td class="time-col">6:30 PM</td>
+                        <td><strong>Doors Open & Tiki Lei Welcome</strong></td>
+                        <td class="lead-col">Social Committee</td>
+                        <td>Greet members with floral leis; direct guests to Main Bar for 2x/$20 Cocktail Vouchers.</td>
+                    </tr>
+                    <tr>
+                        <td class="time-col">7:30 PM</td>
+                        <td><strong>Grand Island Luau Buffet Opens</strong></td>
+                        <td class="lead-col">Head Chef / Kitchen</td>
+                        <td>Push live ticker via Remote: "Luau Feast Now Open!" Serve Kalua Pork, Ham & Prawns.</td>
+                    </tr>
+                    <tr>
+                        <td class="time-col">8:30 PM</td>
+                        <td><strong>Pass the Parcel, Limbo & Best Dressed</strong></td>
+                        <td class="lead-col">MC / DJ</td>
+                        <td>Run Giant Pass the Parcel game (DJ music stops), Flaming Limbo & Loudest Shirt ($150 Tab).</td>
+                    </tr>
+                    <tr>
+                        <td class="time-col">9:30 PM</td>
+                        <td><strong>Island DJ & Beach Party Dancefloor</strong></td>
+                        <td class="lead-col">Event DJ</td>
+                        <td>Transition lighting to party mode; encourage QR Photo Booth uploads.</td>
+                    </tr>
+                    <tr>
+                        <td class="time-col">11:30 PM</td>
+                        <td><strong>Social Club Holiday Toast & Last Call</strong></td>
+                        <td class="lead-col">Bar & Committee</td>
+                        <td>End-of-year thank you speech, water station refresh, Courtesy Van sign-ups.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Section 4: Duty Roles & Host Responsibility -->
+        <div>
+            <div class="section-bar">
+                <span>4. DUTY ROLES & HOST RESPONSIBILITY PROTOCOL</span>
+                <span>NZ SALE & SUPPLY OF ALCOHOL ACT COMPLIANT</span>
+            </div>
+            <div class="roster-grid">
+                <div class="roster-box">
+                    <h4>🍹 Bar & Non-Alcoholic Duty</h4>
+                    <p>Ensure <strong>Virgin Palm Spritz (0.0%)</strong> and chilled water stations remain prominently stocked and free all night.</p>
+                </div>
+                <div class="roster-box">
+                    <h4>🍖 Substantial Food Service</h4>
+                    <p>Luau buffet at 7:30 PM followed by late-night sliders/platters kept available at bar counter throughout service.</p>
+                </div>
+                <div class="roster-box">
+                    <h4>🚐 Safe Transport Home</h4>
+                    <p>Coasters Tavern Courtesy Van & local taxi numbers displayed at exit. Monitor intoxication levels proactively.</p>
+                </div>
+            </div>
+        </div>
+
+        <footer class="sheet-footer">
+            <span>Coasters Tavern Social Club Operations • Master Event Plan</span>
+            <span>Saturday, 12 December 2026 • www.coasterstavern.co.nz</span>
+        </footer>
+    </div>
+
+    <script>
+        const STORAGE_KEY = 'coasters_xmas26_checklist_v1';
+
+        function initChecklists() {
+            const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+            const checkboxes = document.querySelectorAll('.check-item input[type="checkbox"]');
+
+            checkboxes.forEach(cb => {
+                const id = cb.getAttribute('data-id');
+                if (saved[id]) {
+                    cb.checked = true;
+                    cb.closest('.check-item').classList.add('completed');
+                }
+                cb.addEventListener('change', () => {
+                    cb.closest('.check-item').classList.toggle('completed', cb.checked);
+                    saveState();
+                });
+            });
+            updateProgress();
+        }
+
+        function saveState() {
+            const state = {};
+            const checkboxes = document.querySelectorAll('.check-item input[type="checkbox"]');
+            checkboxes.forEach(cb => {
+                state[cb.getAttribute('data-id')] = cb.checked;
+            });
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('.check-item input[type="checkbox"]');
+            const checked = Array.from(checkboxes).filter(c => c.checked).length;
+            document.getElementById('checklist-progress').innerText = `${checked} / ${checkboxes.length} Completed`;
+        }
+
+        function resetChecklists() {
+            localStorage.removeItem(STORAGE_KEY);
+            document.querySelectorAll('.check-item input[type="checkbox"]').forEach(cb => {
+                cb.checked = false;
+                cb.closest('.check-item').classList.remove('completed');
+            });
+            updateProgress();
+        }
+
+        window.addEventListener('DOMContentLoaded', initChecklists);
+    </script>
+</body>
+</html>

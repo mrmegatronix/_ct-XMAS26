@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coasters Tavern Xmas 2026 - Bartender Cocktail Instructions & Batching Sheet</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        body {
+            background-color: #090d16;
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #1e293b;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .controls-bar {
+            width: 210mm;
+            max-width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #0f172a;
+            padding: 12px 24px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #334155;
+            color: #ffffff;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .controls-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fbbf24;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.08);
+            color: #ffffff;
+        }
+
+        .btn-print {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #000000;
+            border: none;
+            font-weight: 800;
+        }
+
+        /* A4 PRINT SHEET */
+        .a4-sheet {
+            width: 210mm;
+            height: 297mm;
+            min-height: 297mm;
+            max-height: 297mm;
+            background: #ffffff;
+            padding: 10mm 12mm;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6);
+            border-top: 6px solid #b45309;
+        }
+
+        .sheet-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 8px;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-logo {
+            height: 46px;
+            width: auto;
+        }
+
+        .header-titles h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.35rem;
+            font-weight: 900;
+            color: #0f172a;
+            letter-spacing: 0.5px;
+        }
+
+        .header-titles p {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: #b45309;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .header-badge {
+            background: #0f172a;
+            color: #fbbf24;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-align: right;
+        }
+
+        .section-heading {
+            font-size: 0.82rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #ffffff;
+            background: #0f172a;
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-bottom: 6px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* RECIPE INSTRUCTION CARDS */
+        .recipes-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .recipe-box {
+            border: 1.5px solid #cbd5e1;
+            border-radius: 8px;
+            padding: 8px 10px;
+            background: #f8fafc;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .recipe-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 3px;
+        }
+
+        .recipe-top h3 {
+            font-size: 0.95rem;
+            font-weight: 800;
+            color: #78350f;
+        }
+
+        .glass-pill {
+            background: #fef3c7;
+            color: #92400e;
+            border: 1px solid #f59e0b;
+            font-size: 0.65rem;
+            font-weight: 800;
+            padding: 1px 6px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .specs-cols {
+            display: grid;
+            grid-template-columns: 1fr 1.15fr;
+            gap: 8px;
+            font-size: 0.72rem;
+            line-height: 1.35;
+        }
+
+        .ing-list {
+            list-style: none;
+            color: #0f172a;
+            font-weight: 600;
+        }
+
+        .ing-list li span {
+            font-weight: 800;
+            color: #b45309;
+        }
+
+        .steps-list {
+            padding-left: 12px;
+            color: #334155;
+        }
+
+        .steps-list li {
+            margin-bottom: 2px;
+        }
+
+        .garnish-banner {
+            background: #fffbeb;
+            border-left: 3px solid #f59e0b;
+            padding: 3px 6px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            color: #78350f;
+        }
+
+        /* BULK BATCHING TABLE */
+        .batch-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.72rem;
+        }
+
+        .batch-table th {
+            background: #f1f5f9;
+            color: #0f172a;
+            text-align: left;
+            padding: 5px 8px;
+            border: 1px solid #cbd5e1;
+            font-weight: 800;
+        }
+
+        .batch-table td {
+            padding: 4px 8px;
+            border: 1px solid #cbd5e1;
+            color: #334155;
+            font-weight: 600;
+        }
+
+        .batch-table tr:nth-child(even) td {
+            background: #f8fafc;
+        }
+
+        /* GARNISH & STOCK PREP */
+        .prep-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+        }
+
+        .prep-card {
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            padding: 6px 8px;
+            font-size: 0.7rem;
+            background: #ffffff;
+        }
+
+        .prep-card h4 {
+            font-size: 0.76rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 3px;
+            border-bottom: 1px solid #f1f5f9;
+            padding-bottom: 2px;
+        }
+
+        .prep-card ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .sheet-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #cbd5e1;
+            padding-top: 5px;
+            font-size: 0.68rem;
+            color: #64748b;
+            font-weight: 600;
+        }
+
+        @media print {
+            body {
+                background: none !important;
+                padding: 0 !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .a4-sheet {
+                box-shadow: none !important;
+                margin: 0 auto !important;
+                page-break-after: avoid !important;
+            }
+            @page {
+                size: A4 portrait;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="controls-bar no-print">
+        <div class="controls-title">
+            <span>🍸</span>
+            <span>Bartender Cocktail Instructions & Bulk Batching Sheet (A4 Print)</span>
+        </div>
+        <div class="btn-group">
+            <a href="admin.html" class="btn">⚙️ Admin Hub</a>
+            <a href="menu.html" class="btn">🍹 Customer Menu</a>
+            <button class="btn btn-print" onclick="window.print()">🖨️ Print Instructions (Ctrl+P)</button>
+        </div>
+    </div>
+
+    <div class="a4-sheet">
+        <!-- Header -->
+        <header class="sheet-header">
+            <div class="header-left">
+                <img src="assets/coasters-logo.png" alt="Coasters Tavern" class="header-logo">
+                <div class="header-titles">
+                    <h1>BARTENDER COCKTAIL INSTRUCTIONS & PREP SHEET</h1>
+                    <p>Coasters Tavern Social Club Tiki Beach Xmas • Saturday 12 December 2026</p>
+                </div>
+            </div>
+            <div class="header-badge">
+                2x FOR $20 VOUCHER REDEMPTION<br>
+                TIKI COCKTAIL GARDEN STATION
+            </div>
+        </header>
+
+        <!-- Section 1: Single Serve Build & Shake Instructions -->
+        <div>
+            <div class="section-heading">
+                <span>1. SINGLE-SERVE COCKTAIL RECIPES (REDEEMED VIA 2x FOR $20 BAR VOUCHERS)</span>
+                <span>PUNCH / MARK DRINK 1 & DRINK 2 ON VOUCHER</span>
+            </div>
+            <div class="recipes-grid">
+                <!-- Drink 1 -->
+                <div class="recipe-box">
+                    <div class="recipe-top">
+                        <h3>1. Mele Kalikimaka Mai Tai</h3>
+                        <span class="glass-pill">Highball / Tiki Mug</span>
+                    </div>
+                    <div class="specs-cols">
+                        <ul class="ing-list">
+                            <li><span>30ml</span> White Rum</li>
+                            <li><span>20ml</span> Fresh Lime Juice</li>
+                            <li><span>15ml</span> Orgeat (Almond Syrup)</li>
+                            <li><span>15ml</span> Orange Curaçao / Triple Sec</li>
+                            <li><span>30ml</span> Dark Rum (Float on top)</li>
+                        </ul>
+                        <ol class="steps-list">
+                            <li>Add White Rum, Lime, Orgeat, and Curaçao to shaker with cubed ice.</li>
+                            <li>Shake hard for 8 seconds; strain into glass filled with crushed ice.</li>
+                            <li>Slowly pour 30ml Dark Rum over back of spoon to float on top.</li>
+                        </ol>
+                    </div>
+                    <div class="garnish-banner">
+                        🌺 GARNISH: Slap fresh mint sprig (pine-tree look), lime wheel, cherry & paper umbrella.
+                    </div>
+                </div>
+
+                <!-- Drink 2 -->
+                <div class="recipe-box">
+                    <div class="recipe-top">
+                        <h3>2. Blue Hawaiian Blizzard</h3>
+                        <span class="glass-pill">Hurricane Glass</span>
+                    </div>
+                    <div class="specs-cols">
+                        <ul class="ing-list">
+                            <li><span>45ml</span> Coconut Rum (or Vodka)</li>
+                            <li><span>30ml</span> Blue Curaçao</li>
+                            <li><span>60ml</span> Pineapple Juice</li>
+                            <li><span>30ml</span> Cream of Coconut</li>
+                        </ul>
+                        <ol class="steps-list">
+                            <li>Rim Hurricane glass with honey & roll in shredded coconut ("snow rim").</li>
+                            <li>Combine all 4 liquids in shaker with ice and shake vigorously until frothy.</li>
+                            <li>Pour unstrained into rimmed glass (top with extra crushed ice if needed).</li>
+                        </ol>
+                    </div>
+                    <div class="garnish-banner">
+                        🥥 GARNISH: Toasted/white coconut rim, fresh pineapple wedge & maraschino cherry.
+                    </div>
+                </div>
+
+                <!-- Drink 3 -->
+                <div class="recipe-box">
+                    <div class="recipe-top">
+                        <h3>3. Santa's Tiki Sunrise (No Shaker)</h3>
+                        <span class="glass-pill">Tall Collins Glass</span>
+                    </div>
+                    <div class="specs-cols">
+                        <ul class="ing-list">
+                            <li><span>45ml</span> White or Gold Island Rum</li>
+                            <li><span>90ml</span> POG Juice (Passion-Orange-Guava)</li>
+                            <li><span>20ml</span> Grenadine Syrup (Sinker)</li>
+                        </ul>
+                        <ol class="steps-list">
+                            <li>Fill tall glass to the top with fresh cubed ice.</li>
+                            <li>Pour Rum and POG juice directly over ice and give a quick stir.</li>
+                            <li>Pour 20ml Grenadine slowly down inside edge of glass so it settles at bottom.</li>
+                        </ol>
+                    </div>
+                    <div class="garnish-banner">
+                        🌅 GARNISH: Dehydrated orange wheel, edible hibiscus flower & bamboo straw (DO NOT STIR).
+                    </div>
+                </div>
+
+                <!-- Drink 4 -->
+                <div class="recipe-box">
+                    <div class="recipe-top">
+                        <h3>4. Coconut Snow Drift Colada</h3>
+                        <span class="glass-pill">Coconut Cup / Hurricane</span>
+                    </div>
+                    <div class="specs-cols">
+                        <ul class="ing-list">
+                            <li><span>50ml</span> Spiced Rum</li>
+                            <li><span>60ml</span> Pineapple Juice</li>
+                            <li><span>45ml</span> Coconut Cream</li>
+                            <li><span>15ml</span> Fresh Lime Juice</li>
+                        </ul>
+                        <ol class="steps-list">
+                            <li>Rim glass with lime wedge and dip in cinnamon-sugar mix.</li>
+                            <li>Add Spiced Rum, Pineapple, Coconut Cream, and Lime to shaker with ice.</li>
+                            <li>Shake hard for 10 seconds for thick velvet foam; strain over fresh ice.</li>
+                        </ol>
+                    </div>
+                    <div class="garnish-banner">
+                        🎅 GARNISH: Dust foam with grated nutmeg & add 2 mint leaves + 1 red cherry ("holly").
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2: Bulk 2-Liter Pitcher Pre-Batching Guide -->
+        <div>
+            <div class="section-heading">
+                <span>2. FAST-SERVICE 2-LITER JUG PRE-BATCH RATIOS (~13 SERVES PER JUG)</span>
+                <span>DO NOT ADD ICE TO STORAGE JUGS</span>
+            </div>
+            <table class="batch-table">
+                <thead>
+                    <tr>
+                        <th>Cocktail Name</th>
+                        <th>Base Spirit</th>
+                        <th>Liqueur / Modifier</th>
+                        <th>Juice / Mixer</th>
+                        <th>Syrup / Cream</th>
+                        <th>To Serve (150ml Mix)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. Mai Tai Base</strong></td>
+                        <td>400ml White Rum</td>
+                        <td>200ml Orange Curaçao</td>
+                        <td>260ml Lime Juice</td>
+                        <td>200ml Orgeat</td>
+                        <td>Shake 100ml + Float 30ml Dark Rum</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. Blue Hawaiian</strong></td>
+                        <td>550ml White Rum</td>
+                        <td>360ml Blue Curaçao</td>
+                        <td>730ml Pineapple Juice</td>
+                        <td>360ml Coconut Cream</td>
+                        <td>Whisk jug, shake 165ml with ice</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. Tiki Sunrise Base</strong></td>
+                        <td>600ml Island Rum</td>
+                        <td>—</td>
+                        <td>1200ml POG Juice</td>
+                        <td><em>Sink 20ml Grenadine in glass</em></td>
+                        <td>Pour 135ml over ice + sink Grenadine</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. Snow Drift Colada</strong></td>
+                        <td>600ml Spiced Rum</td>
+                        <td>—</td>
+                        <td>720ml Pineapple + 180ml Lime</td>
+                        <td>500ml Coconut Cream</td>
+                        <td>Shake 170ml with ice, dust nutmeg</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5. Virgin Palm Spritz</strong></td>
+                        <td>0.0% Non-Alcoholic</td>
+                        <td>—</td>
+                        <td>700ml Guava + 700ml Pineapple</td>
+                        <td>250ml Lime Juice</td>
+                        <td>Pour 140ml over ice + top Ginger Beer</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Section 3: Bar Prep & Garnish Station Checklist -->
+        <div>
+            <div class="section-heading">
+                <span>3. PRE-SHIFT BAR STATION & GARNISH PREP CHECKLIST (5:00 PM SETUP)</span>
+                <span>CHECK BEFORE DOORS OPEN 6:30 PM</span>
+            </div>
+            <div class="prep-grid">
+                <div class="prep-card">
+                    <h4>🍋 Citrus & Fruit Prep</h4>
+                    <ul>
+                        <li>☐ Cut 60x Lime Wheels (Mai Tai / Virgin)</li>
+                        <li>☐ Cut 60x Pineapple Wedges (Blue Hawaii)</li>
+                        <li>☐ Stage 50x Dehydrated Orange Wheels</li>
+                        <li>☐ Open 2x Jars Maraschino Cherries (stemmed)</li>
+                        <li>☐ Squeeze 1.5L Fresh Lime Juice</li>
+                    </ul>
+                </div>
+                <div class="prep-card">
+                    <h4>🥥 Rimming & Spice Station</h4>
+                    <ul>
+                        <li>☐ Plate 1: Honey / Agave shallow dish</li>
+                        <li>☐ Plate 2: Shredded Desiccated Coconut</li>
+                        <li>☐ Plate 3: Cinnamon-Sugar blend (1:4 ratio)</li>
+                        <li>☐ Microplane + Whole Nutmeg at shaker station</li>
+                        <li>☐ 4x Bunches Fresh Mint (shocked in ice water)</li>
+                    </ul>
+                </div>
+                <div class="prep-card">
+                    <h4>☂️ Tiki Hardware & Ice</h4>
+                    <ul>
+                        <li>☐ 150x Paper Cocktail Umbrellas opened/staged</li>
+                        <li>☐ 200x Striped Bamboo Paper Straws</li>
+                        <li>☐ 2x Bins Crushed Ice + 4x Bins Cubed Ice</li>
+                        <li>☐ Chill Hurricane & Highball glasses</li>
+                        <li>☐ Place A4 Cocktail Menus in acrylic stands</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <footer class="sheet-footer">
+            <span>Coasters Tavern Social Club Operations • Internal Bar Staff Document</span>
+            <span>Event Date: Saturday, 12 December 2026 • www.coasterstavern.co.nz</span>
+        </footer>
+    </div>
+
+</body>
+</html>

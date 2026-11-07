@@ -6,7 +6,7 @@
     <title>Social Club Xmas Party 2026 - Tiki Beach Holiday</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Montserrat:wght@400;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Outfit:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/tiki-icons.svg">
     <style>
         :root {
@@ -16,7 +16,7 @@
             --palm-green: #10b981;
             --bamboo-wood: #78350f;
             --tiki-dark: #0f172a;
-            --tiki-card-bg: rgba(15, 23, 42, 0.82);
+            --tiki-card-bg: rgba(11, 20, 38, 0.78);
             --neon-glow: 0 0 25px rgba(245, 158, 11, 0.45);
         }
 
@@ -31,9 +31,9 @@
             width: 100%;
             height: 100%;
             overflow: hidden;
-            background-color: #050b14;
+            background-color: #030712;
             color: #ffffff;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -55,12 +55,13 @@
             box-shadow: 0 0 60px rgba(0, 0, 0, 0.9);
         }
 
-        /* Decorative Bamboo Borders */
+        /* Decorative Teakwood & Gold Accent Frame */
         .bamboo-frame {
             position: absolute;
             inset: 0;
-            border: 12px solid transparent;
-            border-image: linear-gradient(45deg, #78350f 0%, #d97706 25%, #92400e 50%, #d97706 75%, #78350f 100%) 16;
+            border: 8px solid transparent;
+            border-image: linear-gradient(135deg, #d4af37 0%, #78350f 30%, #b45309 50%, #78350f 70%, #d4af37 100%) 10;
+            box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.8);
             pointer-events: none;
             z-index: 50;
         }
@@ -109,10 +110,11 @@
         }
 
         .brand-text h1 {
-            font-family: 'Fredoka One', cursive;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
             font-size: 2.1rem;
             color: #fbbf24;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             white-space: nowrap;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(245, 158, 11, 0.4);
         }
@@ -121,7 +123,7 @@
             font-size: 0.88rem;
             color: #38bdf8;
             font-weight: 700;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
             text-transform: uppercase;
             white-space: nowrap;
         }
@@ -244,11 +246,14 @@
         }
 
         .slide-title {
-            font-family: 'Fredoka One', cursive;
-            font-size: 4.2rem;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: 3.9rem;
             line-height: 1.15;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
             color: #ffffff;
-            text-shadow: 0 4px 25px rgba(0,0,0,0.9), 0 0 30px rgba(245, 158, 11, 0.5);
+            text-shadow: 0 4px 25px rgba(0,0,0,0.9), 0 0 30px rgba(245, 158, 11, 0.4);
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -292,9 +297,11 @@
         }
 
         .hero-mega-headline {
-            font-family: 'Fredoka One', cursive;
-            font-size: 5rem;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: 4.8rem;
             line-height: 1.08;
+            letter-spacing: 2px;
             color: #fef08a;
             text-shadow: 0 4px 20px rgba(0,0,0,0.8), 0 0 35px rgba(245, 158, 11, 0.6);
             white-space: nowrap;
@@ -382,9 +389,10 @@
         }
 
         .cocktail-card {
-            background: var(--tiki-card-bg);
-            border: 2px solid rgba(245, 158, 11, 0.35);
-            border-radius: 22px;
+            background: linear-gradient(165deg, rgba(15, 23, 42, 0.88) 0%, rgba(9, 14, 26, 0.92) 100%);
+            backdrop-filter: blur(14px);
+            border: 1.5px solid rgba(212, 175, 55, 0.4);
+            border-radius: 20px;
             padding: 26px 22px;
             display: flex;
             flex-direction: column;
@@ -392,7 +400,14 @@
             position: relative;
             overflow: hidden;
             transition: transform 0.3s ease, border-color 0.3s ease;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+        }
+
+        .cocktail-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, transparent, #f59e0b, transparent);
         }
 
         .cocktail-card:hover {
@@ -408,12 +423,13 @@
         }
 
         .cocktail-number-tag {
-            background: #f59e0b;
-            color: #451a03;
-            font-weight: 900;
-            font-size: 0.95rem;
+            background: linear-gradient(135deg, #f59e0b, #b45309);
+            color: #ffffff;
+            font-weight: 800;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
             padding: 4px 12px;
-            border-radius: 8px;
+            border-radius: 6px;
             text-transform: uppercase;
             white-space: nowrap;
         }
@@ -441,7 +457,9 @@
         }
 
         .cocktail-details h3 {
-            font-family: 'Fredoka One', cursive;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            letter-spacing: 0.5px;
             font-size: 1.7rem;
             color: #fef08a;
             line-height: 1.15;
@@ -518,7 +536,9 @@
         }
 
         .feast-card h3 {
-            font-family: 'Fredoka One', cursive;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            letter-spacing: 0.5px;
             font-size: 2.1rem;
             color: #6ee7b7;
             margin-bottom: 10px;
@@ -607,7 +627,9 @@
         }
 
         .timeline-col h4 {
-            font-family: 'Fredoka One', cursive;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            letter-spacing: 0.5px;
             font-size: 1.7rem;
             color: #fef08a;
             margin-bottom: 10px;
@@ -652,7 +674,9 @@
         }
 
         .prize-card h3 {
-            font-family: 'Fredoka One', cursive;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            letter-spacing: 0.5px;
             font-size: 2.3rem;
             color: #fda4af;
             margin-bottom: 8px;
@@ -700,7 +724,9 @@
         }
 
         .booth-card h3 {
-            font-family: 'Fredoka One', cursive;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            letter-spacing: 0.5px;
             font-size: 2.8rem;
             color: #fbbf24;
             margin-bottom: 20px;
@@ -750,7 +776,9 @@
         }
 
         .qr-card h4 {
-            font-family: 'Fredoka One', cursive;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            letter-spacing: 0.5px;
             font-size: 2.2rem;
             color: #38bdf8;
             margin-bottom: 8px;
@@ -775,7 +803,9 @@
         }
 
         .countdown-target-label {
-            font-family: 'Fredoka One', cursive;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            letter-spacing: 0.5px;
             font-size: 2.6rem;
             color: #fbbf24;
             margin-bottom: 30px;
@@ -803,7 +833,9 @@
         }
 
         .cd-number {
-            font-family: 'Fredoka One', cursive;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            letter-spacing: 0.5px;
             font-size: 6.5rem;
             color: #fef08a;
             line-height: 1;
@@ -1011,8 +1043,8 @@
                         </p>
                         <div class="hero-pills-row">
                             <div class="hero-pill">🌺 Free Floral Leis on Entry</div>
-                            <div class="hero-pill">🍹 4 Show-Stopping Cocktails</div>
-                            <div class="hero-pill">🌴 Hawaiian Shirts Encouraged</div>
+                            <div class="hero-pill">🍹 Cocktails: 2x for $20 Vouchers</div>
+                            <div class="hero-pill">🎁 Pass the Parcel & Limbo</div>
                         </div>
                     </div>
 
@@ -1025,17 +1057,17 @@
                             </div>
                         </div>
                         <div class="info-highlight-box">
-                            <div class="info-icon-badge">📍</div>
+                            <div class="info-icon-badge">🎟️</div>
                             <div class="info-box-text">
-                                <h3>Clubhouse Beach Patio</h3>
-                                <p>Social Club Main Tiki Lounge & Deck</p>
+                                <h3>2x For $20 Cocktail Vouchers</h3>
+                                <p>Buy at Main Bar • Redeem in Tiki Cocktail Garden</p>
                             </div>
                         </div>
                         <div class="info-highlight-box">
                             <div class="info-icon-badge">🏆</div>
                             <div class="info-box-text">
-                                <h3>Golden Pineapple Trophies</h3>
-                                <p>Best Hawaiian Shirt & Tiki Costume Awards</p>
+                                <h3>Pass the Parcel & Trophies</h3>
+                                <p>Mystery Parcel Prizes, Limbo & Best Dressed</p>
                             </div>
                         </div>
                     </div>
@@ -1045,9 +1077,9 @@
             <!-- SLIDE 1: 4 FABULOUS & EASY TIKI COCKTAILS -->
             <section class="slide" data-slide-index="1" data-duration="30000">
                 <div class="slide-header">
-                    <span class="slide-tag">🍹 TIKI BAR EXCLUSIVE LINEUP 🍍</span>
+                    <span class="slide-tag">🍹 2x FOR $20 • BUY VOUCHERS AT BAR & REDEEM IN TIKI COCKTAIL GARDEN 🍍</span>
                     <h2 class="slide-title fit-h1">4 SHOW-STOPPING TIKI COCKTAILS</h2>
-                    <p class="slide-subtitle fit-h2">Easy, Refreshing, and Fabulously Festive • Handcrafted at the Tiki Bar</p>
+                    <p class="slide-subtitle fit-h2">2x for $20 Card Vouchers • Purchase at Main Bar & Redeem in the Tiki Cocktail Garden</p>
                 </div>
 
                 <div class="cocktails-grid">
@@ -1224,9 +1256,9 @@
 
                     <div class="timeline-col">
                         <div class="timeline-hour-pill">8<span class="clock-colon">:</span>30 PM</div>
-                        <div class="timeline-icon-box">🏆</div>
-                        <h4>Limbo & Contests</h4>
-                        <p>How low can you go? Plus Loudest Hawaiian Shirt parade and judging.</p>
+                        <div class="timeline-icon-box">🎁</div>
+                        <h4>Pass the Parcel & Limbo</h4>
+                        <p>Giant Pass the Parcel prize unwrap, Flaming Limbo & Loudest Shirt judging.</p>
                     </div>
 
                     <div class="timeline-col">
@@ -1248,9 +1280,9 @@
             <!-- SLIDE 4: COSTUME CONTEST & PRIZES -->
             <section class="slide" data-slide-index="4" data-duration="25000">
                 <div class="slide-header">
-                    <span class="slide-tag">🏆 DRESS TO IMPRESS 🌺</span>
-                    <h2 class="slide-title fit-h1">BEST DRESSED & COSTUME AWARDS</h2>
-                    <p class="slide-subtitle fit-h2">Wear Your Wildest Hawaiian Prints, Coconut Tops & Tropical Christmas Gear</p>
+                    <span class="slide-tag">🏆 PARTY GAMES, CONTESTS & PRIZES 🌺</span>
+                    <h2 class="slide-title fit-h1">PASS THE PARCEL & COSTUME AWARDS</h2>
+                    <p class="slide-subtitle fit-h2">Unwrap Mystery Island Prizes & Dress in Your Wildest Tropical Christmas Gear</p>
                 </div>
 
                 <div class="prizes-grid">
@@ -1273,11 +1305,11 @@
                     </div>
 
                     <div class="prize-card">
-                        <div class="prize-trophy">🌴</div>
-                        <h3>Limbo Champion 2026</h3>
-                        <div class="prize-reward">Tiki Trophy + $100 Tab</div>
+                        <div class="prize-trophy">🎁</div>
+                        <h3>Pass the Parcel & Limbo</h3>
+                        <div class="prize-reward">Instant Prizes + $100 Tab</div>
                         <p class="prize-criteria">
-                            Flexibility, flair, and crowd applause! Crowned right beneath the flaming bamboo limbo stick.
+                            Every layer wins a prize in Giant Tiki Pass the Parcel, followed by the Flaming Bamboo Limbo showdown!
                         </p>
                     </div>
                 </div>
@@ -1382,7 +1414,7 @@
             <div class="footer-ticker">
                 <span class="ticker-badge">CLUB NOTICE</span>
                 <span class="ticker-text" id="live-ticker-msg">
-                    🌺 Coasters Tavern Christmas Party 2026 • Saturday 12 Dec @ 6:30 PM • www.coasterstavern.co.nz • RSVP & Drink Tokens at Club Office!
+                    🌺 Coasters Tavern Xmas Party • Sat 12 Dec @ 6:30 PM • Cocktails 2x for $20 (Buy Voucher at Bar, Redeem in Tiki Cocktail Garden) • Pass the Parcel & Luau!
                 </span>
             </div>
 

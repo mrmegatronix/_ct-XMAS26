@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coasters Tavern Xmas 2026 - 2x for $20 Cocktail Vouchers (A4 Business Card Sheet)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        body {
+            background-color: #090d16;
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        /* Non-Printing Control Bar */
+        .controls-bar {
+            width: 210mm;
+            max-width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #0f172a;
+            padding: 12px 24px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #334155;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .controls-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #fbbf24;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .batch-input {
+            background: #1e293b;
+            border: 1px solid #475569;
+            color: #ffffff;
+            padding: 8px 12px;
+            border-radius: 6px;
+            width: 90px;
+            font-family: inherit;
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+
+        .btn {
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.88rem;
+            text-decoration: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.08);
+            color: #ffffff;
+        }
+
+        .btn-print {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #000000;
+            border: none;
+            font-weight: 800;
+        }
+
+        /* EXACT A4 SHEET FOR 10 BUSINESS CARDS (2 COLS x 5 ROWS) */
+        .a4-voucher-sheet {
+            width: 210mm;
+            height: 297mm;
+            min-height: 297mm;
+            max-height: 297mm;
+            background: #ffffff;
+            padding: 13.5mm 15mm;
+            display: grid;
+            grid-template-columns: repeat(2, 90mm);
+            grid-template-rows: repeat(5, 54mm);
+            gap: 0;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.75);
+            justify-content: center;
+            align-content: center;
+        }
+
+        /* INDIVIDUAL BUSINESS CARD VOUCHER (90mm x 54mm) */
+        .voucher-card {
+            width: 90mm;
+            height: 54mm;
+            background: radial-gradient(circle at 85% 20%, #1e293b 0%, #090d16 70%, #030712 100%);
+            border: 1px dashed #94a3b8;
+            padding: 3.5mm 4.5mm;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            color: #ffffff;
+        }
+
+        /* Inner Luxury Gold Frame */
+        .voucher-inner-border {
+            position: absolute;
+            inset: 2mm;
+            border: 1.5px solid #d4af37;
+            border-radius: 4px;
+            pointer-events: none;
+        }
+
+        .voucher-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 2;
+        }
+
+        .voucher-brand {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .voucher-logo {
+            height: 26px;
+            width: auto;
+        }
+
+        .voucher-brand-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .voucher-brand-text strong {
+            font-family: 'Cinzel', serif;
+            font-size: 0.62rem;
+            color: #fbbf24;
+            letter-spacing: 0.8px;
+        }
+
+        .voucher-brand-text span {
+            font-size: 0.5rem;
+            color: #38bdf8;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+        }
+
+        .voucher-price-badge {
+            background: linear-gradient(135deg, #f59e0b, #b45309);
+            color: #000000;
+            font-weight: 900;
+            font-size: 0.78rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            letter-spacing: 0.5px;
+            border: 1px solid #fef08a;
+        }
+
+        /* Center Offer */
+        .voucher-center {
+            text-align: center;
+            z-index: 2;
+            margin: 1px 0;
+        }
+
+        .voucher-headline {
+            font-size: 1.05rem;
+            font-weight: 900;
+            color: #fef08a;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            line-height: 1.1;
+        }
+
+        .voucher-sub {
+            font-size: 0.58rem;
+            font-weight: 800;
+            color: #fda4af;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+
+        .voucher-choices {
+            font-size: 0.52rem;
+            color: #cbd5e1;
+            margin-top: 2px;
+            font-weight: 500;
+        }
+
+        /* Redemption Punch Boxes & Serial Footer */
+        .voucher-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 2;
+            border-top: 1px solid rgba(212, 175, 55, 0.35);
+            padding-top: 3px;
+        }
+
+        .punch-boxes {
+            display: flex;
+            gap: 6px;
+        }
+
+        .punch-pill {
+            background: #ffffff;
+            color: #0f172a;
+            font-size: 0.56rem;
+            font-weight: 900;
+            padding: 2px 7px;
+            border-radius: 3px;
+            border: 1px solid #f59e0b;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .punch-circle {
+            width: 8px;
+            height: 8px;
+            border: 1.5px solid #0f172a;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .voucher-meta {
+            text-align: right;
+            font-size: 0.48rem;
+            color: #94a3b8;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .voucher-serial {
+            color: #fbbf24;
+            font-family: monospace;
+            font-size: 0.58rem;
+            font-weight: 900;
+        }
+
+        @media print {
+            body {
+                background: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .a4-voucher-sheet {
+                box-shadow: none !important;
+                margin: 0 auto !important;
+                page-break-after: avoid !important;
+            }
+            @page {
+                size: A4 portrait;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="controls-bar no-print">
+        <div class="controls-title">
+            <span>🎟️</span>
+            <span>2x for $20 Cocktail Vouchers • Full A4 Sheet (10 Business Cards / Sheet)</span>
+        </div>
+        <div class="btn-group">
+            <label style="font-size:0.8rem; color:#cbd5e1;">Start #:</label>
+            <input type="number" id="start-serial" class="batch-input" value="101" min="1" onchange="renderVouchers()">
+            <a href="admin.html" class="btn">⚙️ Admin Hub</a>
+            <button class="btn btn-print" onclick="window.print()">🖨️ Print Voucher Sheet (Ctrl+P)</button>
+        </div>
+    </div>
+
+    <!-- A4 10-Up Business Card Sheet -->
+    <div class="a4-voucher-sheet" id="voucher-grid">
+        <!-- Populated dynamically via JS for instant serial numbering -->
+    </div>
+
+    <script>
+        function renderVouchers() {
+            const startNum = parseInt(document.getElementById('start-serial').value, 10) || 101;
+            const container = document.getElementById('voucher-grid');
+            container.innerHTML = '';
+
+            for (let i = 0; i < 10; i++) {
+                const serial = String(startNum + i).padStart(4, '0');
+                const card = document.createElement('div');
+                card.className = 'voucher-card';
+                card.innerHTML = `
+                    <div class="voucher-inner-border"></div>
+                    <div class="voucher-top">
+                        <div class="voucher-brand">
+                            <img src="assets/coasters-logo.png" alt="Coasters Tavern" class="voucher-logo">
+                            <div class="voucher-brand-text">
+                                <strong>COASTERS TAVERN SOCIAL CLUB</strong>
+                                <span>TIKI BEACH XMAS • 12 DEC 2026</span>
+                            </div>
+                        </div>
+                        <div class="voucher-price-badge">2x FOR $20</div>
+                    </div>
+
+                    <div class="voucher-center">
+                        <div class="voucher-headline">🌺 2x TIKI COCKTAILS 🍹</div>
+                        <div class="voucher-sub">BUY AT MAIN BAR • REDEEM IN TIKI COCKTAIL GARDEN</div>
+                        <div class="voucher-choices">
+                            Mai Tai • Blue Hawaiian • Santa's Tiki Sunrise • Coconut Snow Drift
+                        </div>
+                    </div>
+
+                    <div class="voucher-bottom">
+                        <div class="punch-boxes">
+                            <div class="punch-pill"><span class="punch-circle"></span> DRINK 1</div>
+                            <div class="punch-pill"><span class="punch-circle"></span> DRINK 2</div>
+                        </div>
+                        <div class="voucher-meta">
+                            <div class="voucher-serial">NO. #${serial}</div>
+                            <div>WWW.COASTERSTAVERN.CO.NZ</div>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', renderVouchers);
+    </script>
+</body>
+</html>
