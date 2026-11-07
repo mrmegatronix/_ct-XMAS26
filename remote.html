@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Club Xmas 2026 - Digital Signage Remote</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #090d16;
+            --card-bg: #131d2e;
+            --amber-gold: #f59e0b;
+            --cyan-accent: #06b6d4;
+            --rose-accent: #f43f5e;
+            --emerald-accent: #10b981;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            min-height: 100vh;
+            padding: 20px 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .remote-shell {
+            width: 100%;
+            max-width: 480px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .remote-header {
+            text-align: center;
+            background: var(--card-bg);
+            border: 2px solid #b45309;
+            border-radius: 18px;
+            padding: 18px 14px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .remote-header h1 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.6rem;
+            color: #fbbf24;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .remote-header p {
+            font-size: 0.85rem;
+            color: #94a3b8;
+            margin-top: 4px;
+            font-weight: 600;
+        }
+
+        .status-card {
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid #f59e0b;
+            border-radius: 14px;
+            padding: 12px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .status-indicator {
+            font-size: 0.95rem;
+            font-weight: 800;
+            color: #fef08a;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #10b981;
+            box-shadow: 0 0 10px #10b981;
+        }
+
+        .controls-card {
+            background: var(--card-bg);
+            border-radius: 18px;
+            border: 1px solid #334155;
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+        }
+
+        .card-heading {
+            font-size: 0.85rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #94a3b8;
+            margin-bottom: 4px;
+        }
+
+        /* Big Playback Direction Pad */
+        .d-pad-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .btn-action {
+            background: #1e293b;
+            color: #ffffff;
+            border: 2px solid #475569;
+            padding: 18px 10px;
+            border-radius: 14px;
+            font-size: 1.15rem;
+            font-weight: 800;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transition: all 0.15s ease;
+            user-select: none;
+        }
+
+        .btn-action:active {
+            transform: scale(0.95);
+            background: #334155;
+        }
+
+        .btn-action.btn-next {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #000;
+            border-color: #fbbf24;
+            font-size: 1.25rem;
+            grid-column: span 2;
+        }
+
+        .btn-action.btn-pause {
+            background: #334155;
+            color: #38bdf8;
+            border-color: #0284c7;
+        }
+
+        .btn-action.btn-lock {
+            background: #451a03;
+            color: #fbbf24;
+            border-color: #b45309;
+        }
+
+        /* Slide Jumper Buttons */
+        .slide-jump-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+        }
+
+        .btn-jump {
+            background: #1e293b;
+            border: 1px solid #334155;
+            color: #e2e8f0;
+            padding: 12px 6px;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn-jump:active {
+            background: #f59e0b;
+            color: #000;
+        }
+
+        /* Timing Shortcuts */
+        .speed-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+        }
+
+        .btn-speed {
+            background: #0f172a;
+            border: 1px solid #0284c7;
+            color: #38bdf8;
+            padding: 10px 4px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 800;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn-speed:active {
+            background: #0284c7;
+            color: #fff;
+        }
+
+        /* Quick Announcement Ticker */
+        .announcement-box {
+            display: flex;
+            gap: 8px;
+        }
+
+        .announcement-input {
+            flex: 1;
+            background: #0f172a;
+            border: 1px solid #475569;
+            color: #ffffff;
+            padding: 10px 14px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-family: inherit;
+        }
+
+        .announcement-btn {
+            background: #10b981;
+            color: #064e3b;
+            font-weight: 800;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .links-row {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .link-pill {
+            background: rgba(255, 255, 255, 0.08);
+            color: #38bdf8;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .toast-msg {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #fbbf24;
+            color: #000;
+            font-weight: 800;
+            font-size: 0.9rem;
+            padding: 8px 18px;
+            border-radius: 20px;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            pointer-events: none;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="remote-shell">
+        <header class="remote-header">
+            <h1>🌺 TIKI SIGNAGE REMOTE 🍍</h1>
+            <p>Social Club Xmas Party 2026 • Live Display Controller</p>
+        </header>
+
+        <div class="status-card">
+            <div class="status-indicator">
+                <div class="status-dot"></div>
+                <span>Broadcast Synced</span>
+            </div>
+            <span style="font-size: 0.8rem; color: #94a3b8;">Channel: xmas26_signage</span>
+        </div>
+
+        <!-- Primary Playback Controls -->
+        <div class="controls-card">
+            <div class="card-heading">Slide Controls (Venue Pad)</div>
+            
+            <button class="btn-action btn-next" onclick="sendCmd('NEXT_SLIDE')">
+                <span>⏭ NEXT SLIDE</span>
+            </button>
+
+            <div class="d-pad-grid">
+                <button class="btn-action" onclick="sendCmd('PREV_SLIDE')">
+                    <span>⏮ PREV</span>
+                </button>
+                <button class="btn-action" onclick="sendCmd('GOTO_SLIDE', { index: 0 })">
+                    <span>⏪ SLIDE 1</span>
+                </button>
+                <button class="btn-action btn-pause" onclick="sendCmd('TOGGLE_PLAY')">
+                    <span>⏯ PAUSE / PLAY</span>
+                </button>
+                <button class="btn-action btn-lock" onclick="sendCmd('TOGGLE_LOCK')">
+                    <span>🔒 LOCK (0)</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Quick Slide Selector -->
+        <div class="controls-card">
+            <div class="card-heading">Jump Directly to Slide</div>
+            <div class="slide-jump-grid">
+                <button class="btn-jump" onclick="sendCmd('GOTO_SLIDE', { index: 0 })">1. Welcome</button>
+                <button class="btn-jump" onclick="sendCmd('GOTO_SLIDE', { index: 1 })">2. Cocktails</button>
+                <button class="btn-jump" onclick="sendCmd('GOTO_SLIDE', { index: 2 })">3. Luau Feast</button>
+                <button class="btn-jump" onclick="sendCmd('GOTO_SLIDE', { index: 3 })">4. Timeline</button>
+                <button class="btn-jump" onclick="sendCmd('GOTO_SLIDE', { index: 4 })">5. Contests</button>
+                <button class="btn-jump" onclick="sendCmd('GOTO_SLIDE', { index: 5 })">6. Booth/QR</button>
+                <button class="btn-jump" onclick="sendCmd('GOTO_SLIDE', { index: 6 })">7. Countdown</button>
+            </div>
+        </div>
+
+        <!-- Display Duration Shortcuts -->
+        <div class="controls-card">
+            <div class="card-heading">Slide Speed (Duration)</div>
+            <div class="speed-grid">
+                <button class="btn-speed" onclick="sendCmd('SET_DURATION', { seconds: 10 })">10s (Key 1)</button>
+                <button class="btn-speed" onclick="sendCmd('SET_DURATION', { seconds: 20 })">20s (Key 2)</button>
+                <button class="btn-speed" onclick="sendCmd('SET_DURATION', { seconds: 30 })">30s (Key 3)</button>
+                <button class="btn-speed" onclick="sendCmd('SET_DURATION', { seconds: 60 })">60s (Key 6)</button>
+            </div>
+        </div>
+
+        <!-- Live Announcement Ticker Broadcast -->
+        <div class="controls-card">
+            <div class="card-heading">Push Live Announcement Ticker</div>
+            <div class="announcement-box">
+                <input type="text" id="ticker-input" class="announcement-input" placeholder="e.g. Limbo Contest starting in 5 mins!">
+                <button class="announcement-btn" onclick="broadcastTicker()">Push</button>
+            </div>
+        </div>
+
+        <!-- Links to Other Views -->
+        <div class="links-row">
+            <a href="index.html" target="_blank" rel="noopener noreferrer" class="link-pill">📺 Open Display</a>
+            <a href="menu.html" target="_blank" rel="noopener noreferrer" class="link-pill">🍹 A4 Cocktail Menu</a>
+            <a href="admin.html" target="_blank" rel="noopener noreferrer" class="link-pill">⚙️ Admin Panel</a>
+        </div>
+    </div>
+
+    <div id="toast" class="toast-msg">Command Sent</div>
+
+    <script>
+        let bc = null;
+        try {
+            bc = new BroadcastChannel('xmas26_signage_channel');
+        } catch(e) {
+            console.warn('BroadcastChannel not supported');
+        }
+
+        function sendCmd(type, payload = {}) {
+            const data = { type, ...payload };
+            if (bc) {
+                bc.postMessage(data);
+            }
+            // Fallback localStorage event for across-tabs
+            localStorage.setItem('xmas26_cmd', JSON.stringify({ ...data, timestamp: Date.now() }));
+            showToast(`Sent: ${type}`);
+        }
+
+        function broadcastTicker() {
+            const input = document.getElementById('ticker-input');
+            const text = input.value.trim();
+            if (!text) return;
+            sendCmd('UPDATE_TICKER', { text });
+            input.value = '';
+            showToast('Ticker Updated!');
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            toast.innerText = msg;
+            toast.style.opacity = '1';
+            setTimeout(() => {
+                toast.style.opacity = '0';
+            }, 1400);
+        }
+    </script>
+</body>
+</html>

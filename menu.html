@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Club Xmas Party 2026 - Tiki Beach Cocktail Menu (A4 Print)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Fredoka+One&family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --tiki-gold: #b45309;
+            --tiki-amber: #f59e0b;
+            --tiki-red: #e11d48;
+            --tiki-teal: #0891b2;
+            --bamboo-border: #78350f;
+            --parchment-bg: #fffbeb;
+            --parchment-border: #fde68a;
+            --text-dark: #1c1917;
+            --text-muted: #57534e;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        body {
+            background-color: #1e293b;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-dark);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        /* Non-printing Control Bar */
+        .controls-bar {
+            width: 210mm;
+            max-width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #0f172a;
+            padding: 12px 24px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            color: #ffffff;
+            border: 1px solid #334155;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .controls-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #fbbf24;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 12px;
+        }
+
+        .print-btn {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #000000;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 8px;
+            font-weight: 800;
+            font-size: 0.95rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.35);
+            transition: all 0.2s ease;
+        }
+
+        .print-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(245, 158, 11, 0.5);
+        }
+
+        .back-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* EXACT A4 PAGE SHEET CONTAINER */
+        .a4-page {
+            width: 210mm;
+            height: 297mm;
+            min-height: 297mm;
+            max-height: 297mm;
+            background: #fffdf5;
+            background-image: 
+                radial-gradient(circle at 10% 10%, rgba(251, 191, 36, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 90% 90%, rgba(6, 182, 212, 0.08) 0%, transparent 40%);
+            position: relative;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+            padding: 12mm 14mm 10mm;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+            border-radius: 2px;
+        }
+
+        /* Bamboo Carved Outer Border */
+        .bamboo-border {
+            position: absolute;
+            inset: 6mm;
+            border: 6px double #78350f;
+            border-radius: 8px;
+            pointer-events: none;
+        }
+
+        .bamboo-corner {
+            position: absolute;
+            width: 32px;
+            height: 32px;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .corner-tl { top: 4mm; left: 4mm; }
+        .corner-tr { top: 4mm; right: 4mm; }
+        .corner-bl { bottom: 4mm; left: 4mm; }
+        .corner-br { bottom: 4mm; right: 4mm; }
+
+        /* HEADER SECTION */
+        .menu-header {
+            text-align: center;
+            padding-bottom: 8px;
+            border-bottom: 2px dashed #d97706;
+            position: relative;
+        }
+
+        .event-badge-print {
+            display: inline-block;
+            background: #dc2626;
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 2.5px;
+            padding: 3px 14px;
+            border-radius: 999px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .menu-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 2.2rem;
+            color: #78350f;
+            line-height: 1.1;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .menu-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: #b45309;
+            font-weight: 700;
+            margin-top: 2px;
+        }
+
+        .menu-date-tag {
+            font-size: 0.85rem;
+            color: #475569;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-top: 3px;
+        }
+
+        /* COCKTAILS SECTION */
+        .cocktails-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 8px 0;
+            flex: 1;
+        }
+
+        .menu-item-card {
+            background: #ffffff;
+            border: 1.5px solid #fed7aa;
+            border-radius: 10px;
+            padding: 9px 14px;
+            display: grid;
+            grid-template-columns: 75px 1fr 140px;
+            gap: 14px;
+            align-items: center;
+            position: relative;
+            box-shadow: 0 2px 6px rgba(120, 53, 15, 0.05);
+        }
+
+        .item-icon-box {
+            width: 70px;
+            height: 75px;
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #f59e0b;
+        }
+
+        .item-icon-box svg {
+            width: 58px;
+            height: 70px;
+        }
+
+        .item-details {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .item-top-row {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        .item-name {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.25rem;
+            color: #92400e;
+            letter-spacing: 0.5px;
+        }
+
+        .item-badge {
+            font-size: 0.68rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            padding: 2px 7px;
+            border-radius: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-rum { background: #fef08a; color: #854d0e; }
+        .badge-vodka { background: #e0f2fe; color: #0369a1; }
+        .badge-tropical { background: #ffe4e6; color: #be123c; }
+        .badge-virgin { background: #dcfce7; color: #15803d; }
+
+        .item-tagline {
+            font-size: 0.78rem;
+            color: #b45309;
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        .item-recipe {
+            font-size: 0.76rem;
+            color: #334155;
+            line-height: 1.35;
+            margin-top: 1px;
+        }
+
+        .item-recipe strong {
+            color: #0f172a;
+        }
+
+        .item-presentation {
+            background: #fffbeb;
+            border-left: 3px solid #f59e0b;
+            padding: 6px 8px;
+            border-radius: 0 6px 6px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .pres-title {
+            font-size: 0.68rem;
+            font-weight: 800;
+            color: #78350f;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .pres-desc {
+            font-size: 0.72rem;
+            color: #475569;
+            line-height: 1.25;
+            font-weight: 500;
+        }
+
+        /* BARTENDER QUICK PREP & PARTY NOTES */
+        .menu-tips-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            background: #fff7ed;
+            border: 1px solid #fed7aa;
+            border-radius: 8px;
+            padding: 8px 12px;
+            margin-top: 4px;
+        }
+
+        .tip-col h4 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 0.85rem;
+            color: #9a3412;
+            margin-bottom: 2px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .tip-col p {
+            font-size: 0.72rem;
+            color: #475569;
+            line-height: 1.3;
+        }
+
+        /* FOOTER / RESPONSIBLE HOSTING */
+        .menu-footer {
+            text-align: center;
+            border-top: 1px solid #fed7aa;
+            padding-top: 6px;
+            margin-top: 4px;
+        }
+
+        .footer-quote {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 0.85rem;
+            color: #78350f;
+            font-weight: 700;
+        }
+
+        .footer-fineprint {
+            font-size: 0.65rem;
+            color: #64748b;
+            margin-top: 2px;
+            letter-spacing: 0.5px;
+        }
+
+        /* PRINT MEDIA STYLES - GUARANTEES PERFECT SINGLE A4 SHEET */
+        @media print {
+            body {
+                background: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                display: block !important;
+            }
+
+            .no-print, .controls-bar {
+                display: none !important;
+            }
+
+            .a4-page {
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                margin: 0 auto !important;
+                page-break-after: avoid !important;
+                page-break-inside: avoid !important;
+            }
+
+            @page {
+                size: A4 portrait;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Non-printing Control Header -->
+    <div class="controls-bar no-print">
+        <div class="controls-title">
+            <span>🍹</span>
+            <span>Tiki Beach Christmas Cocktail Menu • A4 Print Ready</span>
+        </div>
+        <div class="btn-group">
+            <a href="index.html" class="back-btn">📺 Open Slideshow</a>
+            <button class="print-btn" onclick="window.print()">
+                🖨️ Print A4 Menu (Ctrl+P)
+            </button>
+        </div>
+    </div>
+
+    <!-- Official Single-Page A4 Sheet -->
+    <div class="a4-page">
+        <!-- Bamboo Frame & Decorative Corners -->
+        <div class="bamboo-border"></div>
+        <div class="bamboo-corner corner-tl">🌺</div>
+        <div class="bamboo-corner corner-tr">🎄</div>
+        <div class="bamboo-corner corner-bl">🍍</div>
+        <div class="bamboo-corner corner-br">🌴</div>
+
+        <!-- Header -->
+        <header class="menu-header">
+            <span class="event-badge-print">🌺 SOCIAL CLUB CHRISTMAS 2026 🎄</span>
+            <h1 class="menu-title">Tiki Beach Cocktail Menu</h1>
+            <div class="menu-subtitle">Handcrafted Island Libations & Festive Holiday Spritzes</div>
+            <div class="menu-date-tag">Saturday Night • 12 December 2026 • Clubhouse Lagoon Bar</div>
+        </header>
+
+        <!-- Cocktails List (4 Signature Fabulous Cocktails + 1 Island Mocktail) -->
+        <main class="cocktails-container">
+
+            <!-- Cocktail 1 -->
+            <div class="menu-item-card">
+                <div class="item-icon-box">
+                    <svg viewBox="0 0 100 130">
+                        <!-- Direct Inline SVG for Crisp Print -->
+                        <path d="M30,30 L35,105 Q35,115 50,115 Q65,115 65,105 L70,30 Z" fill="rgba(245,158,11,0.2)" stroke="#b45309" stroke-width="2"/>
+                        <path d="M33,65 L35,105 Q35,113 50,113 Q65,113 65,105 L67,65 Z" fill="#f59e0b"/>
+                        <path d="M32,45 L33,65 L67,65 L68,45 Z" fill="#d97706"/>
+                        <path d="M31,35 L32,45 L68,45 L69,35 Z" fill="#78350f"/>
+                        <line x1="50" y1="55" x2="25" y2="15" stroke="#e11d48" stroke-width="2.5"/>
+                        <polygon points="15,18 35,10 40,25" fill="#f43f5e"/>
+                        <circle cx="58" cy="28" r="6" fill="#dc2626"/>
+                        <path d="M62,30 Q75,18 78,28 Q70,35 62,30 Z" fill="#15803d"/>
+                    </svg>
+                </div>
+                <div class="item-details">
+                    <div class="item-top-row">
+                        <h2 class="item-name">1. Mele Kalikimaka Mai Tai</h2>
+                        <span class="item-badge badge-rum">Double Rum Legend</span>
+                    </div>
+                    <div class="item-tagline">The King of Tiki with Festive Caribbean Soul</div>
+                    <p class="item-recipe">
+                        <strong>Formula:</strong> 30ml Dark Jamaican Rum, 30ml White Rum, 20ml Fresh Lime Juice, 15ml Orgeat Almond Syrup, 15ml Orange Curaçao. Shake with ice; strain over crushed ice; float dark rum.
+                    </p>
+                </div>
+                <div class="item-presentation">
+                    <span class="pres-title">Fabulous Garnish</span>
+                    <span class="pres-desc">Fresh mint sprig pine-tree, maraschino cherry & tropical umbrella.</span>
+                </div>
+            </div>
+
+            <!-- Cocktail 2 -->
+            <div class="menu-item-card">
+                <div class="item-icon-box">
+                    <svg viewBox="0 0 100 130">
+                        <path d="M32,25 Q25,50 36,75 Q42,90 48,98 L48,115 L35,120 L65,120 L52,115 L52,98 Q58,90 64,75 Q75,50 68,25 Z" fill="#06b6d4" stroke="#0284c7" stroke-width="2"/>
+                        <ellipse cx="50" cy="25" rx="18" ry="4" fill="#ffffff"/>
+                        <line x1="52" y1="25" x2="65" y2="5" stroke="#f59e0b" stroke-width="3"/>
+                        <polygon points="30,10 45,25 25,30" fill="#facc15" stroke="#ca8a04" stroke-width="1.5"/>
+                        <circle cx="68" cy="28" r="6" fill="#e11d48"/>
+                    </svg>
+                </div>
+                <div class="item-details">
+                    <div class="item-top-row">
+                        <h2 class="item-name">2. Blue Hawaiian Blizzard</h2>
+                        <span class="item-badge badge-vodka">Electric Blue Lagoon</span>
+                    </div>
+                    <div class="item-tagline">Frosted Tropical Aqua Blue with Creamy Coconut Snow</div>
+                    <p class="item-recipe">
+                        <strong>Formula:</strong> 45ml Coconut Rum (or Vodka), 30ml Blue Curaçao Liqueur, 60ml Pineapple Juice, 30ml Rich Cream of Coconut. Shake vigorously with ice into a vivid frosty glow.
+                    </p>
+                </div>
+                <div class="item-presentation">
+                    <span class="pres-title">Fabulous Garnish</span>
+                    <span class="pres-desc">Toasted coconut shredded snow rim, fresh pineapple slice & red cherry.</span>
+                </div>
+            </div>
+
+            <!-- Cocktail 3 -->
+            <div class="menu-item-card">
+                <div class="item-icon-box">
+                    <svg viewBox="0 0 100 130">
+                        <path d="M32,20 L36,110 L64,110 L68,20 Z" fill="rgba(245,158,11,0.15)" stroke="#d97706" stroke-width="2"/>
+                        <path d="M36,85 L36,108 L64,108 L64,85 Z" fill="#e11d48"/>
+                        <path d="M35,55 L36,85 L64,85 L65,55 Z" fill="#f97316"/>
+                        <path d="M33,25 L35,55 L65,55 L67,25 Z" fill="#facc15"/>
+                        <circle cx="34" cy="22" r="14" fill="#fb923c" stroke="#ea580c" stroke-width="2"/>
+                        <circle cx="34" cy="22" r="9" fill="#fdba74"/>
+                        <line x1="48" y1="110" x2="60" y2="10" stroke="#10b981" stroke-width="3"/>
+                    </svg>
+                </div>
+                <div class="item-details">
+                    <div class="item-top-row">
+                        <h2 class="item-name">3. Santa's Tiki Sunrise</h2>
+                        <span class="item-badge badge-tropical">Layered Sun Ombre</span>
+                    </div>
+                    <div class="item-tagline">Vibrant Island Sunset with Glowing Festive Crimson</div>
+                    <p class="item-recipe">
+                        <strong>Formula:</strong> 45ml White Island Rum, 90ml Passion-Orange-Guava (POG) Juice, 20ml Grenadine sinker. Build directly in glass over ice, slowly drizzling grenadine down the inside rim.
+                    </p>
+                </div>
+                <div class="item-presentation">
+                    <span class="pres-title">Fabulous Garnish</span>
+                    <span class="pres-desc">Edible red hibiscus blossom, dehydrated blood orange wheel & bamboo straw.</span>
+                </div>
+            </div>
+
+            <!-- Cocktail 4 -->
+            <div class="menu-item-card">
+                <div class="item-icon-box">
+                    <svg viewBox="0 0 100 130">
+                        <ellipse cx="50" cy="65" rx="32" ry="34" fill="#78350f" stroke="#451a03" stroke-width="2.5"/>
+                        <ellipse cx="50" cy="45" rx="28" ry="14" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+                        <ellipse cx="50" cy="42" rx="25" ry="10" fill="#ffffff"/>
+                        <circle cx="48" cy="40" r="1.5" fill="#78350f"/>
+                        <circle cx="53" cy="43" r="1.5" fill="#78350f"/>
+                        <circle cx="45" cy="44" r="1.5" fill="#78350f"/>
+                        <line x1="45" y1="42" x2="35" y2="15" stroke="#ef4444" stroke-width="3"/>
+                        <circle cx="65" cy="40" r="7" fill="#f43f5e"/>
+                    </svg>
+                </div>
+                <div class="item-details">
+                    <div class="item-top-row">
+                        <h2 class="item-name">4. Coconut Snow Drift Colada</h2>
+                        <span class="item-badge badge-rum">Velvet Island Cream</span>
+                    </div>
+                    <div class="item-tagline">Silky Tropical White Velvet with Festive Holiday Spice</div>
+                    <p class="item-recipe">
+                        <strong>Formula:</strong> 50ml Spiced Coconut Rum, 60ml Pineapple Puree, 45ml Coconut Cream, 15ml Lime Juice. Shake over crushed ice for a frothy, snowy texture.
+                    </p>
+                </div>
+                <div class="item-presentation">
+                    <span class="pres-title">Fabulous Garnish</span>
+                    <span class="pres-desc">Cinnamon-sugar glazed rim, freshly grated nutmeg dusting & mint holly sprig.</span>
+                </div>
+            </div>
+
+            <!-- Bonus Mocktail -->
+            <div class="menu-item-card" style="border-color: #86efac; background: #f0fdf4;">
+                <div class="item-icon-box" style="background: #dcfce7; border-color: #22c55e;">
+                    <svg viewBox="0 0 100 130">
+                        <path d="M34,22 L36,110 L64,110 L66,22 Z" fill="#bbf7d0" stroke="#16a34a" stroke-width="2"/>
+                        <circle cx="50" cy="50" r="14" fill="#f43f5e"/>
+                        <circle cx="50" cy="50" r="6" fill="#fef08a"/>
+                        <line x1="40" y1="110" x2="60" y2="15" stroke="#15803d" stroke-width="3"/>
+                    </svg>
+                </div>
+                <div class="item-details">
+                    <div class="item-top-row">
+                        <h2 class="item-name" style="color: #166534;">5. Virgin Palm Spritz (Mocktail)</h2>
+                        <span class="item-badge badge-virgin">0.0% Alcohol</span>
+                    </div>
+                    <div class="item-tagline">Crisp, Effervescent & Vibrant Tropical Cooler</div>
+                    <p class="item-recipe">
+                        <strong>Formula:</strong> 60ml Guava Nectar, 60ml Pineapple Juice, 20ml Fresh Lime, topped with Fiery Island Ginger Beer and a splash of Cranberry.
+                    </p>
+                </div>
+                <div class="item-presentation" style="border-left-color: #22c55e; background: #ffffff;">
+                    <span class="pres-title" style="color: #166534;">Fabulous Garnish</span>
+                    <span class="pres-desc">Candied lime wheel, fresh cranberries, and a miniature paper tiki umbrella.</span>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Quick Bartender & Volunteer Batching Tips -->
+        <section class="menu-tips-grid">
+            <div class="tip-col">
+                <h4>🍹 5-Minute Batching Tip</h4>
+                <p>Pre-batch Mai Tai and Blue Hawaiian in 2-liter pitchers (without ice) ahead of party rush. Just shake 150ml of mix with fresh ice and garnish in 10 seconds!</p>
+            </div>
+            <div class="tip-col">
+                <h4>🥥 Show-Stopping Garnish Secret</h4>
+                <p>Dip rims in honey before rolling in toasted desiccated coconut or festive cinnamon sugar. Add mint slapped between hands to release fragrant holiday oils!</p>
+            </div>
+        </section>
+
+        <!-- Menu Footer -->
+        <footer class="menu-footer">
+            <div class="footer-quote">"May your holiday be sunny, your glass be full, and your leis be colorful!"</div>
+            <div class="footer-fineprint">
+                Social Club Christmas Celebration • Clubhouse Tiki Lounge & Deck • Please Drink Responsibly & Arrange a Safe Ride Home
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>

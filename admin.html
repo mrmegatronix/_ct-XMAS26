@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Club Xmas 2026 - Master Admin Panel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0a0f1d;
+            --panel-bg: #111a2e;
+            --accent-amber: #f59e0b;
+            --accent-cyan: #06b6d4;
+            --accent-rose: #f43f5e;
+            --accent-emerald: #10b981;
+            --text-light: #f8fafc;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: 'Montserrat', sans-serif;
+            min-height: 100vh;
+            padding: 30px 24px;
+        }
+
+        .admin-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .admin-header {
+            background: var(--panel-bg);
+            border: 2px solid #b45309;
+            border-radius: 20px;
+            padding: 24px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .header-title h1 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 2.2rem;
+            color: #fbbf24;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-title p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            margin-top: 4px;
+            font-weight: 600;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 12px;
+        }
+
+        .nav-btn {
+            background: #1e293b;
+            border: 1px solid #475569;
+            color: #ffffff;
+            padding: 10px 18px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            background: #334155;
+            border-color: #f59e0b;
+        }
+
+        .nav-btn.primary {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #000000;
+            border-color: #fbbf24;
+            font-weight: 800;
+        }
+
+        /* Grid of Admin Cards */
+        .admin-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        @media (max-width: 860px) {
+            .admin-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .admin-card {
+            background: var(--panel-bg);
+            border: 1px solid #334155;
+            border-radius: 20px;
+            padding: 26px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 12px;
+        }
+
+        .card-header h2 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.45rem;
+            color: #38bdf8;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #cbd5e1;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-control {
+            background: #090d16;
+            border: 1px solid #475569;
+            color: #ffffff;
+            padding: 12px 14px;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-family: inherit;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #f59e0b;
+        }
+
+        .btn-submit {
+            background: #10b981;
+            color: #064e3b;
+            font-weight: 800;
+            font-size: 0.95rem;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-submit:hover {
+            background: #34d399;
+        }
+
+        .live-status-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #090d16;
+            padding: 14px 18px;
+            border-radius: 12px;
+            border: 1px solid #334155;
+        }
+
+        .status-badge {
+            background: #10b981;
+            color: #064e3b;
+            font-weight: 800;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+        }
+
+        .cocktails-summary-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .cocktail-admin-row {
+            background: #090d16;
+            border: 1px solid #334155;
+            padding: 12px 16px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cocktail-admin-name {
+            font-weight: 700;
+            color: #fef08a;
+            font-size: 1.05rem;
+        }
+
+        .cocktail-admin-type {
+            font-size: 0.85rem;
+            color: #38bdf8;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="admin-container">
+        <!-- Admin Header -->
+        <header class="admin-header">
+            <div class="header-title">
+                <h1>🌺 SOCIAL CLUB XMAS 2026 ADMIN ⚙️</h1>
+                <p>Digital Signage Engine & Tiki Beach Event Manager</p>
+            </div>
+            <nav class="header-nav">
+                <a href="index.html" target="_blank" rel="noopener noreferrer" class="nav-btn primary">📺 Launch Signage</a>
+                <a href="remote.html" target="_blank" rel="noopener noreferrer" class="nav-btn">📱 Open Remote</a>
+                <a href="menu.html" target="_blank" rel="noopener noreferrer" class="nav-btn">🍹 A4 Cocktail Menu</a>
+            </nav>
+        </header>
+
+        <!-- Admin Content Grid -->
+        <main class="admin-grid">
+
+            <!-- Card 1: Event Configuration -->
+            <section class="admin-card">
+                <div class="card-header">
+                    <h2>📅 Event & Date Settings</h2>
+                    <span class="status-badge">Locked: Dec 12, 2026</span>
+                </div>
+                <div class="form-group">
+                    <label>Event Name</label>
+                    <input type="text" class="form-control" id="cfg-event-name" value="Social Club Xmas Party 2026">
+                </div>
+                <div class="form-group">
+                    <label>Event Date (Second Saturday in Dec 2026)</label>
+                    <input type="text" class="form-control" id="cfg-event-date" value="Saturday, 12 December 2026">
+                </div>
+                <div class="form-group">
+                    <label>Doors Opening Time</label>
+                    <input type="text" class="form-control" id="cfg-event-time" value="6:30 PM till Late">
+                </div>
+                <div class="form-group">
+                    <label>Venue / Location</label>
+                    <input type="text" class="form-control" id="cfg-event-venue" value="Clubhouse Lagoon Lounge & Beach Patio">
+                </div>
+                <button class="btn-submit" onclick="saveEventConfig()">💾 Save Event Details</button>
+            </section>
+
+            <!-- Card 2: Live Ticker & Signage Broadcast -->
+            <section class="admin-card">
+                <div class="card-header">
+                    <h2>📢 Live Ticker Broadcast</h2>
+                    <span class="status-badge">Active Sync</span>
+                </div>
+                <p style="font-size:0.9rem; color:#94a3b8; line-height: 1.4;">
+                    Broadcast high-priority announcements directly to the bottom ticker bar on all live 1080p signage displays in real time.
+                </p>
+                <div class="form-group">
+                    <label>Announcement Text</label>
+                    <textarea class="form-control" id="cfg-ticker-msg" rows="3">🌺 Social Club Christmas Party 2026 • Saturday 12 Dec @ 6:30 PM • RSVP & Drink Tokens Available at Club Office!</textarea>
+                </div>
+                <button class="btn-submit" style="background:#06b6d4; color:#083344;" onclick="pushTickerMsg()">
+                    🚀 Broadcast to Live Screen Now
+                </button>
+            </section>
+
+            <!-- Card 3: 4 Signature Tiki Cocktails Manager -->
+            <section class="admin-card">
+                <div class="card-header">
+                    <h2>🍹 4 Signature Tiki Cocktails</h2>
+                    <span class="status-badge">Print Verified</span>
+                </div>
+                <div class="cocktails-summary-list">
+                    <div class="cocktail-admin-row">
+                        <div>
+                            <div class="cocktail-admin-name">1. Mele Kalikimaka Mai Tai</div>
+                            <div class="cocktail-admin-type">Dark & Light Rum • Lime • Orgeat • Curaçao</div>
+                        </div>
+                        <span style="font-weight:700; color:#fbbf24;">Tiki Highball</span>
+                    </div>
+
+                    <div class="cocktail-admin-row">
+                        <div>
+                            <div class="cocktail-admin-name">2. Blue Hawaiian Blizzard</div>
+                            <div class="cocktail-admin-type">White Rum/Vodka • Blue Curaçao • Pineapple • Coconut</div>
+                        </div>
+                        <span style="font-weight:700; color:#38bdf8;">Hurricane</span>
+                    </div>
+
+                    <div class="cocktail-admin-row">
+                        <div>
+                            <div class="cocktail-admin-name">3. Santa's Tiki Sunrise</div>
+                            <div class="cocktail-admin-type">Island Rum • Passion-Orange-Guava • Grenadine</div>
+                        </div>
+                        <span style="font-weight:700; color:#f43f5e;">Tall Ombre</span>
+                    </div>
+
+                    <div class="cocktail-admin-row">
+                        <div>
+                            <div class="cocktail-admin-name">4. Coconut Snow Drift Colada</div>
+                            <div class="cocktail-admin-type">Spiced Rum • Pineapple Puree • Rich Coconut Cream</div>
+                        </div>
+                        <span style="font-weight:700; color:#fef08a;">Coconut Cup</span>
+                    </div>
+                </div>
+                <a href="menu.html" target="_blank" rel="noopener noreferrer" class="nav-btn primary" style="text-align:center; justify-content:center;">
+                    🖨️ View & Print Official A4 Cocktail Menu
+                </a>
+            </section>
+
+            <!-- Card 4: Signage Controls & Keyboard Shortcuts -->
+            <section class="admin-card">
+                <div class="card-header">
+                    <h2>⌨️ Standard Keyboard Protocol</h2>
+                    <span class="status-badge">Compliant</span>
+                </div>
+                <div style="font-size:0.9rem; color:#cbd5e1; line-height: 1.6; display:flex; flex-direction:column; gap:6px;">
+                    <div>⬅️ <strong>ArrowLeft:</strong> Previous slide (<code>prevSlide()</code>)</div>
+                    <div>➡️ <strong>ArrowRight:</strong> Next slide (<code>nextSlide()</code>)</div>
+                    <div>⬆️ <strong>ArrowUp:</strong> Restart from slide 1</div>
+                    <div>⬇️ <strong>ArrowDown:</strong> Skip to next module</div>
+                    <div>␣ <strong>Spacebar:</strong> Toggle Pause / Unpause</div>
+                    <div>🔤 <strong>A / a:</strong> Open Master Admin</div>
+                    <div>🔤 <strong>R / r:</strong> Open Mobile Remote</div>
+                    <div>🔤 <strong>M / m:</strong> Open A4 Cocktail Menu</div>
+                    <div>🔢 <strong>1 - 9:</strong> Set slide duration (1=10s, 2=20s ... 9=90s)</div>
+                    <div>🔒 <strong>0:</strong> Toggle Lock / Freeze slide progression</div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+        const bc = new BroadcastChannel('xmas26_signage_channel');
+
+        function pushTickerMsg() {
+            const text = document.getElementById('cfg-ticker-msg').value.trim();
+            if (!text) return;
+            bc.postMessage({ type: 'UPDATE_TICKER', text });
+            localStorage.setItem('xmas26_ticker', text);
+            alert('Live ticker message broadcast to all active screens!');
+        }
+
+        function saveEventConfig() {
+            const config = {
+                name: document.getElementById('cfg-event-name').value,
+                date: document.getElementById('cfg-event-date').value,
+                time: document.getElementById('cfg-event-time').value,
+                venue: document.getElementById('cfg-event-venue').value
+            };
+            localStorage.setItem('xmas26_event_config', JSON.stringify(config));
+            alert('Event configuration saved successfully!');
+        }
+    </script>
+</body>
+</html>
