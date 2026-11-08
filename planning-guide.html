@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coasters Tavern Xmas 2026 - Master Planning Guide: 20 Cocktails & 20+ Activities</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #060b14;
+            --panel-bg: #0f172a;
+            --card-bg: #162033;
+            --gold: #f59e0b;
+            --gold-light: #fef08a;
+            --cyan: #38bdf8;
+            --rose: #f43f5e;
+            --emerald: #10b981;
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+            min-height: 100vh;
+            padding: 28px 20px 60px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        /* Header */
+        .page-header {
+            background: var(--panel-bg);
+            border: 2px solid #d4af37;
+            border-radius: 20px;
+            padding: 24px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        .brand-left {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .brand-logo {
+            height: 64px;
+            width: auto;
+        }
+
+        .brand-titles h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #fbbf24;
+            letter-spacing: 1px;
+        }
+
+        .brand-titles p {
+            font-size: 0.9rem;
+            color: #38bdf8;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-top: 4px;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            background: #1e293b;
+            border: 1px solid #475569;
+            color: #ffffff;
+            padding: 10px 18px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .btn:hover {
+            border-color: #fbbf24;
+            background: #334155;
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #000000;
+            border: none;
+            font-weight: 800;
+        }
+
+        /* Section Navigation Tabs */
+        .tabs-bar {
+            display: flex;
+            gap: 12px;
+            background: var(--panel-bg);
+            padding: 12px;
+            border-radius: 14px;
+            border: 1px solid #334155;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            flex: 1;
+            min-width: 220px;
+            background: #1e293b;
+            border: 1px solid #334155;
+            color: #cbd5e1;
+            padding: 14px 20px;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, #f59e0b, #b45309);
+            color: #000000;
+            border-color: #fef08a;
+            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.35);
+        }
+
+        .section-block {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .section-banner {
+            background: linear-gradient(90deg, #0f172a, #1e293b, #0f172a);
+            border-left: 5px solid #f59e0b;
+            padding: 18px 24px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .section-banner h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: #fef08a;
+        }
+
+        .section-banner span {
+            background: rgba(56, 189, 248, 0.15);
+            border: 1px solid #38bdf8;
+            color: #38bdf8;
+            font-size: 0.8rem;
+            font-weight: 800;
+            padding: 5px 14px;
+            border-radius: 999px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* 20 COCKTAILS GRID */
+        .cocktails-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        .cocktail-card {
+            background: var(--card-bg);
+            border: 1.5px solid rgba(212, 175, 55, 0.35);
+            border-radius: 18px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .cocktail-card:hover {
+            transform: translateY(-4px);
+            border-color: #fbbf24;
+        }
+
+        .cocktail-img-wrap {
+            position: relative;
+            height: 200px;
+            width: 100%;
+            background: radial-gradient(circle at 50% 30%, #1e293b, #090d16);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cocktail-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .cocktail-card:hover .cocktail-img-wrap img {
+            transform: scale(1.05);
+        }
+
+        .cocktail-num-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: rgba(9, 13, 22, 0.88);
+            border: 1px solid #f59e0b;
+            color: #fbbf24;
+            font-weight: 900;
+            font-size: 0.8rem;
+            padding: 4px 10px;
+            border-radius: 6px;
+            z-index: 2;
+        }
+
+        .cocktail-style-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(6, 182, 212, 0.9);
+            color: #000000;
+            font-weight: 800;
+            font-size: 0.72rem;
+            padding: 4px 10px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            z-index: 2;
+        }
+
+        .cocktail-body {
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            flex: 1;
+        }
+
+        .cocktail-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #fef08a;
+            line-height: 1.2;
+        }
+
+        .cocktail-vibe {
+            font-size: 0.82rem;
+            color: #38bdf8;
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        .ingredients-box {
+            background: rgba(0, 0, 0, 0.35);
+            border-left: 3px solid #f59e0b;
+            padding: 10px 12px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .ingredients-box h4, .method-box h4 {
+            font-size: 0.72rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #fbbf24;
+            margin-bottom: 4px;
+        }
+
+        .ingredients-list {
+            list-style: none;
+            font-size: 0.82rem;
+            color: #e2e8f0;
+            line-height: 1.45;
+        }
+
+        .ingredients-list li strong {
+            color: #38bdf8;
+        }
+
+        .method-box {
+            font-size: 0.82rem;
+            color: #cbd5e1;
+            line-height: 1.45;
+            flex: 1;
+        }
+
+        .garnish-tag {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: #fda4af;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 8px;
+        }
+
+        /* ACTIVITIES GRID */
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 18px;
+        }
+
+        .activity-card {
+            background: var(--card-bg);
+            border: 1px solid #334155;
+            border-left: 4px solid #10b981;
+            border-radius: 14px;
+            padding: 18px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+        }
+
+        .activity-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .activity-header h3 {
+            font-size: 1.12rem;
+            font-weight: 800;
+            color: #6ee7b7;
+        }
+
+        .activity-meta {
+            background: rgba(16, 185, 129, 0.15);
+            color: #34d399;
+            font-size: 0.72rem;
+            font-weight: 800;
+            padding: 3px 9px;
+            border-radius: 6px;
+            white-space: nowrap;
+        }
+
+        .activity-desc {
+            font-size: 0.88rem;
+            color: #e2e8f0;
+            line-height: 1.45;
+        }
+
+        .activity-gear {
+            font-size: 0.78rem;
+            color: #fbbf24;
+            font-weight: 600;
+        }
+
+        @media print {
+            body {
+                background: #ffffff !important;
+                color: #000000 !important;
+                padding: 0 !important;
+            }
+            .no-print, .tabs-bar {
+                display: none !important;
+            }
+            .section-block {
+                display: flex !important;
+            }
+            .cocktail-card, .activity-card {
+                break-inside: avoid;
+                background: #ffffff !important;
+                color: #000000 !important;
+                border: 1px solid #cbd5e1 !important;
+                box-shadow: none !important;
+            }
+            .cocktail-title, .activity-header h3 {
+                color: #0f172a !important;
+            }
+            .ingredients-list, .method-box, .activity-desc {
+                color: #334155 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="page-header">
+            <div class="brand-left">
+                <img src="assets/coasters-logo.png" alt="Coasters Tavern Logo" class="brand-logo">
+                <div class="brand-titles">
+                    <h1>XMAS 2026 MASTER PLANNING GUIDE</h1>
+                    <p>20 Metric Summer/Xmas Cocktails • 20 Group Activities (50–80 Pax) • 10 Background Venue Games</p>
+                </div>
+            </div>
+            <div class="header-actions no-print">
+                <a href="admin.html" class="btn">⚙️ Back to Admin Hub</a>
+                <a href="index.html" class="btn">📺 Live Display</a>
+                <button class="btn btn-gold" onclick="window.print()">🖨️ Print Complete Guide</button>
+            </div>
+        </header>
+
+        <!-- Filter Tabs -->
+        <nav class="tabs-bar no-print">
+            <button class="tab-btn active" onclick="filterSection('all', this)">🌟 View All Sections</button>
+            <button class="tab-btn" onclick="filterSection('cocktails', this)">🍹 20 Metric Xmas/Summer Cocktails</button>
+            <button class="tab-btn" onclick="filterSection('group-activities', this)">🎉 20 Indoor Group Activities (50–80 Pax)</button>
+            <button class="tab-btn" onclick="filterSection('bg-games', this)">🎲 10 Casual / Background Venue Games</button>
+        </nav>
+
+        <!-- SECTION 1: 20 REAL CHRISTMAS / SUMMER COCKTAILS (METRIC) -->
+        <section class="section-block" id="sec-cocktails">
+            <div class="section-banner">
+                <h2>🍹 20 Real Christmas & Summer Cocktails (Metric Measurements)</h2>
+                <span>Standard NZ Metric Jigger: 15 ml / 30 ml / 45 ml / 60 ml</span>
+            </div>
+            <div class="cocktails-grid" id="cocktails-container"></div>
+        </section>
+
+        <!-- SECTION 2: 20 INDOOR ACTIVITIES FOR 50-80 PEOPLE -->
+        <section class="section-block" id="sec-group-activities">
+            <div class="section-banner" style="border-left-color: #10b981;">
+                <h2>🎉 20 Indoor Group Activities (Designed for 50–80 Guests)</h2>
+                <span>High-Energy Whole-Room & Table-vs-Table Games</span>
+            </div>
+            <div class="activities-grid" id="group-activities-container"></div>
+        </section>
+
+        <!-- SECTION 3: 10 BACKGROUND & SMALL-GROUP VENUE GAMES -->
+        <section class="section-block" id="sec-bg-games">
+            <div class="section-banner" style="border-left-color: #38bdf8;">
+                <h2>🎲 10 Background & Casual Venue Games (Individual / Small Groups)</h2>
+                <span>Self-Paced Bar & Patio Stations All Night</span>
+            </div>
+            <div class="activities-grid" id="bg-games-container"></div>
+        </section>
+    </div>
+
+    <script>
+        const COCKTAILS = [
+            {
+                num: 1,
+                name: "Classic 1944 Mai Tai",
+                style: "Tiki Rum Legend",
+                vibe: "Rich almond, bright lime, and caramelised Jamaican rum float.",
+                img: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80",
+                color1: "#f59e0b", color2: "#b45309",
+                ingredients: [
+                    "<strong>30 ml</strong> White Rum",
+                    "<strong>30 ml</strong> Dark Jamaican Rum (floated)",
+                    "<strong>15 ml</strong> Orange Curaçao (or Triple Sec)",
+                    "<strong>15 ml</strong> Orgeat (Almond Syrup)",
+                    "<strong>25 ml</strong> Freshly Squeezed Lime Juice"
+                ],
+                method: "Add white rum, curaçao, orgeat, and lime juice into a shaker with cubed ice. Shake hard for 10 seconds and strain into a double rocks glass or tiki mug packed with crushed ice. Slowly float the 30 ml dark rum over the top.",
+                garnish: "Fresh mint sprig ('Christmas pine tree'), spent lime shell & cocktail umbrella."
+            },
+            {
+                num: 2,
+                name: "Blue Hawaiian Blizzard",
+                style: "Tropical Lagoon",
+                vibe: "Electric aqua blue balanced with creamy coconut and pineapple.",
+                img: "https://images.unsplash.com/photo-1560512823-829485b8bf24?auto=format&fit=crop&w=600&q=80",
+                color1: "#06b6d4", color2: "#0284c7",
+                ingredients: [
+                    "<strong>45 ml</strong> White Rum (or Vodka)",
+                    "<strong>22.5 ml</strong> Blue Curaçao Liqueur",
+                    "<strong>60 ml</strong> Unsweetened Pineapple Juice",
+                    "<strong>22.5 ml</strong> Cream of Coconut"
+                ],
+                method: "Rim a hurricane glass with honey and dip into desiccated coconut for a snowy rim. Shake all liquid ingredients vigorously with cubed ice for 12 seconds and strain over fresh crushed ice.",
+                garnish: "Shredded coconut snow rim, pineapple wedge & maraschino cherry."
+            },
+            {
+                num: 3,
+                name: "Puerto Rican Piña Colada",
+                style: "Creamy Island Classic",
+                vibe: "Velvety coconut snowdrift with festive spiced nutmeg.",
+                img: "https://images.unsplash.com/photo-1546171753-97d7676e4602?auto=format&fit=crop&w=600&q=80",
+                color1: "#fef08a", color2: "#ca8a04",
+                ingredients: [
+                    "<strong>60 ml</strong> White or Spiced Rum",
+                    "<strong>45 ml</strong> Cream of Coconut (Coco López)",
+                    "<strong>90 ml</strong> Fresh Pineapple Juice",
+                    "<strong>15 ml</strong> Fresh Lime Juice"
+                ],
+                method: "Combine rum, cream of coconut, pineapple juice, and lime juice in a shaker with plenty of ice (or blend with 120 g crushed ice). Pour into a chilled hurricane glass or hollowed coconut.",
+                garnish: "Freshly grated nutmeg dusting, pineapple leaf & red cherry."
+            },
+            {
+                num: 4,
+                name: "Santa's Tequila Sunrise",
+                style: "Layered Highball",
+                vibe: "Golden summer sunshine melting into a festive crimson base.",
+                img: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80",
+                color1: "#f97316", color2: "#e11d48",
+                ingredients: [
+                    "<strong>45 ml</strong> Blanco Tequila (or White Rum)",
+                    "<strong>90 ml</strong> Fresh Orange or POG Juice",
+                    "<strong>15 ml</strong> Pomegranate Grenadine Syrup"
+                ],
+                method: "Fill a tall highball glass with fresh cubed ice. Pour in the tequila and orange/POG juice and stir gently. Tilt the glass and pour the 15 ml grenadine down the inside edge so it sinks to the bottom.",
+                garnish: "Dehydrated blood orange wheel, hibiscus flower & bamboo straw."
+            },
+            {
+                num: 5,
+                name: "Festive Cranberry & Mint Mojito",
+                style: "Refreshing Highball",
+                vibe: "Crisp garden mint, ruby cranberries, and sparkling lime.",
+                img: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=600&q=80",
+                color1: "#10b981", color2: "#e11d48",
+                ingredients: [
+                    "<strong>45 ml</strong> White Rum",
+                    "<strong>25 ml</strong> Fresh Lime Juice",
+                    "<strong>15 ml</strong> Simple Sugar Syrup (1:1)",
+                    "<strong>8 leaves</strong> Fresh Mint + <strong>30 ml</strong> Cranberry Juice",
+                    "<strong>60 ml</strong> Sparkling Soda Water"
+                ],
+                method: "Gently muddle mint leaves with lime juice and sugar syrup in a highball glass. Add crushed ice, white rum, and cranberry juice. Churn with a bar spoon and top with soda water.",
+                garnish: "Fresh cranberries on a pick & bouquet of slapped mint."
+            },
+            {
+                num: 6,
+                name: "Aperol Sunset Spritz",
+                style: "Italian Summer Aperitivo",
+                vibe: "Effervescent bittersweet orange made for warm December patios.",
+                img: "https://images.unsplash.com/photo-1560508180-03f285f67ded?auto=format&fit=crop&w=600&q=80",
+                color1: "#fb923c", color2: "#ea580c",
+                ingredients: [
+                    "<strong>60 ml</strong> Aperol Aperitivo",
+                    "<strong>90 ml</strong> Chilled Prosecco DOC",
+                    "<strong>30 ml</strong> Sparkling Soda Water"
+                ],
+                method: "Fill a large stemmed wine glass generously with cubed ice. Pour in the chilled Prosecco first, followed by the Aperol, and finish with a splash of soda water. Stir once gently from the bottom.",
+                garnish: "Fresh orange half-wheel & rosemary sprig."
+            },
+            {
+                num: 7,
+                name: "Pomegranate Festive Margarita",
+                style: "Agave Sour",
+                vibe: "Jewel-toned ruby margarita with a festive Tajín or salt rim.",
+                img: "https://images.unsplash.com/photo-1556855810-ac404aa91e85?auto=format&fit=crop&w=600&q=80",
+                color1: "#e11d48", color2: "#9f1239",
+                ingredients: [
+                    "<strong>45 ml</strong> 100% Agave Blanco Tequila",
+                    "<strong>22.5 ml</strong> Cointreau (or Triple Sec)",
+                    "<strong>30 ml</strong> Pure Pomegranate Juice",
+                    "<strong>22.5 ml</strong> Fresh Lime Juice",
+                    "<strong>7.5 ml</strong> Agave Nectar"
+                ],
+                method: "Run a lime wedge around half the rim of a rocks glass and dip into flaky sea salt. Add all liquid ingredients to a shaker with ice, shake hard for 10 seconds, and strain over fresh ice.",
+                garnish: "Lime wheel & sprinkle of pomegranate arils."
+            },
+            {
+                num: 8,
+                name: "The Jungle Bird",
+                style: "1970s Tiki Classic",
+                vibe: "Exotic dark rum, frothy pineapple, and a ruby Campari bite.",
+                img: "https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=600&q=80",
+                color1: "#dc2626", color2: "#78350f",
+                ingredients: [
+                    "<strong>45 ml</strong> Dark Blackstrap or Jamaican Rum",
+                    "<strong>22.5 ml</strong> Campari",
+                    "<strong>45 ml</strong> Unsweetened Pineapple Juice",
+                    "<strong>15 ml</strong> Fresh Lime Juice",
+                    "<strong>15 ml</strong> Demerara Sugar Syrup (1:1)"
+                ],
+                method: "Combine all five ingredients in a cocktail shaker filled with cubed ice. Shake vigorously for 12 seconds to create a rich pineapple froth, then strain over fresh ice in a tiki mug or rocks glass.",
+                garnish: "Two pineapple fronds & a cherry arranged like a tropical bird."
+            },
+            {
+                num: 9,
+                name: "Frozen Strawberry Santa Daiquiri",
+                style: "Frozen Summer Slush",
+                vibe: "Sun-ripened December strawberries blended with crisp white rum.",
+                img: "https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=600&q=80",
+                color1: "#f43f5e", color2: "#be123c",
+                ingredients: [
+                    "<strong>60 ml</strong> White Rum",
+                    "<strong>25 ml</strong> Fresh Lime Juice",
+                    "<strong>20 ml</strong> Simple Sugar Syrup",
+                    "<strong>100 g</strong> Fresh Hulled NZ Strawberries",
+                    "<strong>150 g</strong> Crushed Ice"
+                ],
+                method: "Place rum, lime juice, sugar syrup, fresh strawberries, and crushed ice into a high-speed blender. Blend for 20 seconds until smooth and snowy, then pour into a chilled coupe or hurricane glass.",
+                garnish: "Fresh strawberry notched on the rim & mini Santa hat pick."
+            },
+            {
+                num: 10,
+                name: "Ruby Grapefruit Paloma",
+                style: "Refreshing Agave Highball",
+                vibe: "Zesty pink grapefruit fizz with a salted citrus edge.",
+                img: "https://images.unsplash.com/photo-1527661591475-527312k65f5a?auto=format&fit=crop&w=600&q=80",
+                color1: "#fb7185", color2: "#f43f5e",
+                ingredients: [
+                    "<strong>50 ml</strong> Blanco Tequila",
+                    "<strong>15 ml</strong> Fresh Lime Juice",
+                    "<strong>45 ml</strong> Fresh Ruby Grapefruit Juice",
+                    "<strong>15 ml</strong> Agave Syrup",
+                    "<strong>60 ml</strong> Sparkling Grapefruit Soda (or Soda Water)"
+                ],
+                method: "Rim a tall highball glass with pink Himalayan salt. Shake tequila, lime, grapefruit juice, and agave with ice, strain into the ice-filled glass, and top with sparkling soda.",
+                garnish: "Ruby grapefruit wedge & sprig of fresh thyme."
+            },
+            {
+                num: 11,
+                name: "Salted Caramel Espresso Martini",
+                style: "Late-Night Pick-Me-Up",
+                vibe: "Velvety crema, rich espresso, and festive salted caramel.",
+                img: "https://images.unsplash.com/photo-1545438102-799c3991ffb2?auto=format&fit=crop&w=600&q=80",
+                color1: "#78350f", color2: "#451a03",
+                ingredients: [
+                    "<strong>45 ml</strong> Premium Vodka",
+                    "<strong>30 ml</strong> Coffee Liqueur (Kahlúa / Mr Black)",
+                    "<strong>30 ml</strong> Chilled Fresh Espresso",
+                    "<strong>10 ml</strong> Salted Caramel Syrup"
+                ],
+                method: "Fill a shaker with hard cubed ice. Add vodka, coffee liqueur, chilled espresso, and salted caramel syrup. Shake as hard as possible for 15 seconds, then double-strain through a fine mesh sieve into a chilled coupe.",
+                garnish: "Three whole coffee beans & a light dusting of cinnamon."
+            },
+            {
+                num: 12,
+                name: "Hugo Elderflower Summer Spritz",
+                style: "Floral Alpine Spritz",
+                vibe: "Delicate elderflower blossom, crisp mint, and sparkling bubbles.",
+                img: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=600&q=80",
+                color1: "#bef264", color2: "#65a30d",
+                ingredients: [
+                    "<strong>45 ml</strong> St-Germain Elderflower Liqueur",
+                    "<strong>90 ml</strong> Chilled Prosecco",
+                    "<strong>30 ml</strong> Sparkling Soda Water",
+                    "<strong>10 ml</strong> Fresh Lime Juice",
+                    "<strong>6 leaves</strong> Fresh Mint"
+                ],
+                method: "Clap the mint leaves between your palms to release the oils and drop into a large wine glass filled with ice. Add elderflower liqueur, lime juice, Prosecco, and soda. Stir gently.",
+                garnish: "Thin lime wheels & fresh mint crown."
+            },
+            {
+                num: 13,
+                name: "Pusser's Painkiller",
+                style: "British Virgin Islands Tiki",
+                vibe: "Rich dark rum cushioned by tropical citrus and coconut cream.",
+                img: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80",
+                color1: "#f59e0b", color2: "#d97706",
+                ingredients: [
+                    "<strong>60 ml</strong> Dark Navy Rum",
+                    "<strong>120 ml</strong> Pineapple Juice",
+                    "<strong>30 ml</strong> Fresh Orange Juice",
+                    "<strong>30 ml</strong> Cream of Coconut"
+                ],
+                method: "Add all four ingredients to a cocktail shaker with ice and shake vigorously until well emulsified. Pour unstrained into a tiki mug or hurricane glass topped with extra crushed ice.",
+                garnish: "Generous grating of fresh whole nutmeg & orange wheel."
+            },
+            {
+                num: 14,
+                name: "Summer Berry Bramble",
+                style: "Modern London Classic",
+                vibe: "Crisp botanical gin and lemon marbled with dark blackberry liqueur.",
+                img: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80",
+                color1: "#a855f7", color2: "#6b21a8",
+                ingredients: [
+                    "<strong>50 ml</strong> London Dry Gin",
+                    "<strong>25 ml</strong> Fresh Lemon Juice",
+                    "<strong>12.5 ml</strong> Simple Sugar Syrup",
+                    "<strong>15 ml</strong> Crème de Mûre (Blackberry Liqueur)"
+                ],
+                method: "Shake gin, lemon juice, and sugar syrup with cubed ice. Strain into a rocks glass packed with mounded crushed ice. Slowly drizzle the Crème de Mûre over the top so it bleeds through the ice.",
+                garnish: "Two fresh blackberries & a lemon slice."
+            },
+            {
+                num: 15,
+                name: "Passionfruit Martini (Pornstar)",
+                style: "Crowd-Favourite Cocktail",
+                vibe: "Tangy tropical passionfruit and fragrant vanilla with a bubbly chaser.",
+                img: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80",
+                color1: "#facc15", color2: "#eab308",
+                ingredients: [
+                    "<strong>45 ml</strong> Vanilla Vodka",
+                    "<strong>15 ml</strong> Passoa Passionfruit Liqueur",
+                    "<strong>30 ml</strong> Passionfruit Puree",
+                    "<strong>15 ml</strong> Fresh Lime Juice + <strong>10 ml</strong> Vanilla Syrup",
+                    "<strong>45 ml</strong> Chilled Prosecco (served on the side)"
+                ],
+                method: "Shake vanilla vodka, Passoa, passionfruit puree, lime juice, and vanilla syrup hard with ice. Double-strain into a chilled coupe glass and serve with a 45 ml shot glass of chilled Prosecco alongside.",
+                garnish: "Half a fresh passionfruit floated face-up on the foam."
+            },
+            {
+                num: 16,
+                name: "Yule Cranberry Moscow Mule",
+                style: "Copper Mug Buck",
+                vibe: "Ice-cold tart cranberry, zesty lime, and spicy ginger snap.",
+                img: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=600&q=80",
+                color1: "#ef4444", color2: "#b91c1c",
+                ingredients: [
+                    "<strong>45 ml</strong> Vodka",
+                    "<strong>15 ml</strong> Fresh Lime Juice",
+                    "<strong>30 ml</strong> Unsweetened Cranberry Juice",
+                    "<strong>90 ml</strong> Fiery Ginger Beer"
+                ],
+                method: "Fill a hammered copper mug or highball glass with cubed ice. Pour in the vodka, lime juice, and cranberry juice. Top with chilled ginger beer and gently lift with a bar spoon.",
+                garnish: "Sugared rosemary sprig & candied ginger."
+            },
+            {
+                num: 17,
+                name: "Bermuda Dark ’n’ Stormy",
+                style: "Spiced Island Highball",
+                vibe: "Storm-cloud float of rich dark rum over spicy ginger beer.",
+                img: "https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=600&q=80",
+                color1: "#92400e", color2: "#451a03",
+                ingredients: [
+                    "<strong>60 ml</strong> Dark Rum (Gosling's Black Seal)",
+                    "<strong>15 ml</strong> Fresh Lime Juice",
+                    "<strong>100 ml</strong> Chilled Fiery Ginger Beer",
+                    "<strong>2 dashes</strong> Angostura Bitters"
+                ],
+                method: "Fill a tall highball glass with ice. Add the lime juice and ginger beer first, then slowly float the 60 ml dark rum and bitters on top to create a dramatic two-tone storm effect.",
+                garnish: "Fresh lime wedge on the rim."
+            },
+            {
+                num: 18,
+                name: "Clover Club Raspberry Sour",
+                style: "Pre-Prohibition Classic",
+                vibe: "Festive crimson velvet topped with a pillowy white foam cap.",
+                img: "https://images.unsplash.com/photo-1556855810-ac404aa91e85?auto=format&fit=crop&w=600&q=80",
+                color1: "#f43f5e", color2: "#9f1239",
+                ingredients: [
+                    "<strong>45 ml</strong> London Dry Gin",
+                    "<strong>15 ml</strong> Dry Vermouth",
+                    "<strong>22.5 ml</strong> Fresh Lemon Juice",
+                    "<strong>15 ml</strong> Raspberry Syrup",
+                    "<strong>15 ml</strong> Aquafaba (or Pasteurised Egg White)"
+                ],
+                method: "Add all ingredients to a shaker WITHOUT ice and dry-shake hard for 10 seconds to whip the foam. Add ice and shake again for 12 seconds, then fine-strain into a chilled coupe.",
+                garnish: "Three fresh raspberries speared on a cocktail pick."
+            },
+            {
+                num: 19,
+                name: "Christmas Gold French 75",
+                style: "Champagne Celebration",
+                vibe: "Botanical citrus gin crowned with crisp celebratory bubbles.",
+                img: "https://images.unsplash.com/photo-1560508180-03f285f67ded?auto=format&fit=crop&w=600&q=80",
+                color1: "#fde047", color2: "#ca8a04",
+                ingredients: [
+                    "<strong>30 ml</strong> London Dry Gin",
+                    "<strong>15 ml</strong> Fresh Lemon Juice",
+                    "<strong>15 ml</strong> Simple Sugar Syrup",
+                    "<strong>90 ml</strong> Chilled Champagne or Brut Sparkling"
+                ],
+                method: "Shake gin, lemon juice, and simple syrup with ice until chilled. Strain into a Champagne flute and slowly top with 90 ml chilled Brut sparkling wine.",
+                garnish: "Long spiral lemon twist & edible gold dust."
+            },
+            {
+                num: 20,
+                name: "Don's 1934 Tiki Zombie",
+                style: "Ultimate Tiki Showstopper",
+                vibe: "Three-rum tropical powerhouse with apricot, lime, and aromatic spice.",
+                img: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80",
+                color1: "#ea580c", color2: "#9a3412",
+                ingredients: [
+                    "<strong>30 ml</strong> White Rum + <strong>30 ml</strong> Gold Rum",
+                    "<strong>30 ml</strong> Dark Jamaican Rum",
+                    "<strong>15 ml</strong> Apricot Brandy Liqueur",
+                    "<strong>22.5 ml</strong> Fresh Lime Juice + <strong>30 ml</strong> Pineapple Juice",
+                    "<strong>15 ml</strong> Grenadine + <strong>1 dash</strong> Angostura Bitters"
+                ],
+                method: "Combine all ingredients in a shaker with crushed ice. Whip-shake for 8 seconds and pour unstrained into a tall ceramic tiki mug.",
+                garnish: "Mint crown, cocktail cherry & flaming lime half (optional)."
+            }
+        ];
+
+        const GROUP_ACTIVITIES = [
+            { num: 1, title: "Giant Multi-Layer Tiki Pass the Parcel", meta: "50–80 Pax • 15 Mins", desc: "A colossal parcel wrapped in 15+ tropical layers passed rapidly from table to table while the DJ blasts island tracks. Every time the music stops, the holder unwraps a layer containing a $10 voucher or funny 10-second dare before the centre jackpot!", gear: "Props: 15-layer wrapped parcel, bar vouchers, novelty sunglasses, DJ music cues." },
+            { num: 2, title: "Tiki & Summer Hits Music Bingo", meta: "50–80 Pax • 25 Mins", desc: "Every guest receives a custom 5x5 Music Bingo card featuring classic Kiwi summer anthems and Christmas bangers. The DJ plays 25-second hooks; guests mark off songs to win 1-Line, 2-Line, and Full House prizes.", gear: "Props: 80x Printed Music Bingo cards, pens, DJ playlist of 45 songs." },
+            { num: 3, title: "Flaming Bamboo Limbo Championship", meta: "50–80 Pax • 15 Mins", desc: "Two volunteers hold a bamboo pole decorated with LED silk flames on the dancefloor. Contestants line up and limbo under to tropical drums as the bar drops inch by inch until one champion remains.", gear: "Props: 2m Bamboo pole, red/orange tissue or LED flames, $100 Bar Tab prize." },
+            { num: 4, title: "Loudest Hawaiian Shirt & Runway Parade", meta: "50–80 Pax • 15 Mins", desc: "Top contenders from each table strut down the centre aisle to surf-rock music. Finalists are judged purely by crowd applause volume using a decibel-meter app projected on the screen.", gear: "Props: Golden Pineapple Trophy, $150 Bar Tab, phone decibel meter." },
+            { num: 5, title: "Whole-Room 'Heads or Tails' Coin Flip", meta: "All 80 Guests • 10 Mins", desc: "Everyone stands up at their tables. Before each flip, guests put both hands on their HEAD (Heads) or HIPS (Tails). The MC flips a coin at the mic — wrong guessers sit down until 1 person is left standing!", gear: "Props: 1x Giant novelty coin, microphone, prize hamper." },
+            { num: 6, title: "Fast-Fire Table Blitz Trivia (3 Rounds)", meta: "8–10 Tables • 20 Mins", desc: "Three rapid 8-question rounds (Round 1: 2026 News & Club Gossip, Round 2: Tropical Cocktails & Food, Round 3: Christmas Movie Quotes). Answer sheets swapped with neighbouring tables for fast marking.", gear: "Props: 10x Table answer sheets, pens, MC question card." },
+            { num: 7, title: "The Price Is Right — Luxury Hamper Bid", meta: "8–10 Tables • 10 Mins", desc: "A massive wrapped Tiki Christmas Hamper is placed on stage and its 12 items are read aloud. Each table writes one secret bid in NZD ($). Closest bid without going over wins the hamper for their table!", gear: "Props: Luxury hamper with receipt total sealed in an envelope." },
+            { num: 8, title: "Tropical Icebreaker Human Bingo", meta: "50–80 Pax • 15 Mins", desc: "Arrival mingle game! Guests get a card with 16 prompts (e.g., 'Has been to Fiji', 'Wearing sandals right now', 'Ordered a Mai Tai'). First 3 guests to get different signatures in a row win cocktail vouchers.", gear: "Props: 80x Human Bingo cards, pens at greeting table." },
+            { num: 9, title: "Minute-to-Win-It Table Champions", meta: "8 Table Reps • 15 Mins", desc: "Each table nominates 1 champion to come up front for three 60-second comedy challenges: 'Cookie Face' (move a biscuit from forehead to mouth without hands), 'Cup Stack', and 'Ping Pong Tiki Shake'.", gear: "Props: Biscuits, 36x plastic cups, tissue boxes with ping-pong balls." },
+            { num: 10, title: "Tiki 'Deal or No Deal' Mystery Boxes", meta: "Whole Room • 15 Mins", desc: "5 numbered bamboo boxes sit on stage (containing $100 Tab, 2x/$20 Vouchers, a Pineapple, a Wooden Spoon, and a Mystery Envelope). One lucky ticket holder is drawn and the MC offers 'Banker Deals' while the crowd shouts advice!", gear: "Props: 5x numbered boxes, sealed prizes inside." },
+            { num: 11, title: "Air Guitar & Lip Sync Island Battle", meta: "6–8 Contestants • 15 Mins", desc: "Brave volunteers grab inflatable guitars and leis for a 45-second high-energy lip-sync battle to summer classics (e.g., 'Wipeout', 'All I Want for Christmas Is You'). Crowd roar crowns the King/Queen.", gear: "Props: 4x Inflatable guitars/saxophones, oversized sunglasses." },
+            { num: 12, title: "Left-Right Table Parcel Story", meta: "Every Table • 10 Mins", desc: "Every table starts with 1 wrapped table prize. The MC reads a hilarious 3-minute story about 'Santa Lost in Waikiki'. Every time the MC says 'LEFT' or 'RIGHT', the parcel must be passed in that direction — whoever holds it at 'THE END' keeps it!", gear: "Props: 1x wrapped gift per table (8–10 total), printed Left-Right story script." },
+            { num: 13, title: "Finish the Lyric — DJ Cut-Off", meta: "Table Teams • 15 Mins", desc: "The DJ plays a famous chorus and suddenly cuts the fader. The first table to hold up their table number and sing the exact next line in unison scores 10 points!", gear: "Props: Table number paddles, 15x edited song tracks." },
+            { num: 14, title: "Blindfolded Tropical Taste Test", meta: "5 Contestants • 12 Mins", desc: "Five blindfolded volunteers sit on stage and taste 4 mystery tropical foods/drinks (e.g., passionfruit pulp, coconut cream, pickled ginger, lime marmalade) and write down their guesses.", gear: "Props: 5x sleeping masks/blindfolds, tasting spoons, 4 mystery ingredients." },
+            { num: 15, title: "Paper Plane 'Land on the Island' Toss", meta: "All 80 Guests • 10 Mins", desc: "Every guest gets 1 sheet of gold/neon A4 paper to fold a paper plane and write their name on the wing. On the count of 3, all 80 planes launch toward a hula-hoop 'island' in the centre of the floor — closest plane wins!", gear: "Props: 80x sheets coloured A4 paper, 1x hula hoop + inflatable palm tree target." },
+            { num: 16, title: "The Great Coasters Rock-Paper-Scissors Train", meta: "All 80 Guests • 10 Mins", desc: "Everyone pairs up for 1 round of Rock-Paper-Scissors. The loser must immediately join behind the winner as their cheering hype-person! Winners face other winners until two 40-person conga trains battle in the grand final.", gear: "Props: None needed! Pure high-energy crowd hype." },
+            { num: 17, title: "Table Tiki Totem Build-Off", meta: "8–10 Tables • 12 Mins", desc: "Each table receives an identical kit (2 rolls of tin foil, 10 paper cups, 3 leis, 1 pineapple, tape) and 8 minutes to construct the most impressive Tiki Totem Mascot and give it a name.", gear: "Props: 10x craft bags with foil, cups, tape & leis." },
+            { num: 18, title: "Golden Balloon Pop Prize Drop", meta: "50–80 Pax • 10 Mins", desc: "40 gold and coral balloons are released onto the dancefloor — 10 contain rolled-up drink voucher slips or instant prizes inside. Guests have 60 seconds to pop and claim!", gear: "Props: 40x balloons pre-stuffed with paper slips." },
+            { num: 19, title: "Social Club 'Most Likely To' Awards", meta: "50–80 Pax • 15 Mins", desc: "Fun lighthearted paper certificates and leis handed out for club superlatives ('Most Likely to Still Be at the Bar at Midnight', 'Best Dancefloor Mover', 'Tiki Cocktail Connoisseur').", gear: "Props: 8x printed novelty certificates & special gold leis." },
+            { num: 20, title: "Red Lei vs Green Lei True/False Stand-Off", meta: "All 80 Guests • 10 Mins", desc: "Rapid-fire True/False elimination! Hold your lei on your head for TRUE or around your neck for FALSE on wacky Christmas & NZ summer trivia. Last guest standing wins a 2x/$20 Cocktail Voucher!", gear: "Props: Guest leis (already worn from entry) + 15 True/False questions." }
+        ];
+
+        const BG_GAMES = [
+            { num: 1, title: "The 'Banned Winter Words' Lei Steal Game", meta: "All Night • All Guests", desc: "Every guest receives 1 floral lei on arrival. Three words are banned all night: 'SNOW', 'COLD', and 'WINTER'. If you hear someone say a banned word, you can claim their lei! The guest wearing the biggest stack of leis at 10:30 PM wins a prize.", gear: "Station: Announced at 6:30 PM doors; runs effortlessly all night." },
+            { num: 2, title: "Tiki Hook-and-Ring Toss Battle", meta: "1v1 Casual • Tiki Garden", desc: "Classic island surfer bar game where players swing a metal ring on a string onto a mounted hook, moving a wooden shot-marker one step closer to their opponent with every ringer.", gear: "Station: 2x Tabletop Hook-and-Ring sets on bar learners." },
+            { num: 3, title: "Tropical Cornhole (Bean Bag Toss)", meta: "2v2 Casual • Patio Corner", desc: "Two custom angled boards with 15 cm holes and tropical bean bags. Guests can play casual first-to-21 matches with a cocktail in one hand.", gear: "Station: 2x Cornhole boards + 8x bean bags." },
+            { num: 4, title: "Pineapple & Coconut Ring Quoits", meta: "1–4 Players • Lounge", desc: "Five weighted rope rings tossed over golden weighted pineapples and coconuts set at 10, 20, and 50 point distances.", gear: "Station: 5x rope quoits + 3x weighted gold pineapples." },
+            { num: 5, title: "Giant Timber Jenga with 'Tiki Dares'", meta: "2–8 Players • High Table", desc: "Oversized wooden block tower on a sturdy barrel table. Half the blocks have optional icebreaker prompts written on the underside (e.g., 'Toast the person to your left', 'Do a 5-second hula').", gear: "Station: 1x Giant Jenga set with permanent marker prompts." },
+            { num: 6, title: "Guess the Weight of the Giant Tiki Jar", meta: "Individual • Main Bar", desc: "A large glass jar filled with Scorched Almonds, Pineapple Lumps, and mini umbrellas sits at the Main Bar where guests buy 2x/$20 vouchers. Write your guess in grams (g) — closest wins the jar!", gear: "Station: 1x Jar (pre-weighed in grams), entry slips & box." },
+            { num: 7, title: "Live QR 'Tiki Snap Quest' Scavenger Hunt", meta: "Small Groups • Phone Game", desc: "Table tent cards list 6 fun photo missions (e.g., 'Group shot in the Tiki Garden', 'Best cocktail cheers', 'Photo with the loudest shirt'). Guests scan the QR code to upload to the live screen!", gear: "Station: Table QR cards + Slide 6 on the 1080p signage." },
+            { num: 8, title: "3-Meter Rum Barrel Putting Challenge", meta: "Individual • Side Wall", desc: "A 3-meter velvet golf putting mat leading into a novelty rum cup. Sink 3 putts in a row while the bartender watches to put your name into the 10:00 PM lucky draw.", gear: "Station: 1x 3m putting strip, 1x putter, 3x neon golf balls." },
+            { num: 9, title: "Coaster Art & 'Caption This' Board", meta: "Individual • Every Table", desc: "Blank cardboard Coasters Tavern drink coasters and metallic pens at tables. Guests draw their best Tiki Santa or funny caption and pin it to the 'Wall of Fame' corkboard.", gear: "Station: 100x blank coasters, gold/black markers, corkboard + pins." },
+            { num: 10, title: "Secret Agent 'Beach Missions' Cards", meta: "Individual • Optional", desc: "A bowl of 50 folded 'Secret Tiki Missions' at the bar (e.g., 'Convince someone that pineapples grow underground', 'Start a 3-person clinking glasses chain'). Complete your mission for a sticker badge!", gear: "Station: Bowl of 50 printed mission slips at bar." }
+        ];
+
+        function createDrinkSvgDataUri(c1, c2, num) {
+            const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260">
+                <defs>
+                    <linearGradient id="bg${num}" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stop-color="#0f172a"/>
+                        <stop offset="100%" stop-color="#020617"/>
+                    </linearGradient>
+                    <linearGradient id="liq${num}" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="${c1}"/>
+                        <stop offset="100%" stop-color="${c2}"/>
+                    </linearGradient>
+                </defs>
+                <rect width="400" height="260" fill="url(#bg${num})"/>
+                <circle cx="200" cy="130" r="95" fill="${c1}" opacity="0.14"/>
+                <path d="M160,55 L170,205 Q170,220 200,220 Q230,220 230,205 L240,55 Z" fill="rgba(255,255,255,0.12)" stroke="#fef08a" stroke-width="2.5"/>
+                <path d="M163,80 L170,203 Q170,216 200,216 Q230,216 230,203 L237,80 Z" fill="url(#liq${num})"/>
+                <line x1="205" y1="190" x2="235" y2="25" stroke="#38bdf8" stroke-width="4" stroke-linecap="round"/>
+                <circle cx="165" cy="55" r="18" fill="#f59e0b" stroke="#fef08a" stroke-width="2"/>
+                <path d="M215,52 Q235,30 245,48 Q230,60 215,52 Z" fill="#10b981"/>
+            </svg>`;
+            return "data:image/svg+xml;utf8," + encodeURIComponent(svg);
+        }
+
+        function renderAll() {
+            const cGrid = document.getElementById('cocktails-container');
+            cGrid.innerHTML = COCKTAILS.map(c => {
+                const localImg = `assets/cocktails/cocktail_${String(c.num).padStart(2, '0')}.png`;
+                return `
+                    <article class="cocktail-card">
+                        <div class="cocktail-img-wrap">
+                            <span class="cocktail-num-badge">#${String(c.num).padStart(2, '0')}</span>
+                            <span class="cocktail-style-badge">${c.style}</span>
+                            <img src="${localImg}" alt="${c.name}" loading="lazy">
+                        </div>
+                        <div class="cocktail-body">
+                            <div>
+                                <h3 class="cocktail-title">${c.name}</h3>
+                                <div class="cocktail-vibe">${c.vibe}</div>
+                            </div>
+                            <div class="ingredients-box">
+                                <h4>Metric Ingredients (ml / g)</h4>
+                                <ul class="ingredients-list">
+                                    ${c.ingredients.map(i => `<li>• ${i}</li>`).join('')}
+                                </ul>
+                            </div>
+                            <div class="method-box">
+                                <h4>Method</h4>
+                                <p>${c.method}</p>
+                            </div>
+                            <div class="garnish-tag">🌺 Garnish: ${c.garnish}</div>
+                        </div>
+                    </article>
+                `;
+            }).join('');
+
+            const gGrid = document.getElementById('group-activities-container');
+            gGrid.innerHTML = GROUP_ACTIVITIES.map(a => `
+                <article class="activity-card">
+                    <div class="activity-header">
+                        <h3>${a.num}. ${a.title}</h3>
+                        <span class="activity-meta">${a.meta}</span>
+                    </div>
+                    <p class="activity-desc">${a.desc}</p>
+                    <div class="activity-gear">🛠️ ${a.gear}</div>
+                </article>
+            `).join('');
+
+            const bgGrid = document.getElementById('bg-games-container');
+            bgGrid.innerHTML = BG_GAMES.map(g => `
+                <article class="activity-card" style="border-left-color: #38bdf8;">
+                    <div class="activity-header">
+                        <h3 style="color: #38bdf8;">${g.num}. ${g.title}</h3>
+                        <span class="activity-meta" style="background: rgba(56,189,248,0.15); color: #38bdf8;">${g.meta}</span>
+                    </div>
+                    <p class="activity-desc">${g.desc}</p>
+                    <div class="activity-gear">📍 ${g.gear}</div>
+                </article>
+            `).join('');
+        }
+
+        function filterSection(sec, btn) {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const cSec = document.getElementById('sec-cocktails');
+            const gSec = document.getElementById('sec-group-activities');
+            const bSec = document.getElementById('sec-bg-games');
+
+            cSec.style.display = (sec === 'all' || sec === 'cocktails') ? 'flex' : 'none';
+            gSec.style.display = (sec === 'all' || sec === 'group-activities') ? 'flex' : 'none';
+            bSec.style.display = (sec === 'all' || sec === 'bg-games') ? 'flex' : 'none';
+        }
+
+        window.addEventListener('DOMContentLoaded', renderAll);
+    </script>
+</body>
+</html>
