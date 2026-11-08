@@ -10,8 +10,14 @@
 - **Tech Stack**: HTML5, CSS3, Vanilla JavaScript, SVG Vector Graphics, BroadcastChannel API
 - **Entry Points**:
   - `index.html`: 1080p Digital Signage Slideshow with 7 auto-advancing slides and canvas particle FX
-  - `menu.html`: A4 Printout Cocktail Menu (Tiki Beach Theme, 4 easy show-stopping cocktails + mocktail)
-  - `admin.html` / `masteradmin.html`: Master Event & Signage Admin Panel
+  - `poster.html`: A4/A3 Scalable Event Advertising Poster
+  - `menu.html`: A4 Printout Cocktail Menu (Tiki Beach Theme, 2x for $20 Voucher pricing, 4 easy show-stopping cocktails + mocktail)
+  - `vouchers.html`: A4 10-up Business-Card-Sized (`90mm x 54mm`) 2x for $20 Cocktail Vouchers
+  - `cocktails-prep.html`: Bartender Single-Serve Recipes, 2L Bulk Pre-Batching Table & 5:00 PM Garnish Checklist
+  - `event-plan.html`: Master Event Run-Sheet & Interactive Checklists
+  - `cocktails-20.html`: Separate Print-Friendly A4 List of 20 Christmas & Summer Cocktails (Metric `ml`/`g`, images, methods)
+  - `activities-20.html`: Separate Print-Friendly A4 List of 20 Indoor Group Activities (50–80 pax) + 10 Background Venue Games
+  - `admin.html` / `masteradmin.html`: Master Event & Signage Admin Panel (Hub linking all printable documents)
   - `remote.html`: Mobile-Friendly Display Controller
 
 ## 2. Core Operational Conventions & Protocol Rules

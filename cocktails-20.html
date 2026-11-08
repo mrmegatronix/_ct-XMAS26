@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coasters Tavern Xmas 2026 - 20 Christmas & Summer Cocktails (Metric Print List)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        body {
+            background-color: #f1f5f9;
+            color: #0f172a;
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        /* Non-Printing Top Control Bar */
+        .controls-bar {
+            max-width: 210mm;
+            margin: 0 auto 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #0f172a;
+            color: #ffffff;
+            padding: 12px 22px;
+            border-radius: 12px;
+            border: 1px solid #334155;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .controls-title {
+            font-size: 1rem;
+            font-weight: 800;
+            color: #fbbf24;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            padding: 9px 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-print {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #000000;
+            border: none;
+            font-weight: 800;
+        }
+
+        /* Print-Friendly A4 Container */
+        .print-container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 12mm 14mm;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+            border-top: 6px solid #b45309;
+        }
+
+        .doc-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #0f172a;
+            padding-bottom: 10px;
+            margin-bottom: 14px;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .header-logo {
+            height: 50px;
+            width: auto;
+        }
+
+        .header-titles h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.45rem;
+            font-weight: 900;
+            color: #0f172a;
+            letter-spacing: 0.5px;
+        }
+
+        .header-titles p {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #b45309;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .header-meta {
+            text-align: right;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #334155;
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+            padding: 6px 12px;
+            border-radius: 6px;
+        }
+
+        /* 2-Column Print-Friendly Cocktail Cards Grid */
+        .cocktails-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .drink-item {
+            border: 1.5px solid #cbd5e1;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #ffffff;
+            display: flex;
+            flex-direction: column;
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+
+        .drink-top-row {
+            display: grid;
+            grid-template-columns: 115px 1fr;
+            gap: 10px;
+            padding: 8px 10px;
+            background: #f8fafc;
+            border-bottom: 1px solid #e2e8f0;
+            align-items: center;
+        }
+
+        .drink-thumb {
+            width: 115px;
+            height: 78px;
+            border-radius: 6px;
+            object-fit: cover;
+            border: 1px solid #cbd5e1;
+            display: block;
+        }
+
+        .drink-title-block {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .drink-num-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .drink-badge {
+            background: #0f172a;
+            color: #fbbf24;
+            font-size: 0.65rem;
+            font-weight: 800;
+            padding: 2px 7px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .shortlist-check {
+            font-size: 0.68rem;
+            font-weight: 700;
+            color: #475569;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+        }
+
+        .Drink-name {
+            font-size: 1rem;
+            font-weight: 800;
+            color: #0f172a;
+            line-height: 1.15;
+            margin-top: 2px;
+        }
+
+        .drink-vibe {
+            font-size: 0.72rem;
+            color: #b45309;
+            font-style: italic;
+            font-weight: 600;
+        }
+
+        .drink-details {
+            padding: 8px 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            font-size: 0.74rem;
+            line-height: 1.35;
+            flex: 1;
+        }
+
+        .ing-box {
+            background: #fffbeb;
+            border-left: 3px solid #f59e0b;
+            padding: 5px 8px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .ing-box strong.label, .method-box strong.label {
+            display: block;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: #78350f;
+            margin-bottom: 2px;
+        }
+
+        .ing-items {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2px 10px;
+            color: #1e293b;
+        }
+
+        .ing-items li strong {
+            color: #0f172a;
+        }
+
+        .method-box {
+            color: #334155;
+            flex: 1;
+        }
+
+        .garnish-line {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: #0f172a;
+            border-top: 1px dashed #e2e8f0;
+            padding-top: 4px;
+        }
+
+        .doc-footer {
+            margin-top: 16px;
+            border-top: 2px solid #0f172a;
+            padding-top: 8px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: #475569;
+        }
+
+        @media print {
+            body {
+                background: #ffffff !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .print-container {
+                box-shadow: none !important;
+                max-width: 100% !important;
+                width: 100% !important;
+                padding: 0 !important;
+                border-top: none !important;
+            }
+            .drink-item {
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+            }
+            @page {
+                size: A4 portrait;
+                margin: 10mm;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="controls-bar no-print">
+        <div class="controls-title">
+            <span>🍹</span>
+            <span>List 1 of 2: 20 Christmas & Summer Cocktails (Metric & Print-Friendly A4)</span>
+        </div>
+        <div class="btn-group">
+            <a href="admin.html" class="btn">⚙️ Admin Hub</a>
+            <a href="activities-20.html" class="btn">🎉 View List 2: 20+ Activities</a>
+            <button class="btn btn-print" onclick="window.print()">🖨️ Print 20 Cocktails List (Ctrl+P)</button>
+        </div>
+    </div>
+
+    <div class="print-container">
+        <header class="doc-header">
+            <div class="header-left">
+                <img src="assets/coasters-logo.png" alt="Coasters Tavern" class="header-logo">
+                <div class="header-titles">
+                    <h1>20 CHRISTMAS & SUMMER COCKTAILS (METRIC)</h1>
+                    <p>Coasters Tavern Social Club Xmas Party • Saturday 12 December 2026 • WWW.COASTERSTAVERN.CO.NZ</p>
+                </div>
+            </div>
+            <div class="header-meta">
+                METRIC MEASUREMENTS (ml / g)<br>
+                Tick ☐ to Shortlist for Event Menu
+            </div>
+        </header>
+
+        <main class="cocktails-list" id="cocktails-grid"></main>
+
+        <footer class="doc-footer">
+            <span>Coasters Tavern Social Club Planning Document — 20 Real Christmas & Summer Cocktails</span>
+            <span>Standard NZ Metric Jigger: 15 ml / 30 ml / 45 ml / 60 ml • www.coasterstavern.co.nz</span>
+        </footer>
+    </div>
+
+    <script>
+        const COCKTAILS = [
+            {
+                num: 1, name: "Classic 1944 Mai Tai", style: "Tiki Rum Legend",
+                vibe: "Rich almond, bright lime, and caramelised Jamaican rum float.",
+                ingredients: ["<strong>30 ml</strong> White Rum", "<strong>30 ml</strong> Dark Jamaican Rum (float)", "<strong>15 ml</strong> Orange Curaçao", "<strong>15 ml</strong> Orgeat Syrup", "<strong>25 ml</strong> Fresh Lime Juice"],
+                method: "Shake white rum, curaçao, orgeat, and lime juice with cubed ice for 10s. Strain into a glass packed with crushed ice. Float 30 ml dark rum over the top.",
+                garnish: "Fresh mint sprig ('pine tree'), lime shell & paper umbrella."
+            },
+            {
+                num: 2, name: "Blue Hawaiian Blizzard", style: "Tropical Lagoon",
+                vibe: "Electric aqua blue balanced with creamy coconut and pineapple.",
+                ingredients: ["<strong>45 ml</strong> White Rum (or Vodka)", "<strong>22.5 ml</strong> Blue Curaçao", "<strong>60 ml</strong> Pineapple Juice", "<strong>22.5 ml</strong> Cream of Coconut"],
+                method: "Rim hurricane glass with honey and 15 g shredded coconut. Shake all liquid ingredients hard with cubed ice for 12s and strain over crushed ice.",
+                garnish: "Toasted coconut snow rim, pineapple wedge & cherry."
+            },
+            {
+                num: 3, name: "Puerto Rican Piña Colada", style: "Creamy Island Classic",
+                vibe: "Velvety coconut snowdrift with festive spiced nutmeg.",
+                ingredients: ["<strong>60 ml</strong> White or Spiced Rum", "<strong>45 ml</strong> Cream of Coconut", "<strong>90 ml</strong> Pineapple Juice", "<strong>15 ml</strong> Fresh Lime Juice"],
+                method: "Shake vigorously with ice (or blend with 150 g crushed ice until smooth). Pour into a chilled hurricane glass or coconut cup.",
+                garnish: "Freshly grated nutmeg dusting, pineapple leaf & cherry."
+            },
+            {
+                num: 4, name: "Santa's Tequila Sunrise", style: "Layered Highball",
+                vibe: "Golden summer sunshine melting into a festive crimson base.",
+                ingredients: ["<strong>45 ml</strong> Blanco Tequila (or Rum)", "<strong>90 ml</strong> Fresh Orange / POG Juice", "<strong>15 ml</strong> Pomegranate Grenadine"],
+                method: "Fill highball glass with ice. Pour in tequila and juice; stir. Slowly pour 15 ml grenadine down the inside edge so it sinks into a sunset ombre.",
+                garnish: "Dehydrated blood orange wheel, hibiscus flower & bamboo straw."
+            },
+            {
+                num: 5, name: "Cranberry & Mint Mojito", style: "Refreshing Highball",
+                vibe: "Crisp garden mint, ruby cranberries, and sparkling lime.",
+                ingredients: ["<strong>45 ml</strong> White Rum", "<strong>25 ml</strong> Fresh Lime Juice", "<strong>15 ml</strong> Sugar Syrup", "<strong>30 ml</strong> Cranberry Juice", "<strong>8 leaves</strong> Mint + <strong>60 ml</strong> Soda"],
+                method: "Gently muddle mint, lime juice, and syrup in highball glass. Add crushed ice, rum, and cranberry juice. Churn and top with 60 ml soda water.",
+                garnish: "Fresh cranberries on a pick & slapped mint bouquet."
+            },
+            {
+                num: 6, name: "Aperol Sunset Spritz", style: "Summer Aperitivo",
+                vibe: "Effervescent bittersweet orange made for warm December patios.",
+                ingredients: ["<strong>60 ml</strong> Aperol Aperitivo", "<strong>90 ml</strong> Chilled Prosecco DOC", "<strong>30 ml</strong> Sparkling Soda Water"],
+                method: "Fill a large wine glass generously with ice. Pour in chilled Prosecco first, then Aperol, and finish with 30 ml soda water. Stir once gently.",
+                garnish: "Fresh orange half-wheel & festive rosemary sprig."
+            },
+            {
+                num: 7, name: "Pomegranate Margarita", style: "Festive Agave Sour",
+                vibe: "Jewel-toned ruby margarita with a flaky sea salt rim.",
+                ingredients: ["<strong>45 ml</strong> Blanco Tequila", "<strong>22.5 ml</strong> Cointreau", "<strong>30 ml</strong> Pomegranate Juice", "<strong>22.5 ml</strong> Fresh Lime Juice", "<strong>7.5 ml</strong> Agave Nectar"],
+                method: "Salt half the rim of a rocks glass. Shake all liquid ingredients with ice for 10s and strain over fresh cubed ice.",
+                garnish: "Lime wheel & sprinkle of ruby pomegranate arils."
+            },
+            {
+                num: 8, name: "The Jungle Bird", style: "1970s Campari Tiki",
+                vibe: "Exotic dark rum, frothy pineapple, and a ruby Campari bite.",
+                ingredients: ["<strong>45 ml</strong> Dark Jamaican Rum", "<strong>22.5 ml</strong> Campari", "<strong>45 ml</strong> Pineapple Juice", "<strong>15 ml</strong> Fresh Lime Juice", "<strong>15 ml</strong> Demerara Syrup"],
+                method: "Combine all five ingredients in a shaker with cubed ice. Shake hard for 12s to build a rich pineapple froth; strain over fresh ice.",
+                garnish: "Two pineapple fronds & cherry arranged like a bird."
+            },
+            {
+                num: 9, name: "Strawberry Santa Daiquiri", style: "Frozen Summer Slush",
+                vibe: "Sun-ripened December strawberries blended with crisp white rum.",
+                ingredients: ["<strong>60 ml</strong> White Rum", "<strong>25 ml</strong> Fresh Lime Juice", "<strong>20 ml</strong> Simple Syrup", "<strong>100 g</strong> Fresh Strawberries", "<strong>150 g</strong> Crushed Ice"],
+                method: "Place rum, lime juice, syrup, hulled strawberries, and 150 g crushed ice into a blender. Blend 20s until smooth and pour into coupe or hurricane glass.",
+                garnish: "Fresh strawberry notched on the rim."
+            },
+            {
+                num: 10, name: "Ruby Grapefruit Paloma", style: "Zesty Agave Highball",
+                vibe: "Zesty pink grapefruit fizz with a salted citrus edge.",
+                ingredients: ["<strong>50 ml</strong> Blanco Tequila", "<strong>15 ml</strong> Fresh Lime Juice", "<strong>45 ml</strong> Ruby Grapefruit Juice", "<strong>15 ml</strong> Agave Syrup", "<strong>60 ml</strong> Sparkling Soda"],
+                method: "Rim highball glass with pink salt. Shake tequila, lime, grapefruit juice, and agave with ice, strain over ice, and top with 60 ml soda.",
+                garnish: "Ruby grapefruit wedge & fresh thyme sprig."
+            },
+            {
+                num: 11, name: "Salted Caramel Espresso Martini", style: "Late-Night Pick-Me-Up",
+                vibe: "Velvety crema, rich espresso, and festive salted caramel.",
+                ingredients: ["<strong>45 ml</strong> Premium Vodka", "<strong>30 ml</strong> Coffee Liqueur", "<strong>30 ml</strong> Chilled Espresso", "<strong>10 ml</strong> Salted Caramel Syrup"],
+                method: "Add all ingredients to shaker with hard cubed ice. Shake hard for 15s to create thick crema; double-strain into a chilled coupe.",
+                garnish: "Three coffee beans & light dusting of cinnamon."
+            },
+            {
+                num: 12, name: "Hugo Elderflower Spritz", style: "Floral Mint Fizz",
+                vibe: "Delicate elderflower blossom, crisp mint, and sparkling bubbles.",
+                ingredients: ["<strong>45 ml</strong> St-Germain Elderflower", "<strong>90 ml</strong> Chilled Prosecco", "<strong>30 ml</strong> Sparkling Soda", "<strong>10 ml</strong> Lime Juice", "<strong>6 leaves</strong> Fresh Mint"],
+                method: "Clap mint leaves and drop into ice-filled large wine glass. Add elderflower liqueur, lime juice, Prosecco, and soda. Stir gently.",
+                garnish: "Thin lime wheels & fresh mint crown."
+            },
+            {
+                num: 13, name: "Pusser's Painkiller", style: "BVI Navy Rum Tiki",
+                vibe: "Rich dark rum cushioned by tropical citrus and coconut cream.",
+                ingredients: ["<strong>60 ml</strong> Dark Navy Rum", "<strong>120 ml</strong> Pineapple Juice", "<strong>30 ml</strong> Fresh Orange Juice", "<strong>30 ml</strong> Cream of Coconut"],
+                method: "Shake all four ingredients vigorously with ice until emulsified. Pour unstrained into a tiki mug or hurricane glass over crushed ice.",
+                garnish: "Generous grating of fresh nutmeg & orange wheel."
+            },
+            {
+                num: 14, name: "Summer Berry Bramble", style: "Blackberry Gin Jewel",
+                vibe: "Crisp botanical gin and lemon marbled with blackberry liqueur.",
+                ingredients: ["<strong>50 ml</strong> London Dry Gin", "<strong>25 ml</strong> Fresh Lemon Juice", "<strong>12.5 ml</strong> Sugar Syrup", "<strong>15 ml</strong> Crème de Mûre"],
+                method: "Shake gin, lemon juice, and syrup with ice. Strain into rocks glass packed with crushed ice. Drizzle 15 ml Crème de Mûre over top.",
+                garnish: "Two fresh blackberries & lemon slice."
+            },
+            {
+                num: 15, name: "Passionfruit Martini", style: "Vanilla & Prosecco Side",
+                vibe: "Tangy passionfruit and fragrant vanilla with a bubbly chaser.",
+                ingredients: ["<strong>45 ml</strong> Vanilla Vodka", "<strong>15 ml</strong> Passoa Liqueur", "<strong>30 ml</strong> Passionfruit Puree", "<strong>15 ml</strong> Lime + <strong>10 ml</strong> Vanilla Syrup", "<strong>45 ml</strong> Prosecco Side Shot"],
+                method: "Shake vodka, Passoa, puree, lime, and syrup hard with ice. Double-strain into coupe and serve with a 45 ml shot of Prosecco alongside.",
+                garnish: "Half a fresh passionfruit floated on the foam."
+            },
+            {
+                num: 16, name: "Yule Cranberry Moscow Mule", style: "Copper Mug Buck",
+                vibe: "Ice-cold tart cranberry, zesty lime, and spicy ginger snap.",
+                ingredients: ["<strong>45 ml</strong> Vodka", "<strong>15 ml</strong> Fresh Lime Juice", "<strong>30 ml</strong> Cranberry Juice", "<strong>90 ml</strong> Fiery Ginger Beer"],
+                method: "Fill copper mug or highball glass with cubed ice. Add vodka, lime juice, and cranberry juice. Top with 90 ml ginger beer and stir gently.",
+                garnish: "Sugared rosemary sprig & candied ginger."
+            },
+            {
+                num: 17, name: "Bermuda Dark ’n’ Stormy", style: "Spiced Rum Highball",
+                vibe: "Storm-cloud float of rich dark rum over spicy ginger beer.",
+                ingredients: ["<strong>60 ml</strong> Dark Rum (float)", "<strong>15 ml</strong> Fresh Lime Juice", "<strong>100 ml</strong> Fiery Ginger Beer", "<strong>2 dashes</strong> Angostura Bitters"],
+                method: "Fill tall glass with ice. Pour in lime juice and ginger beer first, then slowly float 60 ml dark rum and bitters on top.",
+                garnish: "Fresh lime wedge on the rim."
+            },
+            {
+                num: 18, name: "Clover Club Raspberry Sour", style: "Velvet Gin Foam Sour",
+                vibe: "Festive crimson velvet topped with a pillowy white foam cap.",
+                ingredients: ["<strong>45 ml</strong> Dry Gin + <strong>15 ml</strong> Dry Vermouth", "<strong>22.5 ml</strong> Fresh Lemon Juice", "<strong>15 ml</strong> Raspberry Syrup", "<strong>15 ml</strong> Aquafaba / Egg White"],
+                method: "Dry-shake all ingredients without ice for 10s. Add cubed ice, shake hard for 12s, and fine-strain into a chilled coupe.",
+                garnish: "Three fresh raspberries on a cocktail pick."
+            },
+            {
+                num: 19, name: "Christmas Gold French 75", style: "Champagne Celebration",
+                vibe: "Botanical citrus gin crowned with crisp celebratory bubbles.",
+                ingredients: ["<strong>30 ml</strong> London Dry Gin", "<strong>15 ml</strong> Fresh Lemon Juice", "<strong>15 ml</strong> Sugar Syrup", "<strong>90 ml</strong> Chilled Brut Sparkling"],
+                method: "Shake gin, lemon juice, and simple syrup with ice. Strain into a Champagne flute and slowly top with 90 ml chilled Brut sparkling.",
+                garnish: "Long spiral lemon twist."
+            },
+            {
+                num: 20, name: "Don's 1934 Tiki Zombie", style: "3-Rum Powerhouse",
+                vibe: "Three-rum tropical classic with apricot, lime, and spice.",
+                ingredients: ["<strong>30 ml</strong> White + <strong>30 ml</strong> Gold + <strong>30 ml</strong> Dark Rum", "<strong>15 ml</strong> Apricot Brandy", "<strong>22.5 ml</strong> Lime + <strong>30 ml</strong> Pineapple", "<strong>15 ml</strong> Grenadine + <strong>1 dash</strong> Bitters"],
+                method: "Whip-shake all ingredients with 100 g crushed ice for 8s and pour unstrained into a tall ceramic tiki mug.",
+                garnish: "Mint crown, cherry & spent lime shell."
+            }
+        ];
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const grid = document.getElementById('cocktails-grid');
+            grid.innerHTML = COCKTAILS.map(c => `
+                <article class="drink-item">
+                    <div class="drink-top-row">
+                        <img src="assets/cocktails/cocktail_${String(c.num).padStart(2, '0')}.png" alt="${c.name}" class="drink-thumb">
+                        <div class="drink-title-block">
+                            <div class="drink-num-row">
+                                <span class="drink-badge">#${String(c.num).padStart(2, '0')} • ${c.style}</span>
+                                <label class="shortlist-check"><input type="checkbox"> Shortlist</label>
+                            </div>
+                            <h2 class="Drink-name">${c.name}</h2>
+                            <div class="drink-vibe">${c.vibe}</div>
+                        </div>
+                    </div>
+                    <div class="drink-details">
+                        <div class="ing-box">
+                            <strong class="label">Metric Ingredients (ml / g)</strong>
+                            <ul class="ing-items">
+                                ${c.ingredients.map(i => `<li>• ${i}</li>`).join('')}
+                            </ul>
+                        </div>
+                        <div class="method-box">
+                            <strong class="label">Method</strong>
+                            <p>${c.method}</p>
+                        </div>
+                        <div class="garnish-line">🌺 Garnish: ${c.garnish}</div>
+                    </div>
+                </article>
+            `).join('');
+        });
+    </script>
+</body>
+</html>

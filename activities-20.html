@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coasters Tavern Xmas 2026 - 20 Indoor Group Activities & 10 Venue Games (Print List)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        body {
+            background-color: #f1f5f9;
+            color: #0f172a;
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        /* Non-Printing Top Control Bar */
+        .controls-bar {
+            max-width: 210mm;
+            margin: 0 auto 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #0f172a;
+            color: #ffffff;
+            padding: 12px 22px;
+            border-radius: 12px;
+            border: 1px solid #334155;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .controls-title {
+            font-size: 1rem;
+            font-weight: 800;
+            color: #34d399;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            padding: 9px 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-print {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: #000000;
+            border: none;
+            font-weight: 800;
+        }
+
+        /* Print-Friendly A4 Container */
+        .print-container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 12mm 14mm;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+            border-top: 6px solid #059669;
+        }
+
+        .doc-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #0f172a;
+            padding-bottom: 10px;
+            margin-bottom: 14px;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .header-logo {
+            height: 50px;
+            width: auto;
+        }
+
+        .header-titles h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: #0f172a;
+            letter-spacing: 0.5px;
+        }
+
+        .header-titles p {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #059669;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .header-meta {
+            text-align: right;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #334155;
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+            padding: 6px 12px;
+            border-radius: 6px;
+        }
+
+        .section-heading {
+            background: #0f172a;
+            color: #ffffff;
+            font-size: 0.85rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 6px 12px;
+            border-radius: 6px;
+            margin: 14px 0 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .section-heading span.sub {
+            color: #fbbf24;
+            font-size: 0.72rem;
+        }
+
+        /* 2-Column Print-Friendly Activities Grid */
+        .activities-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .act-card {
+            border: 1.5px solid #cbd5e1;
+            border-left: 4px solid #059669;
+            border-radius: 8px;
+            padding: 8px 10px;
+            background: #ffffff;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+
+        .act-card.bg-game {
+            border-left-color: #0284c7;
+        }
+
+        .act-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 6px;
+            border-bottom: 1px solid #f1f5f9;
+            padding-bottom: 3px;
+        }
+
+        .act-title {
+            font-size: 0.9rem;
+            font-weight: 800;
+            color: #0f172a;
+        }
+
+        .act-right-meta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
+        .act-badge {
+            background: #ecfdf5;
+            color: #047857;
+            border: 1px solid #6ee7b7;
+            font-size: 0.65rem;
+            font-weight: 800;
+            padding: 1px 6px;
+            border-radius: 4px;
+        }
+
+        .act-card.bg-game .act-badge {
+            background: #f0f9ff;
+            color: #0369a1;
+            border-color: #7dd3fc;
+        }
+
+        .select-label {
+            font-size: 0.68rem;
+            font-weight: 700;
+            color: #475569;
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            cursor: pointer;
+        }
+
+        .act-desc {
+            font-size: 0.74rem;
+            color: #334155;
+            line-height: 1.35;
+            flex: 1;
+        }
+
+        .act-gear {
+            font-size: 0.68rem;
+            font-weight: 700;
+            color: #78350f;
+            background: #fffbeb;
+            padding: 3px 6px;
+            border-radius: 4px;
+        }
+
+        .doc-footer {
+            margin-top: 16px;
+            border-top: 2px solid #0f172a;
+            padding-top: 8px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: #475569;
+        }
+
+        @media print {
+            body {
+                background: #ffffff !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .print-container {
+                box-shadow: none !important;
+                max-width: 100% !important;
+                width: 100% !important;
+                padding: 0 !important;
+                border-top: none !important;
+            }
+            .act-card {
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+            }
+            @page {
+                size: A4 portrait;
+                margin: 10mm;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="controls-bar no-print">
+        <div class="controls-title">
+            <span>🎉</span>
+            <span>List 2 of 2: 20 Indoor Group Activities (50–80 Pax) & 10 Background Games (Print-Friendly A4)</span>
+        </div>
+        <div class="btn-group">
+            <a href="admin.html" class="btn">⚙️ Admin Hub</a>
+            <a href="cocktails-20.html" class="btn">🍹 View List 1: 20 Cocktails</a>
+            <button class="btn btn-print" onclick="window.print()">🖨️ Print Activities List (Ctrl+P)</button>
+        </div>
+    </div>
+
+    <div class="print-container">
+        <header class="doc-header">
+            <div class="header-left">
+                <img src="assets/coasters-logo.png" alt="Coasters Tavern" class="header-logo">
+                <div class="header-titles">
+                    <h1>20 INDOOR GROUP ACTIVITIES & 10 VENUE GAMES</h1>
+                    <p>Coasters Tavern Social Club Xmas Party • Saturday 12 December 2026 • WWW.COASTERSTAVERN.CO.NZ</p>
+                </div>
+            </div>
+            <div class="header-meta">
+                DESIGNED FOR 50–80 GUESTS<br>
+                Tick ☐ to Add to Night Schedule
+            </div>
+        </header>
+
+        <!-- Part A: 20 Indoor Group Activities -->
+        <div class="section-heading" style="margin-top: 0;">
+            <span>PART A: 20 INDOOR GROUP ACTIVITIES (SUITABLE FOR 50–80 PEOPLE)</span>
+            <span class="sub">WHOLE-ROOM & TABLE-VS-TABLE GAMES</span>
+        </div>
+        <div class="activities-grid" id="group-grid"></div>
+
+        <!-- Part B: 10 Background & Casual Venue Games -->
+        <div class="section-heading">
+            <span>PART B: 10 BACKGROUND & CASUAL VENUE GAMES (SMALL GROUPS / INDIVIDUALS)</span>
+            <span class="sub">SELF-PACED STATIONS ALL NIGHT</span>
+        </div>
+        <div class="activities-grid" id="bg-grid"></div>
+
+        <footer class="doc-footer">
+            <span>Coasters Tavern Social Club Planning Document — 20 Indoor Group Activities & 10 Background Games</span>
+            <span>Event Date: Saturday, 12 December 2026 • www.coasterstavern.co.nz</span>
+        </footer>
+    </div>
+
+    <script>
+        const GROUP_ACTIVITIES = [
+            { num: 1, title: "Giant Multi-Layer Tiki Pass the Parcel", meta: "50–80 Pax • 15m", desc: "A colossal parcel wrapped in 15+ tropical layers passed rapidly table to table while the DJ blasts island tracks. Every stop unwraps a $10 voucher or funny 10s dare before the centre jackpot!", gear: "Props: 15-layer wrapped parcel, bar vouchers, DJ music cues." },
+            { num: 2, title: "Tiki & Summer Hits Music Bingo", meta: "All Seated • 25m", desc: "Every guest gets a 5x5 Music Bingo card featuring Kiwi summer anthems and Christmas bangers. DJ plays 25-second hooks; guests mark songs for 1-Line, 2-Line, and Full House prizes.", gear: "Props: 80x Music Bingo cards, pens, 45-song DJ playlist." },
+            { num: 3, title: "Flaming Bamboo Limbo Championship", meta: "Dancefloor • 15m", desc: "Two volunteers hold a 2 m bamboo pole decorated with LED silk flames. Contestants limbo under to tropical drums as the bar drops round by round until 1 champion remains.", gear: "Props: 2 m bamboo pole, LED/tissue flames, $100 Bar Tab prize." },
+            { num: 4, title: "Loudest Hawaiian Shirt Runway Parade", meta: "Centre Aisle • 15m", desc: "Top contenders from each table strut down the centre aisle to surf-rock music. Finalists are judged by crowd applause volume using a decibel-meter app projected on screen.", gear: "Props: Golden Pineapple Trophy, $150 Bar Tab, decibel app." },
+            { num: 5, title: "Whole-Room 'Heads or Tails' Coin Flip", meta: "80 Standing • 10m", desc: "All 80 guests stand and place hands on HEAD (Heads) or HIPS (Tails). MC flips a giant coin on stage — wrong guessers sit down each flip until 1 winner remains standing.", gear: "Props: Giant novelty coin, microphone, prize hamper." },
+            { num: 6, title: "Fast-Fire Table Blitz Trivia (3 Rounds)", meta: "8–10 Tables • 20m", desc: "Three rapid 8-question rounds (2026 Club Gossip, Tropical Food & Drink, Xmas Movie Quotes). Tables swap answer sheets with neighbours for instant marking.", gear: "Props: 10x Table answer sheets, pens, MC question script." },
+            { num: 7, title: "The Price Is Right — Luxury Hamper Bid", meta: "Table Teams • 10m", desc: "A wrapped Tiki Hamper's 12 items are read aloud. Each table writes one secret bid in NZD ($). Closest bid without going over wins the hamper for their table.", gear: "Props: Luxury hamper with exact retail receipt sealed in envelope." },
+            { num: 8, title: "Tropical Icebreaker Human Bingo", meta: "Arrival Mingle • 15m", desc: "Guests receive a 16-square prompt card ('Has been to Fiji', 'Wearing jandals', 'Holding a Mai Tai') and mingle to get different guest signatures.", gear: "Props: 80x Human Bingo cards & pens at greeting table." },
+            { num: 9, title: "Minute-to-Win-It Table Champions", meta: "8 Table Reps • 15m", desc: "Each table nominates 1 champion for three 60-second stage challenges: 'Cookie Face' (forehead to mouth), 'Cup Stack', and 'Ping-Pong Tiki Shake'.", gear: "Props: Biscuits, 36x plastic cups, tissue boxes + ping-pong balls." },
+            { num: 10, title: "Tiki 'Deal or No Deal' Mystery Boxes", meta: "Stage Game • 15m", desc: "5 numbered bamboo boxes on stage ($100 Tab, 2x/$20 Vouchers, Pineapple, Wooden Spoon, Mystery Envelope). Drawn ticket holder negotiates trades with the MC.", gear: "Props: 5x numbered boxes with sealed prizes inside." },
+            { num: 11, title: "Air Guitar & Lip Sync Island Battle", meta: "6–8 Reps • 15m", desc: "Brave volunteers grab inflatable guitars and leis for a 45-second lip-sync performance to summer rock or Christmas hits. Crowd roar crowns the winner.", gear: "Props: 4x Inflatable guitars/saxophones, oversized sunglasses." },
+            { num: 12, title: "Left-Right Table Parcel Story", meta: "Every Table • 10m", desc: "Every table starts with 1 wrapped gift. MC reads a fast story about 'Santa Lost in Waikiki' — every 'LEFT' or 'RIGHT' passes the gift around the table!", gear: "Props: 1x wrapped gift per table (8–10 total), Left-Right script." },
+            { num: 13, title: "Finish the Lyric — DJ Cut-Off", meta: "Table Teams • 15m", desc: "DJ plays a famous chorus and suddenly cuts the fader. First table to raise their paddle and sing the exact next line in unison scores 10 points.", gear: "Props: Table number paddles, 15x edited song tracks." },
+            { num: 14, title: "Blindfolded Tropical Taste Test", meta: "5 Contestants • 12m", desc: "Five blindfolded volunteers sit on stage and taste 4 mystery tropical ingredients (passionfruit pulp, coconut cream, pickled ginger, lime curd).", gear: "Props: 5x blindfolds, tasting spoons, 4 mystery ingredients." },
+            { num: 15, title: "Paper Plane 'Land on the Island' Toss", meta: "All 80 Guests • 10m", desc: "Every guest folds a named neon A4 paper plane. On the count of 3, all 80 planes launch toward a hula-hoop 'island' in the middle of the dancefloor.", gear: "Props: 80x sheets neon A4 paper, 1x hula hoop + palm target." },
+            { num: 16, title: "Great Coasters Rock-Paper-Scissors Train", meta: "All 80 Guests • 10m", desc: "Everyone pairs up; loser joins behind the winner as their cheering hype-squad until two 40-person conga trains battle in the grand final.", gear: "Props: None needed — zero-setup crowd energiser." },
+            { num: 17, title: "Table Tiki Totem Build-Off", meta: "8–10 Tables • 12m", desc: "Tables get 8 minutes with tin foil, paper cups, leis, and tape to construct the tallest freestanding Tiki Totem Mascot and name it.", gear: "Props: 10x craft kits (foil rolls, cups, tape, leis)." },
+            { num: 18, title: "Golden Balloon Pop Prize Drop", meta: "Dancefloor • 10m", desc: "40 gold and coral balloons released onto the dancefloor — 10 contain rolled-up drink voucher slips inside. 60 seconds to pop and claim!", gear: "Props: 40x balloons pre-stuffed with voucher slips." },
+            { num: 19, title: "Social Club 'Most Likely To' Awards", meta: "Whole Room • 15m", desc: "Lighthearted novelty certificates and gold leis presented for club superlatives ('Best Dancefloor Mover', 'Tiki Cocktail Connoisseur').", gear: "Props: 8x printed novelty certificates & gold leis." },
+            { num: 20, title: "Red Lei vs Green Lei True/False Stand-Off", meta: "80 Standing • 10m", desc: "Hold lei on head for TRUE or around neck for FALSE on wacky NZ summer & Christmas trivia. Last person standing wins a 2x/$20 Cocktail Voucher!", gear: "Props: Guest leis (worn from entry) + 15 True/False questions." }
+        ];
+
+        const BG_GAMES = [
+            { num: 1, title: "The 'Banned Winter Words' Lei Steal Game", meta: "All Night • All Guests", desc: "Every guest gets 1 lei on arrival. Saying 'SNOW', 'COLD', or 'WINTER' lets whoever heard you steal your lei! Biggest stack of leis at 10:30 PM wins.", gear: "Station: Announced at 6:30 PM doors; runs all night." },
+            { num: 2, title: "Tiki Hook-and-Ring Toss Battle", meta: "1v1 Casual • Bar", desc: "Surfer bar game where players swing a ring on a string onto a hook, moving a wooden shot-marker one step closer to their opponent with every ringer.", gear: "Station: 2x Tabletop Hook-and-Ring sets on bar learners." },
+            { num: 3, title: "Tropical Cornhole (Bean Bag Toss)", meta: "2v2 Casual • Patio", desc: "Two custom angled boards with 15 cm holes and tropical bean bags for casual first-to-21 matches with a cocktail in hand.", gear: "Station: 2x Cornhole boards + 8x bean bags." },
+            { num: 4, title: "Pineapple & Coconut Rope Quoits", meta: "1–4 Players • Lounge", desc: "Five weighted rope rings tossed over golden weighted pineapples and coconuts set at 10, 20, and 50 point distances.", gear: "Station: 5x rope quoits + 3x weighted gold pineapples." },
+            { num: 5, title: "Giant Timber Jenga with 'Tiki Dares'", meta: "2–8 Players • Table", desc: "Oversized wooden block tower on a barrel table. Half the blocks have optional icebreaker prompts written underneath.", gear: "Station: 1x Giant Jenga set with marker prompts." },
+            { num: 6, title: "Guess the Weight of the Giant Tiki Jar", meta: "Individual • Main Bar", desc: "Glass jar filled with Scorched Almonds, Pineapple Lumps, and mini umbrellas next to the 2x/$20 voucher till. Closest guess in grams (g) wins!", gear: "Station: 1x Pre-weighed jar (in g), entry slips & box." },
+            { num: 7, title: "Live QR 'Tiki Snap Quest' Scavenger Hunt", meta: "Small Groups • Phone", desc: "Table tent cards list 6 fun photo missions ('Group shot in Tiki Garden', 'Best cocktail cheers'). Upload via QR code to the live wall.", gear: "Station: Table QR cards + Slide 6 on 1080p signage." },
+            { num: 8, title: "3-Meter Rum Barrel Putting Challenge", meta: "Individual • Side Wall", desc: "Velvet golf putting mat leading into a novelty rum cup. Sink 3 putts in a row to enter the 10:00 PM bar voucher draw.", gear: "Station: 3 m putting mat, putter & 3x neon golf balls." },
+            { num: 9, title: "Coaster Art & 'Caption This' Corkboard", meta: "Individual • Tables", desc: "Blank Coasters Tavern drink coasters and gold pens at tables. Draw your best Tiki Santa and pin it to the corkboard to win.", gear: "Station: 100x blank coasters, markers, corkboard + pins." },
+            { num: 10, title: "Secret Agent 'Beach Mission' Cards", meta: "Individual • Bar Bowl", desc: "Bowl of 50 folded 'Secret Tiki Missions' at the bar ('Start a 3-person clinking glasses chain'). Complete mission for a sticker badge!", gear: "Station: Bowl of 50 printed mission slips at bar." }
+        ];
+
+        window.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('group-grid').innerHTML = GROUP_ACTIVITIES.map(a => `
+                <article class="act-card">
+                    <div class="act-top">
+                        <h3 class="act-title">${a.num}. ${a.title}</h3>
+                        <div class="act-right-meta">
+                            <span class="act-badge">${a.meta}</span>
+                            <label class="select-label"><input type="checkbox"> Select</label>
+                        </div>
+                    </div>
+                    <p class="act-desc">${a.desc}</p>
+                    <div class="act-gear">🛠️ ${a.gear}</div>
+                </article>
+            `).join('');
+
+            document.getElementById('bg-grid').innerHTML = BG_GAMES.map(g => `
+                <article class="act-card bg-game">
+                    <div class="act-top">
+                        <h3 class="act-title">${g.num}. ${g.title}</h3>
+                        <div class="act-right-meta">
+                            <span class="act-badge">${g.meta}</span>
+                            <label class="select-label"><input type="checkbox"> Select</label>
+                        </div>
+                    </div>
+                    <p class="act-desc">${g.desc}</p>
+                    <div class="act-gear">📍 ${g.gear}</div>
+                </article>
+            `).join('');
+        });
+    </script>
+</body>
+</html>
