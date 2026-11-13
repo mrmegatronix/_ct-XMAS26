@@ -11,13 +11,15 @@
     <style>
         :root {
             --sand-gold: #f59e0b;
+            --gold-bright: #fef08a;
             --coral-red: #f43f5e;
             --tiki-teal: #06b6d4;
             --palm-green: #10b981;
             --bamboo-wood: #78350f;
-            --tiki-dark: #0f172a;
-            --tiki-card-bg: rgba(11, 20, 38, 0.78);
-            --neon-glow: 0 0 25px rgba(245, 158, 11, 0.45);
+            --tiki-dark: #070d1b;
+            --tiki-card-bg: rgba(10, 18, 36, 0.78);
+            --glass-border: rgba(245, 158, 11, 0.38);
+            --neon-glow: 0 0 28px rgba(245, 158, 11, 0.45);
         }
 
         * {
@@ -31,7 +33,7 @@
             width: 100%;
             height: 100%;
             overflow: hidden;
-            background-color: #030712;
+            background-color: #02050d;
             color: #ffffff;
             font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
             display: flex;
@@ -39,7 +41,7 @@
             justify-content: center;
         }
 
-        /* 1080p Signage Canvas Frame */
+        /* 1080p Signage Canvas Frame - Multi-Layered Tropical Night Sky */
         #signage-viewport {
             width: 1920px;
             height: 1080px;
@@ -48,25 +50,59 @@
             aspect-ratio: 16 / 9;
             position: relative;
             overflow: hidden;
-            background: radial-gradient(circle at 50% 20%, #1e293b 0%, #090d16 65%, #020617 100%);
+            background:
+                radial-gradient(ellipse at 50% 0%, rgba(245, 158, 11, 0.18) 0%, transparent 55%),
+                radial-gradient(ellipse at 85% 95%, rgba(244, 63, 94, 0.16) 0%, transparent 50%),
+                radial-gradient(ellipse at 15% 90%, rgba(6, 182, 212, 0.18) 0%, transparent 50%),
+                linear-gradient(180deg, #0c172e 0%, #070d1b 55%, #020617 100%);
             display: flex;
             flex-direction: column;
-            border: 4px solid #b45309;
-            box-shadow: 0 0 60px rgba(0, 0, 0, 0.9);
+            border: 3px solid rgba(212, 175, 55, 0.55);
+            box-shadow: 0 0 80px rgba(0, 0, 0, 0.95);
         }
 
-        /* Decorative Teakwood & Gold Accent Frame */
+        /* Subtle Tropical Palm Silhouettes */
+        .palm-silhouette {
+            position: absolute;
+            top: 90px;
+            width: 340px;
+            height: 340px;
+            pointer-events: none;
+            opacity: 0.12;
+            z-index: 1;
+            filter: drop-shadow(0 0 20px rgba(6, 182, 212, 0.3));
+        }
+
+        .palm-left {
+            left: -30px;
+            transform: rotate(12deg);
+        }
+
+        .palm-right {
+            right: -30px;
+            transform: scaleX(-1) rotate(12deg);
+        }
+
+        /* Decorative Double-Bezel Gold & Teak Frame */
         .bamboo-frame {
             position: absolute;
             inset: 0;
-            border: 8px solid transparent;
-            border-image: linear-gradient(135deg, #d4af37 0%, #78350f 30%, #b45309 50%, #78350f 70%, #d4af37 100%) 10;
-            box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.8);
+            border: 6px solid transparent;
+            border-image: linear-gradient(135deg, #fde047 0%, #92400e 25%, #d97706 50%, #78350f 75%, #fde047 100%) 10;
+            box-shadow: inset 0 0 45px rgba(0, 0, 0, 0.85);
             pointer-events: none;
             z-index: 50;
         }
 
-        /* Ambient Background Canvas for Fireflies & Tiki Sparkles */
+        .bamboo-frame::after {
+            content: '';
+            position: absolute;
+            inset: 6px;
+            border: 1px solid rgba(253, 224, 71, 0.2);
+            pointer-events: none;
+        }
+
+        /* Ambient Background Canvas for Dual-Layer Embers & Bokeh */
         #fx-canvas {
             position: absolute;
             inset: 0;
@@ -76,15 +112,17 @@
             z-index: 2;
         }
 
-        /* Top Fixed Signage Header */
+        /* Top Fixed 3-Zone Luxury Signage Header */
         .signage-header {
-            height: 100px;
-            padding: 0 45px;
+            height: 104px;
+            padding: 0 44px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: linear-gradient(180deg, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.7) 100%);
-            border-bottom: 3px solid rgba(245, 158, 11, 0.5);
+            background: linear-gradient(180deg, rgba(7, 13, 27, 0.96) 0%, rgba(11, 20, 40, 0.84) 100%);
+            backdrop-filter: blur(16px);
+            border-bottom: 2px solid rgba(245, 158, 11, 0.55);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.55);
             z-index: 40;
             position: relative;
         }
@@ -92,38 +130,52 @@
         .header-brand {
             display: flex;
             align-items: center;
-            gap: 18px;
+            gap: 16px;
+        }
+
+        .logo-pedestal {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(251, 191, 36, 0.35);
+            border-radius: 14px;
+            padding: 6px 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 6px 18px rgba(0, 0, 0, 0.45);
         }
 
         .coasters-brand-logo {
-            height: 68px;
+            height: 62px;
             width: auto;
-            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.7));
+            filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.75));
             flex-shrink: 0;
         }
 
         .tiki-logo-icon {
-            width: 55px;
-            height: 55px;
-            filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.6));
+            width: 48px;
+            height: 48px;
+            filter: drop-shadow(0 0 12px rgba(245, 158, 11, 0.65));
             flex-shrink: 0;
         }
 
         .brand-text h1 {
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Cinzel', 'Outfit', sans-serif;
             font-weight: 900;
-            font-size: 2.1rem;
-            color: #fbbf24;
-            letter-spacing: 1.5px;
+            font-size: 1.95rem;
+            background: linear-gradient(180deg, #fef08a 0%, #f59e0b 65%, #d97706 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1.8px;
             white-space: nowrap;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(245, 158, 11, 0.4);
+            filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.85));
         }
 
         .brand-text span {
-            font-size: 0.88rem;
+            display: block;
+            font-size: 0.86rem;
             color: #38bdf8;
             font-weight: 700;
-            letter-spacing: 2px;
+            letter-spacing: 2.4px;
             text-transform: uppercase;
             white-space: nowrap;
         }
@@ -131,28 +183,35 @@
         .header-center-info {
             display: flex;
             align-items: center;
-            gap: 30px;
+            gap: 18px;
         }
 
         .event-badge {
-            background: linear-gradient(135deg, #f43f5e, #be123c);
-            padding: 8px 24px;
+            background: linear-gradient(135deg, rgba(244, 63, 94, 0.92), rgba(190, 18, 60, 0.95));
+            border: 1px solid rgba(253, 224, 71, 0.45);
+            padding: 9px 24px;
             border-radius: 999px;
             font-weight: 800;
-            font-size: 1.05rem;
-            letter-spacing: 1.5px;
+            font-size: 1.02rem;
+            letter-spacing: 1.6px;
             text-transform: uppercase;
             display: flex;
             align-items: center;
             gap: 10px;
-            box-shadow: 0 4px 15px rgba(244, 63, 94, 0.4);
+            box-shadow: 0 4px 20px rgba(244, 63, 94, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.25);
             white-space: nowrap;
         }
 
-        .date-display {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #fef08a;
+        .welcome-pill {
+            background: rgba(16, 185, 129, 0.16);
+            border: 1px solid rgba(16, 185, 129, 0.55);
+            color: #6ee7b7;
+            padding: 8px 18px;
+            border-radius: 999px;
+            font-weight: 800;
+            font-size: 0.92rem;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
             white-space: nowrap;
         }
 
@@ -160,11 +219,11 @@
         .digital-clock-box {
             display: flex;
             align-items: center;
-            background: rgba(0, 0, 0, 0.65);
+            background: linear-gradient(180deg, rgba(2, 6, 23, 0.85), rgba(15, 23, 42, 0.9));
             padding: 10px 22px;
-            border-radius: 12px;
-            border: 1px solid rgba(245, 158, 11, 0.4);
-            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.6);
+            border-radius: 14px;
+            border: 1.5px solid rgba(245, 158, 11, 0.5);
+            box-shadow: inset 0 2px 12px rgba(0, 0, 0, 0.8), 0 4px 16px rgba(0, 0, 0, 0.45);
         }
 
         .clock-time {
@@ -175,7 +234,8 @@
             letter-spacing: 2px;
             display: flex;
             align-items: center;
-            text-shadow: 0 0 10px rgba(56, 189, 248, 0.8);
+            font-variant-numeric: tabular-nums;
+            text-shadow: 0 0 12px rgba(56, 189, 248, 0.85);
         }
 
         .clock-colon {
@@ -190,7 +250,7 @@
         }
 
         .clock-ampm {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 800;
             margin-left: 8px;
             color: #fbbf24;
@@ -209,9 +269,9 @@
             inset: 0;
             opacity: 0;
             visibility: hidden;
-            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: scale(0.98);
-            padding: 35px 50px 30px;
+            transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+            transform: scale(0.985);
+            padding: 28px 48px 24px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -223,44 +283,63 @@
             transform: scale(1);
         }
 
+        /* Staggered Card Choreography on Active Slide */
+        .slide .stagger-item {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1), transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .slide.active .stagger-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide.active .stagger-1 { transition-delay: 0.06s; }
+        .slide.active .stagger-2 { transition-delay: 0.14s; }
+        .slide.active .stagger-3 { transition-delay: 0.22s; }
+        .slide.active .stagger-4 { transition-delay: 0.30s; }
+        .slide.active .stagger-5 { transition-delay: 0.38s; }
+
         /* Slide Titles and Subtitles */
         .slide-header {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             flex-shrink: 0;
         }
 
         .slide-tag {
             display: inline-block;
-            background: rgba(245, 158, 11, 0.18);
-            border: 1px solid #f59e0b;
-            color: #fbbf24;
-            padding: 4px 18px;
+            background: linear-gradient(90deg, rgba(245, 158, 11, 0.16), rgba(244, 63, 94, 0.16));
+            border: 1px solid rgba(251, 191, 36, 0.7);
+            color: #fde047;
+            padding: 5px 22px;
             border-radius: 999px;
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             font-weight: 800;
-            letter-spacing: 3px;
+            letter-spacing: 2.8px;
             text-transform: uppercase;
             margin-bottom: 8px;
             white-space: nowrap;
+            box-shadow: 0 4px 16px rgba(245, 158, 11, 0.2);
         }
 
         .slide-title {
             font-family: 'Outfit', sans-serif;
             font-weight: 900;
             font-size: 3.9rem;
-            line-height: 1.15;
+            line-height: 1.12;
             letter-spacing: 1.5px;
             text-transform: uppercase;
             color: #ffffff;
-            text-shadow: 0 4px 25px rgba(0,0,0,0.9), 0 0 30px rgba(245, 158, 11, 0.4);
+            text-shadow: 0 4px 25px rgba(0, 0, 0, 0.9), 0 0 32px rgba(245, 158, 11, 0.38);
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
 
         .slide-subtitle {
-            font-size: 1.85rem;
+            font-size: 1.75rem;
             color: #cbd5e1;
             font-weight: 600;
             margin-top: 6px;
@@ -269,230 +348,294 @@
             text-overflow: ellipsis;
         }
 
-        /* SLIDE 1: HERO WELCOME */
+        /* Glassmorphism 2.0 Surface */
+        .glass-panel {
+            background: linear-gradient(155deg, rgba(15, 25, 48, 0.86) 0%, rgba(7, 13, 27, 0.92) 100%);
+            backdrop-filter: blur(18px);
+            border: 1.5px solid var(--glass-border);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+        }
+
+        /* SLIDE 0: HERO WELCOME */
         .hero-container {
             display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 40px;
-            align-items: center;
+            grid-template-columns: 1.12fr 0.88fr;
+            gap: 34px;
+            align-items: stretch;
             flex: 1;
-            margin-top: 10px;
+            margin-top: 6px;
         }
 
         .hero-left-card {
-            background: var(--tiki-card-bg);
-            border: 2px solid rgba(245, 158, 11, 0.4);
-            border-radius: 24px;
-            padding: 40px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            border-radius: 26px;
+            padding: 36px 40px;
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .hero-left-card::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0; height: 6px;
-            background: linear-gradient(90deg, #f43f5e, #f59e0b, #06b6d4);
+            top: 0; left: 0; right: 0; height: 5px;
+            background: linear-gradient(90deg, #f43f5e, #fbbf24, #06b6d4);
         }
 
         .hero-mega-headline {
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Cinzel', 'Outfit', sans-serif;
             font-weight: 900;
-            font-size: 4.8rem;
-            line-height: 1.08;
+            font-size: 4.35rem;
+            line-height: 1.25;
+            padding: 4px 0;
             letter-spacing: 2px;
-            color: #fef08a;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.8), 0 0 35px rgba(245, 158, 11, 0.6);
+            background: linear-gradient(180deg, #ffffff 0%, #fef08a 45%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 6px 20px rgba(0, 0, 0, 0.85));
             white-space: nowrap;
         }
 
         .hero-desc {
-            font-size: 1.6rem;
-            line-height: 1.4;
+            font-size: 1.5rem;
+            line-height: 1.42;
             color: #e2e8f0;
-            margin: 25px 0 30px;
-            font-weight: 600;
+            margin: 16px 0 22px;
+            font-weight: 500;
         }
 
         .hero-pills-row {
             display: flex;
-            gap: 15px;
+            gap: 12px;
             flex-wrap: wrap;
         }
 
         .hero-pill {
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(56, 189, 248, 0.38);
+            padding: 10px 18px;
             border-radius: 12px;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 700;
-            color: #38bdf8;
+            color: #7dd3fc;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 9px;
             white-space: nowrap;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-pill.pill-gold {
+            border-color: rgba(251, 191, 36, 0.55);
+            color: #fef08a;
+            background: rgba(245, 158, 11, 0.14);
+        }
+
+        .hero-pill.pill-green {
+            border-color: rgba(16, 185, 129, 0.55);
+            color: #6ee7b7;
+            background: rgba(16, 185, 129, 0.14);
         }
 
         .hero-right-card {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            justify-content: space-between;
+            gap: 18px;
         }
 
         .info-highlight-box {
-            background: rgba(15, 23, 42, 0.85);
-            border: 2px solid #b45309;
-            border-radius: 20px;
-            padding: 24px 30px;
+            border-radius: 22px;
+            padding: 22px 28px;
             display: flex;
             align-items: center;
-            gap: 25px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            gap: 22px;
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-highlight-box.voucher-callout {
+            border-style: dashed;
+            border-color: rgba(251, 191, 36, 0.7);
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.14) 0%, rgba(10, 18, 36, 0.9) 100%);
         }
 
         .info-icon-badge {
-            width: 75px;
-            height: 75px;
-            background: linear-gradient(135deg, #f59e0b, #d97706);
+            width: 74px;
+            height: 74px;
+            background: linear-gradient(135deg, #fbbf24, #d97706);
             border-radius: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 2.2rem;
             flex-shrink: 0;
-            box-shadow: 0 8px 20px rgba(245, 158, 11, 0.35);
+            box-shadow: 0 8px 24px rgba(245, 158, 11, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+        }
+
+        .info-icon-badge.badge-rose {
+            background: linear-gradient(135deg, #fb7185, #e11d48);
+            box-shadow: 0 8px 24px rgba(244, 63, 94, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+        }
+
+        .info-icon-badge.badge-cyan {
+            background: linear-gradient(135deg, #38bdf8, #0284c7);
+            box-shadow: 0 8px 24px rgba(6, 182, 212, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.35);
         }
 
         .info-box-text h3 {
             font-size: 1.5rem;
-            color: #fbbf24;
+            color: #fef08a;
             font-weight: 800;
             white-space: nowrap;
         }
 
         .info-box-text p {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             color: #e2e8f0;
             margin-top: 4px;
             white-space: nowrap;
         }
 
-        /* SLIDE 2: 4 SIGNATURE COCKTAILS */
+        /* SLIDE 1: 4 SIGNATURE COCKTAILS WITH STUDIO PHOTOGRAPHY */
         .cocktails-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
+            gap: 22px;
             flex: 1;
-            margin-top: 10px;
+            margin-top: 6px;
         }
 
         .cocktail-card {
-            background: linear-gradient(165deg, rgba(15, 23, 42, 0.88) 0%, rgba(9, 14, 26, 0.92) 100%);
-            backdrop-filter: blur(14px);
-            border: 1.5px solid rgba(212, 175, 55, 0.4);
-            border-radius: 20px;
-            padding: 26px 22px;
+            border-radius: 22px;
+            padding: 18px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             position: relative;
             overflow: hidden;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.12);
         }
 
         .cocktail-card::before {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; height: 3px;
-            background: linear-gradient(90deg, transparent, #f59e0b, transparent);
+            background: linear-gradient(90deg, transparent, #fbbf24, transparent);
         }
 
-        .cocktail-card:hover {
-            transform: translateY(-5px);
-            border-color: #fbbf24;
+        .cocktail-photo-frame {
+            position: relative;
+            height: 235px;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1.5px solid rgba(251, 191, 36, 0.45);
+            box-shadow: 0 10px 26px rgba(0, 0, 0, 0.7);
+            margin-bottom: 14px;
+            background: #020617;
         }
 
-        .cocktail-header {
+        .cocktail-photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .cocktail-photo-frame::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0) 55%, rgba(7, 13, 27, 0.9) 100%);
+            pointer-events: none;
+        }
+
+        .cocktail-ribbon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: linear-gradient(135deg, #fbbf24, #d97706);
+            color: #090d16;
+            font-weight: 900;
+            font-size: 0.82rem;
+            letter-spacing: 0.8px;
+            padding: 5px 12px;
+            border-radius: 999px;
+            z-index: 3;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.65);
+            white-space: nowrap;
+        }
+
+        .cocktail-badge-bottom {
+            position: absolute;
+            bottom: 10px;
+            left: 12px;
+            right: 12px;
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            margin-bottom: 15px;
+            align-items: center;
+            z-index: 3;
         }
 
         .cocktail-number-tag {
-            background: linear-gradient(135deg, #f59e0b, #b45309);
+            background: #9f1239;
             color: #ffffff;
             font-weight: 800;
-            font-size: 0.85rem;
+            font-size: 0.78rem;
             letter-spacing: 1px;
-            padding: 4px 12px;
+            padding: 3px 10px;
             border-radius: 6px;
             text-transform: uppercase;
             white-space: nowrap;
         }
 
         .cocktail-glass-type {
-            font-size: 0.85rem;
-            color: #38bdf8;
+            font-size: 0.8rem;
+            color: #7dd3fc;
             font-weight: 700;
             text-transform: uppercase;
             white-space: nowrap;
         }
 
-        .cocktail-visual-wrap {
-            height: 130px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 12px;
-        }
-
-        .cocktail-svg-icon {
-            width: 110px;
-            height: 130px;
-            filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.5));
-        }
-
         .cocktail-details h3 {
             font-family: 'Outfit', sans-serif;
             font-weight: 800;
-            letter-spacing: 0.5px;
-            font-size: 1.7rem;
+            letter-spacing: 0.4px;
+            font-size: 1.55rem;
             color: #fef08a;
             line-height: 1.15;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
 
         .cocktail-tagline {
-            font-size: 0.95rem;
+            font-size: 0.94rem;
             font-style: italic;
             color: #fdba74;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
 
         .cocktail-ingredients-list {
-            background: rgba(0, 0, 0, 0.35);
-            border-radius: 10px;
+            background: rgba(2, 6, 23, 0.55);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
             padding: 10px 12px;
-            font-size: 0.92rem;
+            font-size: 0.9rem;
             color: #cbd5e1;
-            line-height: 1.45;
-            margin-bottom: 12px;
+            line-height: 1.4;
+            margin-bottom: 10px;
         }
 
         .cocktail-ingredients-list strong {
             color: #38bdf8;
             display: block;
-            font-size: 0.8rem;
+            font-size: 0.76rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 3px;
@@ -500,7 +643,7 @@
 
         .cocktail-garnish-row {
             font-size: 0.88rem;
-            color: #fca5a5;
+            color: #fda4af;
             font-weight: 600;
             display: flex;
             align-items: center;
@@ -510,100 +653,139 @@
             text-overflow: ellipsis;
         }
 
-        /* SLIDE 3: ISLAND FEAST BUFFET */
+        /* SLIDE 2: ISLAND FEAST BUFFET */
         .feast-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 28px;
+            gap: 26px;
             flex: 1;
-            margin-top: 10px;
+            margin-top: 6px;
         }
 
         .feast-card {
-            background: var(--tiki-card-bg);
-            border: 2px solid rgba(16, 185, 129, 0.4);
-            border-radius: 20px;
-            padding: 30px;
+            border-radius: 24px;
+            padding: 28px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            border-color: rgba(16, 185, 129, 0.45);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feast-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 5px;
+            background: linear-gradient(90deg, #10b981, #fbbf24);
+        }
+
+        .feast-banner {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(16, 185, 129, 0.25);
+            margin-bottom: 14px;
         }
 
         .feast-icon {
-            font-size: 3.5rem;
-            margin-bottom: 12px;
+            width: 68px;
+            height: 68px;
+            border-radius: 16px;
+            background: rgba(16, 185, 129, 0.16);
+            border: 1px solid rgba(16, 185, 129, 0.45);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.4rem;
+            flex-shrink: 0;
         }
 
         .feast-card h3 {
             font-family: 'Outfit', sans-serif;
             font-weight: 800;
-            letter-spacing: 0.5px;
-            font-size: 2.1rem;
+            font-size: 1.95rem;
             color: #6ee7b7;
-            margin-bottom: 10px;
             white-space: nowrap;
+        }
+
+        .feast-chef-tag {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #fbbf24;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-top: 2px;
         }
 
         .feast-items-list {
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 14px;
             font-size: 1.15rem;
             color: #e2e8f0;
+            flex: 1;
+            justify-content: center;
         }
 
         .feast-items-list li {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.04);
+            padding: 10px 14px;
+            border-radius: 10px;
+            border-left: 3px solid #10b981;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
 
-        .feast-items-list li::before {
-            content: '🌺';
-            font-size: 0.9rem;
+        /* SLIDE 3: PARTY TIMELINE (ILLUMINATED RUNWAY) */
+        .timeline-stage-wrap {
+            position: relative;
+            flex: 1;
+            display: flex;
+            align-items: stretch;
+            margin-top: 12px;
         }
 
-        /* SLIDE 4: PARTY TIMELINE */
+        .timeline-runway-line {
+            position: absolute;
+            top: 52px;
+            left: 8%;
+            right: 8%;
+            height: 4px;
+            background: linear-gradient(90deg, #06b6d4, #fbbf24, #f43f5e, #10b981, #fbbf24);
+            box-shadow: 0 0 18px rgba(6, 182, 212, 0.65);
+            z-index: 1;
+            border-radius: 4px;
+        }
+
         .timeline-container {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 20px;
+            gap: 18px;
             flex: 1;
-            margin-top: 20px;
-            align-items: stretch;
+            position: relative;
+            z-index: 2;
         }
 
         .timeline-col {
-            background: var(--tiki-card-bg);
-            border: 2px solid rgba(6, 182, 212, 0.4);
-            border-radius: 20px;
-            padding: 28px 20px;
+            border-radius: 22px;
+            padding: 24px 18px;
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            position: relative;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            border-color: rgba(6, 182, 212, 0.45);
         }
 
-        .timeline-col::after {
-            content: '';
-            position: absolute;
-            top: 45px;
-            right: -22px;
-            width: 20px;
-            height: 4px;
-            background: #06b6d4;
-            opacity: 0.6;
-        }
-
-        .timeline-col:last-child::after {
-            display: none;
+        .timeline-col.highlight-band {
+            border-color: rgba(251, 191, 36, 0.75);
+            background: linear-gradient(165deg, rgba(245, 158, 11, 0.16) 0%, rgba(10, 18, 36, 0.9) 100%);
         }
 
         .timeline-hour-pill {
@@ -613,24 +795,30 @@
             font-size: 1.45rem;
             padding: 10px 20px;
             border-radius: 14px;
-            margin-bottom: 20px;
-            box-shadow: 0 6px 15px rgba(6, 182, 212, 0.4);
+            margin-bottom: 22px;
+            box-shadow: 0 6px 20px rgba(6, 182, 212, 0.45);
             white-space: nowrap;
             display: flex;
             align-items: center;
             justify-content: center;
+            border: 1.5px solid rgba(255, 255, 255, 0.25);
+        }
+
+        .timeline-col.highlight-band .timeline-hour-pill {
+            background: linear-gradient(135deg, #f59e0b, #b45309);
+            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.55);
         }
 
         .timeline-icon-box {
-            font-size: 3.5rem;
-            margin-bottom: 15px;
+            font-size: 3.6rem;
+            margin-bottom: 14px;
+            filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.5));
         }
 
         .timeline-col h4 {
             font-family: 'Outfit', sans-serif;
             font-weight: 800;
-            letter-spacing: 0.5px;
-            font-size: 1.7rem;
+            font-size: 1.6rem;
             color: #fef08a;
             margin-bottom: 10px;
             white-space: nowrap;
@@ -641,83 +829,90 @@
 
         .timeline-col p {
             font-size: 1.05rem;
-            line-height: 1.35;
+            line-height: 1.4;
             color: #cbd5e1;
         }
 
-        /* SLIDE 5: PRIZES & CONTESTS */
+        /* SLIDE 4: PRIZES & CONTESTS (PODIUM THEMES) */
         .prizes-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+            gap: 28px;
             flex: 1;
-            margin-top: 10px;
+            margin-top: 8px;
         }
 
         .prize-card {
-            background: var(--tiki-card-bg);
-            border: 2px solid rgba(244, 63, 94, 0.45);
             border-radius: 24px;
-            padding: 35px 28px;
+            padding: 32px 26px;
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
+            justify-content: space-between;
             position: relative;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+            overflow: hidden;
         }
+
+        .prize-card.podium-gold { border-color: rgba(251, 191, 36, 0.65); }
+        .prize-card.podium-coral { border-color: rgba(244, 63, 94, 0.65); }
+        .prize-card.podium-cyan { border-color: rgba(6, 182, 212, 0.65); }
+
+        .prize-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 5px;
+        }
+        .prize-card.podium-gold::before { background: linear-gradient(90deg, #f59e0b, #fde047, #f59e0b); }
+        .prize-card.podium-coral::before { background: linear-gradient(90deg, #e11d48, #fda4af, #e11d48); }
+        .prize-card.podium-cyan::before { background: linear-gradient(90deg, #0284c7, #67e8f9, #0284c7); }
 
         .prize-trophy {
             font-size: 4.8rem;
-            margin-bottom: 15px;
-            filter: drop-shadow(0 0 15px rgba(245, 158, 11, 0.6));
+            margin-bottom: 8px;
+            filter: drop-shadow(0 0 20px rgba(245, 158, 11, 0.55));
         }
 
         .prize-card h3 {
             font-family: 'Outfit', sans-serif;
             font-weight: 800;
-            letter-spacing: 0.5px;
-            font-size: 2.3rem;
-            color: #fda4af;
-            margin-bottom: 8px;
+            font-size: 2.15rem;
+            color: #ffffff;
             white-space: nowrap;
         }
 
         .prize-reward {
             background: rgba(245, 158, 11, 0.2);
-            border: 1px solid #f59e0b;
+            border: 1.5px solid #fbbf24;
             color: #fef08a;
-            padding: 8px 24px;
+            padding: 9px 24px;
             border-radius: 999px;
             font-weight: 800;
-            font-size: 1.35rem;
-            margin: 15px 0;
+            font-size: 1.3rem;
+            margin: 12px 0;
             white-space: nowrap;
+            box-shadow: 0 4px 16px rgba(245, 158, 11, 0.25);
         }
 
         .prize-criteria {
             font-size: 1.15rem;
             color: #e2e8f0;
-            line-height: 1.4;
+            line-height: 1.45;
         }
 
-        /* SLIDE 6: PHOTO BOOTH & QR */
+        /* SLIDE 5: PHOTO BOOTH & QR */
         .booth-layout {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            grid-template-columns: 1.05fr 0.95fr;
+            gap: 36px;
             flex: 1;
-            margin-top: 10px;
-            align-items: center;
+            margin-top: 8px;
+            align-items: stretch;
         }
 
         .booth-card {
-            background: var(--tiki-card-bg);
-            border: 2px solid rgba(245, 158, 11, 0.4);
-            border-radius: 24px;
-            padding: 40px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
-            height: 100%;
+            border-radius: 26px;
+            padding: 36px 40px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -726,10 +921,9 @@
         .booth-card h3 {
             font-family: 'Outfit', sans-serif;
             font-weight: 800;
-            letter-spacing: 0.5px;
-            font-size: 2.8rem;
+            font-size: 2.6rem;
             color: #fbbf24;
-            margin-bottom: 20px;
+            margin-bottom: 22px;
             white-space: nowrap;
         }
 
@@ -738,60 +932,100 @@
             display: flex;
             flex-direction: column;
             gap: 16px;
-            font-size: 1.3rem;
+            font-size: 1.28rem;
             color: #e2e8f0;
         }
 
         .booth-features li {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 12px 18px;
+            border-radius: 14px;
+            border-left: 4px solid #fbbf24;
             white-space: nowrap;
         }
 
         .qr-card {
-            background: var(--tiki-card-bg);
-            border: 2px solid rgba(6, 182, 212, 0.5);
-            border-radius: 24px;
-            padding: 40px;
+            border-radius: 26px;
+            padding: 34px;
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
             justify-content: center;
-            height: 100%;
+            border-color: rgba(6, 182, 212, 0.55);
+        }
+
+        .qr-viewfinder {
+            position: relative;
+            padding: 18px;
+            margin-bottom: 20px;
+        }
+
+        .qr-viewfinder::before,
+        .qr-viewfinder::after {
+            content: '';
+            position: absolute;
+            width: 34px;
+            height: 34px;
+            border-color: #fbbf24;
+            border-style: solid;
+        }
+
+        .qr-viewfinder::before {
+            top: 0; left: 0;
+            border-width: 4px 0 0 4px;
+            border-radius: 10px 0 0 0;
+        }
+
+        .qr-viewfinder::after {
+            bottom: 0; right: 0;
+            border-width: 0 4px 4px 0;
+            border-radius: 0 0 10px 0;
         }
 
         .qr-graphic {
             width: 220px;
             height: 220px;
             background: #ffffff;
-            border-radius: 20px;
-            padding: 16px;
+            border-radius: 18px;
+            padding: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-            margin-bottom: 20px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.65);
         }
 
         .qr-card h4 {
             font-family: 'Outfit', sans-serif;
             font-weight: 800;
-            letter-spacing: 0.5px;
-            font-size: 2.2rem;
+            font-size: 2.1rem;
             color: #38bdf8;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             white-space: nowrap;
         }
 
         .qr-card p {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             color: #cbd5e1;
             white-space: nowrap;
         }
 
-        /* SLIDE 7: LIVE COUNTDOWN TO SECOND SATURDAY DEC 2026 */
+        .qr-url-badge {
+            margin-top: 12px;
+            background: rgba(56, 189, 248, 0.14);
+            border: 1px solid rgba(56, 189, 248, 0.45);
+            color: #7dd3fc;
+            padding: 6px 18px;
+            border-radius: 999px;
+            font-weight: 800;
+            font-size: 0.95rem;
+            letter-spacing: 1.5px;
+        }
+
+        /* SLIDE 6: LUXURY SPLIT-FLAP CHRONOMETER COUNTDOWN */
         .countdown-wrap {
             display: flex;
             flex-direction: column;
@@ -799,69 +1033,113 @@
             justify-content: center;
             flex: 1;
             text-align: center;
-            margin-top: 10px;
         }
 
         .countdown-target-label {
             font-family: 'Outfit', sans-serif;
             font-weight: 800;
-            letter-spacing: 0.5px;
-            font-size: 2.6rem;
-            color: #fbbf24;
-            margin-bottom: 30px;
-            text-shadow: 0 4px 15px rgba(0,0,0,0.8);
+            font-size: 2.3rem;
+            color: #fef08a;
+            margin-bottom: 32px;
+            text-shadow: 0 4px 18px rgba(0, 0, 0, 0.85);
             white-space: nowrap;
         }
 
         .countdown-boxes-row {
             display: flex;
-            gap: 35px;
+            align-items: center;
+            gap: 18px;
             justify-content: center;
-            margin-bottom: 35px;
+            margin-bottom: 30px;
         }
 
         .cd-unit-box {
-            background: rgba(15, 23, 42, 0.9);
-            border: 3px solid #b45309;
+            background: linear-gradient(180deg, rgba(18, 30, 56, 0.95) 0%, rgba(7, 13, 27, 0.98) 100%);
+            border: 2.5px solid rgba(245, 158, 11, 0.65);
             border-radius: 24px;
-            padding: 30px 40px;
-            min-width: 210px;
+            padding: 28px 36px;
+            min-width: 215px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+            position: relative;
+            box-shadow: 0 22px 48px rgba(0, 0, 0, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+        }
+
+        .cd-unit-box::after {
+            content: '';
+            position: absolute;
+            left: 12px;
+            right: 12px;
+            top: 48%;
+            height: 2px;
+            background: rgba(0, 0, 0, 0.45);
+            pointer-events: none;
+        }
+
+        .cd-unit-box.cd-seconds {
+            border-color: rgba(56, 189, 248, 0.75);
+            box-shadow: 0 22px 48px rgba(0, 0, 0, 0.75), 0 0 28px rgba(56, 189, 248, 0.28);
+        }
+
+        .cd-sep {
+            font-family: 'Courier New', monospace;
+            font-size: 5rem;
+            font-weight: 900;
+            color: #fbbf24;
+            animation: colonBlink 1s infinite steps(1);
+            margin-bottom: 24px;
         }
 
         .cd-number {
             font-family: 'Outfit', sans-serif;
-            font-weight: 800;
-            letter-spacing: 0.5px;
-            font-size: 6.5rem;
+            font-weight: 900;
+            font-size: 6.0rem;
             color: #fef08a;
-            line-height: 1;
-            text-shadow: 0 0 30px rgba(245, 158, 11, 0.7);
+            line-height: 1.18;
+            padding: 2px 0;
+            text-shadow: 0 0 32px rgba(245, 158, 11, 0.65);
             font-variant-numeric: tabular-nums;
+            position: relative;
+            z-index: 2;
         }
 
         .cd-label {
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             font-weight: 800;
             color: #38bdf8;
             letter-spacing: 3px;
             text-transform: uppercase;
-            margin-top: 10px;
+            margin-top: 12px;
             white-space: nowrap;
         }
 
-        /* Bottom Fixed Signage Footer Bar */
+        .countdown-sub-plugs {
+            display: flex;
+            gap: 18px;
+            justify-content: center;
+        }
+
+        .cd-plug-chip {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(251, 191, 36, 0.4);
+            padding: 10px 24px;
+            border-radius: 999px;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #e2e8f0;
+            white-space: nowrap;
+        }
+
+        /* Bottom Broadcast Footer Bar */
         .signage-footer {
-            height: 80px;
-            padding: 0 45px;
+            height: 78px;
+            padding: 0 44px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: rgba(15, 23, 42, 0.95);
-            border-top: 2px solid rgba(245, 158, 11, 0.35);
+            background: rgba(7, 13, 27, 0.96);
+            border-top: 2px solid rgba(245, 158, 11, 0.4);
             z-index: 40;
             position: relative;
         }
@@ -869,37 +1147,39 @@
         .footer-ticker {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 16px;
             overflow: hidden;
             flex: 1;
-            margin-right: 30px;
+            margin-right: 28px;
         }
 
         .ticker-badge {
-            background: #10b981;
-            color: #064e3b;
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: #ffffff;
             font-weight: 900;
-            font-size: 0.95rem;
-            padding: 6px 14px;
+            font-size: 0.9rem;
+            padding: 6px 16px;
             border-radius: 8px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.2px;
             white-space: nowrap;
+            box-shadow: 0 0 14px rgba(16, 185, 129, 0.45);
         }
 
         .ticker-text {
-            font-size: 1.25rem;
+            font-size: 1.22rem;
             color: #f1f5f9;
             font-weight: 600;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            transition: opacity 0.4s ease;
         }
 
         .footer-controls-hud {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 14px;
         }
 
         .slide-dots {
@@ -908,22 +1188,23 @@
         }
 
         .slide-dot {
-            width: 14px;
-            height: 14px;
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.25);
             transition: all 0.3s ease;
+            cursor: pointer;
         }
 
         .slide-dot.active {
-            width: 32px;
+            width: 34px;
             border-radius: 8px;
-            background: #f59e0b;
-            box-shadow: 0 0 10px #f59e0b;
+            background: #fbbf24;
+            box-shadow: 0 0 12px #fbbf24;
         }
 
         .status-pill {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.08);
             border: 1px solid rgba(255, 255, 255, 0.2);
             padding: 6px 14px;
             border-radius: 8px;
@@ -937,22 +1218,22 @@
         /* Keyboard Feedback Toast HUD */
         #keyboard-hud {
             position: absolute;
-            bottom: 100px;
+            bottom: 96px;
             left: 50%;
             transform: translateX(-50%) translateY(20px);
-            background: rgba(15, 23, 42, 0.95);
+            background: rgba(7, 13, 27, 0.95);
             border: 2px solid #fbbf24;
             color: #ffffff;
             padding: 14px 32px;
             border-radius: 16px;
             font-weight: 800;
-            font-size: 1.4rem;
+            font-size: 1.35rem;
             letter-spacing: 1px;
             opacity: 0;
             transition: all 0.25s ease;
             pointer-events: none;
             z-index: 100;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85);
             white-space: nowrap;
         }
 
@@ -970,7 +1251,7 @@
         .progress-bar-fill {
             height: 100%;
             width: 0%;
-            background: linear-gradient(90deg, #f43f5e, #f59e0b, #06b6d4);
+            background: linear-gradient(90deg, #f43f5e, #fbbf24, #06b6d4);
             transition: width 0.1s linear;
         }
     </style>
@@ -979,37 +1260,45 @@
 
     <!-- Main 1080p Viewport -->
     <div id="signage-viewport">
+        <!-- Subtle Tropical Palm Silhouettes -->
+        <svg class="palm-silhouette palm-left" viewBox="0 0 200 200" fill="#06b6d4">
+            <path d="M10,190 Q40,90 120,30 Q80,60 65,110 Q110,60 175,55 Q120,85 90,125 Q140,100 190,115 Q130,125 95,155 Q130,150 165,175 Q100,165 55,185 Z"/>
+        </svg>
+        <svg class="palm-silhouette palm-right" viewBox="0 0 200 200" fill="#f59e0b">
+            <path d="M10,190 Q40,90 120,30 Q80,60 65,110 Q110,60 175,55 Q120,85 90,125 Q140,100 190,115 Q130,125 95,155 Q130,150 165,175 Q100,165 55,185 Z"/>
+        </svg>
+
         <div class="bamboo-frame"></div>
         <canvas id="fx-canvas"></canvas>
 
-        <!-- Fixed Header Bar -->
+        <!-- Fixed 3-Zone Luxury Header Bar -->
         <header class="signage-header">
             <div class="header-brand">
-                <img src="assets/coasters-logo.png" alt="Coasters Tavern Logo" class="coasters-brand-logo">
-                <svg class="tiki-logo-icon" viewBox="0 0 100 120">
-                    <use href="assets/tiki-icons.svg#icon-tiki-mask"></use>
-                </svg>
+                <div class="logo-pedestal">
+                    <img src="assets/coasters-logo.png" alt="Coasters Tavern Logo" class="coasters-brand-logo">
+                    <svg class="tiki-logo-icon" viewBox="0 0 100 120">
+                        <use href="assets/tiki-icons.svg#icon-tiki-mask"></use>
+                    </svg>
+                </div>
                 <div class="brand-text">
                     <h1>COASTERS TAVERN SOCIAL CLUB</h1>
-                    <span>TIKI BEACH XMAS 2026 • WWW.COASTERSTAVERN.CO.NZ</span>
+                    <span>TIKI BEACH XMAS 2026 &bull; WWW.COASTERSTAVERN.CO.NZ</span>
                 </div>
             </div>
 
             <div class="header-center-info">
                 <div class="event-badge">
-                    <span>🎄 SAT NIGHT • 12 DEC 2026 🌺</span>
+                    <span>&#127876; SAT 12 DEC 2026 &bull; 7:00 PM &#127802;</span>
                 </div>
-                <div class="date-display" id="header-date">
-                    Saturday, Dec 12, 2026
-                </div>
+                <div class="welcome-pill">EVERYONE WELCOME</div>
             </div>
 
             <!-- COMPLIANT DIGITAL CLOCK WITH BLINKING COLONS -->
             <div class="digital-clock-box">
                 <div class="clock-time">
-                    <span id="clock-hours">18</span>
+                    <span id="clock-hours">07</span>
                     <span class="clock-colon">:</span>
-                    <span id="clock-minutes">30</span>
+                    <span id="clock-minutes">00</span>
                     <span class="clock-colon">:</span>
                     <span id="clock-seconds">00</span>
                     <span class="clock-ampm" id="clock-ampm">PM</span>
@@ -1023,209 +1312,219 @@
             <!-- SLIDE 0: HERO WELCOME -->
             <section class="slide active" data-slide-index="0" data-duration="25000">
                 <div class="slide-header">
-                    <span class="slide-tag">🎄 OFFICIAL SOCIAL CLUB INVITATION 🌺</span>
+                    <span class="slide-tag">&#127876; EVERYONE WELCOME &bull; COASTERS TAVERN XMAS PARTY &#127802;</span>
                     <h2 class="slide-title fit-h1">TIKI BEACH CHRISTMAS EXTRAVAGANZA</h2>
-                    <p class="slide-subtitle fit-h2">Saturday Night, 12th December 2026 • Doors Open 6:30 PM • Clubhouse Lagoon & Patio</p>
+                    <p class="slide-subtitle fit-h2">Saturday Night, 12th December 2026 &bull; Starts 7:00 PM &bull; Live Band "Danny" from 8:00 PM</p>
                 </div>
 
                 <div class="hero-container">
-                    <div class="hero-left-card">
-                        <div style="display:flex; align-items:center; gap:16px; margin-bottom:12px;">
-                            <img src="assets/coasters-logo.png" alt="Coasters Tavern" style="height:54px; width:auto;">
+                    <div class="hero-left-card glass-panel stagger-item stagger-1">
+                        <div style="display:flex; align-items:center; gap:16px;">
+                            <img src="assets/coasters-logo.png" alt="Coasters Tavern" style="height:58px; width:auto;">
                             <div>
-                                <div style="font-size:1.15rem; font-weight:800; color:#fbbf24; letter-spacing:1px; white-space:nowrap;">COASTERS TAVERN SOCIAL CLUB</div>
-                                <div style="font-size:0.85rem; font-weight:700; color:#38bdf8; white-space:nowrap;">WWW.COASTERSTAVERN.CO.NZ</div>
+                                <div style="font-size:1.2rem; font-weight:800; color:#fbbf24; letter-spacing:1.2px; white-space:nowrap;">COASTERS TAVERN</div>
+                                <div style="font-size:0.88rem; font-weight:700; color:#38bdf8; letter-spacing:1.5px; white-space:nowrap;">WWW.COASTERSTAVERN.CO.NZ</div>
                             </div>
                         </div>
-                        <div class="hero-mega-headline">MELE KALIKIMAKA!</div>
-                        <p class="hero-desc">
-                            Trade the snow for sand! Join us for an unforgettable island celebration featuring tropical cocktails, Hawaiian BBQ luau, live beach party beats, and fabulous prizes.
-                        </p>
+
+                        <div>
+                            <div class="hero-mega-headline">MELE KALIKIMAKA!</div>
+                            <p class="hero-desc">
+                                Trade the snow for sand! Join us from 7:00 PM for tropical Cocktail Specials, finger food &amp; luau treats, our Photo Booth, Pass the Parcel, and Live Band "Danny" from 8:00 PM!
+                            </p>
+                        </div>
+
                         <div class="hero-pills-row">
-                            <div class="hero-pill">🌺 Free Floral Leis on Entry</div>
-                            <div class="hero-pill">🍹 Cocktails: 2x for $20 Vouchers</div>
-                            <div class="hero-pill">🎁 Pass the Parcel & Limbo</div>
+                            <div class="hero-pill pill-gold">&#127865; Cocktail Specials (2x for $20)</div>
+                            <div class="hero-pill">&#128248; Photo Booth</div>
+                            <div class="hero-pill pill-green">&#127802; Everyone Welcome</div>
+                            <div class="hero-pill">&#127928; Live Band "Danny" 8 PM</div>
                         </div>
                     </div>
 
                     <div class="hero-right-card">
-                        <div class="info-highlight-box">
-                            <div class="info-icon-badge">📅</div>
+                        <div class="info-highlight-box glass-panel stagger-item stagger-2">
+                            <div class="info-icon-badge">&#128197;</div>
                             <div class="info-box-text">
-                                <h3>Second Saturday Night in Dec</h3>
-                                <p>Saturday, 12 December 2026 • 6:30 PM - Late</p>
+                                <h3>Saturday, 12 December 2026</h3>
+                                <p>Party Starts 7:00 PM &bull; Everyone Welcome!</p>
                             </div>
                         </div>
-                        <div class="info-highlight-box">
-                            <div class="info-icon-badge">🎟️</div>
+                        <div class="info-highlight-box glass-panel stagger-item stagger-3">
+                            <div class="info-icon-badge badge-rose">&#127928;</div>
                             <div class="info-box-text">
-                                <h3>2x For $20 Cocktail Vouchers</h3>
-                                <p>Buy at Main Bar • Redeem in Tiki Cocktail Garden</p>
+                                <h3>Live Band "Danny" from 8 PM</h3>
+                                <p>Live Music, Pass the Parcel &amp; Photo Booth</p>
                             </div>
                         </div>
-                        <div class="info-highlight-box">
-                            <div class="info-icon-badge">🏆</div>
+                        <div class="info-highlight-box glass-panel voucher-callout stagger-item stagger-4">
+                            <div class="info-icon-badge badge-cyan">&#127903;&#65039;</div>
                             <div class="info-box-text">
-                                <h3>Pass the Parcel & Trophies</h3>
-                                <p>Mystery Parcel Prizes, Limbo & Best Dressed</p>
+                                <h3>Cocktail Specials: 2x For $20</h3>
+                                <p>Buy Voucher at Bar &bull; Redeem in Tiki Garden</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- SLIDE 1: 4 FABULOUS & EASY TIKI COCKTAILS -->
+            <!-- SLIDE 1: 4 FABULOUS & EASY TIKI COCKTAILS (STUDIO PHOTOGRAPHY) -->
             <section class="slide" data-slide-index="1" data-duration="30000">
                 <div class="slide-header">
-                    <span class="slide-tag">🍹 2x FOR $20 • BUY VOUCHERS AT BAR & REDEEM IN TIKI COCKTAIL GARDEN 🍍</span>
+                    <span class="slide-tag">&#127865; COCKTAIL SPECIALS &bull; 2x FOR $20 VOUCHERS IN THE TIKI GARDEN &#127821;</span>
                     <h2 class="slide-title fit-h1">4 SHOW-STOPPING TIKI COCKTAILS</h2>
-                    <p class="slide-subtitle fit-h2">2x for $20 Card Vouchers • Purchase at Main Bar & Redeem in the Tiki Cocktail Garden</p>
+                    <p class="slide-subtitle fit-h2">2x for $20 Card Vouchers &bull; Purchase at Main Bar &amp; Redeem in the Tiki Cocktail Garden</p>
                 </div>
 
                 <div class="cocktails-grid">
                     <!-- Cocktail 1 -->
-                    <div class="cocktail-card">
-                        <div class="cocktail-header">
-                            <span class="cocktail-number-tag">COCKTAIL #1</span>
-                            <span class="cocktail-glass-type">Tiki Highball</span>
-                        </div>
-                        <div class="cocktail-visual-wrap">
-                            <svg class="cocktail-svg-icon" viewBox="0 0 100 130">
-                                <use href="assets/tiki-icons.svg#drink-maitai"></use>
-                            </svg>
+                    <div class="cocktail-card glass-panel stagger-item stagger-1">
+                        <div class="cocktail-photo-frame">
+                            <span class="cocktail-ribbon">2x FOR $20</span>
+                            <img src="assets/cocktails/cocktail_01.png" alt="Mele Kalikimaka Mai Tai">
+                            <div class="cocktail-badge-bottom">
+                                <span class="cocktail-number-tag">#1 SIGNATURE</span>
+                                <span class="cocktail-glass-type">Tiki Highball</span>
+                            </div>
                         </div>
                         <div class="cocktail-details">
                             <h3>Mele Kalikimaka Mai Tai</h3>
                             <div class="cocktail-tagline">The Ultimate Tropical Legend</div>
                             <div class="cocktail-ingredients-list">
                                 <strong>Simple Ingredients:</strong>
-                                Dark Rum • Light Rum • Fresh Lime • Orgeat Almond • Splash of Curaçao
+                                Dark Rum &bull; Light Rum &bull; Fresh Lime &bull; Orgeat Almond &bull; Cura&ccedil;ao
                             </div>
                             <div class="cocktail-garnish-row">
-                                🌿 Mint Pine-Sprig, Lime & Umbrella
+                                &#127807; Mint Pine-Sprig, Lime &amp; Umbrella
                             </div>
                         </div>
                     </div>
 
                     <!-- Cocktail 2 -->
-                    <div class="cocktail-card">
-                        <div class="cocktail-header">
-                            <span class="cocktail-number-tag">COCKTAIL #2</span>
-                            <span class="cocktail-glass-type">Hurricane Glass</span>
-                        </div>
-                        <div class="cocktail-visual-wrap">
-                            <svg class="cocktail-svg-icon" viewBox="0 0 100 130">
-                                <use href="assets/tiki-icons.svg#drink-bluehawaii"></use>
-                            </svg>
+                    <div class="cocktail-card glass-panel stagger-item stagger-2">
+                        <div class="cocktail-photo-frame">
+                            <span class="cocktail-ribbon">2x FOR $20</span>
+                            <img src="assets/cocktails/cocktail_02.png" alt="Blue Hawaiian Blizzard">
+                            <div class="cocktail-badge-bottom">
+                                <span class="cocktail-number-tag">#2 LAGOON FROST</span>
+                                <span class="cocktail-glass-type">Hurricane Glass</span>
+                            </div>
                         </div>
                         <div class="cocktail-details">
                             <h3>Blue Hawaiian Blizzard</h3>
                             <div class="cocktail-tagline">Vivid Electric Lagoon Frost</div>
                             <div class="cocktail-ingredients-list">
                                 <strong>Simple Ingredients:</strong>
-                                White Rum or Vodka • Blue Curaçao • Pineapple Juice • Cream of Coconut
+                                White Rum or Vodka &bull; Blue Cura&ccedil;ao &bull; Pineapple Juice &bull; Coconut Cream
                             </div>
                             <div class="cocktail-garnish-row">
-                                🥥 Toasted Coconut Rim & Cherry
+                                &#129381; Toasted Coconut Rim &amp; Cherry
                             </div>
                         </div>
                     </div>
 
                     <!-- Cocktail 3 -->
-                    <div class="cocktail-card">
-                        <div class="cocktail-header">
-                            <span class="cocktail-number-tag">COCKTAIL #3</span>
-                            <span class="cocktail-glass-type">Tall Island Glass</span>
-                        </div>
-                        <div class="cocktail-visual-wrap">
-                            <svg class="cocktail-svg-icon" viewBox="0 0 100 130">
-                                <use href="assets/tiki-icons.svg#drink-sunrise"></use>
-                            </svg>
+                    <div class="cocktail-card glass-panel stagger-item stagger-3">
+                        <div class="cocktail-photo-frame">
+                            <span class="cocktail-ribbon">2x FOR $20</span>
+                            <img src="assets/cocktails/cocktail_03.png" alt="Santa's Tiki Sunrise">
+                            <div class="cocktail-badge-bottom">
+                                <span class="cocktail-number-tag">#3 SUNSET OMBRE</span>
+                                <span class="cocktail-glass-type">Tall Island Glass</span>
+                            </div>
                         </div>
                         <div class="cocktail-details">
                             <h3>Santa's Tiki Sunrise</h3>
-                            <div class="cocktail-tagline">Layered Crimson & Gold Ombre</div>
+                            <div class="cocktail-tagline">Layered Crimson &amp; Gold Ombre</div>
                             <div class="cocktail-ingredients-list">
                                 <strong>Simple Ingredients:</strong>
-                                Island Rum • Passion-Orange-Guava (POG) • Grenadine Sinker Drop
+                                Island Rum &bull; Passion-Orange-Guava (POG) &bull; Grenadine Sinker
                             </div>
                             <div class="cocktail-garnish-row">
-                                🌺 Hibiscus Blossom & Candied Orange
+                                &#127802; Hibiscus Blossom &amp; Candied Orange
                             </div>
                         </div>
                     </div>
 
                     <!-- Cocktail 4 -->
-                    <div class="cocktail-card">
-                        <div class="cocktail-header">
-                            <span class="cocktail-number-tag">COCKTAIL #4</span>
-                            <span class="cocktail-glass-type">Coconut Shell Cup</span>
-                        </div>
-                        <div class="cocktail-visual-wrap">
-                            <svg class="cocktail-svg-icon" viewBox="0 0 100 130">
-                                <use href="assets/tiki-icons.svg#drink-colada"></use>
-                            </svg>
+                    <div class="cocktail-card glass-panel stagger-item stagger-4">
+                        <div class="cocktail-photo-frame">
+                            <span class="cocktail-ribbon">2x FOR $20</span>
+                            <img src="assets/cocktails/cocktail_04.png" alt="Coconut Snow Drift">
+                            <div class="cocktail-badge-bottom">
+                                <span class="cocktail-number-tag">#4 ISLAND CREAM</span>
+                                <span class="cocktail-glass-type">Coconut Cup</span>
+                            </div>
                         </div>
                         <div class="cocktail-details">
                             <h3>Coconut Snow Drift</h3>
                             <div class="cocktail-tagline">Silky Velvet Island Cream</div>
                             <div class="cocktail-ingredients-list">
                                 <strong>Simple Ingredients:</strong>
-                                Spiced Coconut Rum • Pineapple Puree • Rich Coconut Cream • Spiced Nutmeg
+                                Spiced Coconut Rum &bull; Pineapple Puree &bull; Coconut Cream &bull; Nutmeg
                             </div>
                             <div class="cocktail-garnish-row">
-                                🎅 Cinnamon Sugar Rim & Holly Mint
+                                &#127877; Cinnamon Sugar Rim &amp; Holly Mint
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- SLIDE 2: ISLAND FEAST & PUPUS -->
+            <!-- SLIDE 2: ISLAND FEAST & FINGER FOOD -->
             <section class="slide" data-slide-index="2" data-duration="25000">
                 <div class="slide-header">
-                    <span class="slide-tag">🍖 CLUBHOUSE LUAU BUFFET 🌴</span>
-                    <h2 class="slide-title fit-h1">ISLAND FEAST & TASTY PUPUS</h2>
-                    <p class="slide-subtitle fit-h2">Served Fresh from 7:30 PM • Polynesian Delights & Holiday Specials</p>
+                    <span class="slide-tag">&#127830; FINGER FOOD &amp; CLUBHOUSE LUAU &#127796;</span>
+                    <h2 class="slide-title fit-h1">ISLAND FEAST &amp; TASTY PUPUS</h2>
+                    <p class="slide-subtitle fit-h2">Served Fresh from 7:30 PM &bull; Finger Food Throughout the Night &amp; Holiday Specials</p>
                 </div>
 
                 <div class="feast-grid">
-                    <div class="feast-card">
-                        <div>
-                            <div class="feast-icon">🍖</div>
-                            <h3>Kalua Luau Mains</h3>
+                    <div class="feast-card glass-panel stagger-item stagger-1">
+                        <div class="feast-banner">
+                            <div class="feast-icon">&#127830;</div>
+                            <div>
+                                <h3>Kalua Luau Mains</h3>
+                                <div class="feast-chef-tag">Hot Platters &amp; Sliders</div>
+                            </div>
                         </div>
                         <ul class="feast-items-list">
                             <li>Slow-Roasted Kalua Pulled Pork Sliders</li>
-                            <li>Pineapple & Brown Sugar Glazed Ham</li>
+                            <li>Pineapple &amp; Brown Sugar Glazed Ham</li>
                             <li>Sweet Chili Glazed King Prawn Skewers</li>
                             <li>Teriyaki Grilled Chicken Thigh Fillets</li>
                         </ul>
                     </div>
 
-                    <div class="feast-card">
-                        <div>
-                            <div class="feast-icon">🥗</div>
-                            <h3>Tropical Island Sides</h3>
+                    <div class="feast-card glass-panel stagger-item stagger-2">
+                        <div class="feast-banner">
+                            <div class="feast-icon">&#129367;</div>
+                            <div>
+                                <h3>Tropical Island Sides</h3>
+                                <div class="feast-chef-tag">Fresh Summer Salads</div>
+                            </div>
                         </div>
                         <ul class="feast-items-list">
-                            <li>Hawaiian Macaroni & Pineapple Salad</li>
+                            <li>Hawaiian Macaroni &amp; Pineapple Salad</li>
                             <li>Crunchy Coconut Mango Slaw</li>
                             <li>Grilled Sweet Corn with Coconut Butter</li>
                             <li>Warm Sweet Hawaiian Brioche Rolls</li>
                         </ul>
                     </div>
 
-                    <div class="feast-card">
-                        <div>
-                            <div class="feast-icon">🍍</div>
-                            <h3>Sweet Holiday Treats</h3>
+                    <div class="feast-card glass-panel stagger-item stagger-3">
+                        <div class="feast-banner">
+                            <div class="feast-icon">&#127821;</div>
+                            <div>
+                                <h3>Sweet Holiday Treats</h3>
+                                <div class="feast-chef-tag">Festive Dessert Bites</div>
+                            </div>
                         </div>
                         <ul class="feast-items-list">
-                            <li>Carved Tropical Fruit & Melon Cascades</li>
+                            <li>Carved Tropical Fruit &amp; Melon Cascades</li>
                             <li>Haupia Coconut Cream Pudding Cups</li>
-                            <li>Mini Rum-Soaked Pineapple Upside-Down Cakes</li>
-                            <li>Festive Tiki Cupcakes with Little Umbrellas</li>
+                            <li>Mini Rum Pineapple Upside-Down Cakes</li>
+                            <li>Festive Tiki Cupcakes with Umbrellas</li>
                         </ul>
                     </div>
                 </div>
@@ -1234,45 +1533,48 @@
             <!-- SLIDE 3: PARTY TIMELINE & ACTIVITIES -->
             <section class="slide" data-slide-index="3" data-duration="25000">
                 <div class="slide-header">
-                    <span class="slide-tag">⏰ WHAT'S HAPPENING ON SATURDAY NIGHT 🌴</span>
+                    <span class="slide-tag">&#9200; SATURDAY 12 DEC &bull; EVERYONE WELCOME &#127796;</span>
                     <h2 class="slide-title fit-h1">OFFICIAL PARTY SCHEDULE</h2>
-                    <p class="slide-subtitle fit-h2">Saturday 12 December 2026 • Don't Miss A Single Island Moment!</p>
+                    <p class="slide-subtitle fit-h2">Starts 7:00 PM &bull; Live Band "Danny" from 8:00 PM &bull; Cocktail Specials &amp; Photo Booth All Night</p>
                 </div>
 
-                <div class="timeline-container">
-                    <div class="timeline-col">
-                        <div class="timeline-hour-pill">6<span class="clock-colon">:</span>30 PM</div>
-                        <div class="timeline-icon-box">🌺</div>
-                        <h4>Tiki Welcome</h4>
-                        <p>Lei greeting on arrival, welcoming cocktails, and sunset acoustic island tunes.</p>
-                    </div>
+                <div class="timeline-stage-wrap">
+                    <div class="timeline-runway-line"></div>
+                    <div class="timeline-container">
+                        <div class="timeline-col glass-panel stagger-item stagger-1">
+                            <div class="timeline-hour-pill">7<span class="clock-colon">:</span>00 PM</div>
+                            <div class="timeline-icon-box">&#127802;</div>
+                            <h4>Tiki Welcome</h4>
+                            <p>Everyone welcome! Lei greeting, 2x for $20 Cocktail Specials &amp; Photo Booth opens.</p>
+                        </div>
 
-                    <div class="timeline-col">
-                        <div class="timeline-hour-pill">7<span class="clock-colon">:</span>30 PM</div>
-                        <div class="timeline-icon-box">🍖</div>
-                        <h4>Grand Luau Feast</h4>
-                        <p>Buffet lines open! Indulge in Kalua pork, glazed ham, king prawns, and salads.</p>
-                    </div>
+                        <div class="timeline-col glass-panel stagger-item stagger-2">
+                            <div class="timeline-hour-pill">7<span class="clock-colon">:</span>30 PM</div>
+                            <div class="timeline-icon-box">&#127830;</div>
+                            <h4>Finger Food &amp; Feast</h4>
+                            <p>Island platters &amp; finger food served throughout the night: Kalua pork, prawns &amp; ham.</p>
+                        </div>
 
-                    <div class="timeline-col">
-                        <div class="timeline-hour-pill">8<span class="clock-colon">:</span>30 PM</div>
-                        <div class="timeline-icon-box">🎁</div>
-                        <h4>Pass the Parcel & Limbo</h4>
-                        <p>Giant Pass the Parcel prize unwrap, Flaming Limbo & Loudest Shirt judging.</p>
-                    </div>
+                        <div class="timeline-col glass-panel highlight-band stagger-item stagger-3">
+                            <div class="timeline-hour-pill">8<span class="clock-colon">:</span>00 PM</div>
+                            <div class="timeline-icon-box">&#127928;</div>
+                            <h4>Live Band "Danny"</h4>
+                            <p>Live band "Danny" hits the stage from 8:00 PM with upbeat summer &amp; holiday hits!</p>
+                        </div>
 
-                    <div class="timeline-col">
-                        <div class="timeline-hour-pill">9<span class="clock-colon">:</span>30 PM</div>
-                        <div class="timeline-icon-box">🎧</div>
-                        <h4>Island DJ Beats</h4>
-                        <p>Tiki dancefloor heats up with tropical house, holiday bangers, and retro anthems.</p>
-                    </div>
+                        <div class="timeline-col glass-panel stagger-item stagger-4">
+                            <div class="timeline-hour-pill">9<span class="clock-colon">:</span>15 PM</div>
+                            <div class="timeline-icon-box">&#127873;</div>
+                            <h4>Pass the Parcel &amp; Limbo</h4>
+                            <p>Giant Pass the Parcel prize unwrap, Flaming Limbo &amp; Best Christmassy Outfit judging.</p>
+                        </div>
 
-                    <div class="timeline-col">
-                        <div class="timeline-hour-pill">11<span class="clock-colon">:</span>30 PM</div>
-                        <div class="timeline-icon-box">🥂</div>
-                        <h4>Tiki Holiday Toast</h4>
-                        <p>Grand midnight countdown toast to celebrate our wonderful Social Club year!</p>
+                        <div class="timeline-col glass-panel stagger-item stagger-5">
+                            <div class="timeline-hour-pill">11<span class="clock-colon">:</span>30 PM</div>
+                            <div class="timeline-icon-box">&#129346;</div>
+                            <h4>Holiday Toast</h4>
+                            <p>Grand late-night toast to celebrate our Coasters Tavern Social Club year!</p>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -1280,14 +1582,14 @@
             <!-- SLIDE 4: COSTUME CONTEST & PRIZES -->
             <section class="slide" data-slide-index="4" data-duration="25000">
                 <div class="slide-header">
-                    <span class="slide-tag">🏆 PARTY GAMES, CONTESTS & PRIZES 🌺</span>
-                    <h2 class="slide-title fit-h1">PASS THE PARCEL & COSTUME AWARDS</h2>
-                    <p class="slide-subtitle fit-h2">Unwrap Mystery Island Prizes & Dress in Your Wildest Tropical Christmas Gear</p>
+                    <span class="slide-tag">&#127942; PARTY GAMES, CONTESTS &amp; PRIZES &#127802;</span>
+                    <h2 class="slide-title fit-h1">PASS THE PARCEL &amp; COSTUME AWARDS</h2>
+                    <p class="slide-subtitle fit-h2">Dress in Your Christmassy Clothes &amp; Unwrap Mystery Island Prizes!</p>
                 </div>
 
                 <div class="prizes-grid">
-                    <div class="prize-card">
-                        <div class="prize-trophy">🍍</div>
+                    <div class="prize-card glass-panel podium-gold stagger-item stagger-1">
+                        <div class="prize-trophy">&#127821;</div>
                         <h3>Loudest Hawaiian Shirt</h3>
                         <div class="prize-reward">$150 Club Bar Tab + Trophy</div>
                         <p class="prize-criteria">
@@ -1295,18 +1597,18 @@
                         </p>
                     </div>
 
-                    <div class="prize-card">
-                        <div class="prize-trophy">👑</div>
-                        <h3>King & Queen of the Beach</h3>
+                    <div class="prize-card glass-panel podium-coral stagger-item stagger-2">
+                        <div class="prize-trophy">&#128081;</div>
+                        <h3>Best Christmassy Outfit</h3>
                         <div class="prize-reward">Deluxe Island Hampers</div>
                         <p class="prize-criteria">
-                            Best full head-to-toe Tiki Beach Christmas ensemble: leis, grass skirts, tropical Santa hats, and sunglasses!
+                            Best full head-to-toe Tiki Beach Christmas ensemble: Santa hats, leis, fairy lights &amp; festive flair!
                         </p>
                     </div>
 
-                    <div class="prize-card">
-                        <div class="prize-trophy">🎁</div>
-                        <h3>Pass the Parcel & Limbo</h3>
+                    <div class="prize-card glass-panel podium-cyan stagger-item stagger-3">
+                        <div class="prize-trophy">&#127873;</div>
+                        <h3>Pass the Parcel &amp; Limbo</h3>
                         <div class="prize-reward">Instant Prizes + $100 Tab</div>
                         <p class="prize-criteria">
                             Every layer wins a prize in Giant Tiki Pass the Parcel, followed by the Flaming Bamboo Limbo showdown!
@@ -1318,103 +1620,109 @@
             <!-- SLIDE 5: PHOTO BOOTH & QR GALLERY -->
             <section class="slide" data-slide-index="5" data-duration="25000">
                 <div class="slide-header">
-                    <span class="slide-tag">📸 CAPTURE THE MEMORIES 🌺</span>
-                    <h2 class="slide-title fit-h1">TIKI PHOTO BOOTH & LIVE GALLERY</h2>
-                    <p class="slide-subtitle fit-h2">Snap Your Tropical Moments • Upload Straight to the Club Wall</p>
+                    <span class="slide-tag">&#128248; PHOTO BOOTH OPEN FROM 7:00 PM &#127802;</span>
+                    <h2 class="slide-title fit-h1">TIKI PHOTO BOOTH &amp; LIVE GALLERY</h2>
+                    <p class="slide-subtitle fit-h2">Free Photo Booth &bull; Snap Your Tropical Moments &amp; Upload to the Club Wall</p>
                 </div>
 
                 <div class="booth-layout">
-                    <div class="booth-card">
-                        <h3>Tropical Tiki Photo Studio</h3>
+                    <div class="booth-card glass-panel stagger-item stagger-1">
+                        <h3>Tropical Tiki Photo Booth</h3>
                         <ul class="booth-features">
-                            <li>📸 Instant Souvenir Polaroid Prints</li>
-                            <li>🦩 Inflatable Flamingos, Palm Trees & Surfboards</li>
-                            <li>🌺 Oversized Leis, Bamboo Frames & Funny Sunglasses</li>
-                            <li>🎁 Free Digital Download Gallery for all Club Members</li>
+                            <li>&#128248; Instant Souvenir Polaroid Prints</li>
+                            <li>&#129449; Inflatable Flamingos, Palm Trees &amp; Surfboards</li>
+                            <li>&#127802; Oversized Leis, Santa Hats &amp; Novelty Glasses</li>
+                            <li>&#127873; Free Digital Download Gallery &bull; Everyone Welcome!</li>
                         </ul>
                     </div>
 
-                    <div class="qr-card">
-                        <div class="qr-graphic">
-                            <!-- SVG QR Mockup with Tiki Theme -->
-                            <svg viewBox="0 0 100 100" width="100%" height="100%">
-                                <rect width="100" height="100" fill="#ffffff"/>
-                                <!-- Corner Position Targets -->
-                                <rect x="10" y="10" width="24" height="24" fill="#0f172a"/>
-                                <rect x="14" y="14" width="16" height="16" fill="#ffffff"/>
-                                <rect x="18" y="18" width="8" height="8" fill="#f59e0b"/>
-
-                                <rect x="66" y="10" width="24" height="24" fill="#0f172a"/>
-                                <rect x="70" y="14" width="16" height="16" fill="#ffffff"/>
-                                <rect x="74" y="18" width="8" height="8" fill="#f59e0b"/>
-
-                                <rect x="10" y="66" width="24" height="24" fill="#0f172a"/>
-                                <rect x="14" y="70" width="16" height="16" fill="#ffffff"/>
-                                <rect x="18" y="74" width="8" height="8" fill="#f59e0b"/>
-
-                                <!-- Random QR-like matrix cells -->
-                                <rect x="40" y="14" width="6" height="6" fill="#0f172a"/>
-                                <rect x="52" y="14" width="8" height="6" fill="#0f172a"/>
-                                <rect x="44" y="24" width="14" height="6" fill="#0f172a"/>
-                                <rect x="14" y="44" width="8" height="6" fill="#0f172a"/>
-                                <rect x="26" y="44" width="6" height="8" fill="#0f172a"/>
-                                <rect x="40" y="40" width="20" height="20" rx="4" fill="#f43f5e"/>
-                                <circle cx="50" cy="50" r="6" fill="#fef08a"/>
-                                <rect x="66" y="44" width="8" height="14" fill="#0f172a"/>
-                                <rect x="80" y="44" width="10" height="6" fill="#0f172a"/>
-                                <rect x="40" y="68" width="12" height="6" fill="#0f172a"/>
-                                <rect x="58" y="68" width="10" height="10" fill="#0f172a"/>
-                                <rect x="44" y="80" width="8" height="8" fill="#0f172a"/>
-                                <rect x="74" y="80" width="12" height="8" fill="#0f172a"/>
-                            </svg>
+                    <div class="qr-card glass-panel stagger-item stagger-2">
+                        <div class="qr-viewfinder">
+                            <div class="qr-graphic">
+                                <svg viewBox="0 0 100 100" width="100%" height="100%">
+                                    <rect width="100" height="100" fill="#ffffff"/>
+                                    <rect x="10" y="10" width="24" height="24" fill="#0f172a"/>
+                                    <rect x="14" y="14" width="16" height="16" fill="#ffffff"/>
+                                    <rect x="18" y="18" width="8" height="8" fill="#f59e0b"/>
+                                    <rect x="66" y="10" width="24" height="24" fill="#0f172a"/>
+                                    <rect x="70" y="14" width="16" height="16" fill="#ffffff"/>
+                                    <rect x="74" y="18" width="8" height="8" fill="#f59e0b"/>
+                                    <rect x="10" y="66" width="24" height="24" fill="#0f172a"/>
+                                    <rect x="14" y="70" width="16" height="16" fill="#ffffff"/>
+                                    <rect x="18" y="74" width="8" height="8" fill="#f59e0b"/>
+                                    <rect x="40" y="14" width="6" height="6" fill="#0f172a"/>
+                                    <rect x="52" y="14" width="8" height="6" fill="#0f172a"/>
+                                    <rect x="44" y="24" width="14" height="6" fill="#0f172a"/>
+                                    <rect x="14" y="44" width="8" height="6" fill="#0f172a"/>
+                                    <rect x="26" y="44" width="6" height="8" fill="#0f172a"/>
+                                    <rect x="40" y="40" width="20" height="20" rx="4" fill="#f43f5e"/>
+                                    <circle cx="50" cy="50" r="6" fill="#fef08a"/>
+                                    <rect x="66" y="44" width="8" height="14" fill="#0f172a"/>
+                                    <rect x="80" y="44" width="10" height="6" fill="#0f172a"/>
+                                    <rect x="40" y="68" width="12" height="6" fill="#0f172a"/>
+                                    <rect x="58" y="68" width="10" height="10" fill="#0f172a"/>
+                                    <rect x="44" y="80" width="8" height="8" fill="#0f172a"/>
+                                    <rect x="74" y="80" width="12" height="8" fill="#0f172a"/>
+                                </svg>
+                            </div>
                         </div>
                         <h4>SCAN TO UPLOAD PHOTOS</h4>
                         <p>Share your beach shots straight to our live big screen!</p>
+                        <div class="qr-url-badge">WWW.COASTERSTAVERN.CO.NZ</div>
                     </div>
                 </div>
             </section>
 
-            <!-- SLIDE 6: LIVE COUNTDOWN TO PARTY NIGHT -->
+            <!-- SLIDE 6: LIVE COUNTDOWN TO PARTY NIGHT (7:00 PM) -->
             <section class="slide" data-slide-index="6" data-duration="25000">
                 <div class="slide-header">
-                    <span class="slide-tag">⏳ COUNTDOWN TO CELEBRATION 🌺</span>
+                    <span class="slide-tag">&#9203; COUNTDOWN TO CELEBRATION &bull; EVERYONE WELCOME &#127802;</span>
                     <h2 class="slide-title fit-h1">THE TIKI COUNTDOWN IS ON!</h2>
-                    <p class="slide-subtitle fit-h2">Saturday Night, 12th December 2026 • 6:30 PM</p>
+                    <p class="slide-subtitle fit-h2">Saturday Night, 12th December 2026 &bull; 7:00 PM &bull; Live Band "Danny" from 8:00 PM</p>
                 </div>
 
                 <div class="countdown-wrap">
-                    <div class="countdown-target-label">
-                        🎉 GET YOUR HAWAIIAN SHIRTS READY! 🍹
+                    <div class="countdown-target-label stagger-item stagger-1">
+                        &#127881; DRESS IN YOUR CHRISTMASSY CLOTHES! &#127865;
                     </div>
-                    <div class="countdown-boxes-row">
+                    <div class="countdown-boxes-row stagger-item stagger-2">
                         <div class="cd-unit-box">
                             <span class="cd-number" id="cd-days">--</span>
                             <span class="cd-label">DAYS</span>
                         </div>
+                        <span class="cd-sep">:</span>
                         <div class="cd-unit-box">
                             <span class="cd-number" id="cd-hours">--</span>
                             <span class="cd-label">HOURS</span>
                         </div>
+                        <span class="cd-sep">:</span>
                         <div class="cd-unit-box">
                             <span class="cd-number" id="cd-mins">--</span>
                             <span class="cd-label">MINUTES</span>
                         </div>
-                        <div class="cd-unit-box">
+                        <span class="cd-sep">:</span>
+                        <div class="cd-unit-box cd-seconds">
                             <span class="cd-number" id="cd-secs">--</span>
                             <span class="cd-label">SECONDS</span>
                         </div>
+                    </div>
+                    <div class="countdown-sub-plugs stagger-item stagger-3">
+                        <div class="cd-plug-chip">&#127865; Cocktail Specials (2x for $20)</div>
+                        <div class="cd-plug-chip">&#128248; Photo Booth</div>
+                        <div class="cd-plug-chip">&#127928; Live Band "Danny" from 8 PM</div>
+                        <div class="cd-plug-chip">&#127802; Everyone Welcome</div>
                     </div>
                 </div>
             </section>
 
         </main>
 
-        <!-- Bottom Fixed Signage Footer Bar -->
+        <!-- Bottom Broadcast Signage Footer Bar -->
         <footer class="signage-footer">
             <div class="footer-ticker">
-                <span class="ticker-badge">CLUB NOTICE</span>
+                <span class="ticker-badge">LIVE EVENT FEED</span>
                 <span class="ticker-text" id="live-ticker-msg">
-                    🌺 Coasters Tavern Xmas Party • Sat 12 Dec @ 6:30 PM • Cocktails 2x for $20 (Buy Voucher at Bar, Redeem in Tiki Cocktail Garden) • Pass the Parcel & Luau!
+                    &#127802; Coasters Tavern Xmas Party &bull; Sat 12 Dec @ 7:00 PM &bull; Everyone Welcome &bull; Live Band "Danny" from 8:00 PM &bull; Cocktail Specials 2x for $20 &bull; Photo Booth!
                 </span>
             </div>
 
@@ -1431,7 +1739,7 @@
         </div>
 
         <!-- On-Screen Keyboard Action HUD -->
-        <div id="keyboard-hud">⏮ Slide 1</div>
+        <div id="keyboard-hud">&#9198; Slide 1</div>
     </div>
 
     <!-- Font Sizing Engine -->
@@ -1449,16 +1757,22 @@
             isLocked: false,
             customSlideDuration: 25000,
             timerStartTime: 0,
-            timerRemaining: 25000,
             broadcastChannel: null
         };
 
-        let slideTimer = null;
         let progressAnimFrame = null;
         let currentSlideDuration = 25000;
 
-        // Target Date: Second Saturday Night in December 2026 (Dec 12, 2026 18:30:00)
-        const EVENT_TARGET_DATE = new Date(2026, 11, 12, 18, 30, 0);
+        // Target Date: Saturday Dec 12, 2026 at 7:00 PM (19:00:00)
+        const EVENT_TARGET_DATE = new Date(2026, 11, 12, 19, 0, 0);
+
+        const TICKER_MESSAGES = [
+            '\u{1F33A} Coasters Tavern Xmas Party \u2022 Sat 12 Dec @ 7:00 PM \u2022 Everyone Welcome \u2022 Live Band "Danny" from 8:00 PM!',
+            '\u{1F379} Cocktail Specials: 2x for $20 Card Vouchers \u2022 Buy at Main Bar & Redeem in the Tiki Cocktail Garden!',
+            '\u{1F4F8} Free Tiki Photo Booth Open from 7:00 PM \u2022 Instant Prints, Props & Live Club Gallery!',
+            '\u{1F381} Giant Pass the Parcel, Flaming Limbo & Best Christmassy Outfit Prizes \u2022 WWW.COASTERSTAVERN.CO.NZ'
+        ];
+        let tickerIndex = 0;
 
         function initSlideshow() {
             state.slides = Array.from(document.querySelectorAll('.slide'));
@@ -1466,15 +1780,28 @@
             setupClock();
             setupCountdown();
             setupBackgroundFx();
+            setupTickerRotation();
             setupBroadcastSync();
             setupKeyboardControls();
 
-            // Run AutoFit on active slide
             if (window.MatrixAutoFit && state.slides[0]) {
                 window.MatrixAutoFit.fitContainer(state.slides[0]);
             }
 
             goToSlide(0);
+        }
+
+        function setupTickerRotation() {
+            const el = document.getElementById('live-ticker-msg');
+            if (!el) return;
+            setInterval(() => {
+                el.style.opacity = '0';
+                setTimeout(() => {
+                    tickerIndex = (tickerIndex + 1) % TICKER_MESSAGES.length;
+                    el.textContent = TICKER_MESSAGES[tickerIndex];
+                    el.style.opacity = '1';
+                }, 400);
+            }, 9000);
         }
 
         function createSlideDots() {
@@ -1498,6 +1825,10 @@
         function goToSlide(idx) {
             if (state.isLocked) return;
 
+            if (window.MatrixAutoFit && state.slides[idx]) {
+                window.MatrixAutoFit.fitContainer(state.slides[idx]);
+            }
+
             state.slides.forEach((slide, i) => {
                 slide.classList.toggle('active', i === idx);
             });
@@ -1505,12 +1836,6 @@
             state.currentSlideIdx = idx;
             updateSlideDots(idx);
 
-            // Re-apply dynamic autofit to guaranteed zero clipping
-            if (window.MatrixAutoFit && state.slides[idx]) {
-                window.MatrixAutoFit.fitContainer(state.slides[idx]);
-            }
-
-            // Slide duration handling
             const configuredDur = parseInt(state.slides[idx].getAttribute('data-duration'), 10) || 25000;
             currentSlideDuration = state.customSlideDuration || configuredDur;
 
@@ -1532,13 +1857,12 @@
         }
 
         function resetSlideTimer() {
-            clearTimeout(slideTimer);
             cancelAnimationFrame(progressAnimFrame);
 
             if (state.isPaused || state.isLocked) return;
 
             state.timerStartTime = performance.now();
-            
+
             function updateProgress() {
                 if (state.isPaused || state.isLocked) return;
                 const elapsed = performance.now() - state.timerStartTime;
@@ -1562,11 +1886,11 @@
             if (state.isPaused) {
                 statusPill.innerText = 'PAUSED';
                 statusPill.style.color = '#f43f5e';
-                showKeyboardHud('⏸ PAUSED (Space to Resume)');
+                showKeyboardHud('\u23F8 PAUSED (Space to Resume)');
             } else {
                 statusPill.innerText = 'LIVE PLAY';
                 statusPill.style.color = '#38bdf8';
-                showKeyboardHud('▶ PLAYING');
+                showKeyboardHud('\u25B6 PLAYING');
                 resetSlideTimer();
             }
         }
@@ -1583,7 +1907,6 @@
             }, 2200);
         }
 
-        // KEYBOARD CONTROLS PER GLOBAL SPECIFICATION
         function setupKeyboardControls() {
             window.addEventListener('keydown', (e) => {
                 const target = e.target;
@@ -1595,22 +1918,22 @@
                     case 'ArrowLeft':
                         e.preventDefault();
                         prevSlide();
-                        showKeyboardHud(`⏮ Slide ${state.currentSlideIdx + 1}`);
+                        showKeyboardHud(`\u23EE Slide ${state.currentSlideIdx + 1}`);
                         break;
                     case 'ArrowRight':
                         e.preventDefault();
                         nextSlide();
-                        showKeyboardHud(`⏭ Slide ${state.currentSlideIdx + 1}`);
+                        showKeyboardHud(`\u23ED Slide ${state.currentSlideIdx + 1}`);
                         break;
                     case 'ArrowUp':
                         e.preventDefault();
                         goToSlide(0);
-                        showKeyboardHud('⏮ Reset to Slide 1');
+                        showKeyboardHud('\u23EE Reset to Slide 1');
                         break;
                     case 'ArrowDown':
                         e.preventDefault();
                         nextSlide();
-                        showKeyboardHud('⏩ Skip Forward');
+                        showKeyboardHud('\u23E9 Skip Forward');
                         break;
                     case ' ':
                     case 'Space':
@@ -1620,17 +1943,17 @@
                     case 'a':
                     case 'A':
                         e.preventDefault();
-                        window.open('admin.html', '_blank');
+                        window.open('admin.html', '_blank', 'noopener,noreferrer');
                         break;
                     case 'r':
                     case 'R':
                         e.preventDefault();
-                        window.open('remote.html', '_blank');
+                        window.open('remote.html', '_blank', 'noopener,noreferrer');
                         break;
                     case 'm':
                     case 'M':
                         e.preventDefault();
-                        window.open('menu.html', '_blank');
+                        window.open('menu.html', '_blank', 'noopener,noreferrer');
                         break;
                     case '0':
                         e.preventDefault();
@@ -1639,11 +1962,11 @@
                         if (state.isLocked) {
                             statusPill.innerText = 'LOCKED';
                             statusPill.style.color = '#fbbf24';
-                            showKeyboardHud('🔒 SLIDE PROGRESSION LOCKED');
+                            showKeyboardHud('\u{1F512} SLIDE PROGRESSION LOCKED');
                         } else {
                             statusPill.innerText = state.isPaused ? 'PAUSED' : 'LIVE PLAY';
                             statusPill.style.color = state.isPaused ? '#f43f5e' : '#38bdf8';
-                            showKeyboardHud('🔓 SLIDE PROGRESSION UNLOCKED');
+                            showKeyboardHud('\u{1F513} SLIDE PROGRESSION UNLOCKED');
                             if (!state.isPaused) resetSlideTimer();
                         }
                         break;
@@ -1654,7 +1977,7 @@
                             state.customSlideDuration = sec * 1000;
                             currentSlideDuration = state.customSlideDuration;
                             document.getElementById('live-speed-pill').innerText = `${sec}s`;
-                            showKeyboardHud(`⏱ Slide Duration: ${sec}s`);
+                            showKeyboardHud(`\u23F1 Slide Duration: ${sec}s`);
                             resetSlideTimer();
                         }
                         break;
@@ -1662,28 +1985,22 @@
             });
         }
 
-        // CLOCK IMPLEMENTATION WITH GUARANTEED BLINKING COLONS
         function setupClock() {
             function tick() {
                 const now = new Date();
                 let hours = now.getHours();
                 const ampm = hours >= 12 ? 'PM' : 'AM';
                 hours = hours % 12;
-                hours = hours ? hours : 12; // 12-hour format
-                const hoursStr = String(hours).padStart(2, '0');
-                const minsStr = String(now.getMinutes()).padStart(2, '0');
-                const secsStr = String(now.getSeconds()).padStart(2, '0');
-
-                document.getElementById('clock-hours').innerText = hoursStr;
-                document.getElementById('clock-minutes').innerText = minsStr;
-                document.getElementById('clock-seconds').innerText = secsStr;
+                hours = hours ? hours : 12;
+                document.getElementById('clock-hours').innerText = String(hours).padStart(2, '0');
+                document.getElementById('clock-minutes').innerText = String(now.getMinutes()).padStart(2, '0');
+                document.getElementById('clock-seconds').innerText = String(now.getSeconds()).padStart(2, '0');
                 document.getElementById('clock-ampm').innerText = ampm;
             }
             tick();
             setInterval(tick, 1000);
         }
 
-        // COUNTDOWN CALCULATION TO SATURDAY DEC 12, 2026
         function setupCountdown() {
             function updateCountdown() {
                 const now = new Date();
@@ -1711,7 +2028,7 @@
             setInterval(updateCountdown, 1000);
         }
 
-        // AMBIENT BACKGROUND CANVAS FX (Fireflies / Tiki Sparkles)
+        /* Dual-Layer Embers + Bioluminescent Bokeh Canvas */
         function setupBackgroundFx() {
             const canvas = document.getElementById('fx-canvas');
             const ctx = canvas.getContext('2d');
@@ -1723,40 +2040,61 @@
             resize();
             window.addEventListener('resize', resize);
 
-            const particles = [];
-            const particleCount = 45;
-
-            for (let i = 0; i < particleCount; i++) {
-                particles.push({
+            const embers = [];
+            for (let i = 0; i < 42; i++) {
+                embers.push({
                     x: Math.random() * canvas.width,
                     y: Math.random() * canvas.height,
-                    radius: Math.random() * 2.5 + 1,
-                    alpha: Math.random() * 0.7 + 0.3,
-                    speedY: -(Math.random() * 0.45 + 0.15),
-                    speedX: (Math.random() - 0.5) * 0.3,
-                    color: Math.random() > 0.4 ? '#f59e0b' : '#38bdf8'
+                    radius: Math.random() * 2.6 + 1.0,
+                    alpha: Math.random() * 0.65 + 0.25,
+                    speedY: -(Math.random() * 0.55 + 0.18),
+                    drift: Math.random() * Math.PI * 2,
+                    color: Math.random() > 0.35 ? '#fbbf24' : '#38bdf8'
+                });
+            }
+
+            const bokeh = [];
+            for (let i = 0; i < 12; i++) {
+                bokeh.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    radius: Math.random() * 26 + 14,
+                    alpha: Math.random() * 0.08 + 0.03,
+                    speedY: -(Math.random() * 0.18 + 0.05),
+                    color: i % 2 === 0 ? '#06b6d4' : '#f59e0b'
                 });
             }
 
             function render() {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-                particles.forEach(p => {
-                    p.y += p.speedY;
-                    p.x += p.speedX;
-                    p.alpha += (Math.random() - 0.5) * 0.02;
-                    if (p.alpha < 0.2) p.alpha = 0.2;
-                    if (p.alpha > 0.8) p.alpha = 0.8;
+                bokeh.forEach(b => {
+                    b.y += b.speedY;
+                    if (b.y < -b.radius) {
+                        b.y = canvas.height + b.radius;
+                        b.x = Math.random() * canvas.width;
+                    }
+                    ctx.save();
+                    ctx.globalAlpha = b.alpha;
+                    ctx.fillStyle = b.color;
+                    ctx.beginPath();
+                    ctx.arc(b.x, b.y, b.radius, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.restore();
+                });
 
+                embers.forEach(p => {
+                    p.y += p.speedY;
+                    p.drift += 0.025;
+                    p.x += Math.sin(p.drift) * 0.35;
                     if (p.y < 0) {
                         p.y = canvas.height;
                         p.x = Math.random() * canvas.width;
                     }
-
                     ctx.save();
                     ctx.globalAlpha = p.alpha;
                     ctx.fillStyle = p.color;
-                    ctx.shadowBlur = 10;
+                    ctx.shadowBlur = 12;
                     ctx.shadowColor = p.color;
                     ctx.beginPath();
                     ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
@@ -1769,7 +2107,6 @@
             render();
         }
 
-        // BROADCAST CHANNEL SYNC (REMOTE & ADMIN CONTROL)
         function setupBroadcastSync() {
             try {
                 state.broadcastChannel = new BroadcastChannel('xmas26_signage_channel');
@@ -1778,21 +2115,15 @@
                     if (!data) return;
 
                     switch (data.type) {
-                        case 'NEXT_SLIDE':
-                            nextSlide();
-                            break;
-                        case 'PREV_SLIDE':
-                            prevSlide();
-                            break;
+                        case 'NEXT_SLIDE': nextSlide(); break;
+                        case 'PREV_SLIDE': prevSlide(); break;
                         case 'GOTO_SLIDE':
                             if (typeof data.index === 'number') goToSlide(data.index);
                             break;
-                        case 'TOGGLE_PLAY':
-                            toggleSlidePlay();
-                            break;
+                        case 'TOGGLE_PLAY': toggleSlidePlay(); break;
                         case 'TOGGLE_LOCK':
                             state.isLocked = !state.isLocked;
-                            showKeyboardHud(state.isLocked ? '🔒 LOCKED' : '🔓 UNLOCKED');
+                            showKeyboardHud(state.isLocked ? '\u{1F512} LOCKED' : '\u{1F513} UNLOCKED');
                             break;
                         case 'SET_DURATION':
                             if (data.seconds) {
@@ -1814,7 +2145,6 @@
             }
         }
 
-        // Initialize when DOM is ready
         window.addEventListener('DOMContentLoaded', initSlideshow);
     </script>
 </body>

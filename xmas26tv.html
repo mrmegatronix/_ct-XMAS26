@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coasters Tavern Christmas Party 2026 - 3D TV Slide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Great+Vibes&family=Outfit:wght@500;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            user-select: none;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: #0d0502;
+            color: #ffffff;
+            font-family: 'Outfit', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* 1080p 3D Signage Stage */
+        #tv-stage {
+            width: 1920px;
+            height: 1080px;
+            max-width: 100vw;
+            max-height: 100vh;
+            aspect-ratio: 16 / 9;
+            position: relative;
+            overflow: hidden;
+            perspective: 1500px;
+            /* Rich Rustic Dark-Wood Plank Texture */
+            background-color: #261208;
+            background-image:
+                radial-gradient(ellipse at 50% 42%, rgba(251, 191, 36, 0.22) 0%, rgba(120, 53, 15, 0.14) 45%, rgba(10, 4, 2, 0.88) 100%),
+                repeating-linear-gradient(
+                    180deg,
+                    rgba(0, 0, 0, 0.35) 0px,
+                    rgba(0, 0, 0, 0.35) 3px,
+                    rgba(68, 33, 14, 0.45) 4px,
+                    rgba(46, 21, 8, 0.55) 65px,
+                    rgba(82, 40, 17, 0.38) 118px,
+                    rgba(18, 7, 2, 0.72) 120px
+                ),
+                repeating-linear-gradient(
+                    90deg,
+                    rgba(255, 215, 170, 0.02) 0px,
+                    rgba(0, 0, 0, 0.04) 18px,
+                    rgba(255, 200, 140, 0.015) 36px
+                );
+            box-shadow: inset 0 0 120px rgba(0, 0, 0, 0.92);
+        }
+
+        /* Snow & Golden Sparkle Canvas */
+        #fx-3d-canvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        /* Corner Pine Garlands & Baubles */
+        .corner-garland {
+            position: absolute;
+            pointer-events: none;
+            z-index: 25;
+        }
+        .garland-tl { top: -10px; left: -10px; width: 460px; height: 280px; }
+        .garland-tr { top: -10px; right: -10px; width: 460px; height: 280px; transform: scaleX(-1); }
+        .garland-bl { bottom: -10px; left: -10px; width: 340px; height: 240px; }
+        .garland-br { bottom: -10px; right: -10px; width: 340px; height: 240px; transform: scaleX(-1); }
+
+        .bauble-sway {
+            transform-origin: top center;
+            animation: baubleSwing 4.5s ease-in-out infinite;
+        }
+        .bauble-sway-delay {
+            transform-origin: top center;
+            animation: baubleSwing 5.2s ease-in-out infinite reverse;
+        }
+        @keyframes baubleSwing {
+            0%, 100% { transform: rotate(-3deg); }
+            50% { transform: rotate(3deg); }
+        }
+
+        .fairy-twinkle {
+            animation: twinkleGlow 2.4s ease-in-out infinite alternate;
+        }
+        .fairy-twinkle-2 {
+            animation: twinkleGlow 1.9s ease-in-out infinite alternate-reverse;
+        }
+        @keyframes twinkleGlow {
+            0% { opacity: 0.45; transform: scale(0.92); }
+            100% { opacity: 1; transform: scale(1.12); }
+        }
+
+        /* 3D Scene Container */
+        .scene-3d {
+            position: relative;
+            z-index: 15;
+            width: 100%;
+            height: 100%;
+            padding: 26px 80px 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            transform-style: preserve-3d;
+            animation: heroFloat3D 9s ease-in-out infinite;
+        }
+
+        @keyframes heroFloat3D {
+            0%, 100% { transform: rotateX(1.2deg) rotateY(-1.4deg); }
+            50% { transform: rotateX(-1.2deg) rotateY(1.4deg); }
+        }
+
+        /* Top Coasters Emblem with Santa Hat */
+        .logo-emblem-3d {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: translateZ(45px);
+            filter: drop-shadow(0 14px 26px rgba(0, 0, 0, 0.85));
+        }
+
+        .logo-medallion {
+            width: 112px;
+            height: 112px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #1f1008 0%, #090402 100%);
+            border: 3.5px solid #fbbf24;
+            box-shadow: 0 0 28px rgba(251, 191, 36, 0.55), inset 0 0 18px rgba(251, 191, 36, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;
+        }
+
+        .logo-medallion img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .santa-hat-logo {
+            position: absolute;
+            top: -24px;
+            right: -24px;
+            width: 72px;
+            height: 72px;
+            transform: rotate(22deg);
+            filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.7));
+        }
+
+        /* 3D Extruded Title Stack */
+        .title-stack-3d {
+            text-align: center;
+            position: relative;
+            transform-style: preserve-3d;
+            margin-top: -12px;
+        }
+
+        .title-coasters {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4.1rem;
+            color: #ffffff;
+            line-height: 0.9;
+            transform: translateZ(35px);
+            text-shadow:
+                0 3px 0 #b45309,
+                0 6px 18px rgba(0, 0, 0, 0.9),
+                0 0 25px rgba(255, 255, 255, 0.45);
+            white-space: nowrap;
+        }
+
+        .title-christmas-3d {
+            font-family: 'Great Vibes', cursive;
+            font-size: 8.6rem;
+            line-height: 0.92;
+            letter-spacing: 2px;
+            color: #fde047;
+            transform: translateZ(75px);
+            /* 3D Gold Extrusion Stack */
+            text-shadow:
+                0 2px 0 #eab308,
+                0 4px 0 #ca8a04,
+                0 6px 0 #a16207,
+                0 8px 0 #854d0e,
+                0 10px 0 #713f12,
+                0 16px 32px rgba(0, 0, 0, 0.95),
+                0 0 48px rgba(251, 191, 36, 0.65);
+            white-space: nowrap;
+            margin: -6px 0 4px;
+        }
+
+        /* Crimson Velvet Party Ribbon */
+        .party-ribbon-3d {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(180deg, #dc2626 0%, #991b1b 55%, #7f1d1d 100%);
+            border: 2px solid #fbbf24;
+            padding: 8px 72px;
+            border-radius: 10px;
+            transform: translateZ(55px);
+            box-shadow:
+                0 10px 0 #450a0a,
+                0 18px 34px rgba(0, 0, 0, 0.85),
+                inset 0 2px 6px rgba(255, 255, 255, 0.35);
+        }
+
+        .party-ribbon-text {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 2.8rem;
+            letter-spacing: 8px;
+            color: #ffffff;
+            text-shadow: 0 3px 8px rgba(0, 0, 0, 0.75);
+            white-space: nowrap;
+        }
+
+        .holly-cluster {
+            position: absolute;
+            width: 74px;
+            height: 74px;
+            top: 50%;
+            transform: translateY(-50%);
+            filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.7));
+        }
+        .holly-left { left: -34px; }
+        .holly-right { right: -34px; transform: translateY(-50%) scaleX(-1); }
+
+        /* Whitewashed Distressed Wood Date Plaque */
+        .date-plaque-3d {
+            position: relative;
+            transform: translateZ(48px);
+            background:
+                repeating-linear-gradient(
+                    180deg,
+                    rgba(180, 165, 150, 0.16) 0px,
+                    rgba(255, 255, 255, 0) 6px,
+                    rgba(120, 105, 90, 0.12) 14px
+                ),
+                linear-gradient(180deg, #faf6f0 0%, #e7dfd3 65%, #d6cbbd 100%);
+            border: 2px solid rgba(255, 255, 255, 0.75);
+            border-radius: 14px;
+            padding: 14px 86px 16px;
+            text-align: center;
+            box-shadow:
+                0 10px 0 #786552,
+                0 22px 44px rgba(0, 0, 0, 0.85);
+        }
+
+        .santa-hat-plaque {
+            position: absolute;
+            top: -36px;
+            left: -42px;
+            width: 112px;
+            height: 112px;
+            transform: rotate(-18deg);
+            filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.75));
+        }
+
+        .date-plaque-main {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 900;
+            font-size: 3.6rem;
+            color: #991b1b;
+            line-height: 1.05;
+            text-shadow: 0 2px 0 rgba(255, 255, 255, 0.8);
+            white-space: nowrap;
+        }
+
+        .date-plaque-sub {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 1.45rem;
+            letter-spacing: 4px;
+            color: #1f2937;
+            margin-top: 4px;
+            white-space: nowrap;
+        }
+
+        /* 4 Feature Cards Row */
+        .features-row-3d {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 28px;
+            width: 100%;
+            max-width: 1680px;
+            transform: translateZ(42px);
+        }
+
+        .feature-card-3d {
+            background: linear-gradient(165deg, rgba(45, 20, 10, 0.82) 0%, rgba(18, 7, 3, 0.92) 100%);
+            border: 1.5px solid rgba(251, 191, 36, 0.48);
+            border-radius: 20px;
+            padding: 18px 20px 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            box-shadow:
+                0 10px 0 rgba(12, 4, 1, 0.9),
+                0 20px 36px rgba(0, 0, 0, 0.82),
+                inset 0 1px 0 rgba(255, 224, 130, 0.22);
+        }
+
+        .feature-icon-wrap {
+            width: 84px;
+            height: 84px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            filter: drop-shadow(0 0 16px rgba(251, 191, 36, 0.55));
+        }
+
+        .feature-brush-ribbon {
+            width: 100%;
+            background: linear-gradient(90deg, rgba(153, 27, 27, 0.95), rgba(220, 38, 38, 0.95), rgba(153, 27, 27, 0.95));
+            border: 1px solid rgba(253, 224, 71, 0.45);
+            border-radius: 10px;
+            padding: 8px 14px;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.65);
+        }
+
+        .feature-title {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 900;
+            font-size: 1.7rem;
+            color: #ffffff;
+            line-height: 1.15;
+            white-space: nowrap;
+        }
+
+        .feature-sub {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: #fef08a;
+            margin-top: 3px;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+
+        /* Bottom Fairy-Light Wood Sign */
+        .bottom-sign-3d {
+            position: relative;
+            transform: translateZ(36px);
+            background:
+                repeating-linear-gradient(
+                    180deg,
+                    rgba(0, 0, 0, 0.25) 0px,
+                    rgba(82, 40, 17, 0.3) 26px,
+                    rgba(0, 0, 0, 0.35) 28px
+                ),
+                linear-gradient(180deg, #5c2d14 0%, #3a1a0a 100%);
+            border: 2.5px solid #fbbf24;
+            border-radius: 16px;
+            padding: 14px 68px;
+            text-align: center;
+            box-shadow:
+                0 10px 0 #1f0c04,
+                0 20px 44px rgba(0, 0, 0, 0.9),
+                0 0 32px rgba(251, 191, 36, 0.35);
+        }
+
+        .bottom-sign-text {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.15rem;
+            color: #fef08a;
+            text-shadow: 0 3px 10px rgba(0, 0, 0, 0.9), 0 0 22px rgba(251, 191, 36, 0.55);
+            white-space: nowrap;
+            line-height: 1.1;
+        }
+
+        .bottom-url-tag {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 0.95rem;
+            letter-spacing: 3px;
+            color: #fde68a;
+            opacity: 0.9;
+            margin-top: 2px;
+            white-space: nowrap;
+        }
+
+        /* Glowing Fairy Bulbs on Bottom Sign */
+        .bulb-row {
+            position: absolute;
+            left: 16px;
+            right: 16px;
+            display: flex;
+            justify-content: space-between;
+            pointer-events: none;
+        }
+        .bulb-row.top { top: -8px; }
+        .bulb-row.bottom { bottom: -8px; }
+
+        .fairy-bulb {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #ffffff 15%, #fde047 60%, #f59e0b 100%);
+            box-shadow: 0 0 14px 4px rgba(253, 224, 71, 0.85);
+            animation: twinkleGlow 1.6s ease-in-out infinite alternate;
+        }
+        .fairy-bulb:nth-child(even) {
+            animation-delay: 0.8s;
+        }
+    </style>
+</head>
+<body>
+    <div id="tv-stage">
+        <!-- Falling Golden Snow & Fairy Bokeh Canvas -->
+        <canvas id="fx-3d-canvas"></canvas>
+
+        <!-- Top Left & Top Right Evergreen Garlands + Hanging Baubles -->
+        <svg class="corner-garland garland-tl" viewBox="0 0 460 280">
+            <defs>
+                <radialGradient id="goldBauble" cx="35%" cy="30%" r="65%">
+                    <stop offset="0%" stop-color="#fef9c3"/>
+                    <stop offset="50%" stop-color="#eab308"/>
+                    <stop offset="100%" stop-color="#713f12"/>
+                </radialGradient>
+                <radialGradient id="redBauble" cx="35%" cy="30%" r="65%">
+                    <stop offset="0%" stop-color="#fecdd3"/>
+                    <stop offset="45%" stop-color="#e11d48"/>
+                    <stop offset="100%" stop-color="#4c0519"/>
+                </radialGradient>
+            </defs>
+            <!-- Pine Needles -->
+            <path d="M0,0 Q180,25 390,0 L0,0 Z" fill="#064e3b"/>
+            <path d="M-10,-10 C90,10 180,60 290,25 C190,85 80,120 -10,190 Z" fill="#065f46" opacity="0.95"/>
+            <path d="M-10,-10 C120,0 240,40 360,10 C250,60 120,90 -10,140 Z" fill="#047857" opacity="0.75"/>
+            <!-- Red Berries -->
+            <circle cx="52" cy="48" r="7" fill="#dc2626"/>
+            <circle cx="65" cy="54" r="6" fill="#ef4444"/>
+            <circle cx="58" cy="64" r="6" fill="#b91c1c"/>
+            <circle cx="195" cy="28" r="7" fill="#dc2626"/>
+            <circle cx="208" cy="34" r="6" fill="#ef4444"/>
+            <!-- Hanging Gold Bauble -->
+            <g class="bauble-sway">
+                <line x1="78" y1="68" x2="78" y2="128" stroke="#fde047" stroke-width="2"/>
+                <rect x="70" y="124" width="16" height="8" rx="2" fill="#d97706"/>
+                <circle cx="78" cy="164" r="34" fill="url(#goldBauble)"/>
+            </g>
+            <!-- Hanging Red Bauble -->
+            <g class="bauble-sway-delay">
+                <line x1="168" y1="45" x2="168" y2="92" stroke="#fde047" stroke-width="2"/>
+                <rect x="161" y="88" width="14" height="7" rx="2" fill="#d97706"/>
+                <circle cx="168" cy="118" r="24" fill="url(#redBauble)"/>
+            </g>
+            <!-- Fairy Lights -->
+            <circle class="fairy-twinkle" cx="40" cy="24" r="5" fill="#fef08a"/>
+            <circle class="fairy-twinkle-2" cx="122" cy="44" r="6" fill="#fde047"/>
+            <circle class="fairy-twinkle" cx="242" cy="22" r="5" fill="#fef08a"/>
+            <circle class="fairy-twinkle-2" cx="320" cy="14" r="5" fill="#fde047"/>
+        </svg>
+
+        <svg class="corner-garland garland-tr" viewBox="0 0 460 280">
+            <path d="M-10,-10 C90,10 180,60 290,25 C190,85 80,120 -10,190 Z" fill="#065f46" opacity="0.95"/>
+            <path d="M-10,-10 C120,0 240,40 360,10 C250,60 120,90 -10,140 Z" fill="#047857" opacity="0.75"/>
+            <circle cx="52" cy="48" r="7" fill="#dc2626"/>
+            <circle cx="65" cy="54" r="6" fill="#ef4444"/>
+            <g class="bauble-sway-delay">
+                <line x1="88" y1="68" x2="88" y2="128" stroke="#fde047" stroke-width="2"/>
+                <rect x="80" y="124" width="16" height="8" rx="2" fill="#d97706"/>
+                <circle cx="88" cy="166" r="36" fill="url(#redBauble)"/>
+            </g>
+            <circle class="fairy-twinkle-2" cx="44" cy="28" r="5" fill="#fef08a"/>
+            <circle class="fairy-twinkle" cx="145" cy="36" r="6" fill="#fde047"/>
+            <circle class="fairy-twinkle-2" cx="265" cy="18" r="5" fill="#fef08a"/>
+        </svg>
+
+        <!-- Bottom Left & Bottom Right Wrapped Gift Boxes & Pine -->
+        <svg class="corner-garland garland-bl" viewBox="0 0 340 240">
+            <path d="M0,240 C40,140 120,165 240,240 Z" fill="#065f46"/>
+            <!-- Gold Gift Box -->
+            <rect x="18" y="112" width="110" height="104" rx="8" fill="#d97706" stroke="#fde047" stroke-width="2"/>
+            <rect x="64" y="112" width="18" height="104" fill="#b91c1c"/>
+            <rect x="18" y="152" width="110" height="18" fill="#b91c1c"/>
+            <path d="M73,112 C45,86 35,108 73,112 C110,108 100,86 73,112 Z" fill="#ef4444"/>
+            <!-- Red Bauble Foreground -->
+            <circle cx="148" cy="196" r="36" fill="url(#redBauble)"/>
+            <circle class="fairy-twinkle" cx="195" cy="212" r="5" fill="#fef08a"/>
+        </svg>
+
+        <svg class="corner-garland garland-br" viewBox="0 0 340 240">
+            <path d="M0,240 C40,140 120,165 240,240 Z" fill="#065f46"/>
+            <!-- Crimson Gift Box -->
+            <rect x="18" y="112" width="110" height="104" rx="8" fill="#991b1b" stroke="#fbbf24" stroke-width="2"/>
+            <rect x="64" y="112" width="18" height="104" fill="#fbbf24"/>
+            <rect x="18" y="152" width="110" height="18" fill="#fbbf24"/>
+            <path d="M73,112 C45,86 35,108 73,112 C110,108 100,86 73,112 Z" fill="#fde047"/>
+            <!-- Gold Bauble Foreground -->
+            <circle cx="152" cy="198" r="32" fill="url(#goldBauble)"/>
+            <circle class="fairy-twinkle-2" cx="200" cy="214" r="5" fill="#fef08a"/>
+        </svg>
+
+        <!-- Main 3D Perspective Content -->
+        <div class="scene-3d" id="scene-3d">
+
+            <!-- Top Center Coasters Tavern Logo + Santa Hat -->
+            <div class="logo-emblem-3d">
+                <div class="logo-medallion">
+                    <img src="assets/coasters-logo.png" alt="Coasters Tavern">
+                </div>
+                <svg class="santa-hat-logo" viewBox="0 0 100 100">
+                    <path d="M18,68 C22,22 65,10 86,44 C64,46 56,56 54,68 Z" fill="#dc2626"/>
+                    <rect x="12" y="64" width="48" height="16" rx="8" fill="#f8fafc"/>
+                    <circle cx="88" cy="48" r="10" fill="#f8fafc"/>
+                </svg>
+            </div>
+
+            <!-- 3D Extruded Title Stack -->
+            <div class="title-stack-3d">
+                <div class="title-coasters">Coasters</div>
+                <div class="title-christmas-3d">Christmas</div>
+                <div class="party-ribbon-3d">
+                    <svg class="holly-cluster holly-left" viewBox="0 0 80 80">
+                        <path d="M40,40 C15,15 8,32 16,44 C8,56 22,68 40,46 Z" fill="#15803d" stroke="#166534" stroke-width="2"/>
+                        <path d="M42,40 C28,12 46,6 54,20 C66,18 68,36 46,42 Z" fill="#16a34a" stroke="#166534" stroke-width="2"/>
+                        <circle cx="40" cy="42" r="7" fill="#dc2626"/>
+                        <circle cx="50" cy="48" r="6" fill="#ef4444"/>
+                        <circle cx="34" cy="52" r="6" fill="#b91c1c"/>
+                    </svg>
+                    <span class="party-ribbon-text">PARTY</span>
+                    <svg class="holly-cluster holly-right" viewBox="0 0 80 80">
+                        <path d="M40,40 C15,15 8,32 16,44 C8,56 22,68 40,46 Z" fill="#15803d" stroke="#166534" stroke-width="2"/>
+                        <path d="M42,40 C28,12 46,6 54,20 C66,18 68,36 46,42 Z" fill="#16a34a" stroke="#166534" stroke-width="2"/>
+                        <circle cx="40" cy="42" r="7" fill="#dc2626"/>
+                        <circle cx="50" cy="48" r="6" fill="#ef4444"/>
+                        <circle cx="34" cy="52" r="6" fill="#b91c1c"/>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Whitewashed Wood Date Plaque -->
+            <div class="date-plaque-3d">
+                <svg class="santa-hat-plaque" viewBox="0 0 100 100">
+                    <path d="M20,66 C26,18 70,12 88,46 C66,48 56,56 54,66 Z" fill="#dc2626"/>
+                    <rect x="12" y="62" width="48" height="16" rx="8" fill="#ffffff"/>
+                    <circle cx="88" cy="50" r="10" fill="#ffffff"/>
+                </svg>
+                <div class="date-plaque-main">12th December &bull; From 7pm</div>
+                <div class="date-plaque-sub">&mdash; ALL ARE WELCOME &bull; EVERYONE WELCOME &mdash;</div>
+            </div>
+
+            <!-- 4 Feature Cards Row -->
+            <div class="features-row-3d">
+                <!-- 1. Live Band Danny -->
+                <div class="feature-card-3d">
+                    <div class="feature-icon-wrap">
+                        <svg viewBox="0 0 100 100" width="76" height="76">
+                            <g transform="rotate(-35 50 50)">
+                                <ellipse cx="38" cy="64" rx="22" ry="18" fill="none" stroke="#fef08a" stroke-width="4"/>
+                                <circle cx="40" cy="62" r="6" fill="#fbbf24"/>
+                                <rect x="52" y="16" width="8" height="36" rx="3" fill="#fef08a"/>
+                                <rect x="49" y="8" width="14" height="10" rx="2" fill="#fbbf24"/>
+                            </g>
+                            <line x1="16" y1="22" x2="26" y2="30" stroke="#fde047" stroke-width="3" stroke-linecap="round"/>
+                            <line x1="30" y1="12" x2="34" y2="24" stroke="#fde047" stroke-width="3" stroke-linecap="round"/>
+                            <line x1="10" y1="38" x2="22" y2="40" stroke="#fde047" stroke-width="3" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="feature-brush-ribbon">
+                        <div class="feature-title">Live Band "Danny"</div>
+                        <div class="feature-sub">Playing Live from 8pm</div>
+                    </div>
+                </div>
+
+                <!-- 2. Finger Food -->
+                <div class="feature-card-3d">
+                    <div class="feature-icon-wrap">
+                        <svg viewBox="0 0 100 100" width="76" height="76">
+                            <line x1="36" y1="14" x2="62" y2="46" stroke="#fde047" stroke-width="4" stroke-linecap="round"/>
+                            <line x1="64" y1="14" x2="38" y2="46" stroke="#fde047" stroke-width="4" stroke-linecap="round"/>
+                            <rect x="16" y="64" width="68" height="10" rx="5" fill="#fbbf24"/>
+                            <circle cx="28" cy="54" r="9" fill="#ef4444"/>
+                            <circle cx="50" cy="52" r="10" fill="#10b981"/>
+                            <circle cx="72" cy="54" r="9" fill="#f59e0b"/>
+                            <circle cx="50" cy="36" r="5" fill="#dc2626"/>
+                        </svg>
+                    </div>
+                    <div class="feature-brush-ribbon">
+                        <div class="feature-title">Finger Food</div>
+                        <div class="feature-sub">Throughout the Night</div>
+                    </div>
+                </div>
+
+                <!-- 3. Tiki Bar Cocktail Specials -->
+                <div class="feature-card-3d">
+                    <div class="feature-icon-wrap">
+                        <svg viewBox="0 0 100 100" width="76" height="76">
+                            <path d="M32,32 L68,32 L60,80 C59,86 41,86 40,80 Z" fill="#f43f5e" stroke="#fef08a" stroke-width="3"/>
+                            <line x1="62" y1="32" x2="78" y2="12" stroke="#fde047" stroke-width="4" stroke-linecap="round"/>
+                            <circle cx="32" cy="30" r="12" fill="#f59e0b" stroke="#fef08a" stroke-width="2"/>
+                            <path d="M18,24 Q24,10 34,20" fill="#10b981"/>
+                            <circle cx="50" cy="56" r="8" fill="#fef08a" opacity="0.65"/>
+                        </svg>
+                    </div>
+                    <div class="feature-brush-ribbon">
+                        <div class="feature-title">Cocktail Specials</div>
+                        <div class="feature-sub">Tiki Bar &bull; 2x for $20</div>
+                    </div>
+                </div>
+
+                <!-- 4. Photo Booth -->
+                <div class="feature-card-3d">
+                    <div class="feature-icon-wrap">
+                        <svg viewBox="0 0 100 100" width="76" height="76">
+                            <rect x="12" y="34" width="56" height="40" rx="8" fill="none" stroke="#fef08a" stroke-width="4"/>
+                            <path d="M28,34 L34,24 L46,24 L52,34" fill="none" stroke="#fef08a" stroke-width="4"/>
+                            <circle cx="40" cy="54" r="12" fill="none" stroke="#fbbf24" stroke-width="4"/>
+                            <circle cx="40" cy="54" r="5" fill="#fde047"/>
+                            <!-- Filmstrip -->
+                            <g transform="rotate(14 78 52)">
+                                <rect x="68" y="22" width="22" height="58" rx="3" fill="none" stroke="#fde047" stroke-width="3"/>
+                                <line x1="68" y1="40" x2="90" y2="40" stroke="#fde047" stroke-width="2"/>
+                                <line x1="68" y1="58" x2="90" y2="58" stroke="#fde047" stroke-width="2"/>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="feature-brush-ribbon">
+                        <div class="feature-title">Photo Booth</div>
+                        <div class="feature-sub">Free Prints &amp; Props</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Illuminated Wood Sign -->
+            <div class="bottom-sign-3d">
+                <div class="bulb-row top">
+                    <span class="fairy-bulb"></span><span class="fairy-bulb"></span><span class="fairy-bulb"></span>
+                    <span class="fairy-bulb"></span><span class="fairy-bulb"></span><span class="fairy-bulb"></span>
+                    <span class="fairy-bulb"></span><span class="fairy-bulb"></span><span class="fairy-bulb"></span>
+                    <span class="fairy-bulb"></span><span class="fairy-bulb"></span><span class="fairy-bulb"></span>
+                </div>
+                <div class="bottom-sign-text">Dress in your Christmassy Clothes!</div>
+                <div class="bottom-url-tag">COASTERS TAVERN SOCIAL CLUB &bull; WWW.COASTERSTAVERN.CO.NZ</div>
+                <div class="bulb-row bottom">
+                    <span class="fairy-bulb"></span><span class="fairy-bulb"></span><span class="fairy-bulb"></span>
+                    <span class="fairy-bulb"></span><span class="fairy-bulb"></span><span class="fairy-bulb"></span>
+                    <span class="fairy-bulb"></span><span class="fairy-bulb"></span><span class="fairy-bulb"></span>
+                    <span class="fairy-bulb"></span><span class="fairy-bulb"></span><span class="fairy-bulb"></span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            const canvas = document.getElementById('fx-3d-canvas');
+            const ctx = canvas.getContext('2d');
+
+            function resize() {
+                canvas.width = canvas.parentElement.clientWidth;
+                canvas.height = canvas.parentElement.clientHeight;
+            }
+            resize();
+            window.addEventListener('resize', resize);
+
+            const flakes = [];
+            for (let i = 0; i < 65; i++) {
+                flakes.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    r: Math.random() * 3.2 + 1.2,
+                    vy: Math.random() * 0.75 + 0.25,
+                    vx: (Math.random() - 0.5) * 0.4,
+                    alpha: Math.random() * 0.65 + 0.25,
+                    gold: Math.random() > 0.35
+                });
+            }
+
+            function draw() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                flakes.forEach(f => {
+                    f.y += f.vy;
+                    f.x += f.vx;
+                    if (f.y > canvas.height) {
+                        f.y = -6;
+                        f.x = Math.random() * canvas.width;
+                    }
+                    ctx.save();
+                    ctx.globalAlpha = f.alpha;
+                    ctx.fillStyle = f.gold ? '#fde047' : '#ffffff';
+                    ctx.shadowBlur = f.gold ? 14 : 8;
+                    ctx.shadowColor = f.gold ? '#fbbf24' : '#ffffff';
+                    ctx.beginPath();
+                    ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.restore();
+                });
+                requestAnimationFrame(draw);
+            }
+            draw();
+        })();
+    </script>
+</body>
+</html>
