@@ -3,852 +3,1430 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coasters Tavern Christmas Party 2026 - Epic 3D TV Slide</title>
+    <title>Coasters Christmas Party 2026 - TV Display</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Great+Vibes&family=Outfit:wght@500;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Great+Vibes&family=Outfit:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&display=swap" rel="stylesheet">
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            user-select: none;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; }
 
         html, body {
             width: 100%;
             height: 100%;
             overflow: hidden;
-            background: #090301;
-            color: #ffffff;
-            font-family: 'Outfit', sans-serif;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background: #040100;
         }
 
-        /* 1080p 3D Signage Stage */
-        #tv-stage {
+        /* 1920x1080 Broadcast Stage */
+        #stage {
+            position: absolute;
+            left: 50%;
+            top: 50%;
             width: 1920px;
             height: 1080px;
-            max-width: 100vw;
-            max-height: 100vh;
-            aspect-ratio: 16 / 9;
-            position: relative;
+            transform: translate(-50%, -50%) scale(var(--fit, 1));
+            transform-origin: center center;
             overflow: hidden;
-            perspective: 1600px;
-            background-color: #241007;
-            background-image:
-                radial-gradient(ellipse at 50% 42%, rgba(251, 191, 36, 0.28) 0%, rgba(146, 64, 14, 0.18) 45%, rgba(8, 3, 1, 0.92) 100%),
-                repeating-linear-gradient(
-                    180deg,
-                    rgba(0, 0, 0, 0.38) 0px,
-                    rgba(0, 0, 0, 0.38) 3px,
-                    rgba(72, 34, 14, 0.45) 4px,
-                    rgba(44, 19, 7, 0.55) 65px,
-                    rgba(88, 42, 18, 0.38) 118px,
-                    rgba(16, 6, 2, 0.75) 120px
-                );
-            box-shadow: inset 0 0 140px rgba(0, 0, 0, 0.95);
+            perspective: 2000px;
+            font-family: 'Outfit', sans-serif;
+            color: #ffffff;
+            background:
+                radial-gradient(ellipse at 50% 42%, rgba(245, 158, 11, 0.24) 0%, rgba(127, 29, 29, 0.22) 45%, rgba(5, 2, 1, 0.97) 100%),
+                repeating-linear-gradient(180deg,
+                    rgba(0, 0, 0, 0.48) 0px, rgba(0, 0, 0, 0.48) 3px,
+                    rgba(68, 30, 12, 0.55) 4px, rgba(40, 17, 6, 0.62) 64px,
+                    rgba(82, 38, 16, 0.42) 118px, rgba(14, 5, 2, 0.82) 120px);
         }
 
-        /* Volumetric Sweeping Gold Spotlights */
-        .spotlight-beam {
-            position: absolute;
-            top: -15%;
-            width: 55%;
-            height: 140%;
-            pointer-events: none;
-            z-index: 3;
-            background: conic-gradient(from 180deg at 50% 0%, transparent 0deg, rgba(253, 224, 71, 0.11) 14deg, rgba(245, 158, 11, 0.05) 24deg, transparent 36deg);
-            transform-origin: top center;
-        }
-        .beam-left {
-            left: -5%;
-            animation: sweepLeft 11s ease-in-out infinite alternate;
-        }
-        .beam-right {
-            right: -5%;
-            animation: sweepRight 13s ease-in-out infinite alternate;
-        }
-        @keyframes sweepLeft {
-            0% { transform: rotate(-18deg); opacity: 0.55; }
-            100% { transform: rotate(14deg); opacity: 0.95; }
-        }
-        @keyframes sweepRight {
-            0% { transform: rotate(18deg); opacity: 0.55; }
-            100% { transform: rotate(-14deg); opacity: 0.95; }
-        }
-
-        /* Floating Cocktail Images Canvas (Replaces Snow Confetti) */
-        #fx-cocktail-canvas {
+        /* Background Layers: Spotlights, Bokeh, Clipart Confetti */
+        #bg-fx {
             position: absolute;
             inset: 0;
-            width: 100%;
-            height: 100%;
+            z-index: 2;
             pointer-events: none;
-            z-index: 6;
         }
 
-        /* Corner Pine Garlands & Baubles */
-        .corner-garland {
+        .spotlight {
             position: absolute;
+            top: -25%;
+            width: 58%;
+            height: 160%;
             pointer-events: none;
-            z-index: 25;
-        }
-        .garland-tl { top: -10px; left: -10px; width: 460px; height: 280px; }
-        .garland-tr { top: -10px; right: -10px; width: 460px; height: 280px; transform: scaleX(-1); }
-        .garland-bl { bottom: -10px; left: -10px; width: 340px; height: 240px; }
-        .garland-br { bottom: -10px; right: -10px; width: 340px; height: 240px; transform: scaleX(-1); }
-
-        .bauble-sway {
+            z-index: 1;
             transform-origin: top center;
-            animation: baubleSwing 4.2s ease-in-out infinite;
+            mix-blend-mode: screen;
         }
-        .bauble-sway-delay {
-            transform-origin: top center;
-            animation: baubleSwing 5.0s ease-in-out infinite reverse;
+        .spotlight.s1 {
+            left: -6%;
+            background: conic-gradient(from 180deg at 50% 0%, transparent 0deg, rgba(253, 224, 71, 0.16) 15deg, rgba(245, 158, 11, 0.05) 28deg, transparent 40deg);
+            animation: spotSweep1 9.5s ease-in-out infinite alternate;
         }
-        @keyframes baubleSwing {
-            0%, 100% { transform: rotate(-4deg); }
-            50% { transform: rotate(4deg); }
+        .spotlight.s2 {
+            right: -6%;
+            background: conic-gradient(from 180deg at 50% 0%, transparent 0deg, rgba(251, 191, 36, 0.15) 15deg, rgba(220, 38, 38, 0.08) 28deg, transparent 40deg);
+            animation: spotSweep2 11.5s ease-in-out infinite alternate;
+        }
+        @keyframes spotSweep1 { from { transform: rotate(-20deg); } to { transform: rotate(18deg); } }
+        @keyframes spotSweep2 { from { transform: rotate(20deg); } to { transform: rotate(-18deg); } }
+
+        /* Draped Pine Tinsel Garland */
+        .garland-svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1920px;
+            height: 180px;
+            z-index: 14;
+            pointer-events: none;
         }
 
-        .fairy-twinkle {
-            animation: twinkleGlow 2.1s ease-in-out infinite alternate;
-        }
-        .fairy-twinkle-2 {
-            animation: twinkleGlow 1.6s ease-in-out infinite alternate-reverse;
-        }
-        @keyframes twinkleGlow {
-            0% { opacity: 0.4; transform: scale(0.88); }
-            100% { opacity: 1; transform: scale(1.18); }
+        /* Switched-ON Colour-Changing Christmas String Lights Canvas */
+        #lights-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1920px;
+            height: 220px;
+            z-index: 17;
+            pointer-events: none;
         }
 
-        /* 3D Scene Container */
-        .scene-3d {
-            position: relative;
-            z-index: 15;
-            width: 100%;
-            height: 100%;
-            padding: 20px 64px 24px;
+        /* Coloured Coasters Tavern Logo Baubles */
+        .bauble-cluster {
+            position: absolute;
+            top: 0;
+            z-index: 16;
+            display: flex;
+            gap: 20px;
+            pointer-events: none;
+        }
+        .bauble-cluster.left { left: 38px; }
+        .bauble-cluster.right { right: 38px; }
+
+        .bauble-drop {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: space-between;
-            transform-style: preserve-3d;
-            animation: heroFloat3D 10s ease-in-out infinite;
+            transform-origin: top center;
+            animation: baubleSwing 3.8s ease-in-out infinite;
         }
-
-        @keyframes heroFloat3D {
-            0%, 100% { transform: rotateX(1.6deg) rotateY(-1.8deg); }
-            50% { transform: rotateX(-1.4deg) rotateY(1.8deg); }
+        .bauble-drop:nth-child(2) {
+            animation-delay: -1.7s;
+            animation-duration: 4.5s;
         }
-
-        /* Cinematic Staggered Entrance Transitions */
-        .enter-3d {
-            opacity: 0;
-            animation: epicEnter3D 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        @keyframes baubleSwing {
+            0%, 100% { transform: rotate(-5.5deg); }
+            50% { transform: rotate(5.5deg); }
         }
-        .enter-d1 { animation-delay: 0.08s; }
-        .enter-d2 { animation-delay: 0.22s; }
-        .enter-d3 { animation-delay: 0.38s; }
-        .enter-d4 { animation-delay: 0.52s; }
-        .enter-d5 { animation-delay: 0.68s; }
-
-        @keyframes epicEnter3D {
-            0% {
-                opacity: 0;
-                transform: translateY(28px) scale(0.92) translateZ(-40px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0) scale(1) translateZ(0);
-            }
+        .bauble-cord {
+            width: 3px;
+            background: linear-gradient(180deg, #fef08a, #b45309);
         }
-
-        /* Top Coasters Emblem with Santa Hat */
-        .logo-emblem-3d {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transform: translateZ(50px);
-            filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.9));
-            flex-shrink: 0;
+        .bauble-crown {
+            width: 26px;
+            height: 12px;
+            border-radius: 4px 4px 0 0;
+            background: linear-gradient(90deg, #92400e, #fde047, #92400e);
+            border: 1px solid #fef08a;
         }
-
-        .logo-medallion {
-            width: 104px;
-            height: 104px;
+        .bauble-orb {
+            width: 106px;
+            height: 106px;
             border-radius: 50%;
-            background: radial-gradient(circle, #231208 0%, #090402 100%);
-            border: 3.5px solid #fbbf24;
-            box-shadow: 0 0 32px rgba(251, 191, 36, 0.65), inset 0 0 18px rgba(251, 191, 36, 0.3);
+            padding: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 8px;
+            position: relative;
+            border: 2.5px solid rgba(255, 255, 255, 0.55);
+            box-shadow:
+                inset -12px -14px 22px rgba(0, 0, 0, 0.65),
+                inset 10px 10px 18px rgba(255, 255, 255, 0.45),
+                0 14px 28px rgba(0, 0, 0, 0.88),
+                0 0 26px rgba(251, 191, 36, 0.35);
         }
-
-        .logo-medallion img {
+        .bauble-orb::after {
+            content: '';
+            position: absolute;
+            top: 12px;
+            left: 18px;
+            width: 26px;
+            height: 13px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.52);
+            transform: rotate(-28deg);
+        }
+        .bauble-orb img {
             width: 100%;
             height: 100%;
             object-fit: contain;
+            filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.85));
         }
+        .orb-red { background: radial-gradient(circle at 32% 30%, #fb7185, #dc2626 55%, #7f1d1d 100%); box-shadow: inset -12px -14px 22px rgba(0,0,0,0.65), inset 10px 10px 18px rgba(255,255,255,0.45), 0 14px 28px rgba(0,0,0,0.88), 0 0 34px rgba(244,63,94,0.65); }
+        .orb-gold { background: radial-gradient(circle at 32% 30%, #fef08a, #eab308 55%, #854d0e 100%); box-shadow: inset -12px -14px 22px rgba(0,0,0,0.65), inset 10px 10px 18px rgba(255,255,255,0.45), 0 14px 28px rgba(0,0,0,0.88), 0 0 34px rgba(250,204,21,0.7); }
+        .orb-green { background: radial-gradient(circle at 32% 30%, #6ee7b7, #10b981 55%, #064e3b 100%); box-shadow: inset -12px -14px 22px rgba(0,0,0,0.65), inset 10px 10px 18px rgba(255,255,255,0.45), 0 14px 28px rgba(0,0,0,0.88), 0 0 34px rgba(16,185,129,0.65); }
+        .orb-blue { background: radial-gradient(circle at 32% 30%, #7dd3fc, #0284c7 55%, #0c4a6e 100%); box-shadow: inset -12px -14px 22px rgba(0,0,0,0.65), inset 10px 10px 18px rgba(255,255,255,0.45), 0 14px 28px rgba(0,0,0,0.88), 0 0 34px rgba(56,189,248,0.65); }
 
-        .santa-hat-logo {
+        /* Persistent Top Header (Placed Cleanly Below Garland & Lights) */
+        .top-bar {
             position: absolute;
-            top: -24px;
-            right: -24px;
-            width: 68px;
-            height: 68px;
-            transform: rotate(22deg);
-            filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.75));
-        }
-
-        /* 3D Extruded Title Stack - Bigger Without Clipping */
-        .title-stack-3d {
-            text-align: center;
-            position: relative;
-            transform-style: preserve-3d;
-            margin-top: -10px;
-            flex-shrink: 0;
-        }
-
-        .title-coasters {
-            font-family: 'Great Vibes', cursive;
-            font-size: 4.5rem;
-            color: #ffffff;
-            line-height: 1.05;
-            padding: 0 24px;
-            transform: translateZ(40px);
-            text-shadow:
-                0 3px 0 #b45309,
-                0 6px 20px rgba(0, 0, 0, 0.92),
-                0 0 28px rgba(255, 255, 255, 0.5);
+            top: 104px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 22;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 7px 30px;
+            border-radius: 999px;
+            background: rgba(14, 5, 2, 0.92);
+            border: 2.5px solid #fbbf24;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85), 0 0 30px rgba(251, 191, 36, 0.45);
             white-space: nowrap;
         }
-
-        .title-christmas-3d {
-            font-family: 'Great Vibes', cursive;
-            font-size: 9.2rem;
-            line-height: 1.08;
-            padding: 2px 36px;
+        .tb-title {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 26px;
             letter-spacing: 2px;
             color: #fde047;
-            transform: translateZ(85px);
-            text-shadow:
-                0 2px 0 #eab308,
-                0 4px 0 #ca8a04,
-                0 6px 0 #a16207,
-                0 8px 0 #854d0e,
-                0 10px 0 #713f12,
-                0 18px 36px rgba(0, 0, 0, 0.96),
-                0 0 54px rgba(251, 191, 36, 0.72);
-            white-space: nowrap;
-            margin: -14px 0 -4px;
-            animation: goldPulseGlow 3.5s ease-in-out infinite alternate;
         }
-
-        @keyframes goldPulseGlow {
-            0% {
-                filter: brightness(1);
-            }
-            100% {
-                filter: brightness(1.14) drop-shadow(0 0 26px rgba(253, 224, 71, 0.65));
-            }
+        .tb-div {
+            color: rgba(255, 255, 255, 0.35);
+            font-size: 26px;
         }
-
-        /* Crimson Velvet Party Ribbon with Shimmer Sweep */
-        .party-ribbon-3d {
-            position: relative;
+        .tb-pill {
             display: inline-flex;
             align-items: center;
-            justify-content: center;
-            background: linear-gradient(180deg, #dc2626 0%, #991b1b 55%, #7f1d1d 100%);
-            border: 2.5px solid #fbbf24;
-            padding: 8px 82px;
-            border-radius: 12px;
-            transform: translateZ(60px);
-            overflow: visible;
-            box-shadow:
-                0 10px 0 #450a0a,
-                0 20px 38px rgba(0, 0, 0, 0.9),
-                inset 0 2px 6px rgba(255, 255, 255, 0.35);
+            gap: 11px;
+            padding: 4px 20px;
+            border-radius: 999px;
+            background: linear-gradient(180deg, #dc2626, #991b1b);
+            border: 2px solid #fde047;
+            font-weight: 900;
+            font-size: 24px;
+            letter-spacing: 1.5px;
+            color: #ffffff;
+            animation: pillBeat 2.2s ease-in-out infinite;
         }
+        @keyframes pillBeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.04); }
+        }
+        .live-dot {
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background: #fde047;
+            box-shadow: 0 0 14px #fde047;
+            animation: dotBlink 0.9s ease-in-out infinite alternate;
+        }
+        @keyframes dotBlink { from { opacity: 0.35; } to { opacity: 1; } }
 
-        .party-ribbon-3d::after {
-            content: '';
+        /* Diagonal Golden Transition Wipe */
+        #wipe-flare {
             position: absolute;
             inset: 0;
-            border-radius: 10px;
-            background: linear-gradient(110deg, transparent 35%, rgba(255, 255, 255, 0.28) 50%, transparent 65%);
-            background-size: 220% 100%;
-            animation: ribbonShimmer 4.5s infinite linear;
+            z-index: 26;
+            pointer-events: none;
+            opacity: 0;
+            background: linear-gradient(108deg, transparent 22%, rgba(253, 224, 71, 0.4) 48%, rgba(255, 255, 255, 0.72) 50%, rgba(251, 191, 36, 0.4) 52%, transparent 78%);
+            transform: translateX(-115%);
+        }
+        #wipe-flare.go {
+            animation: flareSweep 0.95s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        @keyframes flareSweep {
+            0% { opacity: 0; transform: translateX(-115%); }
+            25% { opacity: 1; }
+            100% { opacity: 0; transform: translateX(115%); }
+        }
+
+        /* Scenes (Crisp 3D Transitions without CSS Blur, Clear of Top Bar, Garland & Elves) */
+        .scene {
+            position: absolute;
+            top: 164px;
+            bottom: 106px;
+            left: 88px;
+            right: 88px;
+            z-index: 12;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(48px) scale(0.92);
+            transition: opacity 0.75s ease, transform 0.95s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s linear 0.75s;
+        }
+        .scene.active {
+            opacity: 1;
+            visibility: visible;
+            transform: none;
+            transition: opacity 0.75s ease, transform 0.95s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s;
+        }
+        .scene.leaving {
+            opacity: 0;
+            visibility: visible;
+            transform: translateY(-44px) scale(1.05);
+        }
+
+        /* Staggered Pop-In */
+        .anim-in {
+            opacity: 0;
+            transform: translateY(38px) scale(0.92);
+        }
+        .scene.active .anim-in {
+            animation: cardEnter 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        .scene.active .st1 { animation-delay: 0.06s; }
+        .scene.active .st2 { animation-delay: 0.16s; }
+        .scene.active .st3 { animation-delay: 0.26s; }
+        .scene.active .st4 { animation-delay: 0.36s; }
+        .scene.active .st5 { animation-delay: 0.46s; }
+        @keyframes cardEnter {
+            0% { opacity: 0; transform: translateY(38px) scale(0.92); }
+            72% { opacity: 1; transform: translateY(-5px) scale(1.018); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* Continuous Motion Helpers */
+        .bob-a { animation: bobA 3.8s ease-in-out infinite; }
+        .bob-b { animation: bobA 4.2s ease-in-out -1.2s infinite; }
+        .bob-c { animation: bobA 3.9s ease-in-out -2.4s infinite; }
+        .bob-d { animation: bobA 4.4s ease-in-out -3.1s infinite; }
+        @keyframes bobA {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .shine-wrap {
+            position: relative;
+            overflow: hidden;
+        }
+        .shine-wrap::after {
+            content: '';
+            position: absolute;
+            top: -25%;
+            left: -65%;
+            width: 42%;
+            height: 150%;
+            background: linear-gradient(105deg, transparent 0%, rgba(255, 255, 255, 0.38) 50%, transparent 100%);
+            transform: skewX(-18deg);
+            animation: shinePass 3.6s ease-in-out infinite;
             pointer-events: none;
         }
-
-        @keyframes ribbonShimmer {
-            0% { background-position: 150% 0; }
-            100% { background-position: -150% 0; }
+        @keyframes shinePass {
+            0%, 42% { left: -65%; }
+            100% { left: 135%; }
         }
 
+        /* ===== SCENE 1: HERO ===== */
+        .hero-frame {
+            position: relative;
+            padding: 4px 86px 10px;
+            text-align: center;
+        }
+        .hero-brand {
+            font-family: 'Great Vibes', cursive;
+            font-size: 112px;
+            line-height: 1.1;
+            color: #ffffff;
+            white-space: nowrap;
+            text-shadow: 0 4px 0 #b45309, 0 12px 26px rgba(0, 0, 0, 0.9), 0 0 36px rgba(255, 255, 255, 0.45);
+        }
+        .hero-main {
+            font-family: 'Great Vibes', cursive;
+            font-size: 236px;
+            line-height: 1.1;
+            margin: -54px 0 -38px;
+            padding: 0 36px;
+            color: #fde047;
+            white-space: nowrap;
+            text-shadow:
+                0 3px 0 #eab308, 0 6px 0 #ca8a04, 0 9px 0 #a16207, 0 12px 0 #854d0e, 0 15px 0 #713f12,
+                0 26px 46px rgba(0, 0, 0, 0.95), 0 0 76px rgba(251, 191, 36, 0.72);
+            animation: heroPulse 2.8s ease-in-out infinite alternate;
+        }
+        @keyframes heroPulse {
+            from { transform: scale(1); filter: brightness(1); }
+            to { transform: scale(1.022); filter: brightness(1.12); }
+        }
+        .party-ribbon {
+            position: relative;
+            display: inline-block;
+            background: linear-gradient(180deg, #dc2626 0%, #991b1b 60%, #7f1d1d 100%);
+            border: 4px solid #fbbf24;
+            border-radius: 14px;
+            padding: 6px 102px 10px;
+            box-shadow: 0 12px 0 #450a0a, 0 24px 44px rgba(0, 0, 0, 0.9);
+        }
         .party-ribbon-text {
             font-family: 'Cinzel', serif;
             font-weight: 900;
-            font-size: 3.05rem;
-            line-height: 1.1;
-            letter-spacing: 10px;
+            font-size: 86px;
+            line-height: 1.15;
+            letter-spacing: 22px;
+            margin-right: -22px;
             color: #ffffff;
-            text-shadow: 0 3px 10px rgba(0, 0, 0, 0.8);
             white-space: nowrap;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.75);
         }
-
-        .holly-cluster {
+        .holly-sprig {
             position: absolute;
-            width: 78px;
-            height: 78px;
             top: 50%;
+            width: 98px;
+            height: 98px;
             transform: translateY(-50%);
-            filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.75));
-            z-index: 4;
+            filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.75));
+            animation: hollyRock 2.6s ease-in-out infinite alternate;
         }
-        .holly-left { left: -36px; }
-        .holly-right { right: -36px; transform: translateY(-50%) scaleX(-1); }
+        .holly-sprig.left { left: -48px; }
+        .holly-sprig.right { right: -48px; transform: translateY(-50%) scaleX(-1); animation-direction: alternate-reverse; }
+        @keyframes hollyRock {
+            from { transform: translateY(-50%) rotate(-7deg); }
+            to { transform: translateY(-50%) rotate(7deg); }
+        }
 
-        /* Whitewashed Distressed Wood Date Plaque - Bigger Text */
-        .date-plaque-3d {
-            position: relative;
-            transform: translateZ(52px);
-            background:
-                repeating-linear-gradient(
-                    180deg,
-                    rgba(180, 165, 150, 0.16) 0px,
-                    rgba(255, 255, 255, 0) 6px,
-                    rgba(120, 105, 90, 0.12) 14px
-                ),
-                linear-gradient(180deg, #faf6f0 0%, #e7dfd3 65%, #d6cbbd 100%);
-            border: 2.5px solid rgba(255, 255, 255, 0.85);
-            border-radius: 16px;
-            padding: 12px 92px 14px;
+        .date-plaque {
+            margin-top: 22px;
+            background: linear-gradient(180deg, #fbf7f1 0%, #ebe3d7 70%, #dacfc1 100%);
+            border: 3px solid #ffffff;
+            border-radius: 18px;
+            padding: 10px 64px 12px;
             text-align: center;
-            box-shadow:
-                0 10px 0 #786552,
-                0 24px 48px rgba(0, 0, 0, 0.88);
-            flex-shrink: 0;
+            box-shadow: 0 10px 0 #786552, 0 24px 44px rgba(0, 0, 0, 0.88);
         }
-
-        .santa-hat-plaque {
-            position: absolute;
-            top: -36px;
-            left: -42px;
-            width: 112px;
-            height: 112px;
-            transform: rotate(-18deg);
-            filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.75));
-        }
-
-        .date-plaque-main {
+        .dp-main {
             font-family: 'Playfair Display', serif;
             font-style: italic;
             font-weight: 900;
-            font-size: 4.05rem;
+            font-size: 62px;
+            line-height: 1.15;
             color: #991b1b;
-            line-height: 1.12;
-            padding: 0 12px;
-            text-shadow: 0 2px 0 rgba(255, 255, 255, 0.85);
             white-space: nowrap;
         }
-
-        .date-plaque-sub {
+        .dp-sub {
             font-family: 'Cinzel', serif;
             font-weight: 900;
-            font-size: 1.65rem;
+            font-size: 30px;
             line-height: 1.2;
-            letter-spacing: 4px;
+            letter-spacing: 8px;
             color: #1f2937;
-            margin-top: 2px;
             white-space: nowrap;
         }
 
-        /* 4 Feature Cards Row - Bigger & Animated Spotlight Cycle */
-        .features-row-3d {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 26px;
-            width: 100%;
-            max-width: 1740px;
-            transform: translateZ(46px);
-            flex-shrink: 0;
+        .hero-plugs {
+            margin-top: 22px;
+            display: flex;
+            gap: 22px;
+        }
+        .plug-chip {
+            padding: 10px 28px;
+            border-radius: 999px;
+            background: rgba(127, 29, 29, 0.88);
+            border: 2.5px solid #fbbf24;
+            font-weight: 800;
+            font-size: 25px;
+            color: #fef08a;
+            white-space: nowrap;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.65);
         }
 
-        .feature-card-3d {
-            background: linear-gradient(165deg, rgba(48, 22, 11, 0.86) 0%, rgba(18, 7, 3, 0.94) 100%);
-            border: 2px solid rgba(251, 191, 36, 0.45);
-            border-radius: 22px;
-            padding: 16px 18px 16px;
+        /* ===== SCENE 2: T.B.A. COCKTAILS ===== */
+        .sec-title {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 84px;
+            line-height: 1.12;
+            letter-spacing: 4px;
+            color: #fde047;
+            white-space: nowrap;
+            text-shadow: 0 5px 0 #713f12, 0 14px 30px rgba(0, 0, 0, 0.9), 0 0 38px rgba(251, 191, 36, 0.58);
+        }
+        .sec-warn {
+            margin-top: 6px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: 36px;
+            line-height: 1.2;
+            letter-spacing: 2px;
+            color: #fca5a5;
+            text-transform: uppercase;
+            white-space: nowrap;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.9);
+        }
+        .drinks-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 36px;
+            width: 100%;
+            margin-top: 24px;
+        }
+        .drink-card {
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            position: relative;
-            transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.65s ease, box-shadow 0.65s ease;
-            box-shadow:
-                0 10px 0 rgba(12, 4, 1, 0.92),
-                0 22px 40px rgba(0, 0, 0, 0.85),
-                inset 0 1px 0 rgba(255, 224, 130, 0.25);
         }
-
-        .feature-card-3d.spotlight-active {
-            transform: translateY(-10px) scale(1.04);
-            border-color: #fde047;
-            box-shadow:
-                0 14px 0 rgba(12, 4, 1, 0.95),
-                0 28px 50px rgba(0, 0, 0, 0.92),
-                0 0 36px rgba(251, 191, 36, 0.6);
+        .drink-ring {
+            width: 264px;
+            height: 264px;
+            border-radius: 50%;
+            border: 7px solid #fbbf24;
+            overflow: hidden;
+            background: #120703;
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.85), 0 0 40px rgba(251, 191, 36, 0.5);
+            animation: ringGlow 2.6s ease-in-out infinite alternate;
         }
-
-        .feature-icon-wrap {
-            width: 82px;
-            height: 82px;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            filter: drop-shadow(0 0 16px rgba(251, 191, 36, 0.6));
+        @keyframes ringGlow {
+            from { border-color: #fbbf24; box-shadow: 0 18px 40px rgba(0, 0, 0, 0.85), 0 0 26px rgba(251, 191, 36, 0.4); }
+            to { border-color: #fef08a; box-shadow: 0 18px 40px rgba(0, 0, 0, 0.85), 0 0 56px rgba(253, 224, 71, 0.85); }
         }
-
-        .feature-brush-ribbon {
+        .drink-ring img {
             width: 100%;
-            background: linear-gradient(90deg, #991b1b, #dc2626, #991b1b);
-            border: 1.5px solid rgba(253, 224, 71, 0.55);
-            border-radius: 12px;
-            padding: 10px 14px;
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.7);
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+            display: block;
+            filter: blur(11px) saturate(1.15);
+            animation: slowZoom 10s ease-in-out infinite alternate;
         }
+        @keyframes slowZoom { from { transform: scale(1.14); } to { transform: scale(1.24); } }
 
-        .feature-title {
+        .drink-tba {
+            margin-top: 12px;
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 44px;
+            line-height: 1.15;
+            color: #fde047;
+            white-space: nowrap;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.9);
+        }
+        .drink-blur {
             font-family: 'Playfair Display', serif;
             font-style: italic;
             font-weight: 900;
-            font-size: 1.92rem;
+            font-size: 32px;
+            line-height: 1.2;
             color: #ffffff;
-            line-height: 1.18;
             white-space: nowrap;
+            filter: blur(8px);
+            opacity: 0.78;
         }
-
-        .feature-sub {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 800;
-            font-size: 1.15rem;
-            color: #fef08a;
-            margin-top: 3px;
-            line-height: 1.2;
-            letter-spacing: 0.4px;
-            white-space: nowrap;
-        }
-
-        /* Bottom Illuminated Wood Sign - Bigger Text */
-        .bottom-sign-3d {
-            position: relative;
-            transform: translateZ(38px);
-            background:
-                repeating-linear-gradient(
-                    180deg,
-                    rgba(0, 0, 0, 0.25) 0px,
-                    rgba(82, 40, 17, 0.3) 26px,
-                    rgba(0, 0, 0, 0.35) 28px
-                ),
-                linear-gradient(180deg, #5c2d14 0%, #3a1a0a 100%);
-            border: 2.5px solid #fbbf24;
-            border-radius: 16px;
-            padding: 12px 76px;
-            text-align: center;
-            box-shadow:
-                0 10px 0 #1f0c04,
-                0 22px 46px rgba(0, 0, 0, 0.92),
-                0 0 36px rgba(251, 191, 36, 0.42);
-            flex-shrink: 0;
-        }
-
-        .bottom-sign-text {
-            font-family: 'Great Vibes', cursive;
-            font-size: 3.55rem;
-            color: #fef08a;
-            text-shadow: 0 3px 10px rgba(0, 0, 0, 0.92), 0 0 24px rgba(251, 191, 36, 0.6);
-            white-space: nowrap;
-            line-height: 1.18;
-            padding: 0 18px;
-        }
-
-        .bottom-url-tag {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 800;
-            font-size: 1.05rem;
-            line-height: 1.2;
-            letter-spacing: 3.5px;
-            color: #fde68a;
-            margin-top: 2px;
-            white-space: nowrap;
-        }
-
-        /* Glowing Fairy Bulbs on Bottom Sign */
-        .bulb-row {
-            position: absolute;
-            left: 16px;
-            right: 16px;
+        .deal-bar {
+            margin-top: 28px;
             display: flex;
-            justify-content: space-between;
+            align-items: center;
+            gap: 36px;
+            background: linear-gradient(180deg, #991b1b, #7f1d1d);
+            border: 4px solid #fbbf24;
+            border-radius: 22px;
+            padding: 12px 46px;
+            box-shadow: 0 12px 0 #450a0a, 0 24px 44px rgba(0, 0, 0, 0.9), 0 0 36px rgba(251, 191, 36, 0.45);
+        }
+        .deal-price {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 60px;
+            line-height: 1.1;
+            color: #fde047;
+            white-space: nowrap;
+        }
+        .deal-note {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 27px;
+            line-height: 1.25;
+            color: #ffffff;
+            white-space: nowrap;
+        }
+
+        /* ===== SCENE 3: LINEUP ===== */
+        .lineup-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            width: 100%;
+            margin-top: 28px;
+        }
+        .lineup-card {
+            background: linear-gradient(170deg, #3c1b0b 0%, #160803 100%);
+            border: 4px solid rgba(251, 191, 36, 0.85);
+            border-radius: 28px;
+            padding: 28px 24px 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 14px 0 #0c0401, 0 28px 50px rgba(0, 0, 0, 0.9);
+        }
+        .lineup-card.featured {
+            border-color: #fde047;
+            box-shadow: 0 14px 0 #0c0401, 0 28px 50px rgba(0, 0, 0, 0.9), 0 0 56px rgba(251, 191, 36, 0.65);
+        }
+        .lineup-card svg {
+            width: 148px;
+            height: 148px;
+            filter: drop-shadow(0 0 20px rgba(251, 191, 36, 0.65));
+            animation: iconDance 2.4s ease-in-out infinite alternate;
+        }
+        @keyframes iconDance {
+            from { transform: scale(1) rotate(-5deg); }
+            to { transform: scale(1.08) rotate(5deg); }
+        }
+        .lc-kicker {
+            margin-top: 12px;
+            font-weight: 900;
+            font-size: 32px;
+            letter-spacing: 5px;
+            color: #fca5a5;
+            white-space: nowrap;
+        }
+        .lc-title {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 900;
+            font-size: 72px;
+            line-height: 1.15;
+            color: #fde047;
+            white-space: nowrap;
+        }
+        .lc-sub {
+            font-weight: 800;
+            font-size: 33px;
+            color: #ffffff;
+            white-space: nowrap;
+        }
+        .lineup-foot {
+            margin-top: 30px;
+            font-weight: 900;
+            font-size: 40px;
+            color: #ffffff;
+            white-space: nowrap;
+            text-shadow: 0 4px 14px rgba(0, 0, 0, 0.9);
+        }
+        .lineup-foot em { font-style: normal; color: #fde047; }
+
+        /* ===== SCENE 4: POSTER LOCKUP + QR ===== */
+        .split-lockup {
+            display: grid;
+            grid-template-columns: 1fr 410px;
+            gap: 54px;
+            align-items: center;
+            width: 100%;
+        }
+        .split-left {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .sl-brand {
+            font-family: 'Great Vibes', cursive;
+            font-size: 112px;
+            line-height: 1.15;
+            color: #ffffff;
+            white-space: nowrap;
+            text-shadow: 0 4px 0 #b45309, 0 10px 24px rgba(0, 0, 0, 0.9);
+        }
+        .sl-main {
+            font-family: 'Great Vibes', cursive;
+            font-size: 215px;
+            line-height: 1.15;
+            margin: -36px 0 -46px;
+            padding: 0 30px;
+            color: #fde047;
+            white-space: nowrap;
+            text-shadow:
+                0 3px 0 #eab308, 0 6px 0 #ca8a04, 0 9px 0 #a16207, 0 12px 0 #713f12,
+                0 22px 40px rgba(0, 0, 0, 0.95), 0 0 60px rgba(251, 191, 36, 0.65);
+        }
+        .split-left .party-ribbon { padding: 4px 78px 8px; }
+        .split-left .party-ribbon-text { font-size: 66px; letter-spacing: 18px; margin-right: -18px; }
+        .split-left .date-plaque { margin-top: 22px; }
+        .split-left .dp-main { font-size: 56px; }
+
+        .qr-box {
+            background: #fffaf2;
+            border: 6px solid #fbbf24;
+            border-radius: 28px;
+            padding: 24px;
+            text-align: center;
+            box-shadow: 0 14px 0 #786552, 0 28px 50px rgba(0, 0, 0, 0.9), 0 0 42px rgba(251, 191, 36, 0.45);
+        }
+        .qr-box img {
+            width: 300px;
+            height: 300px;
+            display: block;
+            margin: 0 auto;
+        }
+        .qr-cap {
+            margin-top: 10px;
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 26px;
+            letter-spacing: 0.5px;
+            color: #991b1b;
+            white-space: nowrap;
+        }
+        .qr-link {
+            margin-top: 2px;
+            font-weight: 800;
+            font-size: 18px;
+            color: #1f2937;
+            white-space: nowrap;
+        }
+        .dress-call {
+            margin-top: 24px;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 900;
+            font-size: 56px;
+            color: #ffffff;
+            white-space: nowrap;
+            text-shadow: 0 4px 16px rgba(0, 0, 0, 0.9), 0 0 34px rgba(251, 191, 36, 0.55);
+        }
+
+        /* After-Event State */
+        .thanks-h {
+            font-family: 'Great Vibes', cursive;
+            font-size: 250px;
+            line-height: 1.2;
+            padding: 0 30px;
+            color: #fde047;
+            white-space: nowrap;
+            text-shadow: 0 6px 0 #a16207, 0 12px 0 #713f12, 0 24px 44px rgba(0, 0, 0, 0.95);
+        }
+        .thanks-p {
+            font-weight: 800;
+            font-size: 52px;
+            color: #ffffff;
+            white-space: nowrap;
+        }
+
+        /* Elves Foreground Canvas */
+        #elves-canvas {
+            position: absolute;
+            inset: 0;
+            z-index: 21;
             pointer-events: none;
         }
-        .bulb-row.top { top: -8px; }
-        .bulb-row.bottom { bottom: -8px; }
 
-        .fairy-bulb {
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            background: radial-gradient(circle, #ffffff 15%, #fde047 60%, #f59e0b 100%);
-            box-shadow: 0 0 14px 4px rgba(253, 224, 71, 0.85);
-            animation: twinkleGlow 1.5s ease-in-out infinite alternate;
-        }
-        .fairy-bulb:nth-child(even) {
-            animation-delay: 0.75s;
+        #hud {
+            position: absolute;
+            bottom: 94px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 50;
+            background: rgba(10, 4, 2, 0.92);
+            border: 3px solid #fbbf24;
+            border-radius: 18px;
+            padding: 12px 34px;
+            font-weight: 900;
+            font-size: 32px;
+            color: #ffffff;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.25s ease;
+            pointer-events: none;
         }
     </style>
 </head>
 <body>
-    <div id="tv-stage">
-        <!-- Volumetric Gold Spotlights -->
-        <div class="spotlight-beam beam-left"></div>
-        <div class="spotlight-beam beam-right"></div>
+    <div id="stage">
+        <div class="spotlight s1"></div>
+        <div class="spotlight s2"></div>
+        <canvas id="bg-fx" width="1920" height="1080"></canvas>
+        <div id="wipe-flare"></div>
 
-        <!-- Floating 3D Cocktail Images Canvas (Replaces Snow Confetti) -->
-        <canvas id="fx-cocktail-canvas"></canvas>
-
-        <!-- Top Left & Top Right Evergreen Garlands + Hanging Baubles -->
-        <svg class="corner-garland garland-tl" viewBox="0 0 460 280">
-            <defs>
-                <radialGradient id="goldBauble" cx="35%" cy="30%" r="65%">
-                    <stop offset="0%" stop-color="#fef9c3"/>
-                    <stop offset="50%" stop-color="#eab308"/>
-                    <stop offset="100%" stop-color="#713f12"/>
-                </radialGradient>
-                <radialGradient id="redBauble" cx="35%" cy="30%" r="65%">
-                    <stop offset="0%" stop-color="#fecdd3"/>
-                    <stop offset="45%" stop-color="#e11d48"/>
-                    <stop offset="100%" stop-color="#4c0519"/>
-                </radialGradient>
-            </defs>
-            <path d="M0,0 Q180,25 390,0 L0,0 Z" fill="#064e3b"/>
-            <path d="M-10,-10 C90,10 180,60 290,25 C190,85 80,120 -10,190 Z" fill="#065f46" opacity="0.95"/>
-            <path d="M-10,-10 C120,0 240,40 360,10 C250,60 120,90 -10,140 Z" fill="#047857" opacity="0.75"/>
-            <circle cx="52" cy="48" r="7" fill="#dc2626"/>
-            <circle cx="65" cy="54" r="6" fill="#ef4444"/>
-            <circle cx="58" cy="64" r="6" fill="#b91c1c"/>
-            <circle cx="195" cy="28" r="7" fill="#dc2626"/>
-            <circle cx="208" cy="34" r="6" fill="#ef4444"/>
-            <g class="bauble-sway">
-                <line x1="78" y1="68" x2="78" y2="128" stroke="#fde047" stroke-width="2"/>
-                <rect x="70" y="124" width="16" height="8" rx="2" fill="#d97706"/>
-                <circle cx="78" cy="164" r="34" fill="url(#goldBauble)"/>
-            </g>
-            <g class="bauble-sway-delay">
-                <line x1="168" y1="45" x2="168" y2="92" stroke="#fde047" stroke-width="2"/>
-                <rect x="161" y="88" width="14" height="7" rx="2" fill="#d97706"/>
-                <circle cx="168" cy="118" r="24" fill="url(#redBauble)"/>
-            </g>
-            <circle class="fairy-twinkle" cx="40" cy="24" r="5" fill="#fef08a"/>
-            <circle class="fairy-twinkle-2" cx="122" cy="44" r="6" fill="#fde047"/>
-            <circle class="fairy-twinkle" cx="242" cy="22" r="5" fill="#fef08a"/>
-            <circle class="fairy-twinkle-2" cx="320" cy="14" r="5" fill="#fde047"/>
+        <!-- Draped Pine & Gold Tinsel Garland -->
+        <svg class="garland-svg" viewBox="0 0 1920 180">
+            <path d="M-20,10 Q240,102 480,22 Q720,102 960,22 Q1200,102 1440,22 Q1680,102 1940,10" fill="none" stroke="#064e3b" stroke-width="34" stroke-linecap="round"/>
+            <path d="M-20,10 Q240,102 480,22 Q720,102 960,22 Q1200,102 1440,22 Q1680,102 1940,10" fill="none" stroke="#15803d" stroke-width="20" stroke-dasharray="10 10" stroke-linecap="round"/>
+            <path d="M-20,10 Q240,102 480,22 Q720,102 960,22 Q1200,102 1440,22 Q1680,102 1940,10" fill="none" stroke="#fbbf24" stroke-width="8" stroke-dasharray="5 15" stroke-linecap="round"/>
+            <path d="M-20,16 Q240,108 480,28 Q720,108 960,28 Q1200,108 1440,28 Q1680,108 1940,16" fill="none" stroke="#ef4444" stroke-width="6" stroke-dasharray="4 22" stroke-linecap="round"/>
         </svg>
+        <!-- Canvas-Rendered Switched-ON Colour-Changing Christmas Lights -->
+        <canvas id="lights-canvas" width="1920" height="220"></canvas>
 
-        <svg class="corner-garland garland-tr" viewBox="0 0 460 280">
-            <path d="M-10,-10 C90,10 180,60 290,25 C190,85 80,120 -10,190 Z" fill="#065f46" opacity="0.95"/>
-            <path d="M-10,-10 C120,0 240,40 360,10 C250,60 120,90 -10,140 Z" fill="#047857" opacity="0.75"/>
-            <circle cx="52" cy="48" r="7" fill="#dc2626"/>
-            <circle cx="65" cy="54" r="6" fill="#ef4444"/>
-            <g class="bauble-sway-delay">
-                <line x1="88" y1="68" x2="88" y2="128" stroke="#fde047" stroke-width="2"/>
-                <rect x="80" y="124" width="16" height="8" rx="2" fill="#d97706"/>
-                <circle cx="88" cy="166" r="36" fill="url(#redBauble)"/>
-            </g>
-            <circle class="fairy-twinkle-2" cx="44" cy="28" r="5" fill="#fef08a"/>
-            <circle class="fairy-twinkle" cx="145" cy="36" r="6" fill="#fde047"/>
-            <circle class="fairy-twinkle-2" cx="265" cy="18" r="5" fill="#fef08a"/>
-        </svg>
-
-        <!-- Bottom Left & Bottom Right Wrapped Gift Boxes & Pine -->
-        <svg class="corner-garland garland-bl" viewBox="0 0 340 240">
-            <path d="M0,240 C40,140 120,165 240,240 Z" fill="#065f46"/>
-            <rect x="18" y="112" width="110" height="104" rx="8" fill="#d97706" stroke="#fde047" stroke-width="2"/>
-            <rect x="64" y="112" width="18" height="104" fill="#b91c1c"/>
-            <rect x="18" y="152" width="110" height="18" fill="#b91c1c"/>
-            <path d="M73,112 C45,86 35,108 73,112 C110,108 100,86 73,112 Z" fill="#ef4444"/>
-            <circle cx="148" cy="196" r="36" fill="url(#redBauble)"/>
-            <circle class="fairy-twinkle" cx="195" cy="212" r="5" fill="#fef08a"/>
-        </svg>
-
-        <svg class="corner-garland garland-br" viewBox="0 0 340 240">
-            <path d="M0,240 C40,140 120,165 240,240 Z" fill="#065f46"/>
-            <rect x="18" y="112" width="110" height="104" rx="8" fill="#991b1b" stroke="#fbbf24" stroke-width="2"/>
-            <rect x="64" y="112" width="18" height="104" fill="#fbbf24"/>
-            <rect x="18" y="152" width="110" height="18" fill="#fbbf24"/>
-            <path d="M73,112 C45,86 35,108 73,112 C110,108 100,86 73,112 Z" fill="#fde047"/>
-            <circle cx="152" cy="198" r="32" fill="url(#goldBauble)"/>
-            <circle class="fairy-twinkle-2" cx="200" cy="214" r="5" fill="#fef08a"/>
-        </svg>
-
-        <!-- Main 3D Perspective Content -->
-        <div class="scene-3d" id="scene-3d">
-
-            <!-- Top Center Coasters Tavern Logo + Santa Hat -->
-            <div class="logo-emblem-3d enter-3d enter-d1">
-                <div class="logo-medallion">
-                    <img src="assets/coasters-logo.png" alt="Coasters Tavern">
-                </div>
-                <svg class="santa-hat-logo" viewBox="0 0 100 100">
-                    <path d="M18,68 C22,22 65,10 86,44 C64,46 56,56 54,68 Z" fill="#dc2626"/>
-                    <rect x="12" y="64" width="48" height="16" rx="8" fill="#f8fafc"/>
-                    <circle cx="88" cy="48" r="10" fill="#f8fafc"/>
-                </svg>
+        <!-- Coloured Coasters Tavern Logo Baubles -->
+        <div class="bauble-cluster left">
+            <div class="bauble-drop">
+                <div class="bauble-cord" style="height: 38px;"></div>
+                <div class="bauble-crown"></div>
+                <div class="bauble-orb orb-red"><img src="assets/coasters-logo.png" alt="Coasters Tavern"></div>
             </div>
-
-            <!-- 3D Extruded Title Stack -->
-            <div class="title-stack-3d enter-3d enter-d2">
-                <div class="title-coasters">Coasters</div>
-                <div class="title-christmas-3d">Christmas</div>
-                <div class="party-ribbon-3d">
-                    <svg class="holly-cluster holly-left" viewBox="0 0 80 80">
-                        <path d="M40,40 C15,15 8,32 16,44 C8,56 22,68 40,46 Z" fill="#15803d" stroke="#166534" stroke-width="2"/>
-                        <path d="M42,40 C28,12 46,6 54,20 C66,18 68,36 46,42 Z" fill="#16a34a" stroke="#166534" stroke-width="2"/>
-                        <circle cx="40" cy="42" r="7" fill="#dc2626"/>
-                        <circle cx="50" cy="48" r="6" fill="#ef4444"/>
-                        <circle cx="34" cy="52" r="6" fill="#b91c1c"/>
-                    </svg>
-                    <span class="party-ribbon-text">PARTY</span>
-                    <svg class="holly-cluster holly-right" viewBox="0 0 80 80">
-                        <path d="M40,40 C15,15 8,32 16,44 C8,56 22,68 40,46 Z" fill="#15803d" stroke="#166534" stroke-width="2"/>
-                        <path d="M42,40 C28,12 46,6 54,20 C66,18 68,36 46,42 Z" fill="#16a34a" stroke="#166534" stroke-width="2"/>
-                        <circle cx="40" cy="42" r="7" fill="#dc2626"/>
-                        <circle cx="50" cy="48" r="6" fill="#ef4444"/>
-                        <circle cx="34" cy="52" r="6" fill="#b91c1c"/>
-                    </svg>
-                </div>
+            <div class="bauble-drop">
+                <div class="bauble-cord" style="height: 68px;"></div>
+                <div class="bauble-crown"></div>
+                <div class="bauble-orb orb-gold"><img src="assets/coasters-logo.png" alt="Coasters Tavern"></div>
             </div>
-
-            <!-- Whitewashed Wood Date Plaque -->
-            <div class="date-plaque-3d enter-3d enter-d3">
-                <svg class="santa-hat-plaque" viewBox="0 0 100 100">
-                    <path d="M20,66 C26,18 70,12 88,46 C66,48 56,56 54,66 Z" fill="#dc2626"/>
-                    <rect x="12" y="62" width="48" height="16" rx="8" fill="#ffffff"/>
-                    <circle cx="88" cy="50" r="10" fill="#ffffff"/>
-                </svg>
-                <div class="date-plaque-main">12th December &bull; From 7pm</div>
-                <div class="date-plaque-sub">&mdash; ALL ARE WELCOME &bull; EVERYONE WELCOME &mdash;</div>
-            </div>
-
-            <!-- 4 Feature Cards Row -->
-            <div class="features-row-3d enter-3d enter-d4">
-                <!-- 1. Live Band Danny -->
-                <div class="feature-card-3d spotlight-active">
-                    <div class="feature-icon-wrap">
-                        <svg viewBox="0 0 100 100" width="76" height="76">
-                            <g transform="rotate(-35 50 50)">
-                                <ellipse cx="38" cy="64" rx="22" ry="18" fill="none" stroke="#fef08a" stroke-width="4"/>
-                                <circle cx="40" cy="62" r="6" fill="#fbbf24"/>
-                                <rect x="52" y="16" width="8" height="36" rx="3" fill="#fef08a"/>
-                                <rect x="49" y="8" width="14" height="10" rx="2" fill="#fbbf24"/>
-                            </g>
-                            <line x1="16" y1="22" x2="26" y2="30" stroke="#fde047" stroke-width="3" stroke-linecap="round"/>
-                            <line x1="30" y1="12" x2="34" y2="24" stroke="#fde047" stroke-width="3" stroke-linecap="round"/>
-                            <line x1="10" y1="38" x2="22" y2="40" stroke="#fde047" stroke-width="3" stroke-linecap="round"/>
-                        </svg>
-                    </div>
-                    <div class="feature-brush-ribbon">
-                        <div class="feature-title">Live Band "Danny"</div>
-                        <div class="feature-sub">Playing Live from 8pm</div>
-                    </div>
-                </div>
-
-                <!-- 2. Finger Food -->
-                <div class="feature-card-3d">
-                    <div class="feature-icon-wrap">
-                        <svg viewBox="0 0 100 100" width="76" height="76">
-                            <line x1="36" y1="14" x2="62" y2="46" stroke="#fde047" stroke-width="4" stroke-linecap="round"/>
-                            <line x1="64" y1="14" x2="38" y2="46" stroke="#fde047" stroke-width="4" stroke-linecap="round"/>
-                            <rect x="16" y="64" width="68" height="10" rx="5" fill="#fbbf24"/>
-                            <circle cx="28" cy="54" r="9" fill="#ef4444"/>
-                            <circle cx="50" cy="52" r="10" fill="#10b981"/>
-                            <circle cx="72" cy="54" r="9" fill="#f59e0b"/>
-                            <circle cx="50" cy="36" r="5" fill="#dc2626"/>
-                        </svg>
-                    </div>
-                    <div class="feature-brush-ribbon">
-                        <div class="feature-title">Finger Food</div>
-                        <div class="feature-sub">Throughout the Night</div>
-                    </div>
-                </div>
-
-                <!-- 3. Tiki Bar Cocktail Specials -->
-                <div class="feature-card-3d">
-                    <div class="feature-icon-wrap">
-                        <svg viewBox="0 0 100 100" width="76" height="76">
-                            <path d="M32,32 L68,32 L60,80 C59,86 41,86 40,80 Z" fill="#f43f5e" stroke="#fef08a" stroke-width="3"/>
-                            <line x1="62" y1="32" x2="78" y2="12" stroke="#fde047" stroke-width="4" stroke-linecap="round"/>
-                            <circle cx="32" cy="30" r="12" fill="#f59e0b" stroke="#fef08a" stroke-width="2"/>
-                            <path d="M18,24 Q24,10 34,20" fill="#10b981"/>
-                            <circle cx="50" cy="56" r="8" fill="#fef08a" opacity="0.65"/>
-                        </svg>
-                    </div>
-                    <div class="feature-brush-ribbon">
-                        <div class="feature-title">Cocktail Specials</div>
-                        <div class="feature-sub">Tiki Bar &bull; 2x for $20</div>
-                    </div>
-                </div>
-
-                <!-- 4. Photo Booth -->
-                <div class="feature-card-3d">
-                    <div class="feature-icon-wrap">
-                        <svg viewBox="0 0 100 100" width="76" height="76">
-                            <rect x="12" y="34" width="56" height="40" rx="8" fill="none" stroke="#fef08a" stroke-width="4"/>
-                            <path d="M28,34 L34,24 L46,24 L52,34" fill="none" stroke="#fef08a" stroke-width="4"/>
-                            <circle cx="40" cy="54" r="12" fill="none" stroke="#fbbf24" stroke-width="4"/>
-                            <circle cx="40" cy="54" r="5" fill="#fde047"/>
-                            <g transform="rotate(14 78 52)">
-                                <rect x="68" y="22" width="22" height="58" rx="3" fill="none" stroke="#fde047" stroke-width="3"/>
-                                <line x1="68" y1="40" x2="90" y2="40" stroke="#fde047" stroke-width="2"/>
-                                <line x1="68" y1="58" x2="90" y2="58" stroke="#fde047" stroke-width="2"/>
-                            </g>
-                        </svg>
-                    </div>
-                    <div class="feature-brush-ribbon">
-                        <div class="feature-title">Photo Booth</div>
-                        <div class="feature-sub">Free Prints &amp; Props</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Bottom Illuminated Wood Sign -->
-            <div class="bottom-sign-3d enter-3d enter-d5">
-                <div class="bulb-row top">
-                    <span class="fairy-bulb"></span><span class="fairy-bulb"></span><span class="fairy-bulb"></span>
-                    <span class="fairy-bulb"></span><span class="fairy-bulb"></span><span class="fairy-bulb"></span>
-                    <span class="fairy-bulb"></span><span class="fairy-bulb"></span><span class="fairy-bulb"></span>
-                    <span class="fairy-bulb"></span><span class="fairy-bulb"></span><span class="fairy-bulb"></span>
-                </div>
-                <div class="bottom-sign-text">Dress in your Christmassy Clothes!</div>
-                <div class="bottom-url-tag">COASTERS TAVERN SOCIAL CLUB &bull; WWW.COASTERSTAVERN.CO.NZ</div>
-                <div class="bulb-row bottom">
-                    <span class="fairy-bulb"></span><span class="fairy-bulb"></span><span class="fairy-bulb"></span>
-                    <span class="fairy-bulb"></span><span class="fairy-bulb"></span><span class="fairy-bulb"></span>
-                    <span class="fairy-bulb"></span><span class="fairy-bulb"></span><span class="fairy-bulb"></span>
-                    <span class="fairy-bulb"></span><span class="fairy-bulb"></span><span class="fairy-bulb"></span>
-                </div>
-            </div>
-
         </div>
+        <div class="bauble-cluster right">
+            <div class="bauble-drop">
+                <div class="bauble-cord" style="height: 68px;"></div>
+                <div class="bauble-crown"></div>
+                <div class="bauble-orb orb-green"><img src="assets/coasters-logo.png" alt="Coasters Tavern"></div>
+            </div>
+            <div class="bauble-drop">
+                <div class="bauble-cord" style="height: 38px;"></div>
+                <div class="bauble-crown"></div>
+                <div class="bauble-orb orb-blue"><img src="assets/coasters-logo.png" alt="Coasters Tavern"></div>
+            </div>
+        </div>
+
+        <!-- Persistent Header on ALL 4 Slides -->
+        <header class="top-bar">
+            <span class="tb-title">COASTERS CHRISTMAS PARTY &bull; SAT 12 DEC &bull; 7PM</span>
+            <span class="tb-div">|</span>
+            <span class="tb-pill"><span class="live-dot"></span><span class="js-status">28 DAYS LEFT TO GO</span></span>
+        </header>
+
+        <!-- ===== SCENE 1: HERO REVEAL ===== -->
+        <section class="scene" data-dur="15000">
+            <div class="hero-frame anim-in st1">
+                <div class="hero-brand bob-a">Coasters</div>
+                <div class="hero-main">Christmas</div>
+                <div class="party-ribbon shine-wrap bob-b">
+                    <svg class="holly-sprig left" viewBox="0 0 80 80"><path d="M40,40 C15,15 8,32 16,44 C8,56 22,68 40,46 Z" fill="#15803d"/><path d="M42,40 C28,12 46,6 54,20 C66,18 68,36 46,42 Z" fill="#16a34a"/><circle cx="40" cy="42" r="7" fill="#dc2626"/><circle cx="50" cy="48" r="6" fill="#ef4444"/><circle cx="34" cy="52" r="6" fill="#b91c1c"/></svg>
+                    <span class="party-ribbon-text">PARTY</span>
+                    <svg class="holly-sprig right" viewBox="0 0 80 80"><path d="M40,40 C15,15 8,32 16,44 C8,56 22,68 40,46 Z" fill="#15803d"/><path d="M42,40 C28,12 46,6 54,20 C66,18 68,36 46,42 Z" fill="#16a34a"/><circle cx="40" cy="42" r="7" fill="#dc2626"/><circle cx="50" cy="48" r="6" fill="#ef4444"/><circle cx="34" cy="52" r="6" fill="#b91c1c"/></svg>
+                </div>
+            </div>
+            <div class="date-plaque shine-wrap anim-in st2 bob-c">
+                <div class="dp-main">Saturday 12th December &bull; From 7pm</div>
+                <div class="dp-sub">EVERYONE WELCOME &bull; <span class="js-status">28 DAYS LEFT TO GO</span></div>
+            </div>
+            <div class="hero-plugs anim-in st3">
+                <span class="plug-chip bob-a">Live Band "Danny" 8pm</span>
+                <span class="plug-chip bob-b">Cocktail Specials</span>
+                <span class="plug-chip bob-c">Free Photo Booth</span>
+                <span class="plug-chip bob-d">Finger Food All Night</span>
+            </div>
+        </section>
+
+        <!-- ===== SCENE 2: PARTY NIGHT COCKTAILS (T.B.A.) ===== -->
+        <section class="scene" data-dur="17000">
+            <div class="sec-title anim-in st1">Christmas Party Cocktails</div>
+            <div class="sec-warn anim-in st1">Christmas Party Night Only (Sat 12 Dec) &bull; <span class="js-status">28 DAYS LEFT TO GO</span></div>
+            <div class="drinks-grid">
+                <div class="drink-card anim-in st2"><div class="bob-a">
+                    <div class="drink-ring"><img src="assets/cocktails/tv_cocktail_1.jpg" alt="T.B.A. #1"></div>
+                    <div class="drink-tba">T.B.A. #1</div>
+                    <div class="drink-blur">Island Rum Secret</div>
+                </div></div>
+                <div class="drink-card anim-in st3"><div class="bob-b">
+                    <div class="drink-ring"><img src="assets/cocktails/tv_cocktail_2.jpg" alt="T.B.A. #2"></div>
+                    <div class="drink-tba">T.B.A. #2</div>
+                    <div class="drink-blur">Lagoon Frost Mix</div>
+                </div></div>
+                <div class="drink-card anim-in st4"><div class="bob-c">
+                    <div class="drink-ring"><img src="assets/cocktails/tv_cocktail_3.jpg" alt="T.B.A. #3"></div>
+                    <div class="drink-tba">T.B.A. #3</div>
+                    <div class="drink-blur">Santa Sunset Blend</div>
+                </div></div>
+                <div class="drink-card anim-in st5"><div class="bob-d">
+                    <div class="drink-ring"><img src="assets/cocktails/tv_cocktail_4.jpg" alt="T.B.A. #4"></div>
+                    <div class="drink-tba">T.B.A. #4</div>
+                    <div class="drink-blur">Coconut Snow Drift</div>
+                </div></div>
+            </div>
+            <div class="deal-bar shine-wrap anim-in st5">
+                <div class="deal-price">2 FOR $20 &bull; 4 FOR $40</div>
+                <div class="deal-note">Vouchers at the Main Bar<br>Redeemable on Christmas Party Night Only</div>
+            </div>
+        </section>
+
+        <!-- ===== SCENE 3: CHRISTMAS PARTY LINEUP ===== -->
+        <section class="scene" data-dur="16000">
+            <div class="sec-title anim-in st1">Christmas Party Lineup</div>
+            <div class="sec-warn anim-in st1">Saturday 12th December &bull; From 7pm &bull; <span class="js-status">28 DAYS LEFT TO GO</span></div>
+            <div class="lineup-grid">
+                <div class="anim-in st2"><div class="lineup-card featured shine-wrap bob-a">
+                    <svg viewBox="0 0 100 100">
+                        <g transform="rotate(-35 50 50)">
+                            <ellipse cx="38" cy="64" rx="22" ry="18" fill="none" stroke="#fef08a" stroke-width="4"/>
+                            <circle cx="40" cy="62" r="6" fill="#fbbf24"/>
+                            <rect x="52" y="16" width="8" height="36" rx="3" fill="#fef08a"/>
+                            <rect x="49" y="8" width="14" height="10" rx="2" fill="#fbbf24"/>
+                        </g>
+                        <line x1="16" y1="22" x2="26" y2="30" stroke="#fde047" stroke-width="3" stroke-linecap="round"/>
+                        <line x1="30" y1="12" x2="34" y2="24" stroke="#fde047" stroke-width="3" stroke-linecap="round"/>
+                        <line x1="10" y1="38" x2="22" y2="40" stroke="#fde047" stroke-width="3" stroke-linecap="round"/>
+                    </svg>
+                    <div class="lc-kicker">LIVE BAND</div>
+                    <div class="lc-title">"Danny"</div>
+                    <div class="lc-sub">On stage from 8pm</div>
+                </div></div>
+                <div class="anim-in st3"><div class="lineup-card shine-wrap bob-b">
+                    <svg viewBox="0 0 100 100">
+                        <line x1="36" y1="14" x2="62" y2="46" stroke="#fde047" stroke-width="4" stroke-linecap="round"/>
+                        <line x1="64" y1="14" x2="38" y2="46" stroke="#fde047" stroke-width="4" stroke-linecap="round"/>
+                        <rect x="16" y="64" width="68" height="10" rx="5" fill="#fbbf24"/>
+                        <circle cx="28" cy="54" r="9" fill="#ef4444"/><circle cx="50" cy="52" r="10" fill="#10b981"/><circle cx="72" cy="54" r="9" fill="#f59e0b"/>
+                    </svg>
+                    <div class="lc-kicker">ALL NIGHT</div>
+                    <div class="lc-title">Finger Food</div>
+                    <div class="lc-sub">Served throughout</div>
+                </div></div>
+                <div class="anim-in st4"><div class="lineup-card shine-wrap bob-c">
+                    <svg viewBox="0 0 100 100">
+                        <rect x="12" y="34" width="56" height="40" rx="8" fill="none" stroke="#fef08a" stroke-width="4"/>
+                        <path d="M28,34 L34,24 L46,24 L52,34" fill="none" stroke="#fef08a" stroke-width="4"/>
+                        <circle cx="40" cy="54" r="12" fill="none" stroke="#fbbf24" stroke-width="4"/>
+                        <circle cx="40" cy="54" r="5" fill="#fde047"/>
+                        <g transform="rotate(14 78 52)"><rect x="68" y="22" width="22" height="58" rx="3" fill="none" stroke="#fde047" stroke-width="3"/><line x1="68" y1="40" x2="90" y2="40" stroke="#fde047" stroke-width="2"/><line x1="68" y1="58" x2="90" y2="58" stroke="#fde047" stroke-width="2"/></g>
+                    </svg>
+                    <div class="lc-kicker">PARTY FUN</div>
+                    <div class="lc-title">Photo Booth</div>
+                    <div class="lc-sub">Props &amp; party snaps</div>
+                </div></div>
+            </div>
+            <div class="lineup-foot anim-in st5 bob-a"><em>Party Night Cocktails</em> &bull; 2 for $20 or 4 for $40 (Sat 12 Dec Only)</div>
+        </section>
+
+        <!-- ===== SCENE 4: POSTER LOCKUP + QR ===== -->
+        <section class="scene" data-dur="12000">
+            <div class="split-lockup">
+                <div class="split-left anim-in st1">
+                    <div class="sl-brand">Coasters</div>
+                    <div class="sl-main">Christmas</div>
+                    <div class="party-ribbon shine-wrap"><span class="party-ribbon-text">PARTY</span></div>
+                    <div class="date-plaque shine-wrap">
+                        <div class="dp-main">Sat 12th December &bull; 7pm</div>
+                        <div class="dp-sub">EVERYONE WELCOME &bull; <span class="js-status">28 DAYS LEFT TO GO</span></div>
+                    </div>
+                </div>
+                <div class="qr-box shine-wrap anim-in st2 bob-b">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=400x400&amp;margin=10&amp;ecc=H&amp;data=https%3A%2F%2Fcoasterstavern.co.nz%2Fbook-a-table%2F" alt="Scan to Book a Table">
+                    <div class="qr-cap">Scan to Book a Table</div>
+                    <div class="qr-link">coasterstavern.co.nz/book-a-table</div>
+                </div>
+            </div>
+            <div class="dress-call anim-in st3 bob-a">Dress in your Christmassy Clothes!</div>
+        </section>
+
+        <!-- ===== AFTER-EVENT STATE ===== -->
+        <section class="scene" id="scene-thanks" data-dur="60000" data-expired-only="1">
+            <div class="thanks-h anim-in st1">Thank You!</div>
+            <div class="thanks-p anim-in st2">What a night &mdash; see you at the next Coasters party</div>
+        </section>
+
+        <canvas id="elves-canvas" width="1920" height="1080"></canvas>
+        <div id="hud"></div>
     </div>
 
     <script>
-        /* Floating 3D Cocktail Medallions Particle Engine (Replaces Snow Confetti) */
-        (function() {
-            const canvas = document.getElementById('fx-cocktail-canvas');
-            const ctx = canvas.getContext('2d');
+    (function () {
+        'use strict';
 
-            function resize() {
-                canvas.width = canvas.parentElement.clientWidth;
-                canvas.height = canvas.parentElement.clientHeight;
+        const EVENT_START = new Date(2026, 11, 12, 19, 0, 0);
+        const BAND_START  = new Date(2026, 11, 12, 20, 0, 0);
+        const EVENT_END   = new Date(2026, 11, 13, 3, 0, 0);
+        const params = new URLSearchParams(window.location.search);
+        const nowOverride = params.get('now') ? new Date(params.get('now')) : null;
+        const nowOffset = nowOverride && !isNaN(nowOverride) ? nowOverride.getTime() - Date.now() : 0;
+        const getNow = () => new Date(Date.now() + nowOffset);
+
+        /* Scale-to-fit 1920x1080 */
+        const stage = document.getElementById('stage');
+        function fit() {
+            const s = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+            stage.style.setProperty('--fit', s);
+        }
+        fit();
+        window.addEventListener('resize', fit);
+
+        /* Live Countdown Status */
+        const isExpired = () => getNow() >= EVENT_END;
+        function statusText() {
+            const now = getNow();
+            if (now >= BAND_START) return 'ON NOW \u2022 LIVE BAND PLAYING';
+            if (now >= EVENT_START) return 'ON NOW \u2022 LIVE BAND FROM 8PM';
+            const d0 = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+            const d1 = new Date(EVENT_START.getFullYear(), EVENT_START.getMonth(), EVENT_START.getDate());
+            const days = Math.round((d1 - d0) / 86400000);
+            if (days <= 0) return 'TONIGHT FROM 7PM';
+            if (days === 1) return '1 DAY LEFT TO GO';
+            return days + ' DAYS LEFT TO GO';
+        }
+        function updateStatus() {
+            const t = statusText();
+            document.querySelectorAll('.js-status').forEach(el => { el.textContent = t; });
+        }
+        updateStatus();
+        setInterval(updateStatus, 30000);
+
+        /* Switched-ON Colour-Changing Christmas String Lights (Canvas Glow) */
+        const lCanvas = document.getElementById('lights-canvas');
+        const lCtx = lCanvas.getContext('2d');
+        const bulbPoints = [];
+        (function initLightPoints() {
+            const arcs = [
+                { x0: -20, y0: 10, cx: 240, cy: 102, x1: 480, y1: 22 },
+                { x0: 480, y0: 22, cx: 720, cy: 102, x1: 960, y1: 22 },
+                { x0: 960, y0: 22, cx: 1200, cy: 102, x1: 1440, y1: 22 },
+                { x0: 1440, y0: 22, cx: 1680, cy: 102, x1: 1940, y1: 10 }
+            ];
+            arcs.forEach(a => {
+                for (let s = 1; s <= 6; s++) {
+                    const t = s / 7;
+                    const mt = 1 - t;
+                    bulbPoints.push({
+                        x: mt * mt * a.x0 + 2 * mt * t * a.cx + t * t * a.x1,
+                        y: mt * mt * a.y0 + 2 * mt * t * a.cy + t * t * a.y1 + 14
+                    });
+                }
+            });
+        })();
+        const LIGHT_PALETTE = [
+            [255, 55, 55],
+            [253, 224, 71],
+            [34, 211, 102],
+            [56, 189, 248],
+            [244, 114, 182]
+        ];
+
+        /* Crisp Vector Clipart Confetti Sprites */
+        const bgCanvas = document.getElementById('bg-fx');
+        const bgCtx = bgCanvas.getContext('2d');
+
+        function makeClipart(drawFn) {
+            const c = document.createElement('canvas');
+            c.width = c.height = 128;
+            const g = c.getContext('2d');
+            g.translate(64, 64);
+            g.shadowColor = 'rgba(0, 0, 0, 0.55)';
+            g.shadowBlur = 8;
+            drawFn(g);
+            return c;
+        }
+
+        const clipart = [
+            makeClipart((g) => {
+                g.fillStyle = '#fef08a';
+                g.beginPath(); g.moveTo(-26, -24); g.lineTo(26, -24); g.lineTo(0, 8); g.closePath(); g.fill();
+                g.fillStyle = '#fb7185';
+                g.beginPath(); g.moveTo(-19, -16); g.lineTo(19, -16); g.lineTo(0, 6); g.closePath(); g.fill();
+                g.strokeStyle = '#fde047'; g.lineWidth = 5; g.lineCap = 'round';
+                g.beginPath(); g.moveTo(0, 8); g.lineTo(0, 34); g.moveTo(-16, 34); g.lineTo(16, 34); g.stroke();
+                g.strokeStyle = '#38bdf8'; g.lineWidth = 4;
+                g.beginPath(); g.moveTo(6, -10); g.lineTo(18, -34); g.lineTo(26, -34); g.stroke();
+                g.fillStyle = '#f97316';
+                g.beginPath(); g.arc(-20, -24, 9, Math.PI, 0); g.fill();
+            }),
+            makeClipart((g) => {
+                g.fillStyle = '#dc2626';
+                g.beginPath(); g.moveTo(-28, 14); g.quadraticCurveTo(-8, -36, 28, -22); g.lineTo(24, 14); g.closePath(); g.fill();
+                g.fillStyle = '#ffffff';
+                g.beginPath(); g.roundRect(-32, 10, 60, 14, 7); g.fill();
+                g.beginPath(); g.arc(28, -20, 9, 0, Math.PI * 2); g.fill();
+            }),
+            makeClipart((g) => {
+                g.rotate(-0.6);
+                g.fillStyle = '#fbbf24';
+                g.beginPath(); g.ellipse(-10, 12, 18, 14, 0, 0, Math.PI * 2); g.fill();
+                g.fillStyle = '#991b1b';
+                g.beginPath(); g.arc(-8, 12, 6, 0, Math.PI * 2); g.fill();
+                g.fillStyle = '#fde047';
+                g.fillRect(4, -34, 8, 38);
+                g.fillStyle = '#dc2626';
+                g.fillRect(1, -42, 14, 10);
+            }),
+            makeClipart((g) => {
+                g.fillStyle = '#38bdf8';
+                g.beginPath(); g.roundRect(-28, -16, 56, 38, 8); g.fill();
+                g.fillStyle = '#fde047';
+                g.fillRect(-12, -25, 24, 10);
+                g.fillStyle = '#1e293b';
+                g.beginPath(); g.arc(0, 3, 14, 0, Math.PI * 2); g.fill();
+                g.fillStyle = '#fef08a';
+                g.beginPath(); g.arc(0, 3, 7, 0, Math.PI * 2); g.fill();
+            }),
+            makeClipart((g) => {
+                g.fillStyle = '#16a34a';
+                g.beginPath(); g.ellipse(-16, -4, 18, 10, -0.4, 0, Math.PI * 2); g.fill();
+                g.fillStyle = '#15803d';
+                g.beginPath(); g.ellipse(16, -4, 18, 10, 0.4, 0, Math.PI * 2); g.fill();
+                g.fillStyle = '#ef4444';
+                g.beginPath(); g.arc(0, 6, 8, 0, Math.PI * 2); g.fill();
+                g.beginPath(); g.arc(-8, 14, 7, 0, Math.PI * 2); g.fill();
+                g.beginPath(); g.arc(8, 14, 7, 0, Math.PI * 2); g.fill();
+            }),
+            makeClipart((g) => {
+                g.fillStyle = '#dc2626';
+                g.beginPath(); g.roundRect(-24, -18, 48, 44, 6); g.fill();
+                g.fillStyle = '#fde047';
+                g.fillRect(-6, -18, 12, 44);
+                g.fillRect(-24, -2, 48, 10);
+                g.beginPath(); g.arc(-8, -22, 8, 0, Math.PI * 2); g.arc(8, -22, 8, 0, Math.PI * 2); g.fill();
+            }),
+            makeClipart((g) => {
+                g.fillStyle = '#fde047';
+                g.beginPath();
+                for (let i = 0; i < 10; i++) {
+                    const r = i % 2 === 0 ? 32 : 14;
+                    const a = (i * Math.PI) / 5 - Math.PI / 2;
+                    if (i === 0) g.moveTo(Math.cos(a) * r, Math.sin(a) * r);
+                    else g.lineTo(Math.cos(a) * r, Math.sin(a) * r);
+                }
+                g.closePath();
+                g.fill();
+            })
+        ];
+
+        const confetti = [];
+        for (let i = 0; i < 28; i++) {
+            confetti.push({
+                k: i % clipart.length,
+                x: Math.random() * 1920,
+                y: Math.random() * 1080,
+                size: 56 + Math.random() * 34,
+                vy: 44 + Math.random() * 54,
+                vx: (Math.random() - 0.5) * 38,
+                rot: Math.random() * Math.PI * 2,
+                vrot: (Math.random() - 0.5) * 1.6,
+                phase: Math.random() * Math.PI * 2
+            });
+        }
+
+        /* Funky Disco-Tiki Bokeh Orbs & Twinkling Starlight */
+        const BOKEH_COLS = ['253,224,71', '244,63,94', '16,185,129', '56,189,248', '249,115,22'];
+        const bokeh = Array.from({ length: 18 }, (_, i) => ({
+            x: Math.random() * 1920,
+            y: Math.random() * 1080,
+            r: 45 + Math.random() * 95,
+            vx: (Math.random() - 0.5) * 28,
+            vy: -(14 + Math.random() * 24),
+            col: BOKEH_COLS[i % BOKEH_COLS.length],
+            phase: Math.random() * Math.PI * 2
+        }));
+        const twinkles = Array.from({ length: 34 }, () => ({
+            x: Math.random() * 1920,
+            y: 120 + Math.random() * 880,
+            sz: 6 + Math.random() * 10,
+            spd: 1.5 + Math.random() * 2.5,
+            phase: Math.random() * Math.PI * 2
+        }));
+
+        function drawStarFlare(ctx, x, y, r, rot, col, alpha) {
+            ctx.save();
+            ctx.translate(x, y);
+            ctx.rotate(rot);
+            ctx.globalAlpha = alpha;
+            ctx.fillStyle = col;
+            ctx.beginPath();
+            for (let i = 0; i < 8; i++) {
+                const rad = i % 2 === 0 ? r : r * 0.22;
+                const a = (i * Math.PI) / 4;
+                if (i === 0) ctx.moveTo(Math.cos(a) * rad, Math.sin(a) * rad);
+                else ctx.lineTo(Math.cos(a) * rad, Math.sin(a) * rad);
             }
-            resize();
-            window.addEventListener('resize', resize);
+            ctx.closePath();
+            ctx.fill();
+            ctx.restore();
+        }
 
-            const cocktailImages = [];
-            for (let i = 1; i <= 20; i++) {
-                const img = new Image();
-                img.src = `assets/cocktails/cocktail_${String(i).padStart(2, '0')}.png`;
-                cocktailImages.push(img);
-            }
-
-            const floaters = [];
-            const floaterCount = 22;
-            for (let i = 0; i < floaterCount; i++) {
-                floaters.push({
-                    imgIdx: i % 20,
-                    x: Math.random() * 1920,
-                    y: Math.random() * 1080,
-                    size: Math.random() * 34 + 44, // 44px - 78px medallions
-                    vy: -(Math.random() * 0.55 + 0.25),
-                    vx: (Math.random() - 0.5) * 0.35,
-                    angle: (Math.random() - 0.5) * 0.4,
-                    spin: (Math.random() - 0.5) * 0.004,
-                    alpha: Math.random() * 0.32 + 0.22,
-                    driftPhase: Math.random() * Math.PI * 2
+        const sparks = [];
+        function burstGlitter() {
+            for (let i = 0; i < 180; i++) {
+                const a = Math.random() * Math.PI * 2;
+                const sp = 280 + Math.random() * 760;
+                sparks.push({
+                    x: 960, y: 520,
+                    vx: Math.cos(a) * sp, vy: Math.sin(a) * sp,
+                    life: 1, decay: 0.65 + Math.random() * 0.65,
+                    sz: 4 + Math.random() * 6,
+                    col: ['#fde047', '#ffffff', '#ef4444', '#10b981', '#38bdf8'][Math.floor(Math.random() * 5)]
                 });
             }
+        }
 
-            function draw() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
+        /* Animated Elves Having a Christmas Bauble Fight */
+        const eCanvas = document.getElementById('elves-canvas');
+        const eCtx = eCanvas.getContext('2d');
+        const BAUBLE_COLS = ['#ef4444', '#fbbf24', '#10b981', '#38bdf8', '#f43f5e'];
+        const elves = [
+            { x: 180, y: 1010, dir: 1, speed: 270, tunic: '#dc2626', trim: '#10b981', phase: 0, cooldown: 1.0 },
+            { x: 1720, y: 1014, dir: -1, speed: 290, tunic: '#059669', trim: '#dc2626', phase: 2.1, cooldown: 0.7 },
+            { x: 940, y: 1012, dir: 1, speed: 250, tunic: '#dc2626', trim: '#fbbf24', phase: 4.0, cooldown: 1.4 }
+        ];
+        const balls = [];
+        const pops = [];
 
-                floaters.forEach(f => {
-                    f.y += f.vy;
-                    f.driftPhase += 0.015;
-                    f.x += f.vx + Math.sin(f.driftPhase) * 0.3;
-                    f.angle += f.spin;
+        function drawElf(c, elf) {
+            c.save();
+            c.translate(elf.x, elf.y + Math.abs(Math.sin(elf.phase * 7.5)) * -10);
+            c.scale(elf.dir * 1.15, 1.15);
+            c.fillStyle = 'rgba(0,0,0,0.48)';
+            c.beginPath(); c.ellipse(0, 44, 24, 7, 0, 0, Math.PI * 2); c.fill();
+            const leg = Math.sin(elf.phase * 7.5) * 11;
+            c.strokeStyle = '#fef08a'; c.lineWidth = 6; c.lineCap = 'round';
+            c.beginPath(); c.moveTo(-5, 22); c.lineTo(-5 + leg, 40); c.moveTo(5, 22); c.lineTo(5 - leg, 40); c.stroke();
+            c.fillStyle = '#78350f';
+            c.beginPath(); c.arc(-5 + leg + 3, 41, 6, 0, Math.PI * 2); c.fill();
+            c.beginPath(); c.arc(5 - leg + 3, 41, 6, 0, Math.PI * 2); c.fill();
+            c.fillStyle = elf.tunic;
+            c.beginPath(); c.moveTo(-16, 24); c.lineTo(16, 24); c.lineTo(11, -8); c.lineTo(-11, -8); c.closePath(); c.fill();
+            c.fillStyle = elf.trim; c.fillRect(-13, -8, 26, 7);
+            c.fillStyle = '#fed7aa'; c.beginPath(); c.arc(0, -20, 14, 0, Math.PI * 2); c.fill();
+            c.fillStyle = '#0f172a'; c.beginPath(); c.arc(6, -21, 2.3, 0, Math.PI * 2); c.fill();
+            c.fillStyle = elf.tunic;
+            c.beginPath(); c.moveTo(-15, -28); c.lineTo(15, -28); c.lineTo(-4, -56); c.closePath(); c.fill();
+            c.fillStyle = '#ffffff'; c.fillRect(-16, -31, 32, 6);
+            c.fillStyle = '#fde047'; c.beginPath(); c.arc(-4, -57, 5, 0, Math.PI * 2); c.fill();
+            c.restore();
+        }
 
-                    if (f.y < -f.size * 1.5) {
-                        f.y = canvas.height + f.size * 1.5;
-                        f.x = Math.random() * canvas.width;
+        let last = performance.now();
+        function frame(t) {
+            const dt = Math.min((t - last) / 1000, 0.05);
+            last = t;
+
+            // 1. Switched-ON Colour-Changing Christmas Lights + Funky Star Flares
+            lCtx.clearRect(0, 0, 1920, 220);
+            const cycleStep = Math.floor(t / 550);
+            bulbPoints.forEach((pt, i) => {
+                const rgb = LIGHT_PALETTE[(i + cycleStep) % LIGHT_PALETTE.length];
+                const pulse = 0.72 + 0.28 * Math.sin(t * 0.006 + i * 0.9);
+                const rGlow = 48 * pulse;
+                const grad = lCtx.createRadialGradient(pt.x, pt.y, 2, pt.x, pt.y, rGlow);
+                grad.addColorStop(0, '#ffffff');
+                grad.addColorStop(0.28, `rgba(${rgb[0]},${rgb[1]},${rgb[2]},0.98)`);
+                grad.addColorStop(0.65, `rgba(${rgb[0]},${rgb[1]},${rgb[2]},0.42)`);
+                grad.addColorStop(1, 'rgba(0,0,0,0)');
+                lCtx.fillStyle = grad;
+                lCtx.beginPath();
+                lCtx.arc(pt.x, pt.y, rGlow, 0, Math.PI * 2);
+                lCtx.fill();
+
+                lCtx.fillStyle = '#1f2937';
+                lCtx.fillRect(pt.x - 5, pt.y - 16, 10, 7);
+                lCtx.fillStyle = `rgb(${rgb[0]},${rgb[1]},${rgb[2]})`;
+                lCtx.beginPath();
+                lCtx.ellipse(pt.x, pt.y, 9, 12, 0, 0, Math.PI * 2);
+                lCtx.fill();
+                lCtx.fillStyle = '#ffffff';
+                lCtx.beginPath();
+                lCtx.arc(pt.x - 2, pt.y - 3, 3.5, 0, Math.PI * 2);
+                lCtx.fill();
+
+                if (pulse > 0.86) {
+                    drawStarFlare(lCtx, pt.x, pt.y, 22 * pulse, t * 0.002 + i, '#ffffff', (pulse - 0.86) * 5.5);
+                }
+            });
+
+            // 2. Bokeh Orbs, Starlight Twinkles, Clipart Confetti & Glitter
+            bgCtx.clearRect(0, 0, 1920, 1080);
+            bgCtx.save();
+            bgCtx.globalCompositeOperation = 'lighter';
+            bokeh.forEach(b => {
+                b.x += b.vx * dt; b.y += b.vy * dt; b.phase += dt * 1.4;
+                if (b.y < -b.r) { b.y = 1080 + b.r; b.x = Math.random() * 1920; }
+                if (b.x < -b.r) b.x = 1920 + b.r;
+                if (b.x > 1920 + b.r) b.x = -b.r;
+                const a = 0.08 + 0.07 * Math.sin(b.phase);
+                const g = bgCtx.createRadialGradient(b.x, b.y, 0, b.x, b.y, b.r);
+                g.addColorStop(0, `rgba(${b.col},${a})`);
+                g.addColorStop(0.55, `rgba(${b.col},${a * 0.45})`);
+                g.addColorStop(1, 'rgba(0,0,0,0)');
+                bgCtx.fillStyle = g;
+                bgCtx.beginPath(); bgCtx.arc(b.x, b.y, b.r, 0, Math.PI * 2); bgCtx.fill();
+            });
+            twinkles.forEach(tw => {
+                tw.phase += dt * tw.spd;
+                const a = Math.max(0, Math.sin(tw.phase));
+                if (a > 0.15) drawStarFlare(bgCtx, tw.x, tw.y, tw.sz * a, tw.phase * 0.5, '#fef08a', a * 0.72);
+            });
+            bgCtx.restore();
+            confetti.forEach(f => {
+                f.y += f.vy * dt;
+                f.phase += dt * 1.8;
+                f.x += (f.vx + Math.sin(f.phase) * 28) * dt;
+                f.rot += f.vrot * dt;
+                if (f.y > 1130) { f.y = -70; f.x = Math.random() * 1920; }
+                if (f.x < -70) f.x = 1990;
+                if (f.x > 1990) f.x = -70;
+                bgCtx.save();
+                bgCtx.globalAlpha = 0.86;
+                bgCtx.translate(f.x, f.y);
+                bgCtx.rotate(f.rot);
+                bgCtx.drawImage(clipart[f.k], -f.size / 2, -f.size / 2, f.size, f.size);
+                bgCtx.restore();
+            });
+            if (sparks.length) {
+                bgCtx.save();
+                bgCtx.globalCompositeOperation = 'lighter';
+                for (let i = sparks.length - 1; i >= 0; i--) {
+                    const p = sparks[i];
+                    p.x += p.vx * dt; p.y += p.vy * dt;
+                    p.vx *= 0.96; p.vy = p.vy * 0.96 + 220 * dt;
+                    p.life -= p.decay * dt;
+                    if (p.life <= 0) { sparks.splice(i, 1); continue; }
+                    bgCtx.globalAlpha = p.life;
+                    bgCtx.fillStyle = p.col;
+                    bgCtx.fillRect(p.x, p.y, p.sz, p.sz);
+                }
+                bgCtx.restore();
+            }
+
+            // 3. Elves Bauble Fight
+            eCtx.clearRect(0, 0, 1920, 1080);
+            elves.forEach((elf, i) => {
+                elf.phase += dt;
+                elf.x += elf.dir * elf.speed * dt;
+                if (elf.x < 70) { elf.x = 70; elf.dir = 1; elf.speed = 230 + Math.random() * 130; }
+                if (elf.x > 1850) { elf.x = 1850; elf.dir = -1; elf.speed = 230 + Math.random() * 130; }
+                if (Math.random() < 0.005) { elf.dir *= -1; elf.speed = 230 + Math.random() * 130; }
+                elf.cooldown -= dt;
+                if (elf.cooldown <= 0) {
+                    elf.cooldown = 0.75 + Math.random() * 1.25;
+                    const target = elves[(i + 1 + Math.floor(Math.random() * 2)) % elves.length];
+                    const throwDir = target.x >= elf.x ? 1 : -1;
+                    balls.push({
+                        x: elf.x, y: elf.y - 22,
+                        vx: throwDir * (440 + Math.random() * 360),
+                        vy: -(340 + Math.random() * 210),
+                        r: 15,
+                        col: BAUBLE_COLS[Math.floor(Math.random() * BAUBLE_COLS.length)],
+                        trail: []
+                    });
+                }
+                drawElf(eCtx, elf);
+            });
+
+            for (let i = balls.length - 1; i >= 0; i--) {
+                const b = balls[i];
+                b.trail.push({ x: b.x, y: b.y });
+                if (b.trail.length > 7) b.trail.shift();
+                b.x += b.vx * dt; b.y += b.vy * dt; b.vy += 680 * dt;
+                b.trail.forEach((tp, ti) => {
+                    const ratio = (ti + 1) / b.trail.length;
+                    eCtx.save();
+                    eCtx.globalAlpha = ratio * 0.42;
+                    eCtx.fillStyle = b.col;
+                    eCtx.beginPath(); eCtx.arc(tp.x, tp.y, b.r * ratio * 0.65, 0, Math.PI * 2); eCtx.fill();
+                    eCtx.restore();
+                });
+                eCtx.save();
+                eCtx.shadowColor = b.col; eCtx.shadowBlur = 16;
+                eCtx.fillStyle = b.col;
+                eCtx.beginPath(); eCtx.arc(b.x, b.y, b.r, 0, Math.PI * 2); eCtx.fill();
+                eCtx.fillStyle = '#fde047'; eCtx.fillRect(b.x - 4, b.y - b.r - 3, 8, 4);
+                eCtx.fillStyle = 'rgba(255,255,255,0.75)';
+                eCtx.beginPath(); eCtx.arc(b.x - 4, b.y - 4, 4, 0, Math.PI * 2); eCtx.fill();
+                eCtx.restore();
+                if (b.y > 1055 || b.x < -20 || b.x > 1940) {
+                    for (let k = 0; k < 10; k++) {
+                        const a = Math.random() * Math.PI * 2;
+                        pops.push({ x: b.x, y: Math.min(b.y, 1050), vx: Math.cos(a) * 160, vy: Math.sin(a) * 160, life: 1, col: b.col });
                     }
-                    if (f.x < -f.size) f.x = canvas.width + f.size;
-                    if (f.x > canvas.width + f.size) f.x = -f.size;
-
-                    const img = cocktailImages[f.imgIdx];
-                    if (!img || !img.complete || img.naturalWidth === 0) return;
-
-                    ctx.save();
-                    ctx.globalAlpha = f.alpha;
-                    ctx.translate(f.x, f.y);
-                    ctx.rotate(f.angle);
-
-                    const r = f.size / 2;
-                    ctx.shadowBlur = 18;
-                    ctx.shadowColor = 'rgba(251, 191, 36, 0.55)';
-
-                    // Circular gold-rimmed cocktail medallion
-                    ctx.beginPath();
-                    ctx.arc(0, 0, r, 0, Math.PI * 2);
-                    ctx.closePath();
-                    ctx.save();
-                    ctx.clip();
-                    ctx.drawImage(img, -r, -r, f.size, f.size);
-                    ctx.restore();
-
-                    ctx.lineWidth = 2;
-                    ctx.strokeStyle = 'rgba(253, 224, 71, 0.75)';
-                    ctx.stroke();
-
-                    ctx.restore();
-                });
-
-                requestAnimationFrame(draw);
+                    balls.splice(i, 1);
+                }
             }
-            draw();
-        })();
+            for (let i = pops.length - 1; i >= 0; i--) {
+                const p = pops[i];
+                p.x += p.vx * dt; p.y += p.vy * dt; p.life -= 2.4 * dt;
+                if (p.life <= 0) { pops.splice(i, 1); continue; }
+                eCtx.save(); eCtx.globalAlpha = p.life; eCtx.fillStyle = p.col;
+                eCtx.beginPath(); eCtx.arc(p.x, p.y, 4.5, 0, Math.PI * 2); eCtx.fill();
+                eCtx.restore();
+            }
 
-        /* Sequential Feature Card 3D Spotlight Transition */
-        (function() {
-            const cards = Array.from(document.querySelectorAll('.feature-card-3d'));
-            if (!cards.length) return;
-            let activeIdx = 0;
-            setInterval(() => {
-                cards[activeIdx].classList.remove('spotlight-active');
-                activeIdx = (activeIdx + 1) % cards.length;
-                cards[activeIdx].classList.add('spotlight-active');
-            }, 3800);
-        })();
+            requestAnimationFrame(frame);
+        }
+        requestAnimationFrame(frame);
+
+        /* Scene Engine */
+        const allScenes = Array.from(document.querySelectorAll('.scene'));
+        const thanks = document.getElementById('scene-thanks');
+        const normal = allScenes.filter(s => !s.dataset.expiredOnly);
+        const thanksList = [thanks];
+        let scenes = isExpired() ? thanksList : normal;
+        let idx = 0, paused = false, locked = false, customDur = 0, sceneTimer = null;
+        const pinned = params.has('scene') ? parseInt(params.get('scene'), 10) : null;
+        const flare = document.getElementById('wipe-flare');
+
+        function show(i, burst) {
+            const prev = scenes[idx];
+            idx = (i + scenes.length) % scenes.length;
+            const next = scenes[idx];
+            if (prev && prev !== next) {
+                prev.classList.remove('active');
+                prev.classList.add('leaving');
+                setTimeout(() => prev.classList.remove('leaving'), 850);
+            }
+            next.classList.remove('leaving');
+            next.classList.add('active');
+            if (burst) {
+                burstGlitter();
+                flare.classList.remove('go');
+                void flare.offsetWidth;
+                flare.classList.add('go');
+            }
+            schedule();
+        }
+
+        function schedule() {
+            clearTimeout(sceneTimer);
+            if (paused || locked || pinned !== null) return;
+            const dur = customDur || parseInt(scenes[idx].dataset.dur, 10) || 15000;
+            sceneTimer = setTimeout(() => {
+                if (isExpired() && scenes !== thanksList) { scenes = thanksList; idx = 0; show(0, true); return; }
+                show(idx + 1, true);
+            }, dur);
+        }
+
+        show(pinned !== null && !isNaN(pinned) ? Math.max(0, Math.min(pinned, scenes.length - 1)) : 0, false);
+
+        /* Keyboard Controls */
+        const hud = document.getElementById('hud');
+        function toast(msg) {
+            hud.textContent = msg;
+            hud.style.opacity = '1';
+            clearTimeout(hud._t);
+            hud._t = setTimeout(() => { hud.style.opacity = '0'; }, 1800);
+        }
+
+        window.addEventListener('keydown', (e) => {
+            const t = e.target;
+            if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.tagName === 'SELECT' || t.isContentEditable)) return;
+            switch (e.key) {
+                case 'ArrowLeft':  e.preventDefault(); if (!locked) { show(idx - 1, true); toast('\u23EE Scene ' + (idx + 1)); } break;
+                case 'ArrowRight': e.preventDefault(); if (!locked) { show(idx + 1, true); toast('\u23ED Scene ' + (idx + 1)); } break;
+                case 'ArrowUp':    e.preventDefault(); if (!locked) { show(0, true); toast('\u23EE Restart'); } break;
+                case 'ArrowDown':
+                    e.preventDefault();
+                    try { new BroadcastChannel('ct_matrix_sync').postMessage({ type: 'SKIP_MODULE', commandId: 'xmas26_' + Date.now() }); } catch (err) {}
+                    toast('\u23E9 Next Module');
+                    break;
+                case ' ':
+                case 'Space':
+                    e.preventDefault();
+                    paused = !paused;
+                    toast(paused ? '\u23F8 Paused' : '\u25B6 Playing');
+                    schedule();
+                    break;
+                case '0':
+                    e.preventDefault();
+                    locked = !locked;
+                    toast(locked ? '\uD83D\uDD12 Locked' : '\uD83D\uDD13 Unlocked');
+                    schedule();
+                    break;
+                case 'a': case 'A': e.preventDefault(); window.open('admin.html', '_blank', 'noopener,noreferrer'); break;
+                case 'r': case 'R': e.preventDefault(); window.open('remote.html', '_blank', 'noopener,noreferrer'); break;
+                default:
+                    if (e.key >= '1' && e.key <= '9') {
+                        e.preventDefault();
+                        customDur = parseInt(e.key, 10) * 10000;
+                        toast('\u23F1 Scene Duration: ' + (customDur / 1000) + 's');
+                        schedule();
+                    }
+            }
+        });
+    })();
     </script>
 </body>
 </html>
