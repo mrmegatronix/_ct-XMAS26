@@ -31,11 +31,21 @@
             font-family: 'Outfit', sans-serif;
             color: #ffffff;
             background:
-                radial-gradient(ellipse at 50% 42%, rgba(245, 158, 11, 0.24) 0%, rgba(127, 29, 29, 0.22) 45%, rgba(5, 2, 1, 0.97) 100%),
+                radial-gradient(ellipse at 50% 44%, rgba(245, 158, 11, 0.30) 0%, rgba(153, 27, 27, 0.34) 46%, rgba(8, 3, 1, 0.98) 100%),
                 repeating-linear-gradient(180deg,
-                    rgba(0, 0, 0, 0.48) 0px, rgba(0, 0, 0, 0.48) 3px,
-                    rgba(68, 30, 12, 0.55) 4px, rgba(40, 17, 6, 0.62) 64px,
-                    rgba(82, 38, 16, 0.42) 118px, rgba(14, 5, 2, 0.82) 120px);
+                    rgba(0, 0, 0, 0.42) 0px, rgba(0, 0, 0, 0.42) 3px,
+                    rgba(76, 32, 12, 0.48) 4px, rgba(44, 18, 6, 0.56) 64px,
+                    rgba(88, 40, 16, 0.38) 118px, rgba(16, 6, 2, 0.80) 120px);
+        }
+        #stage::before {
+            content: '';
+            position: absolute;
+            inset: 14px;
+            border: 2px solid rgba(251, 191, 36, 0.28);
+            border-radius: 24px;
+            box-shadow: inset 0 0 80px rgba(251, 191, 36, 0.08);
+            pointer-events: none;
+            z-index: 15;
         }
 
         /* Background Layers: Spotlights, Bokeh, Clipart Confetti */
@@ -170,41 +180,41 @@
         /* Persistent Top Header (Placed Cleanly Below Garland & Lights) */
         .top-bar {
             position: absolute;
-            top: 104px;
+            top: 102px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 22;
             display: flex;
             align-items: center;
-            gap: 20px;
-            padding: 7px 30px;
+            gap: 22px;
+            padding: 8px 36px;
             border-radius: 999px;
-            background: rgba(14, 5, 2, 0.92);
+            background: rgba(16, 5, 2, 0.94);
             border: 2.5px solid #fbbf24;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85), 0 0 30px rgba(251, 191, 36, 0.45);
+            box-shadow: 0 10px 32px rgba(0, 0, 0, 0.88), 0 0 34px rgba(251, 191, 36, 0.5);
             white-space: nowrap;
         }
         .tb-title {
             font-family: 'Cinzel', serif;
             font-weight: 900;
-            font-size: 26px;
+            font-size: 30px;
             letter-spacing: 2px;
             color: #fde047;
         }
         .tb-div {
             color: rgba(255, 255, 255, 0.35);
-            font-size: 26px;
+            font-size: 30px;
         }
         .tb-pill {
             display: inline-flex;
             align-items: center;
-            gap: 11px;
-            padding: 4px 20px;
+            gap: 12px;
+            padding: 5px 22px;
             border-radius: 999px;
             background: linear-gradient(180deg, #dc2626, #991b1b);
             border: 2px solid #fde047;
             font-weight: 900;
-            font-size: 24px;
+            font-size: 28px;
             letter-spacing: 1.5px;
             color: #ffffff;
             animation: pillBeat 2.2s ease-in-out infinite;
@@ -329,23 +339,23 @@
         }
         .hero-brand {
             font-family: 'Great Vibes', cursive;
-            font-size: 112px;
-            line-height: 1.1;
+            font-size: 126px;
+            line-height: 1.08;
             color: #ffffff;
             white-space: nowrap;
-            text-shadow: 0 4px 0 #b45309, 0 12px 26px rgba(0, 0, 0, 0.9), 0 0 36px rgba(255, 255, 255, 0.45);
+            text-shadow: 0 4px 0 #b45309, 0 12px 26px rgba(0, 0, 0, 0.9), 0 0 40px rgba(255, 255, 255, 0.5);
         }
         .hero-main {
             font-family: 'Great Vibes', cursive;
-            font-size: 236px;
-            line-height: 1.1;
-            margin: -54px 0 -38px;
+            font-size: 262px;
+            line-height: 1.08;
+            margin: -60px 0 -42px;
             padding: 0 36px;
             color: #fde047;
             white-space: nowrap;
             text-shadow:
                 0 3px 0 #eab308, 0 6px 0 #ca8a04, 0 9px 0 #a16207, 0 12px 0 #854d0e, 0 15px 0 #713f12,
-                0 26px 46px rgba(0, 0, 0, 0.95), 0 0 76px rgba(251, 191, 36, 0.72);
+                0 28px 50px rgba(0, 0, 0, 0.95), 0 0 86px rgba(251, 191, 36, 0.8);
             animation: heroPulse 2.8s ease-in-out infinite alternate;
         }
         @keyframes heroPulse {
@@ -358,16 +368,16 @@
             background: linear-gradient(180deg, #dc2626 0%, #991b1b 60%, #7f1d1d 100%);
             border: 4px solid #fbbf24;
             border-radius: 14px;
-            padding: 6px 102px 10px;
-            box-shadow: 0 12px 0 #450a0a, 0 24px 44px rgba(0, 0, 0, 0.9);
+            padding: 6px 116px 10px;
+            box-shadow: 0 12px 0 #450a0a, 0 24px 44px rgba(0, 0, 0, 0.9), 0 0 36px rgba(251, 191, 36, 0.4);
         }
         .party-ribbon-text {
             font-family: 'Cinzel', serif;
             font-weight: 900;
-            font-size: 86px;
-            line-height: 1.15;
-            letter-spacing: 22px;
-            margin-right: -22px;
+            font-size: 94px;
+            line-height: 1.12;
+            letter-spacing: 24px;
+            margin-right: -24px;
             color: #ffffff;
             white-space: nowrap;
             text-shadow: 0 4px 10px rgba(0, 0, 0, 0.75);
@@ -389,69 +399,69 @@
         }
 
         .date-plaque {
-            margin-top: 22px;
-            background: linear-gradient(180deg, #fbf7f1 0%, #ebe3d7 70%, #dacfc1 100%);
-            border: 3px solid #ffffff;
+            margin-top: 18px;
+            background: linear-gradient(180deg, #fffdf9 0%, #f3ece1 70%, #e4d8c8 100%);
+            border: 3.5px solid #fbbf24;
             border-radius: 18px;
-            padding: 10px 64px 12px;
+            padding: 10px 68px 12px;
             text-align: center;
-            box-shadow: 0 10px 0 #786552, 0 24px 44px rgba(0, 0, 0, 0.88);
+            box-shadow: 0 10px 0 #786552, 0 24px 44px rgba(0, 0, 0, 0.88), 0 0 32px rgba(251, 191, 36, 0.3);
         }
         .dp-main {
             font-family: 'Playfair Display', serif;
             font-style: italic;
             font-weight: 900;
-            font-size: 62px;
-            line-height: 1.15;
+            font-size: 68px;
+            line-height: 1.12;
             color: #991b1b;
             white-space: nowrap;
         }
         .dp-sub {
             font-family: 'Cinzel', serif;
             font-weight: 900;
-            font-size: 30px;
+            font-size: 34px;
             line-height: 1.2;
-            letter-spacing: 8px;
+            letter-spacing: 7px;
             color: #1f2937;
             white-space: nowrap;
         }
 
         .hero-plugs {
-            margin-top: 22px;
+            margin-top: 20px;
             display: flex;
-            gap: 22px;
+            gap: 24px;
         }
         .plug-chip {
-            padding: 10px 28px;
+            padding: 12px 32px;
             border-radius: 999px;
-            background: rgba(127, 29, 29, 0.88);
+            background: rgba(153, 27, 27, 0.92);
             border: 2.5px solid #fbbf24;
-            font-weight: 800;
-            font-size: 25px;
+            font-weight: 900;
+            font-size: 30px;
             color: #fef08a;
             white-space: nowrap;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.65);
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.7), 0 0 22px rgba(251, 191, 36, 0.25);
         }
 
         /* ===== SCENE 2: T.B.A. COCKTAILS ===== */
         .sec-title {
             font-family: 'Cinzel', serif;
             font-weight: 900;
-            font-size: 84px;
-            line-height: 1.12;
+            font-size: 94px;
+            line-height: 1.1;
             letter-spacing: 4px;
             color: #fde047;
             white-space: nowrap;
-            text-shadow: 0 5px 0 #713f12, 0 14px 30px rgba(0, 0, 0, 0.9), 0 0 38px rgba(251, 191, 36, 0.58);
+            text-shadow: 0 5px 0 #713f12, 0 14px 30px rgba(0, 0, 0, 0.9), 0 0 42px rgba(251, 191, 36, 0.65);
         }
         .sec-warn {
             margin-top: 6px;
             font-family: 'Outfit', sans-serif;
             font-weight: 900;
-            font-size: 36px;
-            line-height: 1.2;
+            font-size: 42px;
+            line-height: 1.18;
             letter-spacing: 2px;
-            color: #fca5a5;
+            color: #fecaca;
             text-transform: uppercase;
             white-space: nowrap;
             text-shadow: 0 4px 12px rgba(0, 0, 0, 0.9);
@@ -498,8 +508,8 @@
             margin-top: 12px;
             font-family: 'Cinzel', serif;
             font-weight: 900;
-            font-size: 44px;
-            line-height: 1.15;
+            font-size: 52px;
+            line-height: 1.12;
             color: #fde047;
             white-space: nowrap;
             text-shadow: 0 4px 12px rgba(0, 0, 0, 0.9);
@@ -508,7 +518,7 @@
             font-family: 'Playfair Display', serif;
             font-style: italic;
             font-weight: 900;
-            font-size: 32px;
+            font-size: 36px;
             line-height: 1.2;
             color: #ffffff;
             white-space: nowrap;
@@ -516,29 +526,29 @@
             opacity: 0.78;
         }
         .deal-bar {
-            margin-top: 28px;
+            margin-top: 24px;
             display: flex;
             align-items: center;
             gap: 36px;
             background: linear-gradient(180deg, #991b1b, #7f1d1d);
             border: 4px solid #fbbf24;
             border-radius: 22px;
-            padding: 12px 46px;
+            padding: 12px 48px;
             box-shadow: 0 12px 0 #450a0a, 0 24px 44px rgba(0, 0, 0, 0.9), 0 0 36px rgba(251, 191, 36, 0.45);
         }
         .deal-price {
             font-family: 'Cinzel', serif;
             font-weight: 900;
-            font-size: 60px;
-            line-height: 1.1;
+            font-size: 68px;
+            line-height: 1.08;
             color: #fde047;
             white-space: nowrap;
         }
         .deal-note {
             font-family: 'Outfit', sans-serif;
             font-weight: 800;
-            font-size: 27px;
-            line-height: 1.25;
+            font-size: 32px;
+            line-height: 1.22;
             color: #ffffff;
             white-space: nowrap;
         }
@@ -579,30 +589,30 @@
         .lc-kicker {
             margin-top: 12px;
             font-weight: 900;
-            font-size: 32px;
+            font-size: 36px;
             letter-spacing: 5px;
-            color: #fca5a5;
+            color: #fecaca;
             white-space: nowrap;
         }
         .lc-title {
             font-family: 'Playfair Display', serif;
             font-style: italic;
             font-weight: 900;
-            font-size: 72px;
-            line-height: 1.15;
+            font-size: 78px;
+            line-height: 1.12;
             color: #fde047;
             white-space: nowrap;
         }
         .lc-sub {
             font-weight: 800;
-            font-size: 33px;
+            font-size: 36px;
             color: #ffffff;
             white-space: nowrap;
         }
         .lineup-foot {
-            margin-top: 30px;
+            margin-top: 28px;
             font-weight: 900;
-            font-size: 40px;
+            font-size: 46px;
             color: #ffffff;
             white-space: nowrap;
             text-shadow: 0 4px 14px rgba(0, 0, 0, 0.9);
@@ -612,8 +622,8 @@
         /* ===== SCENE 4: POSTER LOCKUP + QR ===== */
         .split-lockup {
             display: grid;
-            grid-template-columns: 1fr 410px;
-            gap: 54px;
+            grid-template-columns: 1fr 430px;
+            gap: 48px;
             align-items: center;
             width: 100%;
         }
@@ -625,28 +635,28 @@
         }
         .sl-brand {
             font-family: 'Great Vibes', cursive;
-            font-size: 112px;
-            line-height: 1.15;
+            font-size: 122px;
+            line-height: 1.12;
             color: #ffffff;
             white-space: nowrap;
             text-shadow: 0 4px 0 #b45309, 0 10px 24px rgba(0, 0, 0, 0.9);
         }
         .sl-main {
             font-family: 'Great Vibes', cursive;
-            font-size: 215px;
-            line-height: 1.15;
-            margin: -36px 0 -46px;
+            font-size: 234px;
+            line-height: 1.12;
+            margin: -40px 0 -46px;
             padding: 0 30px;
             color: #fde047;
             white-space: nowrap;
             text-shadow:
                 0 3px 0 #eab308, 0 6px 0 #ca8a04, 0 9px 0 #a16207, 0 12px 0 #713f12,
-                0 22px 40px rgba(0, 0, 0, 0.95), 0 0 60px rgba(251, 191, 36, 0.65);
+                0 22px 40px rgba(0, 0, 0, 0.95), 0 0 68px rgba(251, 191, 36, 0.72);
         }
-        .split-left .party-ribbon { padding: 4px 78px 8px; }
-        .split-left .party-ribbon-text { font-size: 66px; letter-spacing: 18px; margin-right: -18px; }
-        .split-left .date-plaque { margin-top: 22px; }
-        .split-left .dp-main { font-size: 56px; }
+        .split-left .party-ribbon { padding: 4px 86px 8px; }
+        .split-left .party-ribbon-text { font-size: 74px; letter-spacing: 20px; margin-right: -20px; }
+        .split-left .date-plaque { margin-top: 20px; }
+        .split-left .dp-main { font-size: 60px; }
 
         .qr-box {
             background: #fffaf2;
@@ -654,11 +664,11 @@
             border-radius: 28px;
             padding: 24px;
             text-align: center;
-            box-shadow: 0 14px 0 #786552, 0 28px 50px rgba(0, 0, 0, 0.9), 0 0 42px rgba(251, 191, 36, 0.45);
+            box-shadow: 0 14px 0 #786552, 0 28px 50px rgba(0, 0, 0, 0.9), 0 0 46px rgba(251, 191, 36, 0.52);
         }
         .qr-box img {
-            width: 300px;
-            height: 300px;
+            width: 316px;
+            height: 316px;
             display: block;
             margin: 0 auto;
         }
@@ -666,7 +676,7 @@
             margin-top: 10px;
             font-family: 'Cinzel', serif;
             font-weight: 900;
-            font-size: 26px;
+            font-size: 28px;
             letter-spacing: 0.5px;
             color: #991b1b;
             white-space: nowrap;
@@ -674,16 +684,16 @@
         .qr-link {
             margin-top: 2px;
             font-weight: 800;
-            font-size: 18px;
+            font-size: 20px;
             color: #1f2937;
             white-space: nowrap;
         }
         .dress-call {
-            margin-top: 24px;
+            margin-top: 22px;
             font-family: 'Playfair Display', serif;
             font-style: italic;
             font-weight: 900;
-            font-size: 56px;
+            font-size: 64px;
             color: #ffffff;
             white-space: nowrap;
             text-shadow: 0 4px 16px rgba(0, 0, 0, 0.9), 0 0 34px rgba(251, 191, 36, 0.55);
@@ -1240,22 +1250,21 @@
                 const a = Math.max(0, Math.sin(tw.phase));
                 if (a > 0.15) drawStarFlare(bgCtx, tw.x, tw.y, tw.sz * a, tw.phase * 0.5, '#fef08a', a * 0.72);
             });
-            bgCtx.restore();
             confetti.forEach(f => {
-                f.y += f.vy * dt;
-                f.phase += dt * 1.8;
-                f.x += (f.vx + Math.sin(f.phase) * 28) * dt;
-                f.rot += f.vrot * dt;
-                if (f.y > 1130) { f.y = -70; f.x = Math.random() * 1920; }
-                if (f.x < -70) f.x = 1990;
-                if (f.x > 1990) f.x = -70;
-                bgCtx.save();
-                bgCtx.globalAlpha = 0.86;
-                bgCtx.translate(f.x, f.y);
-                bgCtx.rotate(f.rot);
-                bgCtx.drawImage(clipart[f.k], -f.size / 2, -f.size / 2, f.size, f.size);
-                bgCtx.restore();
+                f.y -= f.vy * 0.55 * dt;
+                f.phase += dt * 1.4;
+                f.x += (f.vx * 0.4 + Math.sin(f.phase) * 14) * dt;
+                if (f.y < -20) { f.y = 1100; f.x = Math.random() * 1920; }
+                if (f.x < -20) f.x = 1940;
+                if (f.x > 1940) f.x = -20;
+                const r = 2.5 + (f.size % 4);
+                bgCtx.globalAlpha = 0.25 + 0.25 * Math.sin(f.phase * 1.3);
+                bgCtx.fillStyle = '#fde047';
+                bgCtx.beginPath();
+                bgCtx.arc(f.x, f.y, r, 0, Math.PI * 2);
+                bgCtx.fill();
             });
+            bgCtx.restore();
             if (sparks.length) {
                 bgCtx.save();
                 bgCtx.globalCompositeOperation = 'lighter';
