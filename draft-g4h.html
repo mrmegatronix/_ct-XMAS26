@@ -242,11 +242,11 @@
             100% { opacity: 0; transform: translateX(115%); }
         }
 
-        /* Scenes (Crisp 3D Transitions without CSS Blur) */
+        /* Scenes (Crisp 3D Transitions without CSS Blur, Clear of Garland & Elves) */
         .scene {
             position: absolute;
-            top: 122px;
-            bottom: 94px;
+            top: 126px;
+            bottom: 112px;
             left: 88px;
             right: 88px;
             z-index: 12;
@@ -324,22 +324,22 @@
         /* ===== SCENE 1: HERO ===== */
         .hero-frame {
             position: relative;
-            padding: 18px 86px 26px;
+            padding: 8px 86px 14px;
             text-align: center;
         }
         .hero-brand {
             font-family: 'Great Vibes', cursive;
-            font-size: 130px;
-            line-height: 1.15;
+            font-size: 120px;
+            line-height: 1.12;
             color: #ffffff;
             white-space: nowrap;
             text-shadow: 0 4px 0 #b45309, 0 12px 26px rgba(0, 0, 0, 0.9), 0 0 36px rgba(255, 255, 255, 0.45);
         }
         .hero-main {
             font-family: 'Great Vibes', cursive;
-            font-size: 272px;
-            line-height: 1.15;
-            margin: -68px 0 -46px;
+            font-size: 252px;
+            line-height: 1.12;
+            margin: -60px 0 -42px;
             padding: 0 36px;
             color: #fde047;
             white-space: nowrap;
@@ -470,8 +470,8 @@
             text-align: center;
         }
         .drink-ring {
-            width: 286px;
-            height: 286px;
+            width: 264px;
+            height: 264px;
             border-radius: 50%;
             border: 7px solid #fbbf24;
             overflow: hidden;
@@ -489,15 +489,16 @@
             object-fit: cover;
             object-position: center center;
             display: block;
+            filter: blur(5.5px);
             animation: slowZoom 10s ease-in-out infinite alternate;
         }
-        @keyframes slowZoom { from { transform: scale(1.02); } to { transform: scale(1.13); } }
+        @keyframes slowZoom { from { transform: scale(1.06); } to { transform: scale(1.16); } }
 
         .drink-tba {
-            margin-top: 14px;
+            margin-top: 12px;
             font-family: 'Cinzel', serif;
             font-weight: 900;
-            font-size: 46px;
+            font-size: 44px;
             line-height: 1.15;
             color: #fde047;
             white-space: nowrap;
@@ -507,7 +508,7 @@
             font-family: 'Playfair Display', serif;
             font-style: italic;
             font-weight: 900;
-            font-size: 36px;
+            font-size: 32px;
             line-height: 1.2;
             color: #ffffff;
             white-space: nowrap;
@@ -515,7 +516,7 @@
             opacity: 0.78;
         }
         .deal-bar {
-            margin-top: 24px;
+            margin-top: 28px;
             display: flex;
             align-items: center;
             gap: 36px;
@@ -778,7 +779,7 @@
         <header class="top-bar">
             <span class="tb-title">COASTERS CHRISTMAS PARTY &bull; SAT 12 DEC &bull; 7PM</span>
             <span class="tb-div">|</span>
-            <span class="tb-pill"><span class="live-dot"></span><span class="js-status">28 DAYS TO GO</span></span>
+            <span class="tb-pill"><span class="live-dot"></span><span class="js-status">28 DAYS LEFT TO GO</span></span>
         </header>
 
         <!-- ===== SCENE 1: HERO REVEAL ===== -->
@@ -794,7 +795,7 @@
             </div>
             <div class="date-plaque shine-wrap anim-in st2 bob-c">
                 <div class="dp-main">Saturday 12th December &bull; From 7pm</div>
-                <div class="dp-sub">EVERYONE WELCOME</div>
+                <div class="dp-sub">EVERYONE WELCOME &bull; <span class="js-status">28 DAYS LEFT TO GO</span></div>
             </div>
             <div class="hero-plugs anim-in st3">
                 <span class="plug-chip bob-a">Live Band "Danny" 8pm</span>
@@ -806,8 +807,8 @@
 
         <!-- ===== SCENE 2: PARTY NIGHT COCKTAILS (T.B.A.) ===== -->
         <section class="scene" data-dur="17000">
-            <div class="sec-title anim-in st1">Party Night Cocktails</div>
-            <div class="sec-warn anim-in st1">Christmas Party Night Only (Sat 12 Dec) &bull; Menu Revealed on the Night!</div>
+            <div class="sec-title anim-in st1">Christmas Party Cocktails</div>
+            <div class="sec-warn anim-in st1">Christmas Party Night Only (Sat 12 Dec) &bull; <span class="js-status">28 DAYS LEFT TO GO</span></div>
             <div class="drinks-grid">
                 <div class="drink-card anim-in st2"><div class="bob-a">
                     <div class="drink-ring"><img src="assets/cocktails/tv_cocktail_1.jpg" alt="T.B.A. #1"></div>
@@ -839,7 +840,7 @@
         <!-- ===== SCENE 3: CHRISTMAS PARTY LINEUP ===== -->
         <section class="scene" data-dur="16000">
             <div class="sec-title anim-in st1">Christmas Party Lineup</div>
-            <div class="sec-warn anim-in st1">Saturday 12th December &bull; Doors Open 7pm &bull; Everyone Welcome</div>
+            <div class="sec-warn anim-in st1">Saturday 12th December &bull; From 7pm &bull; <span class="js-status">28 DAYS LEFT TO GO</span></div>
             <div class="lineup-grid">
                 <div class="anim-in st2"><div class="lineup-card featured shine-wrap bob-a">
                     <svg viewBox="0 0 100 100">
@@ -893,7 +894,7 @@
                     <div class="party-ribbon shine-wrap"><span class="party-ribbon-text">PARTY</span></div>
                     <div class="date-plaque shine-wrap">
                         <div class="dp-main">Sat 12th December &bull; 7pm</div>
-                        <div class="dp-sub">EVERYONE WELCOME</div>
+                        <div class="dp-sub">EVERYONE WELCOME &bull; <span class="js-status">28 DAYS LEFT TO GO</span></div>
                     </div>
                 </div>
                 <div class="qr-box shine-wrap anim-in st2 bob-b">
@@ -946,8 +947,8 @@
             const d1 = new Date(EVENT_START.getFullYear(), EVENT_START.getMonth(), EVENT_START.getDate());
             const days = Math.round((d1 - d0) / 86400000);
             if (days <= 0) return 'TONIGHT FROM 7PM';
-            if (days === 1) return 'TOMORROW NIGHT \u2022 FROM 7PM';
-            return days + ' DAYS TO GO';
+            if (days === 1) return '1 DAY LEFT TO GO';
+            return days + ' DAYS LEFT TO GO';
         }
         function updateStatus() {
             const t = statusText();
