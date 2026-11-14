@@ -302,23 +302,19 @@
             justify-content: center;
             opacity: 0;
             visibility: hidden;
-            transform-style: preserve-3d;
             transform: translateZ(-220px) rotateY(14deg) scale(0.88);
-            filter: blur(8px);
-            transition: opacity 0.85s ease, transform 1.05s cubic-bezier(0.16, 1, 0.3, 1), filter 0.85s ease, visibility 0s linear 0.85s;
+            transition: opacity 0.85s ease, transform 1.05s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s linear 0.85s;
         }
         .scene.active {
             opacity: 1;
             visibility: visible;
             transform: none;
-            filter: blur(0);
-            transition: opacity 0.85s ease, transform 1.05s cubic-bezier(0.16, 1, 0.3, 1), filter 0.85s ease, visibility 0s;
+            transition: opacity 0.85s ease, transform 1.05s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s;
         }
         .scene.leaving {
             opacity: 0;
             visibility: visible;
             transform: translateZ(140px) rotateY(-14deg) scale(1.08);
-            filter: blur(8px);
         }
 
         /* Staggered Pop-In + Continuous Slide Content Animations */
