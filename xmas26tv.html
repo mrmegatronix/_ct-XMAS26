@@ -186,8 +186,8 @@
             z-index: 22;
             display: flex;
             align-items: center;
-            gap: 22px;
-            padding: 8px 36px;
+            gap: 16px;
+            padding: 7px 28px;
             border-radius: 999px;
             background: rgba(16, 5, 2, 0.94);
             border: 2.5px solid #fbbf24;
@@ -197,25 +197,25 @@
         .tb-title {
             font-family: 'Cinzel', serif;
             font-weight: 900;
-            font-size: 30px;
-            letter-spacing: 2px;
+            font-size: 28px;
+            letter-spacing: 1.5px;
             color: #fde047;
         }
         .tb-div {
             color: rgba(255, 255, 255, 0.35);
-            font-size: 30px;
+            font-size: 28px;
         }
         .tb-pill {
             display: inline-flex;
             align-items: center;
-            gap: 12px;
-            padding: 5px 22px;
+            gap: 10px;
+            padding: 5px 20px;
             border-radius: 999px;
             background: linear-gradient(180deg, #dc2626, #991b1b);
             border: 2px solid #fde047;
             font-weight: 900;
-            font-size: 28px;
-            letter-spacing: 1.5px;
+            font-size: 26px;
+            letter-spacing: 1.2px;
             color: #ffffff;
             animation: pillBeat 2.2s ease-in-out infinite;
         }
@@ -255,10 +255,10 @@
         /* Scenes (Crisp 3D Transitions without CSS Blur, Clear of Top Bar, Garland & Elves) */
         .scene {
             position: absolute;
-            top: 164px;
-            bottom: 106px;
-            left: 88px;
-            right: 88px;
+            top: 174px;
+            bottom: 108px;
+            left: 64px;
+            right: 64px;
             z-index: 12;
             display: flex;
             flex-direction: column;
@@ -278,26 +278,39 @@
         .scene.leaving {
             opacity: 0;
             visibility: visible;
-            transform: translateY(-44px) scale(1.05);
+            transform: translateY(-36px) scale(1.04);
+            transition: opacity 0.7s ease 0.15s, transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0s linear 0.85s;
         }
 
-        /* Staggered Pop-In */
+        /* Staggered Pop-In & Staggered Exit */
         .anim-in {
             opacity: 0;
-            transform: translateY(38px) scale(0.92);
+            transform: translateY(42px) scale(0.9);
         }
         .scene.active .anim-in {
-            animation: cardEnter 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            animation: cardEnter 0.82s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        .scene.leaving .anim-in {
+            animation: cardExit 0.62s cubic-bezier(0.4, 0, 0.8, 0.6) forwards;
         }
         .scene.active .st1 { animation-delay: 0.06s; }
-        .scene.active .st2 { animation-delay: 0.16s; }
-        .scene.active .st3 { animation-delay: 0.26s; }
-        .scene.active .st4 { animation-delay: 0.36s; }
-        .scene.active .st5 { animation-delay: 0.46s; }
+        .scene.active .st2 { animation-delay: 0.18s; }
+        .scene.active .st3 { animation-delay: 0.30s; }
+        .scene.active .st4 { animation-delay: 0.42s; }
+        .scene.active .st5 { animation-delay: 0.54s; }
+        .scene.leaving .st1 { animation-delay: 0.22s; }
+        .scene.leaving .st2 { animation-delay: 0.16s; }
+        .scene.leaving .st3 { animation-delay: 0.10s; }
+        .scene.leaving .st4 { animation-delay: 0.05s; }
+        .scene.leaving .st5 { animation-delay: 0s; }
         @keyframes cardEnter {
-            0% { opacity: 0; transform: translateY(38px) scale(0.92); }
-            72% { opacity: 1; transform: translateY(-5px) scale(1.018); }
+            0% { opacity: 0; transform: translateY(42px) scale(0.9); }
+            72% { opacity: 1; transform: translateY(-6px) scale(1.022); }
             100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        @keyframes cardExit {
+            0% { opacity: 1; transform: translateY(0) scale(1); }
+            100% { opacity: 0; transform: translateY(-54px) scale(0.88); }
         }
 
         /* Continuous Motion Helpers */
@@ -339,28 +352,28 @@
         }
         .hero-brand {
             font-family: 'Great Vibes', cursive;
-            font-size: 126px;
-            line-height: 1.08;
+            font-size: 134px;
+            line-height: 1.06;
             color: #ffffff;
             white-space: nowrap;
-            text-shadow: 0 4px 0 #b45309, 0 12px 26px rgba(0, 0, 0, 0.9), 0 0 40px rgba(255, 255, 255, 0.5);
+            text-shadow: 0 4px 0 #b45309, 0 12px 26px rgba(0, 0, 0, 0.9), 0 0 44px rgba(255, 255, 255, 0.55);
         }
         .hero-main {
             font-family: 'Great Vibes', cursive;
-            font-size: 262px;
-            line-height: 1.08;
-            margin: -60px 0 -42px;
-            padding: 0 36px;
+            font-size: 274px;
+            line-height: 1.06;
+            margin: -62px 0 -42px;
+            padding: 0 40px;
             color: #fde047;
             white-space: nowrap;
             text-shadow:
                 0 3px 0 #eab308, 0 6px 0 #ca8a04, 0 9px 0 #a16207, 0 12px 0 #854d0e, 0 15px 0 #713f12,
-                0 28px 50px rgba(0, 0, 0, 0.95), 0 0 86px rgba(251, 191, 36, 0.8);
-            animation: heroPulse 2.8s ease-in-out infinite alternate;
+                0 28px 54px rgba(0, 0, 0, 0.95), 0 0 92px rgba(251, 191, 36, 0.85);
+            animation: heroPulse 2.6s ease-in-out infinite alternate;
         }
         @keyframes heroPulse {
-            from { transform: scale(1); filter: brightness(1); }
-            to { transform: scale(1.022); filter: brightness(1.12); }
+            from { transform: scale(1) translateY(0); filter: brightness(1); }
+            to { transform: scale(1.032) translateY(-6px); filter: brightness(1.16); }
         }
         .party-ribbon {
             position: relative;
@@ -368,16 +381,16 @@
             background: linear-gradient(180deg, #dc2626 0%, #991b1b 60%, #7f1d1d 100%);
             border: 4px solid #fbbf24;
             border-radius: 14px;
-            padding: 6px 116px 10px;
-            box-shadow: 0 12px 0 #450a0a, 0 24px 44px rgba(0, 0, 0, 0.9), 0 0 36px rgba(251, 191, 36, 0.4);
+            padding: 6px 136px 10px;
+            box-shadow: 0 12px 0 #450a0a, 0 24px 44px rgba(0, 0, 0, 0.9), 0 0 40px rgba(251, 191, 36, 0.45);
         }
         .party-ribbon-text {
             font-family: 'Cinzel', serif;
             font-weight: 900;
-            font-size: 94px;
-            line-height: 1.12;
-            letter-spacing: 24px;
-            margin-right: -24px;
+            font-size: 108px;
+            line-height: 1.1;
+            letter-spacing: 26px;
+            margin-right: -26px;
             color: #ffffff;
             white-space: nowrap;
             text-shadow: 0 4px 10px rgba(0, 0, 0, 0.75);
@@ -411,33 +424,33 @@
             font-family: 'Playfair Display', serif;
             font-style: italic;
             font-weight: 900;
-            font-size: 68px;
-            line-height: 1.12;
+            font-size: 76px;
+            line-height: 1.1;
             color: #991b1b;
             white-space: nowrap;
         }
         .dp-sub {
             font-family: 'Cinzel', serif;
             font-weight: 900;
-            font-size: 34px;
+            font-size: 38px;
             line-height: 1.2;
-            letter-spacing: 7px;
+            letter-spacing: 8px;
             color: #1f2937;
             white-space: nowrap;
         }
 
         .hero-plugs {
-            margin-top: 20px;
+            margin-top: 18px;
             display: flex;
-            gap: 24px;
+            gap: 16px;
         }
         .plug-chip {
-            padding: 12px 32px;
+            padding: 11px 26px;
             border-radius: 999px;
             background: rgba(153, 27, 27, 0.92);
             border: 2.5px solid #fbbf24;
             font-weight: 900;
-            font-size: 30px;
+            font-size: 29px;
             color: #fef08a;
             white-space: nowrap;
             box-shadow: 0 8px 22px rgba(0, 0, 0, 0.7), 0 0 22px rgba(251, 191, 36, 0.25);
@@ -447,19 +460,20 @@
         .sec-title {
             font-family: 'Cinzel', serif;
             font-weight: 900;
-            font-size: 94px;
-            line-height: 1.1;
+            font-size: 106px;
+            line-height: 1.08;
             letter-spacing: 4px;
             color: #fde047;
             white-space: nowrap;
-            text-shadow: 0 5px 0 #713f12, 0 14px 30px rgba(0, 0, 0, 0.9), 0 0 42px rgba(251, 191, 36, 0.65);
+            text-shadow: 0 5px 0 #713f12, 0 14px 30px rgba(0, 0, 0, 0.9), 0 0 46px rgba(251, 191, 36, 0.72);
+            animation: heroPulse 2.8s ease-in-out infinite alternate;
         }
         .sec-warn {
             margin-top: 6px;
             font-family: 'Outfit', sans-serif;
             font-weight: 900;
-            font-size: 42px;
-            line-height: 1.18;
+            font-size: 46px;
+            line-height: 1.16;
             letter-spacing: 2px;
             color: #fecaca;
             text-transform: uppercase;
@@ -508,8 +522,8 @@
             margin-top: 12px;
             font-family: 'Cinzel', serif;
             font-weight: 900;
-            font-size: 52px;
-            line-height: 1.12;
+            font-size: 58px;
+            line-height: 1.1;
             color: #fde047;
             white-space: nowrap;
             text-shadow: 0 4px 12px rgba(0, 0, 0, 0.9);
@@ -518,7 +532,7 @@
             font-family: 'Playfair Display', serif;
             font-style: italic;
             font-weight: 900;
-            font-size: 36px;
+            font-size: 40px;
             line-height: 1.2;
             color: #ffffff;
             white-space: nowrap;
@@ -526,29 +540,29 @@
             opacity: 0.78;
         }
         .deal-bar {
-            margin-top: 24px;
+            margin-top: 22px;
             display: flex;
             align-items: center;
-            gap: 36px;
+            gap: 28px;
             background: linear-gradient(180deg, #991b1b, #7f1d1d);
             border: 4px solid #fbbf24;
             border-radius: 22px;
-            padding: 12px 48px;
+            padding: 12px 38px;
             box-shadow: 0 12px 0 #450a0a, 0 24px 44px rgba(0, 0, 0, 0.9), 0 0 36px rgba(251, 191, 36, 0.45);
         }
         .deal-price {
             font-family: 'Cinzel', serif;
             font-weight: 900;
-            font-size: 68px;
-            line-height: 1.08;
+            font-size: 64px;
+            line-height: 1.06;
             color: #fde047;
             white-space: nowrap;
         }
         .deal-note {
             font-family: 'Outfit', sans-serif;
             font-weight: 800;
-            font-size: 32px;
-            line-height: 1.22;
+            font-size: 30px;
+            line-height: 1.2;
             color: #ffffff;
             white-space: nowrap;
         }
@@ -589,7 +603,7 @@
         .lc-kicker {
             margin-top: 12px;
             font-weight: 900;
-            font-size: 36px;
+            font-size: 42px;
             letter-spacing: 5px;
             color: #fecaca;
             white-space: nowrap;
@@ -598,21 +612,21 @@
             font-family: 'Playfair Display', serif;
             font-style: italic;
             font-weight: 900;
-            font-size: 78px;
-            line-height: 1.12;
+            font-size: 88px;
+            line-height: 1.1;
             color: #fde047;
             white-space: nowrap;
         }
         .lc-sub {
             font-weight: 800;
-            font-size: 36px;
+            font-size: 40px;
             color: #ffffff;
             white-space: nowrap;
         }
         .lineup-foot {
-            margin-top: 28px;
+            margin-top: 26px;
             font-weight: 900;
-            font-size: 46px;
+            font-size: 52px;
             color: #ffffff;
             white-space: nowrap;
             text-shadow: 0 4px 14px rgba(0, 0, 0, 0.9);
@@ -622,7 +636,7 @@
         /* ===== SCENE 4: POSTER LOCKUP + QR ===== */
         .split-lockup {
             display: grid;
-            grid-template-columns: 1fr 430px;
+            grid-template-columns: 1fr 440px;
             gap: 48px;
             align-items: center;
             width: 100%;
@@ -635,28 +649,29 @@
         }
         .sl-brand {
             font-family: 'Great Vibes', cursive;
-            font-size: 122px;
-            line-height: 1.12;
+            font-size: 126px;
+            line-height: 1.08;
             color: #ffffff;
             white-space: nowrap;
             text-shadow: 0 4px 0 #b45309, 0 10px 24px rgba(0, 0, 0, 0.9);
         }
         .sl-main {
             font-family: 'Great Vibes', cursive;
-            font-size: 234px;
-            line-height: 1.12;
-            margin: -40px 0 -46px;
+            font-size: 244px;
+            line-height: 1.08;
+            margin: -42px 0 -46px;
             padding: 0 30px;
             color: #fde047;
             white-space: nowrap;
             text-shadow:
                 0 3px 0 #eab308, 0 6px 0 #ca8a04, 0 9px 0 #a16207, 0 12px 0 #713f12,
-                0 22px 40px rgba(0, 0, 0, 0.95), 0 0 68px rgba(251, 191, 36, 0.72);
+                0 22px 40px rgba(0, 0, 0, 0.95), 0 0 76px rgba(251, 191, 36, 0.78);
+            animation: heroPulse 2.6s ease-in-out infinite alternate;
         }
-        .split-left .party-ribbon { padding: 4px 86px 8px; }
-        .split-left .party-ribbon-text { font-size: 74px; letter-spacing: 20px; margin-right: -20px; }
+        .split-left .party-ribbon { padding: 4px 96px 8px; }
+        .split-left .party-ribbon-text { font-size: 84px; letter-spacing: 20px; margin-right: -20px; }
         .split-left .date-plaque { margin-top: 20px; }
-        .split-left .dp-main { font-size: 60px; }
+        .split-left .dp-main { font-size: 68px; }
 
         .qr-box {
             background: #fffaf2;
@@ -667,8 +682,8 @@
             box-shadow: 0 14px 0 #786552, 0 28px 50px rgba(0, 0, 0, 0.9), 0 0 46px rgba(251, 191, 36, 0.52);
         }
         .qr-box img {
-            width: 316px;
-            height: 316px;
+            width: 330px;
+            height: 330px;
             display: block;
             margin: 0 auto;
         }
@@ -676,7 +691,7 @@
             margin-top: 10px;
             font-family: 'Cinzel', serif;
             font-weight: 900;
-            font-size: 28px;
+            font-size: 30px;
             letter-spacing: 0.5px;
             color: #991b1b;
             white-space: nowrap;
@@ -684,16 +699,16 @@
         .qr-link {
             margin-top: 2px;
             font-weight: 800;
-            font-size: 20px;
+            font-size: 21px;
             color: #1f2937;
             white-space: nowrap;
         }
         .dress-call {
-            margin-top: 22px;
+            margin-top: 20px;
             font-family: 'Playfair Display', serif;
             font-style: italic;
             font-weight: 900;
-            font-size: 64px;
+            font-size: 74px;
             color: #ffffff;
             white-space: nowrap;
             text-shadow: 0 4px 16px rgba(0, 0, 0, 0.9), 0 0 34px rgba(251, 191, 36, 0.55);
@@ -807,7 +822,7 @@
             </div>
             <div class="date-plaque shine-wrap anim-in st2 bob-c">
                 <div class="dp-main">Saturday 12th December &bull; From 7pm</div>
-                <div class="dp-sub">EVERYONE WELCOME &bull; <span class="js-status">28 DAYS LEFT TO GO</span></div>
+                <div class="dp-sub">EVERYONE WELCOME &bull; FREE ENTRY</div>
             </div>
             <div class="hero-plugs anim-in st3">
                 <span class="plug-chip bob-a">Live Band "Danny" 8pm</span>
@@ -820,7 +835,7 @@
         <!-- ===== SCENE 2: PARTY NIGHT COCKTAILS (T.B.A.) ===== -->
         <section class="scene" data-dur="17000">
             <div class="sec-title anim-in st1">Christmas Party Cocktails</div>
-            <div class="sec-warn anim-in st1">Christmas Party Night Only (Sat 12 Dec) &bull; <span class="js-status">28 DAYS LEFT TO GO</span></div>
+            <div class="sec-warn anim-in st1">Christmas Party Night Only (Sat 12 Dec) &bull; Menu Revealed on the Night</div>
             <div class="drinks-grid">
                 <div class="drink-card anim-in st2"><div class="bob-a">
                     <div class="drink-ring"><img src="assets/cocktails/tv_cocktail_1.jpg" alt="T.B.A. #1"></div>
@@ -852,7 +867,7 @@
         <!-- ===== SCENE 3: CHRISTMAS PARTY LINEUP ===== -->
         <section class="scene" data-dur="16000">
             <div class="sec-title anim-in st1">Christmas Party Lineup</div>
-            <div class="sec-warn anim-in st1">Saturday 12th December &bull; From 7pm &bull; <span class="js-status">28 DAYS LEFT TO GO</span></div>
+            <div class="sec-warn anim-in st1">Saturday 12th December &bull; From 7pm &bull; Everyone Welcome</div>
             <div class="lineup-grid">
                 <div class="anim-in st2"><div class="lineup-card featured shine-wrap bob-a">
                     <svg viewBox="0 0 100 100">
@@ -901,12 +916,12 @@
         <section class="scene" data-dur="12000">
             <div class="split-lockup">
                 <div class="split-left anim-in st1">
-                    <div class="sl-brand">Coasters</div>
+                    <div class="sl-brand bob-a">Coasters</div>
                     <div class="sl-main">Christmas</div>
                     <div class="party-ribbon shine-wrap"><span class="party-ribbon-text">PARTY</span></div>
                     <div class="date-plaque shine-wrap">
                         <div class="dp-main">Sat 12th December &bull; 7pm</div>
-                        <div class="dp-sub">EVERYONE WELCOME &bull; <span class="js-status">28 DAYS LEFT TO GO</span></div>
+                        <div class="dp-sub">EVERYONE WELCOME &bull; FREE ENTRY</div>
                     </div>
                 </div>
                 <div class="qr-box shine-wrap anim-in st2 bob-b">
@@ -1391,8 +1406,8 @@
 
             // 3. Christmas Trees & Comedy Elves Bauble Fight
             eCtx.clearRect(0, 0, 1920, 1080);
-            drawXmasTree(eCtx, 112, 1062, 1.05, t);
-            drawXmasTree(eCtx, 1808, 1062, 1.05, t);
+            drawXmasTree(eCtx, 90, 1062, 0.88, t);
+            drawXmasTree(eCtx, 1830, 1062, 0.88, t);
 
             elves.forEach((elf, i) => {
                 elf.phase += dt;
