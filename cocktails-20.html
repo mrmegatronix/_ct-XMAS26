@@ -344,152 +344,152 @@
         <main class="cocktails-list" id="cocktails-grid"></main>
 
         <footer class="doc-footer">
-            <span>Coasters Tavern Social Club Planning Document — 20 Real Christmas & Summer Cocktails</span>
-            <span>Standard NZ Metric Jigger: 15 ml / 30 ml / 45 ml / 60 ml • www.coasterstavern.co.nz</span>
+            <span>Coasters Tavern Social Club Planning Document — 20 Cocktails Matched to Bar Stock</span>
+            <span>Synced with _ct-BARASS/beverage_product_list.txt • Standard NZ Metric Jigger: 15 ml / 30 ml / 45 ml / 60 ml</span>
         </footer>
     </div>
 
     <script>
         const COCKTAILS = [
             {
-                num: 1, name: "Classic 1944 Mai Tai", style: "Tiki Rum Legend",
-                vibe: "Rich almond, bright lime, and caramelised Jamaican rum float.",
-                ingredients: ["<strong>30 ml</strong> White Rum", "<strong>30 ml</strong> Dark Jamaican Rum (float)", "<strong>15 ml</strong> Orange Curaçao", "<strong>15 ml</strong> Orgeat Syrup", "<strong>25 ml</strong> Fresh Lime Juice"],
-                method: "Shake white rum, curaçao, orgeat, and lime juice with cubed ice for 10s. Strain into a glass packed with crushed ice. Float 30 ml dark rum over the top.",
-                garnish: "Fresh mint sprig ('pine tree'), lime shell & paper umbrella."
+                num: 1, name: "Coasters Island Mai Tai", style: "Tiki Rum Legend",
+                vibe: "Bacardi white rum, orange liqueur, pineapple & orange topped with a Coruba float.",
+                ingredients: ["<strong>30 ml</strong> Bacardi Carta Blanca", "<strong>30 ml</strong> Coruba Dark Rum (float)", "<strong>15 ml</strong> Bols Triple Sec", "<strong>30 ml</strong> Pineapple Juice", "<strong>30 ml</strong> Orange Juice"],
+                method: "Shake Bacardi Carta Blanca, Bols Triple Sec, Pineapple Juice, and Orange Juice with cubed ice for 10s. Strain over crushed ice and float Coruba on top.",
+                garnish: "Fresh mint sprig, lime wedge & paper umbrella."
             },
             {
                 num: 2, name: "Blue Hawaiian Blizzard", style: "Tropical Lagoon",
-                vibe: "Electric aqua blue balanced with creamy coconut and pineapple.",
-                ingredients: ["<strong>45 ml</strong> White Rum (or Vodka)", "<strong>22.5 ml</strong> Blue Curaçao", "<strong>60 ml</strong> Pineapple Juice", "<strong>22.5 ml</strong> Cream of Coconut"],
-                method: "Rim hurricane glass with honey and 15 g shredded coconut. Shake all liquid ingredients hard with cubed ice for 12s and strain over crushed ice.",
-                garnish: "Toasted coconut snow rim, pineapple wedge & cherry."
+                vibe: "Electric aqua blue balanced with Malibu coconut and pineapple.",
+                ingredients: ["<strong>30 ml</strong> Bacardi Carta Blanca", "<strong>20 ml</strong> Malibu", "<strong>22.5 ml</strong> De Kuyper Blue Curacao", "<strong>75 ml</strong> Pineapple Juice"],
+                method: "Shake Bacardi Carta Blanca, Malibu, De Kuyper Blue Curacao, and Pineapple Juice hard with cubed ice for 12s and strain over crushed ice.",
+                garnish: "Pineapple wedge & maraschino cherry."
             },
             {
-                num: 3, name: "Puerto Rican Piña Colada", style: "Creamy Island Classic",
-                vibe: "Velvety coconut snowdrift with festive spiced nutmeg.",
-                ingredients: ["<strong>60 ml</strong> White or Spiced Rum", "<strong>45 ml</strong> Cream of Coconut", "<strong>90 ml</strong> Pineapple Juice", "<strong>15 ml</strong> Fresh Lime Juice"],
-                method: "Shake vigorously with ice (or blend with 150 g crushed ice until smooth). Pour into a chilled hurricane glass or coconut cup.",
-                garnish: "Freshly grated nutmeg dusting, pineapple leaf & cherry."
+                num: 3, name: "Malibu Piña Colada", style: "Creamy Island Classic",
+                vibe: "Malibu coconut rum, Bacardi, and chilled pineapple with a crisp lime lift.",
+                ingredients: ["<strong>45 ml</strong> Malibu", "<strong>30 ml</strong> Bacardi Carta Blanca", "<strong>90 ml</strong> Pineapple Juice", "<strong>15 ml</strong> Fresh Lime Juice"],
+                method: "Shake vigorously with cubed ice (or blend with 150 g crushed ice until frothy). Pour into a chilled hurricane glass.",
+                garnish: "Pineapple wedge & cherry."
             },
             {
                 num: 4, name: "Santa's Tequila Sunrise", style: "Layered Highball",
-                vibe: "Golden summer sunshine melting into a festive crimson base.",
-                ingredients: ["<strong>45 ml</strong> Blanco Tequila (or Rum)", "<strong>90 ml</strong> Fresh Orange / POG Juice", "<strong>15 ml</strong> Pomegranate Grenadine"],
-                method: "Fill highball glass with ice. Pour in tequila and juice; stir. Slowly pour 15 ml grenadine down the inside edge so it sinks into a sunset ombre.",
-                garnish: "Dehydrated blood orange wheel, hibiscus flower & bamboo straw."
+                vibe: "Golden summer orange juice melting into a festive crimson raspberry base.",
+                ingredients: ["<strong>45 ml</strong> Jose Cuervo Tradicional Reposado", "<strong>90 ml</strong> Orange Juice", "<strong>15 ml</strong> Rasp Cordial"],
+                method: "Fill highball glass with ice. Pour in Jose Cuervo Tradicional Reposado and Orange Juice; stir. Slowly pour 15 ml Rasp Cordial down the inside edge so it sinks.",
+                garnish: "Orange wheel & bamboo straw."
             },
             {
                 num: 5, name: "Cranberry & Mint Mojito", style: "Refreshing Highball",
-                vibe: "Crisp garden mint, ruby cranberries, and sparkling lime.",
-                ingredients: ["<strong>45 ml</strong> White Rum", "<strong>25 ml</strong> Fresh Lime Juice", "<strong>15 ml</strong> Sugar Syrup", "<strong>30 ml</strong> Cranberry Juice", "<strong>8 leaves</strong> Mint + <strong>60 ml</strong> Soda"],
-                method: "Gently muddle mint, lime juice, and syrup in highball glass. Add crushed ice, rum, and cranberry juice. Churn and top with 60 ml soda water.",
-                garnish: "Fresh cranberries on a pick & slapped mint bouquet."
+                vibe: "Crisp garden mint, ruby cranberry juice, and sparkling soda.",
+                ingredients: ["<strong>45 ml</strong> Bacardi Carta Blanca", "<strong>30 ml</strong> Cranberry Juice", "<strong>20 ml</strong> Fresh Lime Juice", "<strong>60 ml</strong> Soda Water", "<strong>8 leaves</strong> Fresh Mint"],
+                method: "Gently muddle mint and lime juice in a highball glass. Add crushed ice, Bacardi Carta Blanca, and Cranberry Juice. Churn and top with 60 ml Soda Water.",
+                garnish: "Fresh mint bouquet & lime wheel."
             },
             {
                 num: 6, name: "Aperol Sunset Spritz", style: "Summer Aperitivo",
                 vibe: "Effervescent bittersweet orange made for warm December patios.",
-                ingredients: ["<strong>60 ml</strong> Aperol Aperitivo", "<strong>90 ml</strong> Chilled Prosecco DOC", "<strong>30 ml</strong> Sparkling Soda Water"],
-                method: "Fill a large wine glass generously with ice. Pour in chilled Prosecco first, then Aperol, and finish with 30 ml soda water. Stir once gently.",
-                garnish: "Fresh orange half-wheel & festive rosemary sprig."
+                ingredients: ["<strong>60 ml</strong> Aperol", "<strong>90 ml</strong> Lindauer Prosecco", "<strong>30 ml</strong> Soda Water"],
+                method: "Fill a large wine glass generously with ice. Pour in chilled Lindauer Prosecco first, then Aperol, and finish with 30 ml Soda Water. Stir once gently.",
+                garnish: "Fresh orange half-wheel & rosemary sprig."
             },
             {
-                num: 7, name: "Pomegranate Margarita", style: "Festive Agave Sour",
-                vibe: "Jewel-toned ruby margarita with a flaky sea salt rim.",
-                ingredients: ["<strong>45 ml</strong> Blanco Tequila", "<strong>22.5 ml</strong> Cointreau", "<strong>30 ml</strong> Pomegranate Juice", "<strong>22.5 ml</strong> Fresh Lime Juice", "<strong>7.5 ml</strong> Agave Nectar"],
-                method: "Salt half the rim of a rocks glass. Shake all liquid ingredients with ice for 10s and strain over fresh cubed ice.",
-                garnish: "Lime wheel & sprinkle of ruby pomegranate arils."
+                num: 7, name: "Cranberry Cointreau Margarita", style: "Festive Agave Sour",
+                vibe: "Jewel-toned ruby margarita with Patron Silver, Cointreau, and a salted rim.",
+                ingredients: ["<strong>45 ml</strong> Patron Silver", "<strong>22.5 ml</strong> Cointreau", "<strong>30 ml</strong> Cranberry Juice", "<strong>20 ml</strong> Fresh Lime Juice"],
+                method: "Salt half the rim of a rocks glass. Shake Patron Silver, Cointreau, Cranberry Juice, and lime juice with ice for 10s and strain over fresh cubed ice.",
+                garnish: "Lime wheel."
             },
             {
-                num: 8, name: "The Jungle Bird", style: "1970s Campari Tiki",
-                vibe: "Exotic dark rum, frothy pineapple, and a ruby Campari bite.",
-                ingredients: ["<strong>45 ml</strong> Dark Jamaican Rum", "<strong>22.5 ml</strong> Campari", "<strong>45 ml</strong> Pineapple Juice", "<strong>15 ml</strong> Fresh Lime Juice", "<strong>15 ml</strong> Demerara Syrup"],
-                method: "Combine all five ingredients in a shaker with cubed ice. Shake hard for 12s to build a rich pineapple froth; strain over fresh ice.",
-                garnish: "Two pineapple fronds & cherry arranged like a bird."
+                num: 8, name: "The Jungle Bird", style: "Campari Tiki",
+                vibe: "Rich Coruba dark rum, frothy pineapple, and a ruby Campari bite.",
+                ingredients: ["<strong>45 ml</strong> Coruba Dark Rum", "<strong>22.5 ml</strong> Campari", "<strong>60 ml</strong> Pineapple Juice", "<strong>15 ml</strong> Fresh Lime Juice"],
+                method: "Combine Coruba, Campari, Pineapple Juice, and lime juice in a shaker with cubed ice. Shake hard for 12s to build a pineapple froth; strain over fresh ice.",
+                garnish: "Pineapple wedge & cherry."
             },
             {
-                num: 9, name: "Strawberry Santa Daiquiri", style: "Frozen Summer Slush",
-                vibe: "Sun-ripened December strawberries blended with crisp white rum.",
-                ingredients: ["<strong>60 ml</strong> White Rum", "<strong>25 ml</strong> Fresh Lime Juice", "<strong>20 ml</strong> Simple Syrup", "<strong>100 g</strong> Fresh Strawberries", "<strong>150 g</strong> Crushed Ice"],
-                method: "Place rum, lime juice, syrup, hulled strawberries, and 150 g crushed ice into a blender. Blend 20s until smooth and pour into coupe or hurricane glass.",
-                garnish: "Fresh strawberry notched on the rim."
+                num: 9, name: "Frozen Strawberry Daiquiri", style: "Frozen Summer Slush",
+                vibe: "House POS favourite blended with Bacardi, Lindauer Fraise, and fresh lime.",
+                ingredients: ["<strong>45 ml</strong> Bacardi Carta Blanca", "<strong>45 ml</strong> Lindauer Fraise", "<strong>20 ml</strong> Fresh Lime Juice", "<strong>15 ml</strong> Rasp Cordial", "<strong>150 g</strong> Crushed Ice"],
+                method: "Blend Bacardi Carta Blanca, Lindauer Fraise, lime juice, Rasp Cordial, and 150 g crushed ice for 20s until smooth and pour into a coupe or hurricane glass.",
+                garnish: "Lime wheel on the rim."
             },
             {
-                num: 10, name: "Ruby Grapefruit Paloma", style: "Zesty Agave Highball",
-                vibe: "Zesty pink grapefruit fizz with a salted citrus edge.",
-                ingredients: ["<strong>50 ml</strong> Blanco Tequila", "<strong>15 ml</strong> Fresh Lime Juice", "<strong>45 ml</strong> Ruby Grapefruit Juice", "<strong>15 ml</strong> Agave Syrup", "<strong>60 ml</strong> Sparkling Soda"],
-                method: "Rim highball glass with pink salt. Shake tequila, lime, grapefruit juice, and agave with ice, strain over ice, and top with 60 ml soda.",
-                garnish: "Ruby grapefruit wedge & fresh thyme sprig."
+                num: 10, name: "Bloody Shiraz & Lemon Fizz", style: "Zesty Gin Highball",
+                vibe: "Vibrant ruby Four Pillars Bloody Shiraz Gin topped with crisp lemonade.",
+                ingredients: ["<strong>45 ml</strong> Four Pillars Bloody Shiraz Gin", "<strong>30 ml</strong> Cranberry Juice", "<strong>90 ml</strong> Lemonade", "<strong>15 ml</strong> Fresh Lemon Juice"],
+                method: "Fill highball glass with ice. Pour in Four Pillars Bloody Shiraz Gin, Cranberry Juice, and lemon juice, then top with Lemonade and stir gently.",
+                garnish: "Lemon wheel & thyme sprig."
             },
             {
-                num: 11, name: "Salted Caramel Espresso Martini", style: "Late-Night Pick-Me-Up",
-                vibe: "Velvety crema, rich espresso, and festive salted caramel.",
-                ingredients: ["<strong>45 ml</strong> Premium Vodka", "<strong>30 ml</strong> Coffee Liqueur", "<strong>30 ml</strong> Chilled Espresso", "<strong>10 ml</strong> Salted Caramel Syrup"],
-                method: "Add all ingredients to shaker with hard cubed ice. Shake hard for 15s to create thick crema; double-strain into a chilled coupe.",
-                garnish: "Three coffee beans & light dusting of cinnamon."
+                num: 11, name: "Coasters Espresso Martini", style: "Late-Night Pick-Me-Up",
+                vibe: "Velvety crema with Absolut Vodka, Kahlua, and fresh Short Black espresso.",
+                ingredients: ["<strong>45 ml</strong> Absolut Vodka", "<strong>30 ml</strong> Kahlua", "<strong>30 ml</strong> Short Black (Chilled Espresso)"],
+                method: "Add Absolut Vodka, Kahlua, and chilled Short Black to a shaker with hard cubed ice. Shake hard for 15s to build thick crema; double-strain into a chilled coupe.",
+                garnish: "Three coffee beans."
             },
             {
                 num: 12, name: "Hugo Elderflower Spritz", style: "Floral Mint Fizz",
-                vibe: "Delicate elderflower blossom, crisp mint, and sparkling bubbles.",
-                ingredients: ["<strong>45 ml</strong> St-Germain Elderflower", "<strong>90 ml</strong> Chilled Prosecco", "<strong>30 ml</strong> Sparkling Soda", "<strong>10 ml</strong> Lime Juice", "<strong>6 leaves</strong> Fresh Mint"],
-                method: "Clap mint leaves and drop into ice-filled large wine glass. Add elderflower liqueur, lime juice, Prosecco, and soda. Stir gently.",
+                vibe: "St Germain Elderflower, crisp mint, and sparkling Lindauer Prosecco.",
+                ingredients: ["<strong>45 ml</strong> St Germain Elderflower", "<strong>90 ml</strong> Lindauer Prosecco", "<strong>30 ml</strong> Soda Water", "<strong>10 ml</strong> Fresh Lime Juice", "<strong>6 leaves</strong> Fresh Mint"],
+                method: "Clap mint leaves and drop into an ice-filled wine glass. Add St Germain Elderflower, lime juice, Lindauer Prosecco, and Soda Water. Stir gently.",
                 garnish: "Thin lime wheels & fresh mint crown."
             },
             {
-                num: 13, name: "Pusser's Painkiller", style: "BVI Navy Rum Tiki",
-                vibe: "Rich dark rum cushioned by tropical citrus and coconut cream.",
-                ingredients: ["<strong>60 ml</strong> Dark Navy Rum", "<strong>120 ml</strong> Pineapple Juice", "<strong>30 ml</strong> Fresh Orange Juice", "<strong>30 ml</strong> Cream of Coconut"],
-                method: "Shake all four ingredients vigorously with ice until emulsified. Pour unstrained into a tiki mug or hurricane glass over crushed ice.",
-                garnish: "Generous grating of fresh nutmeg & orange wheel."
+                num: 13, name: "Kraken Island Painkiller", style: "Spiced Rum Tiki",
+                vibe: "Rich The Kraken Spiced Rum cushioned by Malibu, pineapple, and orange juice.",
+                ingredients: ["<strong>45 ml</strong> The Kraken Spiced Rum", "<strong>30 ml</strong> Malibu", "<strong>90 ml</strong> Pineapple Juice", "<strong>30 ml</strong> Orange Juice"],
+                method: "Shake all four ingredients vigorously with ice until frothy. Pour unstrained into a tiki mug or hurricane glass over crushed ice.",
+                garnish: "Orange wheel & pineapple wedge."
             },
             {
-                num: 14, name: "Summer Berry Bramble", style: "Blackberry Gin Jewel",
-                vibe: "Crisp botanical gin and lemon marbled with blackberry liqueur.",
-                ingredients: ["<strong>50 ml</strong> London Dry Gin", "<strong>25 ml</strong> Fresh Lemon Juice", "<strong>12.5 ml</strong> Sugar Syrup", "<strong>15 ml</strong> Crème de Mûre"],
-                method: "Shake gin, lemon juice, and syrup with ice. Strain into rocks glass packed with crushed ice. Drizzle 15 ml Crème de Mûre over top.",
-                garnish: "Two fresh blackberries & lemon slice."
+                num: 14, name: "Chambord Berry Bramble", style: "Blackberry Gin Jewel",
+                vibe: "Bombay Sapphire gin and lemon marbled with rich Chambord.",
+                ingredients: ["<strong>45 ml</strong> Bombay Sapphire London Dry Gin", "<strong>20 ml</strong> Fresh Lemon Juice", "<strong>15 ml</strong> Chambord", "<strong>30 ml</strong> Cranberry Juice"],
+                method: "Shake Bombay Sapphire, lemon juice, and Cranberry Juice with ice. Strain into a rocks glass packed with crushed ice and drizzle 15 ml Chambord over top.",
+                garnish: "Lemon slice."
             },
             {
-                num: 15, name: "Passionfruit Martini", style: "Vanilla & Prosecco Side",
-                vibe: "Tangy passionfruit and fragrant vanilla with a bubbly chaser.",
-                ingredients: ["<strong>45 ml</strong> Vanilla Vodka", "<strong>15 ml</strong> Passoa Liqueur", "<strong>30 ml</strong> Passionfruit Puree", "<strong>15 ml</strong> Lime + <strong>10 ml</strong> Vanilla Syrup", "<strong>45 ml</strong> Prosecco Side Shot"],
-                method: "Shake vodka, Passoa, puree, lime, and syrup hard with ice. Double-strain into coupe and serve with a 45 ml shot of Prosecco alongside.",
-                garnish: "Half a fresh passionfruit floated on the foam."
+                num: 15, name: "Vanilla Peach Prosecco Martini", style: "Vanilla & Prosecco Side",
+                vibe: "Fragrant Absolut Vanilla and Peach Schnapps with a Lindauer Prosecco chaser.",
+                ingredients: ["<strong>45 ml</strong> Absolut Vanilla", "<strong>15 ml</strong> De Kyuper Peach Schnapps", "<strong>45 ml</strong> Pineapple Juice", "<strong>15 ml</strong> Fresh Lime Juice", "<strong>45 ml</strong> Lindauer Prosecco (Side Shot)"],
+                method: "Shake Absolut Vanilla, De Kyuper Peach Schnapps, Pineapple Juice, and lime juice hard with ice. Double-strain into a coupe and serve with 45 ml Lindauer Prosecco alongside.",
+                garnish: "Lime wheel."
             },
             {
                 num: 16, name: "Yule Cranberry Moscow Mule", style: "Copper Mug Buck",
-                vibe: "Ice-cold tart cranberry, zesty lime, and spicy ginger snap.",
-                ingredients: ["<strong>45 ml</strong> Vodka", "<strong>15 ml</strong> Fresh Lime Juice", "<strong>30 ml</strong> Cranberry Juice", "<strong>90 ml</strong> Fiery Ginger Beer"],
-                method: "Fill copper mug or highball glass with cubed ice. Add vodka, lime juice, and cranberry juice. Top with 90 ml ginger beer and stir gently.",
-                garnish: "Sugared rosemary sprig & candied ginger."
+                vibe: "Ice-cold Smirnoff Red, tart cranberry, zesty lime, and fiery ginger beer.",
+                ingredients: ["<strong>45 ml</strong> Smirnoff Red", "<strong>30 ml</strong> Cranberry Juice", "<strong>15 ml</strong> Fresh Lime Juice", "<strong>100 ml</strong> Ginger Beer"],
+                method: "Fill copper mug or highball glass with cubed ice. Add Smirnoff Red, Cranberry Juice, and lime juice. Top with 100 ml Ginger Beer and stir gently.",
+                garnish: "Rosemary sprig & lime wedge."
             },
             {
-                num: 17, name: "Bermuda Dark ’n’ Stormy", style: "Spiced Rum Highball",
-                vibe: "Storm-cloud float of rich dark rum over spicy ginger beer.",
-                ingredients: ["<strong>60 ml</strong> Dark Rum (float)", "<strong>15 ml</strong> Fresh Lime Juice", "<strong>100 ml</strong> Fiery Ginger Beer", "<strong>2 dashes</strong> Angostura Bitters"],
-                method: "Fill tall glass with ice. Pour in lime juice and ginger beer first, then slowly float 60 ml dark rum and bitters on top.",
+                num: 17, name: "Coruba Dark ’n’ Stormy", style: "Dark Rum Highball",
+                vibe: "Storm-cloud float of Coruba Dark Rum over crisp Ginger Beer.",
+                ingredients: ["<strong>45 ml</strong> Coruba Dark Rum (float)", "<strong>15 ml</strong> Fresh Lime Juice", "<strong>100 ml</strong> Ginger Beer"],
+                method: "Fill tall glass with ice. Pour in lime juice and Ginger Beer first, then slowly float 45 ml Coruba Dark Rum on top.",
                 garnish: "Fresh lime wedge on the rim."
             },
             {
-                num: 18, name: "Clover Club Raspberry Sour", style: "Velvet Gin Foam Sour",
-                vibe: "Festive crimson velvet topped with a pillowy white foam cap.",
-                ingredients: ["<strong>45 ml</strong> Dry Gin + <strong>15 ml</strong> Dry Vermouth", "<strong>22.5 ml</strong> Fresh Lemon Juice", "<strong>15 ml</strong> Raspberry Syrup", "<strong>15 ml</strong> Aquafaba / Egg White"],
-                method: "Dry-shake all ingredients without ice for 10s. Add cubed ice, shake hard for 12s, and fine-strain into a chilled coupe.",
-                garnish: "Three fresh raspberries on a cocktail pick."
+                num: 18, name: "Pink Gin & Raspberry Fizz", style: "Berry Gin Spritz",
+                vibe: "Gordons London Pink Gin, Chambord, and Rasp Cordial topped with lemonade.",
+                ingredients: ["<strong>45 ml</strong> Gordons London Pink Gin", "<strong>15 ml</strong> Chambord", "<strong>15 ml</strong> Rasp Cordial", "<strong>15 ml</strong> Fresh Lemon Juice", "<strong>45 ml</strong> Lemonade"],
+                method: "Shake Gordons London Pink Gin, Chambord, Rasp Cordial, and lemon juice with ice. Strain into a chilled glass and top with 45 ml Lemonade.",
+                garnish: "Lemon twist."
             },
             {
                 num: 19, name: "Christmas Gold French 75", style: "Champagne Celebration",
-                vibe: "Botanical citrus gin crowned with crisp celebratory bubbles.",
-                ingredients: ["<strong>30 ml</strong> London Dry Gin", "<strong>15 ml</strong> Fresh Lemon Juice", "<strong>15 ml</strong> Sugar Syrup", "<strong>90 ml</strong> Chilled Brut Sparkling"],
-                method: "Shake gin, lemon juice, and simple syrup with ice. Strain into a Champagne flute and slowly top with 90 ml chilled Brut sparkling.",
+                vibe: "Tanqueray botanical gin and lemon crowned with Lindauer Brut Cuvee.",
+                ingredients: ["<strong>30 ml</strong> Tanqueray", "<strong>15 ml</strong> Fresh Lemon Juice", "<strong>90 ml</strong> Lindauer Brut Cuvee"],
+                method: "Shake Tanqueray and lemon juice with ice. Strain into a Champagne flute and slowly top with 90 ml chilled Lindauer Brut Cuvee.",
                 garnish: "Long spiral lemon twist."
             },
             {
-                num: 20, name: "Don's 1934 Tiki Zombie", style: "3-Rum Powerhouse",
-                vibe: "Three-rum tropical classic with apricot, lime, and spice.",
-                ingredients: ["<strong>30 ml</strong> White + <strong>30 ml</strong> Gold + <strong>30 ml</strong> Dark Rum", "<strong>15 ml</strong> Apricot Brandy", "<strong>22.5 ml</strong> Lime + <strong>30 ml</strong> Pineapple", "<strong>15 ml</strong> Grenadine + <strong>1 dash</strong> Bitters"],
-                method: "Whip-shake all ingredients with 100 g crushed ice for 8s and pour unstrained into a tall ceramic tiki mug.",
-                garnish: "Mint crown, cherry & spent lime shell."
+                num: 20, name: "Coasters 3-Rum Tiki Zombie", style: "3-Rum Powerhouse",
+                vibe: "Bacardi Blanca, Bacardi Oro & Coruba with pineapple, orange, and Rasp Cordial.",
+                ingredients: ["<strong>20 ml</strong> Bacardi Carta Blanca", "<strong>20 ml</strong> Bacardi Carta Oro", "<strong>20 ml</strong> Coruba Dark Rum", "<strong>45 ml</strong> Pineapple Juice", "<strong>30 ml</strong> Orange Juice + <strong>15 ml</strong> Rasp Cordial"],
+                method: "Whip-shake all ingredients with 100 g crushed ice for 8s and pour unstrained into a tall tiki mug.",
+                garnish: "Mint crown, cherry & lime wedge."
             }
         ];
 
